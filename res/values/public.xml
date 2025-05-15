@@ -1106,10 +1106,11 @@
     <public type="string" name="abc_shareactionprovider_share_with" id="0x7f0b0024" />
     <public type="string" name="abc_shareactionprovider_share_with_application" id="0x7f0b0025" />
     <public type="string" name="abc_toolbar_collapse_description" id="0x7f0b0026" />
-    <public type="string" name="app_name" id="0x7f0b0027" />
-    <public type="string" name="intent_url_failed" id="0x7f0b0028" />
-    <public type="string" name="search_menu_title" id="0x7f0b0029" />
-    <public type="string" name="status_bar_notification_info_overflow" id="0x7f0b002a" />
+    <public type="string" name="androidjs_vendor" id="0x7f0b0027" />
+    <public type="string" name="app_name" id="0x7f0b0028" />
+    <public type="string" name="intent_url_failed" id="0x7f0b0029" />
+    <public type="string" name="search_menu_title" id="0x7f0b002a" />
+    <public type="string" name="status_bar_notification_info_overflow" id="0x7f0b002b" />
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0c0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0c0001" />
     <public type="style" name="Animation.AppCompat.Dialog" id="0x7f0c0002" />
