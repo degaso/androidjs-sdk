@@ -43,7 +43,7 @@
         }
     .end annotation
 
-    .line 51
+    .line 57
     iput-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
     iput-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$1;->val$activity:Landroid/app/Activity;
@@ -58,7 +58,7 @@
 .method public run()V
     .locals 3
 
-    .line 55
+    .line 61
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    .line 56
+    .line 62
     iget-object v1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
@@ -100,26 +100,26 @@
 
     if-eqz v1, :cond_1
 
-    .line 58
+    .line 64
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 59
+    .line 65
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 60
+    .line 66
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-static {v1}, Lcom/android/js/other/Utils;->deleteFolderRecursively(Ljava/io/File;)Z
 
-    .line 63
+    .line 69
     :cond_0
     iget-object v1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->val$activity:Landroid/app/Activity;
 
@@ -135,7 +135,7 @@
 
     invoke-static {v1, v2, v0}, Lcom/android/js/other/Utils;->copyAssetFolder(Landroid/content/res/AssetManager;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 65
+    .line 71
     iget-object v1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
@@ -144,7 +144,7 @@
 
     invoke-static {v1}, Lcom/android/js/other/Utils;->saveLastUpdateTime(Landroid/content/Context;)V
 
-    .line 67
+    .line 73
     :cond_1
     iget-object v1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
