@@ -30,10 +30,63 @@
         }
     .end annotation
 
-    .line 102
+    .line 106
     iput-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
     invoke-direct {p0}, Landroid/webkit/WebChromeClient;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$onJsAlert$0(Landroid/webkit/JsResult;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    .line 120
+    invoke-virtual {p0}, Landroid/webkit/JsResult;->confirm()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$onJsConfirm$1(Landroid/webkit/JsResult;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    .line 132
+    invoke-virtual {p0}, Landroid/webkit/JsResult;->confirm()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$onJsConfirm$2(Landroid/webkit/JsResult;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    .line 133
+    invoke-virtual {p0}, Landroid/webkit/JsResult;->cancel()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$onJsPrompt$3(Landroid/webkit/JsPromptResult;Landroid/widget/EditText;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    .line 152
+    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/webkit/JsPromptResult;->confirm(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic lambda$onJsPrompt$4(Landroid/webkit/JsPromptResult;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    .line 153
+    invoke-virtual {p0}, Landroid/webkit/JsPromptResult;->cancel()V
 
     return-void
 .end method
@@ -47,7 +100,7 @@
 
     if-eqz p1, :cond_3
 
-    .line 113
+    .line 162
     invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
 
     move-result-object p3
@@ -61,27 +114,27 @@
 
     return p2
 
-    .line 117
+    .line 166
     :cond_1
     invoke-virtual {p1}, Landroid/webkit/WebView;->getHitTestResult()Landroid/webkit/WebView$HitTestResult;
 
     move-result-object p3
 
-    .line 118
+    .line 167
     invoke-virtual {p3}, Landroid/webkit/WebView$HitTestResult;->getExtra()Ljava/lang/String;
 
     move-result-object p3
 
     if-eqz p3, :cond_2
 
-    .line 120
+    .line 169
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
     invoke-static {p1, p3}, Lcom/android/js/webview/AndroidJSActivity;->access$000(Lcom/android/js/webview/AndroidJSActivity;Ljava/lang/String;)V
 
     return p2
 
-    .line 127
+    .line 176
     :cond_2
     new-instance p2, Landroid/webkit/WebView;
 
@@ -91,22 +144,22 @@
 
     invoke-direct {p2, p1}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
 
-    .line 128
+    .line 177
     new-instance p1, Lcom/android/js/webview/AndroidJSActivity$2$1;
 
-    invoke-direct {p1, p0}, Lcom/android/js/webview/AndroidJSActivity$2$1;-><init>(Lcom/android/js/webview/AndroidJSActivity$2;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/js/webview/AndroidJSActivity$2$1;-><init>(Lcom/android/js/webview/AndroidJSActivity$2;Landroid/webkit/WebView;)V
 
     invoke-virtual {p2, p1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    .line 144
+    .line 203
     iget-object p1, p4, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast p1, Landroid/webkit/WebView$WebViewTransport;
 
-    .line 145
+    .line 204
     invoke-virtual {p1, p2}, Landroid/webkit/WebView$WebViewTransport;->setWebView(Landroid/webkit/WebView;)V
 
-    .line 146
+    .line 205
     invoke-virtual {p4}, Landroid/os/Message;->sendToTarget()V
 
     const/4 p1, 0x1
@@ -118,10 +171,229 @@
     return p2
 .end method
 
+.method public onJsAlert(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z
+    .locals 1
+
+    const/4 p2, 0x0
+
+    if-eqz p1, :cond_1
+
+    .line 116
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    .line 118
+    :cond_0
+    new-instance v0, Landroid/support/v7/app/AlertDialog$Builder;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Landroid/support/v7/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 119
+    invoke-virtual {v0, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda0;
+
+    invoke-direct {p3, p4}, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda0;-><init>(Landroid/webkit/JsResult;)V
+
+    const p4, 0x104000a
+
+    .line 120
+    invoke-virtual {p1, p4, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 121
+    invoke-virtual {p1, p2}, Landroid/support/v7/app/AlertDialog$Builder;->setCancelable(Z)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 122
+    invoke-virtual {p1}, Landroid/support/v7/app/AlertDialog$Builder;->show()Landroid/support/v7/app/AlertDialog;
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_1
+    :goto_0
+    return p2
+.end method
+
+.method public onJsConfirm(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z
+    .locals 1
+
+    const/4 p2, 0x0
+
+    if-eqz p1, :cond_1
+
+    .line 128
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    .line 130
+    :cond_0
+    new-instance v0, Landroid/support/v7/app/AlertDialog$Builder;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Landroid/support/v7/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 131
+    invoke-virtual {v0, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda1;
+
+    invoke-direct {p3, p4}, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda1;-><init>(Landroid/webkit/JsResult;)V
+
+    const v0, 0x104000a
+
+    .line 132
+    invoke-virtual {p1, v0, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda2;
+
+    invoke-direct {p3, p4}, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda2;-><init>(Landroid/webkit/JsResult;)V
+
+    const/high16 p4, 0x1040000
+
+    .line 133
+    invoke-virtual {p1, p4, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 134
+    invoke-virtual {p1, p2}, Landroid/support/v7/app/AlertDialog$Builder;->setCancelable(Z)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 135
+    invoke-virtual {p1}, Landroid/support/v7/app/AlertDialog$Builder;->show()Landroid/support/v7/app/AlertDialog;
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_1
+    :goto_0
+    return p2
+.end method
+
+.method public onJsPrompt(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsPromptResult;)Z
+    .locals 2
+
+    const/4 p2, 0x0
+
+    if-eqz p1, :cond_1
+
+    .line 142
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    .line 144
+    :cond_0
+    new-instance v0, Landroid/widget/EditText;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
+
+    .line 145
+    invoke-virtual {v0, p4}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 146
+    invoke-virtual {v0}, Landroid/widget/EditText;->selectAll()V
+
+    .line 148
+    new-instance p4, Landroid/support/v7/app/AlertDialog$Builder;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-direct {p4, p1}, Landroid/support/v7/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 149
+    invoke-virtual {p4, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 150
+    invoke-virtual {p1, v0}, Landroid/support/v7/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda3;
+
+    invoke-direct {p3, p5, v0}, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda3;-><init>(Landroid/webkit/JsPromptResult;Landroid/widget/EditText;)V
+
+    const p4, 0x104000a
+
+    .line 151
+    invoke-virtual {p1, p4, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda4;
+
+    invoke-direct {p3, p5}, Lcom/android/js/webview/AndroidJSActivity$2$$ExternalSyntheticLambda4;-><init>(Landroid/webkit/JsPromptResult;)V
+
+    const/high16 p4, 0x1040000
+
+    .line 153
+    invoke-virtual {p1, p4, p3}, Landroid/support/v7/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 154
+    invoke-virtual {p1, p2}, Landroid/support/v7/app/AlertDialog$Builder;->setCancelable(Z)Landroid/support/v7/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 155
+    invoke-virtual {p1}, Landroid/support/v7/app/AlertDialog$Builder;->show()Landroid/support/v7/app/AlertDialog;
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_1
+    :goto_0
+    return p2
+.end method
+
 .method public onPermissionRequest(Landroid/webkit/PermissionRequest;)V
     .locals 1
 
-    .line 107
+    .line 111
     invoke-static {p1}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/PermissionRequest;)[Ljava/lang/String;
 
     move-result-object v0

@@ -14,7 +14,7 @@ packageInfo:
   renameManifestPackage: null
 versionInfo:
   versionCode: 1
-  versionName: 3.0.0
+  versionName: 3.1.0
 sharedLibrary: false
 sparseResources: false
 compactEntries: false

@@ -17,21 +17,27 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
+.field final synthetic val$newWebView:Landroid/webkit/WebView;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/js/webview/AndroidJSActivity$2;)V
+.method constructor <init>(Lcom/android/js/webview/AndroidJSActivity$2;Landroid/webkit/WebView;)V
     .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
-            0x8010
+            0x8010,
+            0x1010
         }
         names = {
+            null,
             null
         }
     .end annotation
 
-    .line 128
+    .line 177
     iput-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
+
+    iput-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
 
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
 
@@ -40,21 +46,35 @@
 
 
 # virtual methods
+.method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
+    .locals 0
+
+    .line 196
+    invoke-super {p0, p1, p2}, Landroid/webkit/WebViewClient;->onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
+
+    .line 199
+    iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->destroy()V
+
+    return-void
+.end method
+
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;)Z
     .locals 2
 
-    .line 133
+    .line 182
     sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0x15
 
     const/4 v1, 0x1
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_2
 
     if-eqz p2, :cond_1
 
-    .line 134
+    .line 183
     invoke-static {p2}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/WebResourceRequest;)Landroid/net/Uri;
 
     move-result-object p1
@@ -63,7 +83,7 @@
 
     goto :goto_0
 
-    .line 137
+    .line 186
     :cond_0
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
@@ -79,9 +99,18 @@
 
     invoke-static {p1, p2}, Lcom/android/js/webview/AndroidJSActivity;->access$000(Lcom/android/js/webview/AndroidJSActivity;Ljava/lang/String;)V
 
-    nop
+    goto :goto_1
 
     :cond_1
     :goto_0
+    return v1
+
+    .line 189
+    :cond_2
+    :goto_1
+    iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->destroy()V
+
     return v1
 .end method
