@@ -21,14 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/js/api/Hotspot;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            null
-        }
-    .end annotation
 
     .line 41
     iput-object p1, p0, Lcom/android/js/api/Hotspot$1;->this$0:Lcom/android/js/api/Hotspot;

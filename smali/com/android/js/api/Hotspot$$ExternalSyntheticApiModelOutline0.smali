@@ -4,6 +4,17 @@
 
 
 # direct methods
+.method public static bridge synthetic m()I
+    .locals 1
+
+    .line 0
+    invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static bridge synthetic m(Landroid/webkit/WebResourceRequest;)Landroid/net/Uri;
     .locals 0
 
@@ -20,6 +31,17 @@
 
     .line 0
     invoke-virtual {p0}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;->getWifiConfiguration()Landroid/net/wifi/WifiConfiguration;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic m(Landroid/view/Window;)Landroid/view/WindowInsetsController;
+    .locals 0
+
+    .line 0
+    invoke-virtual {p0}, Landroid/view/Window;->getInsetsController()Landroid/view/WindowInsetsController;
 
     move-result-object p0
 
@@ -62,6 +84,15 @@
     return-void
 .end method
 
+.method public static bridge synthetic m(Landroid/view/WindowInsetsController;I)V
+    .locals 0
+
+    .line 0
+    invoke-interface {p0, p1}, Landroid/view/WindowInsetsController;->hide(I)V
+
+    return-void
+.end method
+
 .method public static bridge synthetic m(Landroid/webkit/PermissionRequest;[Ljava/lang/String;)V
     .locals 0
 
@@ -80,4 +111,13 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public static bridge synthetic m$1(Landroid/view/WindowInsetsController;I)V
+    .locals 0
+
+    .line 0
+    invoke-interface {p0, p1}, Landroid/view/WindowInsetsController;->setSystemBarsBehavior(I)V
+
+    return-void
 .end method

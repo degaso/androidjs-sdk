@@ -1,23 +1,17 @@
 !!brut.androlib.meta.MetaInfo
-version: 2.11.0
+version: 2.12.0
 apkFileName: app-release-unsigned.apk
-isFrameworkApk: false
 usesFramework:
   ids:
   - 1
-  tag: null
 sdkInfo:
   minSdkVersion: 19
   targetSdkVersion: 33
 packageInfo:
   forcedPackageId: 127
-  renameManifestPackage: null
 versionInfo:
   versionCode: 1
-  versionName: 3.1.0
-sharedLibrary: false
-sparseResources: false
-compactEntries: false
+  versionName: 3.2.0
 doNotCompress:
 - arsc
 - png
