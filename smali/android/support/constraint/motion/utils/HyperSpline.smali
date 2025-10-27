@@ -72,7 +72,7 @@
 
     const/4 v5, 0x1
 
-    const/4 v6, 0x1
+    move v6, v5
 
     :goto_0
     const-wide/high16 v8, 0x3ff0000000000000L    # 1.0
@@ -119,11 +119,11 @@
 
     const-wide/high16 v10, 0x4008000000000000L    # 3.0
 
-    mul-double v8, v8, v10
+    mul-double/2addr v8, v10
 
     aget-wide v14, v1, v7
 
-    mul-double v8, v8, v14
+    mul-double/2addr v8, v14
 
     aput-wide v8, v2, v7
 
@@ -141,7 +141,7 @@
 
     sub-double/2addr v8, v15
 
-    mul-double v8, v8, v10
+    mul-double/2addr v8, v10
 
     aget-wide v14, v2, v14
 
@@ -149,7 +149,7 @@
 
     aget-wide v14, v1, v5
 
-    mul-double v8, v8, v14
+    mul-double/2addr v8, v14
 
     aput-wide v8, v2, v5
 
@@ -165,7 +165,7 @@
 
     sub-double/2addr v5, v8
 
-    mul-double v5, v5, v10
+    mul-double/2addr v5, v10
 
     aget-wide v8, v2, v0
 
@@ -173,7 +173,7 @@
 
     aget-wide v8, v1, v4
 
-    mul-double v5, v5, v8
+    mul-double/2addr v5, v8
 
     aput-wide v5, v2, v4
 
@@ -192,7 +192,7 @@
 
     aget-wide v14, v3, v14
 
-    mul-double v8, v8, v14
+    mul-double/2addr v8, v14
 
     sub-double/2addr v5, v8
 
@@ -238,7 +238,7 @@
 
     sub-double/2addr v5, v14
 
-    mul-double v5, v5, v12
+    mul-double/2addr v5, v12
 
     add-double v5, v5, v17
 
@@ -263,118 +263,120 @@
 
 # virtual methods
 .method public approxLength([Landroid/support/constraint/motion/utils/HyperSpline$Cubic;)D
-    .locals 14
+    .locals 16
+
+    move-object/from16 v0, p1
 
     .line 123
-    array-length v0, p1
+    array-length v1, v0
 
     .line 124
-    array-length v0, p1
+    array-length v1, v0
 
-    new-array v0, v0, [D
+    new-array v1, v1, [D
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v2, 0x0
 
-    move-wide v3, v1
+    move-wide v4, v2
 
-    move-wide v5, v3
+    move-wide v6, v4
 
     :goto_0
-    const/4 v7, 0x0
-
     const-wide/high16 v8, 0x3ff0000000000000L    # 1.0
 
-    cmpg-double v10, v3, v8
+    cmpg-double v10, v4, v8
+
+    const/4 v11, 0x0
 
     if-gez v10, :cond_2
 
-    move-wide v8, v1
+    move-wide v8, v2
 
     .line 127
     :goto_1
-    array-length v10, p1
+    array-length v10, v0
 
-    if-ge v7, v10, :cond_0
+    if-ge v11, v10, :cond_0
 
     .line 128
-    aget-wide v10, v0, v7
+    aget-wide v12, v1, v11
 
     .line 129
-    aget-object v12, p1, v7
+    aget-object v10, v0, v11
 
-    invoke-virtual {v12, v3, v4}, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->eval(D)D
+    invoke-virtual {v10, v4, v5}, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->eval(D)D
 
-    move-result-wide v12
+    move-result-wide v14
 
-    aput-wide v12, v0, v7
+    aput-wide v14, v1, v11
 
-    sub-double/2addr v10, v12
+    sub-double/2addr v12, v14
 
-    mul-double v10, v10, v10
+    mul-double/2addr v12, v12
 
-    add-double/2addr v8, v10
+    add-double/2addr v8, v12
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_1
 
     :cond_0
-    cmpl-double v7, v3, v1
+    cmpl-double v10, v4, v2
 
-    if-lez v7, :cond_1
+    if-lez v10, :cond_1
 
     .line 133
     invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v7
+    move-result-wide v8
 
-    add-double/2addr v5, v7
+    add-double/2addr v6, v8
 
     :cond_1
-    const-wide v7, 0x3fb999999999999aL    # 0.1
+    const-wide v8, 0x3fb999999999999aL    # 0.1
 
-    add-double/2addr v3, v7
+    add-double/2addr v4, v8
 
     goto :goto_0
 
     .line 138
     :cond_2
     :goto_2
-    array-length v3, p1
+    array-length v4, v0
 
-    if-ge v7, v3, :cond_3
+    if-ge v11, v4, :cond_3
 
     .line 139
-    aget-wide v3, v0, v7
+    aget-wide v4, v1, v11
 
     .line 140
-    aget-object v10, p1, v7
+    aget-object v10, v0, v11
 
     invoke-virtual {v10, v8, v9}, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->eval(D)D
 
-    move-result-wide v10
+    move-result-wide v12
 
-    aput-wide v10, v0, v7
+    aput-wide v12, v1, v11
 
-    sub-double/2addr v3, v10
+    sub-double/2addr v4, v12
 
-    mul-double v3, v3, v3
+    mul-double/2addr v4, v4
 
-    add-double/2addr v1, v3
+    add-double/2addr v2, v4
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_2
 
     .line 143
     :cond_3
-    invoke-static {v1, v2}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v0
 
-    add-double/2addr v5, v0
+    add-double/2addr v6, v0
 
-    return-wide v5
+    return-wide v6
 .end method
 
 .method public getPos(DI)D
@@ -383,7 +385,7 @@
     .line 111
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline;->mTotalLength:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     const/4 v0, 0x0
 
@@ -434,11 +436,11 @@
     .line 87
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline;->mTotalLength:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 90
     :goto_0
@@ -502,11 +504,11 @@
     .line 99
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline;->mTotalLength:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 102
     :goto_0
@@ -572,11 +574,11 @@
     .line 75
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline;->mTotalLength:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 78
     :goto_0
@@ -679,7 +681,7 @@
 
     iput-object v1, p0, Landroid/support/constraint/motion/utils/HyperSpline;->mCurve:[[Landroid/support/constraint/motion/utils/HyperSpline$Cubic;
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 51
     :goto_0
@@ -687,7 +689,7 @@
 
     if-ge v1, v2, :cond_1
 
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 52
     :goto_1
@@ -716,7 +718,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 p1, 0x0
+    move p1, v0
 
     .line 57
     :goto_2
@@ -761,7 +763,7 @@
     .line 63
     new-array p1, v1, [Landroid/support/constraint/motion/utils/HyperSpline$Cubic;
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 64
     :goto_3
@@ -771,7 +773,7 @@
 
     if-ge v1, v2, :cond_4
 
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 65
     :goto_4

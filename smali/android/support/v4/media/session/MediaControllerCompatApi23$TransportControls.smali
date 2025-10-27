@@ -28,11 +28,9 @@
     .locals 0
 
     .line 30
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$TransportControls;Landroid/net/Uri;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->playFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
     return-void
 .end method

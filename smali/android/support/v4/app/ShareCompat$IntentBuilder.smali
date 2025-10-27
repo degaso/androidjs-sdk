@@ -144,7 +144,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 282
     :goto_0
@@ -200,7 +200,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 295
     :goto_0
@@ -496,7 +496,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 247
     :goto_0

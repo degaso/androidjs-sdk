@@ -28,7 +28,7 @@
 
     move-result v1
 
-    invoke-static {p1, v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Outline;Landroid/graphics/Rect;F)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
     return-void
 .end method

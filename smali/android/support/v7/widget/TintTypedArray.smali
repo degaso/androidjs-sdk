@@ -94,7 +94,7 @@
     .line 250
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
-    invoke-static {v0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/res/TypedArray;)I
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->getChangingConfigurations()I
 
     move-result v0
 
@@ -526,49 +526,14 @@
 .end method
 
 .method public getType(I)I
-    .locals 2
-
-    .line 221
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 222
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
 
-    invoke-static {v0, p1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/res/TypedArray;I)I
+    invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getType(I)I
 
     move-result p1
-
-    return p1
-
-    .line 224
-    :cond_0
-    iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_1
-
-    .line 225
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
-
-    .line 227
-    :cond_1
-    iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
-
-    iget-object v1, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
-
-    invoke-virtual {v0, p1, v1}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
-
-    .line 228
-    iget-object p1, p0, Landroid/support/v7/widget/TintTypedArray;->mTypedValue:Landroid/util/TypedValue;
-
-    iget p1, p1, Landroid/util/TypedValue;->type:I
 
     return p1
 .end method

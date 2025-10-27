@@ -29,6 +29,8 @@
 
     aput-object v3, v2, v4
 
+    const-class v3, Landroid/graphics/Rect;
+
     const/4 v4, 0x1
 
     aput-object v3, v2, v4
@@ -78,28 +80,20 @@
 .end method
 
 .method public static computeFitSystemWindows(Landroid/view/View;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 3
+    .locals 1
 
     .line 66
     sget-object v0, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x2
-
     .line 68
     :try_start_0
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {p1, p2}, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    move-result-object p1
 
-    aput-object p1, v1, v2
-
-    const/4 p1, 0x1
-
-    aput-object p2, v1, p1
-
-    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -142,7 +136,7 @@
 .end method
 
 .method public static makeOptionalFitsSystemWindows(Landroid/view/View;)V
-    .locals 5
+    .locals 6
 
     .line 80
     const-string v0, "Could not invoke makeOptionalFitsSystemWindows"
@@ -159,7 +153,9 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v5, v4, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v2
 
@@ -177,7 +173,9 @@
 
     .line 88
     :cond_0
-    invoke-virtual {v2, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v3, v4, [Ljava/lang/Object;
+
+    invoke-virtual {v2, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1

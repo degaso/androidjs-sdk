@@ -71,46 +71,16 @@
 .end method
 
 .method public static tagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 3
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 137
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
-
     .line 138
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/net/DatagramSocket;)V
+    invoke-static {p0}, Landroid/net/TrafficStats;->tagDatagramSocket(Ljava/net/DatagramSocket;)V
 
-    goto :goto_0
-
-    .line 140
-    :cond_0
-    invoke-static {p0}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v0
-
-    .line 141
-    new-instance v1, Landroid/support/v4/net/DatagramSocketWrapper;
-
-    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v2
-
-    invoke-direct {v1, p0, v2}, Landroid/support/v4/net/DatagramSocketWrapper;-><init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
-
-    invoke-static {v1}, Landroid/net/TrafficStats;->tagSocket(Ljava/net/Socket;)V
-
-    .line 146
-    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->detachFd()I
-
-    :goto_0
     return-void
 .end method
 
@@ -132,46 +102,16 @@
 .end method
 
 .method public static untagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 3
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 154
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
-
     .line 155
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Ljava/net/DatagramSocket;)V
+    invoke-static {p0}, Landroid/net/TrafficStats;->untagDatagramSocket(Ljava/net/DatagramSocket;)V
 
-    goto :goto_0
-
-    .line 157
-    :cond_0
-    invoke-static {p0}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v0
-
-    .line 158
-    new-instance v1, Landroid/support/v4/net/DatagramSocketWrapper;
-
-    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v2
-
-    invoke-direct {v1, p0, v2}, Landroid/support/v4/net/DatagramSocketWrapper;-><init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
-
-    invoke-static {v1}, Landroid/net/TrafficStats;->untagSocket(Ljava/net/Socket;)V
-
-    .line 163
-    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->detachFd()I
-
-    :goto_0
     return-void
 .end method
 

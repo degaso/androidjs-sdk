@@ -243,7 +243,7 @@
 
     iput p3, p1, Landroid/support/v7/widget/ActionBarOverlayLayout$LayoutParams;->leftMargin:I
 
-    const/4 p3, 0x1
+    move p3, v0
 
     goto :goto_0
 
@@ -265,7 +265,7 @@
 
     iput p3, p1, Landroid/support/v7/widget/ActionBarOverlayLayout$LayoutParams;->topMargin:I
 
-    const/4 p3, 0x1
+    move p3, v0
 
     :cond_1
     if-eqz p6, :cond_2
@@ -282,7 +282,7 @@
 
     iput p3, p1, Landroid/support/v7/widget/ActionBarOverlayLayout$LayoutParams;->rightMargin:I
 
-    const/4 p3, 0x1
+    move p3, v0
 
     :cond_2
     if-eqz p5, :cond_3
@@ -357,7 +357,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -404,12 +406,12 @@
 
     if-nez v3, :cond_0
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 151
     :goto_0
@@ -429,7 +431,7 @@
 
     if-ge v0, v3, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_1
     iput-boolean v1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mIgnoreWindowContentOverlay:Z
@@ -634,7 +636,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 456
     :goto_0
@@ -725,7 +727,7 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    const/4 v0, 0x1
+    move v0, v1
 
     .line 302
     :cond_0
@@ -1259,7 +1261,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_0
     if-eqz v4, :cond_1
@@ -1754,19 +1756,19 @@
 
     if-nez v1, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     and-int/lit16 p1, p1, 0x100
 
     if-eqz p1, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 238
     :cond_1

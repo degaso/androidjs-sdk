@@ -94,9 +94,9 @@
     const/4 v2, 0x0
 
     :goto_0
-    mul-int p3, p3, p3
+    mul-int/2addr p3, p3
 
-    mul-int p4, p4, p4
+    mul-int/2addr p4, p4
 
     add-int/2addr p3, p4
 
@@ -109,9 +109,9 @@
 
     double-to-int p3, p3
 
-    mul-int p1, p1, p1
+    mul-int/2addr p1, p1
 
-    mul-int p2, p2, p2
+    mul-int/2addr p2, p2
 
     add-int/2addr p1, p2
 
@@ -148,7 +148,7 @@
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    mul-float p1, p1, v3
+    mul-float/2addr p1, v3
 
     int-to-float p2, p2
 
@@ -166,7 +166,7 @@
 
     move-result p1
 
-    mul-float p1, p1, p4
+    mul-float/2addr p1, p4
 
     add-float/2addr p4, p1
 
@@ -183,7 +183,7 @@
 
     const/high16 p2, 0x447a0000    # 1000.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     invoke-static {p1}, Ljava/lang/Math;->round(F)I
 
@@ -210,7 +210,7 @@
 
     const/high16 p2, 0x43960000    # 300.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 
@@ -250,7 +250,7 @@
 
     const v0, 0x3ef1463b
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     float-to-double v0, p1
 
@@ -565,13 +565,13 @@
     goto :goto_0
 
     :cond_4
-    const/4 v3, 0x0
+    move v3, v4
 
-    const/4 v5, 0x0
+    move v5, v3
 
-    const/4 v7, 0x0
+    move v7, v5
 
-    const/4 v8, 0x0
+    move v8, v7
 
     .line 5086
     :cond_5
@@ -658,7 +658,7 @@
     goto :goto_1
 
     :cond_a
-    const/4 v15, 0x0
+    move v15, v4
 
     :goto_1
     if-eq v8, v12, :cond_c
@@ -675,7 +675,7 @@
     goto :goto_2
 
     :cond_c
-    const/4 v9, 0x0
+    move v9, v4
 
     .line 5108
     :goto_2
@@ -762,7 +762,7 @@
 
     if-ne v5, v14, :cond_14
 
-    const/4 v4, 0x1
+    move v4, v6
 
     goto :goto_3
 
@@ -785,7 +785,7 @@
 
     if-ne v3, v13, :cond_15
 
-    const/4 v3, 0x1
+    move v3, v6
 
     goto :goto_4
 
@@ -811,7 +811,7 @@
 
     :cond_18
     :goto_5
-    const/4 v3, 0x1
+    move v3, v6
 
     .line 5131
     :goto_6
@@ -1004,20 +1004,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller;->startScroll(IIIII)V
 
-    .line 5240
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x17
-
-    if-ge p1, p2, :cond_1
-
-    .line 5244
-    iget-object p1, p0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {p1}, Landroid/widget/OverScroller;->computeScrollOffset()Z
-
     .line 5246
-    :cond_1
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
 
     return-void

@@ -506,31 +506,57 @@
 .end method
 
 .method private indexOf(Ljava/lang/Object;I)I
-    .locals 5
+    .locals 4
 
     .line 86
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    const/4 v1, -0x1
-
     if-nez v0, :cond_0
 
-    return v1
+    const/4 p1, -0x1
+
+    return p1
 
     .line 93
     :cond_0
-    iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
+    iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    invoke-static {v2, v0, p2}, Landroid/support/v4/util/ContainerHelpers;->binarySearch([III)I
+    invoke-static {v1, v0, p2}, Landroid/support/v4/util/ContainerHelpers;->binarySearch([III)I
 
-    move-result v2
+    move-result v1
 
-    if-gez v2, :cond_1
+    if-gez v1, :cond_1
 
-    return v2
+    return v1
 
     .line 101
     :cond_1
+    iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
+
+    aget-object v2, v2, v1
+
+    invoke-virtual {p1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    return v1
+
+    :cond_2
+    add-int/lit8 v2, v1, 0x1
+
+    :goto_0
+    if-ge v2, v0, :cond_4
+
+    .line 107
+    iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
+
+    aget v3, v3, v2
+
+    if-ne v3, p2, :cond_4
+
+    .line 108
     iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v3, v3, v2
@@ -539,58 +565,32 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     return v2
 
-    :cond_2
-    add-int/lit8 v3, v2, 0x1
-
-    :goto_0
-    if-ge v3, v0, :cond_4
-
-    .line 107
-    iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
-
-    aget v4, v4, v3
-
-    if-ne v4, p2, :cond_4
-
-    .line 108
-    iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
-
-    aget-object v4, v4, v3
-
-    invoke-virtual {p1, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    return v3
-
     :cond_3
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_4
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     :goto_1
-    if-ltz v2, :cond_6
+    if-ltz v1, :cond_6
 
     .line 112
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    aget v0, v0, v2
+    aget v0, v0, v1
 
     if-ne v0, p2, :cond_6
 
     .line 113
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    aget-object v0, v0, v2
+    aget-object v0, v0, v1
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -598,111 +598,111 @@
 
     if-eqz v0, :cond_5
 
-    return v2
+    return v1
 
     :cond_5
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     :cond_6
-    xor-int/lit8 p1, v3, -0x1
+    not-int p1, v2
 
     return p1
 .end method
 
 .method private indexOfNull()I
-    .locals 5
+    .locals 4
 
     .line 124
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    const/4 v1, -0x1
-
     if-nez v0, :cond_0
 
-    return v1
+    const/4 v0, -0x1
+
+    return v0
 
     .line 131
     :cond_0
-    iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
+    iget-object v1, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v2, v0, v3}, Landroid/support/v4/util/ContainerHelpers;->binarySearch([III)I
+    invoke-static {v1, v0, v2}, Landroid/support/v4/util/ContainerHelpers;->binarySearch([III)I
 
-    move-result v2
+    move-result v1
 
-    if-gez v2, :cond_1
+    if-gez v1, :cond_1
 
-    return v2
+    return v1
 
     .line 139
     :cond_1
+    iget-object v2, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
+
+    aget-object v2, v2, v1
+
+    if-nez v2, :cond_2
+
+    return v1
+
+    :cond_2
+    add-int/lit8 v2, v1, 0x1
+
+    :goto_0
+    if-ge v2, v0, :cond_4
+
+    .line 145
+    iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
+
+    aget v3, v3, v2
+
+    if-nez v3, :cond_4
+
+    .line 146
     iget-object v3, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     aget-object v3, v3, v2
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
     return v2
 
-    :cond_2
-    add-int/lit8 v3, v2, 0x1
-
-    :goto_0
-    if-ge v3, v0, :cond_4
-
-    .line 145
-    iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
-
-    aget v4, v4, v3
-
-    if-nez v4, :cond_4
-
-    .line 146
-    iget-object v4, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
-
-    aget-object v4, v4, v3
-
-    if-nez v4, :cond_3
-
-    return v3
-
     :cond_3
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_4
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     :goto_1
-    if-ltz v2, :cond_6
+    if-ltz v1, :cond_6
 
     .line 150
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mHashes:[I
 
-    aget v0, v0, v2
+    aget v0, v0, v1
 
     if-nez v0, :cond_6
 
     .line 151
     iget-object v0, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
-    aget-object v0, v0, v2
+    aget-object v0, v0, v1
 
     if-nez v0, :cond_5
 
-    return v2
+    return v1
 
     :cond_5
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     :cond_6
-    xor-int/lit8 v0, v3, -0x1
+    not-int v0, v2
 
     return v0
 .end method
@@ -726,7 +726,7 @@
 
     move-result v1
 
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_0
 
@@ -753,7 +753,7 @@
     return v0
 
     :cond_1
-    xor-int/lit8 v1, v1, -0x1
+    not-int v1, v1
 
     .line 374
     iget v3, p0, Landroid/support/v4/util/ArraySet;->mSize:I
@@ -782,7 +782,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v5, 0x4
+    move v5, v6
 
     .line 381
     :goto_1
@@ -1233,7 +1233,7 @@
     return v2
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v2
 
     .line 601
     :goto_0
@@ -1283,7 +1283,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v2, v1, :cond_0
@@ -1412,7 +1412,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v0, :cond_0
@@ -1669,7 +1669,7 @@
     .line 785
     invoke-virtual {p0, v0}, Landroid/support/v4/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    move v2, v1
 
     :cond_0
     add-int/lit8 v0, v0, -0x1

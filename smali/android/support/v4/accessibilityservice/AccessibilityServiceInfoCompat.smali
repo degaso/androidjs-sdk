@@ -111,7 +111,7 @@
 
     shl-int v1, v2, v1
 
-    xor-int/lit8 v3, v1, -0x1
+    not-int v3, v1
 
     and-int/2addr p0, v3
 

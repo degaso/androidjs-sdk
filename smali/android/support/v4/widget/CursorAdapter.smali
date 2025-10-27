@@ -354,7 +354,9 @@
 
     invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -406,7 +408,7 @@
     :goto_0
     if-eqz p2, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v2
 
     .line 184
     :cond_1

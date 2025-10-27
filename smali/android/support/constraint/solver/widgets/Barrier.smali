@@ -120,7 +120,7 @@
 
     aput-object v0, p2, v4
 
-    const/4 p2, 0x0
+    move p2, v1
 
     .line 122
     :goto_0
@@ -243,7 +243,7 @@
     return-void
 
     :cond_6
-    const/4 v5, 0x0
+    move v5, v1
 
     .line 151
     :goto_3
@@ -300,7 +300,7 @@
     if-eqz v7, :cond_9
 
     :goto_4
-    const/4 v5, 0x1
+    move v5, v3
 
     goto :goto_6
 
@@ -343,7 +343,7 @@
     goto :goto_3
 
     :cond_c
-    const/4 v5, 0x0
+    move v5, v1
 
     .line 169
     :goto_6
@@ -366,13 +366,13 @@
     goto :goto_7
 
     :cond_d
-    const/4 v6, 0x0
+    move v6, v1
 
     goto :goto_8
 
     :cond_e
     :goto_7
-    const/4 v6, 0x1
+    move v6, v3
 
     .line 170
     :goto_8
@@ -395,13 +395,13 @@
     goto :goto_9
 
     :cond_f
-    const/4 v7, 0x0
+    move v7, v1
 
     goto :goto_a
 
     :cond_10
     :goto_9
-    const/4 v7, 0x1
+    move v7, v3
 
     :goto_a
     if-nez v5, :cond_15
@@ -429,17 +429,17 @@
     if-eqz v7, :cond_15
 
     :cond_14
-    const/4 v6, 0x1
+    move v6, v3
 
     goto :goto_b
 
     :cond_15
-    const/4 v6, 0x0
+    move v6, v1
 
     :goto_b
     if-nez v6, :cond_16
 
-    const/4 v6, 0x4
+    move v6, v0
 
     goto :goto_c
 
@@ -447,7 +447,7 @@
     const/4 v6, 0x5
 
     :goto_c
-    const/4 v7, 0x0
+    move v7, v1
 
     .line 180
     :goto_d
@@ -529,7 +529,7 @@
     goto :goto_e
 
     :cond_18
-    const/4 v8, 0x0
+    move v8, v1
 
     .line 192
     :goto_e
@@ -762,9 +762,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v3, v0
 
-    const/4 v3, 0x1
+    move v2, v1
 
     .line 247
     :goto_0
@@ -810,7 +810,7 @@
     if-nez v7, :cond_2
 
     :goto_1
-    const/4 v3, 0x0
+    move v3, v1
 
     goto :goto_2
 
@@ -845,9 +845,9 @@
 
     if-lez v2, :cond_13
 
-    const/4 v2, 0x0
+    move v2, v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 263
     :goto_3
@@ -942,7 +942,7 @@
 
     :cond_a
     :goto_4
-    const/4 v3, 0x1
+    move v3, v0
 
     .line 280
     :cond_b
@@ -1195,7 +1195,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 93
     :goto_0
@@ -1292,9 +1292,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " {"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1322,11 +1326,15 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, ", "
+    move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, ", "
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1338,13 +1346,17 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1360,11 +1372,15 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "}"
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "}"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

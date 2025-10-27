@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .locals 8
 
     .line 71
     new-instance v0, Landroid/support/constraint/solver/state/State$Direction;
@@ -56,76 +56,64 @@
     .line 72
     new-instance v1, Landroid/support/constraint/solver/state/State$Direction;
 
-    const-string v3, "RIGHT"
+    const-string v2, "RIGHT"
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    invoke-direct {v1, v3, v4}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v3}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Landroid/support/constraint/solver/state/State$Direction;->RIGHT:Landroid/support/constraint/solver/state/State$Direction;
 
     .line 73
-    new-instance v3, Landroid/support/constraint/solver/state/State$Direction;
+    new-instance v2, Landroid/support/constraint/solver/state/State$Direction;
 
-    const-string v5, "START"
+    const-string v3, "START"
 
-    const/4 v6, 0x2
+    const/4 v4, 0x2
 
-    invoke-direct {v3, v5, v6}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Landroid/support/constraint/solver/state/State$Direction;->START:Landroid/support/constraint/solver/state/State$Direction;
+    sput-object v2, Landroid/support/constraint/solver/state/State$Direction;->START:Landroid/support/constraint/solver/state/State$Direction;
 
     .line 74
-    new-instance v5, Landroid/support/constraint/solver/state/State$Direction;
+    new-instance v3, Landroid/support/constraint/solver/state/State$Direction;
 
-    const-string v7, "END"
+    const-string v4, "END"
 
-    const/4 v8, 0x3
+    const/4 v5, 0x3
 
-    invoke-direct {v5, v7, v8}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v4, v5}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
 
-    sput-object v5, Landroid/support/constraint/solver/state/State$Direction;->END:Landroid/support/constraint/solver/state/State$Direction;
+    sput-object v3, Landroid/support/constraint/solver/state/State$Direction;->END:Landroid/support/constraint/solver/state/State$Direction;
 
     .line 75
-    new-instance v7, Landroid/support/constraint/solver/state/State$Direction;
+    new-instance v4, Landroid/support/constraint/solver/state/State$Direction;
 
-    const-string v9, "TOP"
+    const-string v5, "TOP"
 
-    const/4 v10, 0x4
+    const/4 v6, 0x4
 
-    invoke-direct {v7, v9, v10}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
 
-    sput-object v7, Landroid/support/constraint/solver/state/State$Direction;->TOP:Landroid/support/constraint/solver/state/State$Direction;
+    sput-object v4, Landroid/support/constraint/solver/state/State$Direction;->TOP:Landroid/support/constraint/solver/state/State$Direction;
 
     .line 76
-    new-instance v9, Landroid/support/constraint/solver/state/State$Direction;
+    new-instance v5, Landroid/support/constraint/solver/state/State$Direction;
 
-    const-string v11, "BOTTOM"
+    const-string v6, "BOTTOM"
 
-    const/4 v12, 0x5
+    const/4 v7, 0x5
 
-    invoke-direct {v9, v11, v12}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v6, v7}, Landroid/support/constraint/solver/state/State$Direction;-><init>(Ljava/lang/String;I)V
 
-    sput-object v9, Landroid/support/constraint/solver/state/State$Direction;->BOTTOM:Landroid/support/constraint/solver/state/State$Direction;
-
-    const/4 v11, 0x6
+    sput-object v5, Landroid/support/constraint/solver/state/State$Direction;->BOTTOM:Landroid/support/constraint/solver/state/State$Direction;
 
     .line 70
-    new-array v11, v11, [Landroid/support/constraint/solver/state/State$Direction;
+    filled-new-array/range {v0 .. v5}, [Landroid/support/constraint/solver/state/State$Direction;
 
-    aput-object v0, v11, v2
+    move-result-object v0
 
-    aput-object v1, v11, v4
-
-    aput-object v3, v11, v6
-
-    aput-object v5, v11, v8
-
-    aput-object v7, v11, v10
-
-    aput-object v9, v11, v12
-
-    sput-object v11, Landroid/support/constraint/solver/state/State$Direction;->$VALUES:[Landroid/support/constraint/solver/state/State$Direction;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Direction;->$VALUES:[Landroid/support/constraint/solver/state/State$Direction;
 
     return-void
 .end method

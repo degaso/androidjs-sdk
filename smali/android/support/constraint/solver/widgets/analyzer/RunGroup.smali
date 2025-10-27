@@ -763,9 +763,9 @@
 
     const/4 p2, 0x0
 
-    const/high16 v8, 0x3f800000    # 1.0f
-
     cmpl-float p2, p1, p2
+
+    const/high16 v8, 0x3f800000    # 1.0f
 
     if-lez p2, :cond_7
 
@@ -796,7 +796,7 @@
 
     sub-float/2addr v8, p1
 
-    mul-float p2, p2, v8
+    mul-float/2addr p2, v8
 
     add-float/2addr p2, v1
 

@@ -275,9 +275,9 @@
 .method private static cross(FFFF)F
     .locals 0
 
-    mul-float p0, p0, p3
+    mul-float/2addr p0, p3
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     sub-float/2addr p0, p1
 
@@ -479,11 +479,11 @@
     .line 1284
     iget v1, p2, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathStart:F
 
+    cmpl-float v1, v1, p4
+
     const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v3, 0x1
-
-    cmpl-float v1, v1, p4
 
     if-nez v1, :cond_2
 
@@ -541,9 +541,9 @@
 
     move-result v2
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 1296
     invoke-virtual {p5}, Landroid/graphics/Path;->reset()V
@@ -640,7 +640,7 @@
     .line 1319
     iget p4, p2, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mFillAlpha:F
 
-    mul-float p4, p4, p5
+    mul-float/2addr p4, p5
 
     invoke-static {p4}, Ljava/lang/Math;->round(F)I
 
@@ -774,7 +774,7 @@
     .line 1350
     iget p4, p2, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeAlpha:F
 
-    mul-float p4, p4, p5
+    mul-float/2addr p4, p5
 
     invoke-static {p4}, Ljava/lang/Math;->round(F)I
 
@@ -802,12 +802,12 @@
     :goto_3
     invoke-virtual {v1, p6}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     .line 1357
     iget p1, p2, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeWidth:F
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     invoke-virtual {v1, p1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
@@ -1018,7 +1018,7 @@
 
     const/high16 v0, 0x437f0000    # 255.0f
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     float-to-int p1, p1
 

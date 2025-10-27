@@ -37,15 +37,11 @@
     .locals 0
 
     .line 33
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
+    check-cast p2, Landroid/media/browse/MediaBrowser$ItemCallback;
 
-    invoke-static {p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$ItemCallback;
-
-    move-result-object p2
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;Ljava/lang/String;Landroid/media/browse/MediaBrowser$ItemCallback;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/browse/MediaBrowser;->getItem(Ljava/lang/String;Landroid/media/browse/MediaBrowser$ItemCallback;)V
 
     return-void
 .end method

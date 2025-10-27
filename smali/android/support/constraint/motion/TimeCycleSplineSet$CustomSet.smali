@@ -224,17 +224,11 @@
 
     const-wide v14, 0x3e112e0be826d695L    # 1.0E-9
 
-    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v8, v8, v14
+    mul-double/2addr v8, v14
 
     float-to-double v14, v5
 
-    invoke-static {v14, v15}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v8, v8, v14
-
-    invoke-static {v12, v13}, Ljava/lang/Double;->isNaN(D)Z
+    mul-double/2addr v8, v14
 
     add-double/2addr v12, v8
 
@@ -259,7 +253,7 @@
     .line 376
     iput-boolean v11, v0, Landroid/support/constraint/motion/TimeCycleSplineSet$CustomSet;->mContinue:Z
 
-    const/4 v3, 0x0
+    move v3, v11
 
     .line 377
     :goto_0
@@ -280,16 +274,16 @@
 
     const-wide/16 v12, 0x0
 
-    cmpl-double v14, v8, v12
+    cmpl-double v8, v8, v12
 
-    if-eqz v14, :cond_1
+    if-eqz v8, :cond_1
 
-    const/4 v8, 0x1
+    move v8, v7
 
     goto :goto_1
 
     :cond_1
-    const/4 v8, 0x0
+    move v8, v11
 
     :goto_1
     or-int/2addr v6, v8
@@ -303,7 +297,7 @@
 
     aget v8, v8, v3
 
-    mul-float v8, v8, v2
+    mul-float/2addr v8, v2
 
     add-float/2addr v8, v4
 
@@ -400,7 +394,7 @@
 
     check-cast v4, [[D
 
-    const/4 v5, 0x0
+    move v5, v2
 
     :goto_0
     if-ge v5, v0, :cond_1
@@ -434,11 +428,9 @@
 
     const-wide v12, 0x3f847ae147ae147bL    # 0.01
 
+    mul-double/2addr v10, v12
+
     .line 338
-    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v10, v10, v12
-
     aput-wide v10, v3, v5
 
     .line 339
@@ -446,7 +438,7 @@
 
     invoke-virtual {v8, v7}, Landroid/support/constraint/ConstraintAttribute;->getValuesToInterpolate([F)V
 
-    const/4 v7, 0x0
+    move v7, v2
 
     .line 340
     :goto_1

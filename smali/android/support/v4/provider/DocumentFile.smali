@@ -51,36 +51,26 @@
 .end method
 
 .method public static fromTreeUri(Landroid/content/Context;Landroid/net/Uri;)Landroid/support/v4/provider/DocumentFile;
-    .locals 3
-
-    .line 135
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_0
+    .locals 2
 
     .line 136
     new-instance v0, Landroid/support/v4/provider/TreeDocumentFile;
 
     .line 138
-    invoke-static {p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-static {p1}, Landroid/provider/DocumentsContract;->getTreeDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
 
     .line 137
-    invoke-static {p1, v1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p1, v1}, Landroid/provider/DocumentsContract;->buildDocumentUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p1
 
-    invoke-direct {v0, v2, p0, p1}, Landroid/support/v4/provider/TreeDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1, p0, p1}, Landroid/support/v4/provider/TreeDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
 
     return-object v0
-
-    :cond_0
-    return-object v2
 .end method
 
 .method public static isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z

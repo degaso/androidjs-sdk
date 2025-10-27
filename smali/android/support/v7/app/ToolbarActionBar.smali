@@ -606,7 +606,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_1
     invoke-interface {v0, v3}, Landroid/view/Menu;->setQwertyMode(Z)V
@@ -918,7 +918,7 @@
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x4
+    move p1, v0
 
     goto :goto_0
 
@@ -958,7 +958,7 @@
 
     and-int/2addr p1, p2
 
-    xor-int/lit8 p2, p2, -0x1
+    not-int p2, p2
 
     and-int/2addr p2, v0
 
@@ -976,7 +976,7 @@
 
     if-eqz p1, :cond_0
 
-    const/16 p1, 0x10
+    move p1, v0
 
     goto :goto_0
 
@@ -997,7 +997,7 @@
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x2
+    move p1, v0
 
     goto :goto_0
 
@@ -1018,7 +1018,7 @@
 
     if-eqz p1, :cond_0
 
-    const/16 p1, 0x8
+    move p1, v0
 
     goto :goto_0
 

@@ -646,7 +646,7 @@
 
     move-result p2
 
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     if-ge v1, p2, :cond_6
@@ -833,7 +833,7 @@
     goto :goto_2
 
     :cond_2
-    const/4 v5, 0x0
+    move v5, v2
 
     .line 2877
     :goto_2
@@ -990,10 +990,8 @@
 
     goto/16 :goto_3
 
-    :catch_0
-    nop
-
     .line 2991
+    :catch_0
     iget v5, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMaxHeight:I
 
     invoke-virtual {p1, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1022,10 +1020,8 @@
 
     goto/16 :goto_3
 
-    :catch_1
-    nop
-
     .line 2980
+    :catch_1
     iget v5, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMinHeight:I
 
     invoke-virtual {p1, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1073,10 +1069,8 @@
 
     goto/16 :goto_3
 
-    :catch_2
-    nop
-
     .line 2964
+    :catch_2
     iget v5, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMaxWidth:I
 
     invoke-virtual {p1, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1105,10 +1099,8 @@
 
     goto/16 :goto_3
 
-    :catch_3
-    nop
-
     .line 2953
+    :catch_3
     iget v5, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMinWidth:I
 
     invoke-virtual {p1, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -2526,12 +2518,12 @@
 
     if-ne v3, p1, :cond_0
 
-    const/4 p1, 0x1
+    move p1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v2
 
     :goto_0
     const/4 v4, -0x1
@@ -2589,7 +2581,7 @@
     iput p1, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->resolvedRightToLeft:I
 
     :goto_1
-    const/4 v2, 0x1
+    move v2, v3
 
     goto :goto_2
 
@@ -2614,7 +2606,7 @@
     .line 3129
     iput p1, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->resolvedLeftToRight:I
 
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 3132
     :cond_3
@@ -2625,7 +2617,7 @@
     .line 3133
     iput p1, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->resolvedLeftToLeft:I
 
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 3136
     :cond_4

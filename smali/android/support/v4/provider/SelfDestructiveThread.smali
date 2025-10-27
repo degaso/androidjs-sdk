@@ -484,9 +484,9 @@
     :cond_1
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p1, v0
+    cmp-long v0, p1, v0
 
-    if-lez v2, :cond_2
+    if-lez v0, :cond_2
 
     goto :goto_0
 
@@ -509,11 +509,5 @@
     .line 209
     invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    goto :goto_2
-
-    :goto_1
     throw p1
-
-    :goto_2
-    goto :goto_1
 .end method

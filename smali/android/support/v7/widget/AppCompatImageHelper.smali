@@ -113,39 +113,22 @@
 .end method
 
 .method private shouldApplyFrameworkTintUsingColorFilter()Z
-    .locals 4
-
-    .line 174
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x15
-
-    if-le v0, v3, :cond_1
+    .locals 1
 
     .line 178
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mInternalImageTint:Landroid/support/v7/widget/TintInfo;
 
     if-eqz v0, :cond_0
 
+    const/4 v0, 0x1
+
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
-
-    :cond_1
-    if-ne v0, v3, :cond_2
-
-    return v1
-
-    :cond_2
-    return v2
+    return v0
 .end method
 
 
@@ -264,7 +247,7 @@
 .end method
 
 .method hasOverlappingRendering()Z
-    .locals 3
+    .locals 1
 
     .line 99
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mView:Landroid/widget/ImageView;
@@ -274,15 +257,7 @@
     move-result-object v0
 
     .line 100
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Z
-
-    move-result v0
+    instance-of v0, v0, Landroid/graphics/drawable/RippleDrawable;
 
     if-eqz v0, :cond_0
 

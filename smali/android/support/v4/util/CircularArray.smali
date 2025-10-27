@@ -575,13 +575,7 @@
 
     invoke-direct {p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
-    goto :goto_4
-
-    :goto_3
     throw p1
-
-    :goto_4
-    goto :goto_3
 .end method
 
 .method public removeFromStart(I)V
@@ -674,13 +668,7 @@
 
     invoke-direct {p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
-    goto :goto_3
-
-    :goto_2
     throw p1
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public size()I

@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public disableHotspot()V
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/reflect/InvocationTargetException;,
@@ -82,7 +82,7 @@
     if-eqz v0, :cond_1
 
     .line 77
-    invoke-static {v0}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;)V
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;->close()V
 
     goto :goto_0
 
@@ -101,42 +101,40 @@
 
     const/4 v1, 0x2
 
-    new-array v2, v1, [Ljava/lang/Class;
+    new-array v1, v1, [Ljava/lang/Class;
 
-    const-class v3, Landroid/net/wifi/WifiConfiguration;
+    const-class v2, Landroid/net/wifi/WifiConfiguration;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    const/4 v2, 0x1
 
-    const/4 v5, 0x1
+    sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    aput-object v3, v2, v5
+    aput-object v4, v1, v2
 
-    const-string v3, "setWifiApEnabled"
+    const-string v2, "setWifiApEnabled"
 
-    invoke-virtual {v0, v3, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v2, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     .line 83
-    iget-object v2, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
+    iget-object v1, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
 
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v2, 0x0
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
 
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {v2, v3}, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
+    move-result-object v2
 
-    aput-object v6, v1, v4
-
-    aput-object v3, v1, v5
-
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
     :goto_0
@@ -144,7 +142,7 @@
 .end method
 
 .method public enableHotspot(Ljava/lang/String;)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/reflect/InvocationTargetException;,
@@ -185,7 +183,7 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-static {p1, v0, v1}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;Landroid/os/Handler;)V
+    invoke-virtual {p1, v0, v1}, Landroid/net/wifi/WifiManager;->startLocalOnlyHotspot(Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;Landroid/os/Handler;)V
 
     goto :goto_0
 
@@ -219,40 +217,38 @@
 
     const/4 v1, 0x2
 
-    new-array v2, v1, [Ljava/lang/Class;
+    new-array v1, v1, [Ljava/lang/Class;
+
+    const/4 v2, 0x0
 
     const-class v3, Landroid/net/wifi/WifiConfiguration;
 
-    const/4 v4, 0x0
+    aput-object v3, v1, v2
 
-    aput-object v3, v2, v4
+    sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    const/4 v3, 0x1
 
-    const/4 v5, 0x1
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v5
+    const-string v2, "setWifiApEnabled"
 
-    const-string v3, "setWifiApEnabled"
-
-    invoke-virtual {p1, v3, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p1, v2, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object p1
 
     .line 70
-    iget-object v2, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
+    iget-object v1, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
 
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object v2
 
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {v0, v2}, [Ljava/lang/Object;
 
-    aput-object v0, v1, v4
+    move-result-object v0
 
-    aput-object v3, v1, v5
-
-    invoke-virtual {p1, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_2
     :goto_0
@@ -260,48 +256,48 @@
 .end method
 
 .method public isHotspotEnabled()Z
-    .locals 3
+    .locals 4
+
+    const/4 v0, 0x0
 
     .line 89
     :try_start_0
-    iget-object v0, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string v1, "isWifiApEnabled"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    .line 90
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-
-    .line 91
     iget-object v1, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/lang/Boolean;
+    const-string v2, "isWifiApEnabled"
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    new-array v3, v0, [Ljava/lang/Class;
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    .line 90
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+
+    .line 91
+    iget-object v2, p0, Lcom/android/js/api/Hotspot;->wifi_manager:Landroid/net/wifi/WifiManager;
+
+    new-array v3, v0, [Ljava/lang/Object;
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Boolean;
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return v0
-
     :catchall_0
-    const/4 v0, 0x0
-
     return v0
 .end method

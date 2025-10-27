@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 5
 
     .line 103
     new-instance v0, Landroid/support/v4/content/ModernAsyncTask$Status;
@@ -50,37 +50,31 @@
     .line 107
     new-instance v1, Landroid/support/v4/content/ModernAsyncTask$Status;
 
-    const-string v3, "RUNNING"
+    const-string v2, "RUNNING"
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    invoke-direct {v1, v3, v4}, Landroid/support/v4/content/ModernAsyncTask$Status;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v3}, Landroid/support/v4/content/ModernAsyncTask$Status;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;
 
     .line 111
-    new-instance v3, Landroid/support/v4/content/ModernAsyncTask$Status;
+    new-instance v2, Landroid/support/v4/content/ModernAsyncTask$Status;
 
-    const-string v5, "FINISHED"
+    const-string v3, "FINISHED"
 
-    const/4 v6, 0x2
+    const/4 v4, 0x2
 
-    invoke-direct {v3, v5, v6}, Landroid/support/v4/content/ModernAsyncTask$Status;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroid/support/v4/content/ModernAsyncTask$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
-
-    const/4 v5, 0x3
+    sput-object v2, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 
     .line 99
-    new-array v5, v5, [Landroid/support/v4/content/ModernAsyncTask$Status;
+    filled-new-array {v0, v1, v2}, [Landroid/support/v4/content/ModernAsyncTask$Status;
 
-    aput-object v0, v5, v2
+    move-result-object v0
 
-    aput-object v1, v5, v4
-
-    aput-object v3, v5, v6
-
-    sput-object v5, Landroid/support/v4/content/ModernAsyncTask$Status;->$VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask$Status;->$VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
 
     return-void
 .end method

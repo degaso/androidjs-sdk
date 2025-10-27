@@ -98,24 +98,48 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 3
+
+    const/4 v0, 0x6
 
     .line 67
-    const-string v4, "height"
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v5, "pathRotate"
+    const/4 v1, 0x0
 
-    const-string v0, "position"
+    const-string v2, "position"
 
-    const-string v1, "x"
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string v2, "x"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
 
     const-string v2, "y"
 
-    const-string v3, "width"
+    aput-object v2, v0, v1
 
-    filled-new-array/range {v0 .. v5}, [Ljava/lang/String;
+    const/4 v1, 0x3
 
-    move-result-object v0
+    const-string v2, "width"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x4
+
+    const-string v2, "height"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const-string v2, "pathRotate"
+
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->names:[Ljava/lang/String;
 
@@ -251,7 +275,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     return v1
@@ -272,7 +296,7 @@
     goto :goto_2
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_2
     return v1
@@ -540,7 +564,7 @@
     goto :goto_1
 
     :cond_c
-    const/4 v5, 0x1
+    move v5, v4
 
     goto :goto_1
 
@@ -623,26 +647,38 @@
 
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " splineSet not a CustomSet frame = "
+    move-result-object v1
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, " splineSet not a CustomSet frame = "
 
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ", value"
+    move-result-object v1
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v4, ", value"
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 311
     invoke-virtual {v3}, Landroid/support/constraint/ConstraintAttribute;->getValueToInterpolate()F
 
-    move-result v1
+    move-result v3
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -660,6 +696,8 @@
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -679,7 +717,9 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1221,7 +1261,7 @@
 .end method
 
 .method public applyParameters(Landroid/view/View;)V
-    .locals 2
+    .locals 1
 
     .line 202
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
@@ -1254,22 +1294,14 @@
     .line 204
     iput-boolean v0, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->applyElevation:Z
 
-    .line 205
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     .line 206
-    invoke-static {p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/View;)F
+    invoke-virtual {p1}, Landroid/view/View;->getElevation()F
 
     move-result v0
 
     iput v0, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
 
     .line 208
-    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getRotation()F
 
     move-result v0
@@ -1332,19 +1364,13 @@
 
     iput v0, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
 
-    .line 217
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v1, :cond_2
-
     .line 218
-    invoke-static {p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;)F
+    invoke-virtual {p1}, Landroid/view/View;->getTranslationZ()F
 
     move-result p1
 
     iput p1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
 
-    :cond_2
     return-void
 .end method
 
@@ -1884,7 +1910,7 @@
 
     move-object/from16 v3, p2
 
-    const/4 v2, 0x0
+    move/from16 v2, v20
 
     .line 157
     :goto_0

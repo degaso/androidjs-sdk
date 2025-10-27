@@ -339,12 +339,12 @@
 
     if-eq p1, v3, :cond_0
 
-    const/4 v3, 0x1
+    move v3, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-eqz v3, :cond_1
@@ -381,7 +381,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_1
     invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -418,74 +418,66 @@
 .end method
 
 .method private setPressedItem(Landroid/view/View;IFF)V
-    .locals 6
+    .locals 4
 
     const/4 v0, 0x1
 
     .line 646
     iput-boolean v0, p0, Landroid/support/v7/widget/DropDownListView;->mDrawsInPressedState:Z
 
-    .line 649
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 650
-    invoke-static {p0, p3, p4}, Landroid/support/v7/widget/DropDownListView$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v7/widget/DropDownListView;FF)V
+    invoke-virtual {p0, p3, p4}, Landroid/support/v7/widget/DropDownListView;->drawableHotspotChanged(FF)V
 
     .line 652
-    :cond_0
     invoke-virtual {p0}, Landroid/support/v7/widget/DropDownListView;->isPressed()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     .line 653
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/DropDownListView;->setPressed(Z)V
 
     .line 657
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Landroid/support/v7/widget/DropDownListView;->layoutChildren()V
 
     .line 661
     iget v1, p0, Landroid/support/v7/widget/DropDownListView;->mMotionPosition:I
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v2, :cond_1
 
     .line 662
     invoke-virtual {p0}, Landroid/support/v7/widget/DropDownListView;->getFirstVisiblePosition()I
 
-    move-result v3
+    move-result v2
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/DropDownListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
-    if-eq v1, p1, :cond_2
+    if-eq v1, p1, :cond_1
 
     .line 663
     invoke-virtual {v1}, Landroid/view/View;->isPressed()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_1
 
     .line 664
-    invoke-virtual {v1, v4}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v1, v3}, Landroid/view/View;->setPressed(Z)V
 
     .line 667
-    :cond_2
+    :cond_1
     iput p2, p0, Landroid/support/v7/widget/DropDownListView;->mMotionPosition:I
 
     .line 670
@@ -500,37 +492,31 @@
     .line 671
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v3, v3
+    int-to-float v2, v2
 
-    sub-float v3, p4, v3
-
-    .line 672
-    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v5, v2, :cond_3
+    sub-float v2, p4, v2
 
     .line 673
-    invoke-static {p1, v1, v3}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/view/View;FF)V
+    invoke-virtual {p1, v1, v2}, Landroid/view/View;->drawableHotspotChanged(FF)V
 
     .line 675
-    :cond_3
     invoke-virtual {p1}, Landroid/view/View;->isPressed()Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2
 
     .line 676
     invoke-virtual {p1, v0}, Landroid/view/View;->setPressed(Z)V
 
     .line 680
-    :cond_4
+    :cond_2
     invoke-direct {p0, p2, p1, p3, p4}, Landroid/support/v7/widget/DropDownListView;->positionSelectorLikeTouchCompat(ILandroid/view/View;FF)V
 
     .line 685
-    invoke-direct {p0, v4}, Landroid/support/v7/widget/DropDownListView;->setSelectorEnabled(Z)V
+    invoke-direct {p0, v3}, Landroid/support/v7/widget/DropDownListView;->setSelectorEnabled(Z)V
 
     .line 689
     invoke-virtual {p0}, Landroid/support/v7/widget/DropDownListView;->refreshDrawableState()V
@@ -917,7 +903,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, p3
 
     .line 314
     :goto_0
@@ -927,13 +913,13 @@
 
     const/4 v3, 0x0
 
+    move v4, p3
+
+    move v5, v4
+
+    move v7, v5
+
     move-object v6, v3
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v7, 0x0
 
     :goto_1
     if-ge v4, v1, :cond_9
@@ -1081,27 +1067,27 @@
 
     :cond_0
     :goto_0
-    const/4 p2, 0x0
+    move v3, v1
 
-    const/4 v3, 0x1
+    move p2, v2
 
     goto :goto_3
 
     :cond_1
     :goto_1
-    const/4 p2, 0x0
+    move p2, v2
 
-    const/4 v3, 0x0
+    move v3, p2
 
     goto :goto_3
 
     :cond_2
-    const/4 v3, 0x1
+    move v3, v1
 
     goto :goto_2
 
     :cond_3
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 494
     :goto_2
@@ -1137,7 +1123,7 @@
 
     if-ne v5, v6, :cond_5
 
-    const/4 p2, 0x1
+    move p2, v1
 
     goto :goto_3
 

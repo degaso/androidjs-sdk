@@ -69,9 +69,9 @@
 
     const/4 v1, 0x0
 
-    const/high16 v2, 0x40000000    # 2.0f
-
     cmpl-float v1, v0, v1
+
+    const/high16 v2, 0x40000000    # 2.0f
 
     if-lez v1, :cond_1
 
@@ -90,7 +90,7 @@
     :cond_0
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     sub-float/2addr v0, v1
 
@@ -99,13 +99,13 @@
     .line 1693
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     iget v1, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     div-float/2addr v1, v2
 
@@ -139,7 +139,7 @@
     :cond_2
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
-    mul-float v3, v3, p1
+    mul-float/2addr v3, p1
 
     add-float/2addr v0, v3
 
@@ -148,13 +148,13 @@
     .line 1701
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     iget v1, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     div-float/2addr v1, v2
 

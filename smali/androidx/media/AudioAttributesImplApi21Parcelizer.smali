@@ -30,9 +30,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/AudioAttributes;
-
-    move-result-object v1
+    check-cast v1, Landroid/media/AudioAttributes;
 
     iput-object v1, v0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 

@@ -26,20 +26,13 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/TextPaint;)V
-    .locals 1
+    .locals 0
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 116
     iput-object p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mPaint:Landroid/text/TextPaint;
-
-    .line 117
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x17
-
-    if-lt p1, v0, :cond_0
 
     const/4 p1, 0x1
 
@@ -49,18 +42,7 @@
     .line 119
     iput p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mHyphenationFrequency:I
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    .line 121
-    iput p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mHyphenationFrequency:I
-
-    iput p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mBreakStrategy:I
-
     .line 124
-    :goto_0
     sget-object p1, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     iput-object p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mTextDir:Landroid/text/TextDirectionHeuristic;

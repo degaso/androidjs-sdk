@@ -63,7 +63,7 @@
     .locals 1
 
     .line 281
-    invoke-static {p0}, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl$$ExternalSyntheticApiModelOutline2;->m(Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;)Landroid/os/IBinder;
+    invoke-virtual {p0}, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;->getBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -93,7 +93,7 @@
 
     .line 315
     :cond_0
-    invoke-static {v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/job/JobParameters;)Landroid/app/job/JobWorkItem;
+    invoke-virtual {v1}, Landroid/app/job/JobParameters;->dequeueWork()Landroid/app/job/JobWorkItem;
 
     move-result-object v1
 
@@ -105,7 +105,7 @@
     if-eqz v1, :cond_1
 
     .line 318
-    invoke-static {v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/job/JobWorkItem;)Landroid/content/Intent;
+    invoke-virtual {v1}, Landroid/app/job/JobWorkItem;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 

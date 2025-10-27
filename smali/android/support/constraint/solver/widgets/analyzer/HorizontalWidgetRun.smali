@@ -75,7 +75,7 @@
     :cond_0
     int-to-float p2, p3
 
-    mul-float p2, p2, p6
+    mul-float/2addr p2, p6
 
     add-float/2addr p2, v0
 
@@ -92,7 +92,7 @@
     :cond_1
     int-to-float p2, p5
 
-    mul-float p2, p2, p6
+    mul-float/2addr p2, p6
 
     add-float/2addr p2, v0
 
@@ -109,7 +109,7 @@
     :cond_2
     int-to-float p2, p5
 
-    mul-float p2, p2, p6
+    mul-float/2addr p2, p6
 
     add-float/2addr p2, v0
 
@@ -1484,6 +1484,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1613,7 +1615,7 @@
 
     if-eq v0, v9, :cond_5
 
-    const/4 v0, 0x0
+    move v0, v10
 
     goto :goto_3
 
@@ -1678,7 +1680,7 @@
     move-result v1
 
     :goto_1
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     :goto_2
     add-float/2addr v0, v11
@@ -1718,12 +1720,12 @@
 
     if-eqz v0, :cond_9
 
-    const/4 v0, 0x1
+    move v0, v9
 
     goto :goto_5
 
     :cond_9
-    const/4 v0, 0x0
+    move v0, v10
 
     .line 329
     :goto_5
@@ -1735,12 +1737,12 @@
 
     if-eqz v2, :cond_a
 
-    const/4 v2, 0x1
+    move v2, v9
 
     goto :goto_6
 
     :cond_a
-    const/4 v2, 0x0
+    move v2, v10
 
     .line 330
     :goto_6
@@ -1752,12 +1754,12 @@
 
     if-eqz v3, :cond_b
 
-    const/4 v3, 0x1
+    move v3, v9
 
     goto :goto_7
 
     :cond_b
-    const/4 v3, 0x0
+    move v3, v10
 
     .line 331
     :goto_7
@@ -1769,12 +1771,12 @@
 
     if-eqz v4, :cond_c
 
-    const/4 v4, 0x1
+    move v4, v9
 
     goto :goto_8
 
     :cond_c
-    const/4 v4, 0x0
+    move v4, v10
 
     .line 333
     :goto_8
@@ -2262,7 +2264,7 @@
 
     int-to-float v1, v3
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     add-float/2addr v1, v11
 
@@ -2295,7 +2297,7 @@
 
     int-to-float v2, v1
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     add-float/2addr v2, v11
 
@@ -2409,7 +2411,7 @@
 
     int-to-float v2, v1
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     add-float/2addr v2, v11
 
@@ -2472,7 +2474,7 @@
 
     int-to-float v1, v3
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     add-float/2addr v1, v11
 
@@ -2532,7 +2534,7 @@
 
     int-to-float v0, v0
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     add-float/2addr v0, v11
 
@@ -2854,7 +2856,7 @@
     .line 537
     iget v3, v1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->value:I
 
-    const/high16 v4, 0x3f000000    # 0.5f
+    move v4, v11
 
     :cond_2b
     sub-int/2addr v3, v2
@@ -2875,7 +2877,7 @@
 
     int-to-float v2, v3
 
-    mul-float v2, v2, v4
+    mul-float/2addr v2, v4
 
     add-float/2addr v1, v2
 

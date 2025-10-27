@@ -261,9 +261,9 @@
 
     const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
 
-    cmpl-double v8, v4, v6
+    cmpl-double v4, v4, v6
 
-    if-eqz v8, :cond_2
+    if-eqz v4, :cond_2
 
     .line 879
     iget v4, p0, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
@@ -272,7 +272,7 @@
 
     if-gez v5, :cond_1
 
-    const/4 p1, 0x0
+    move p1, v0
 
     :cond_1
     cmpl-float v5, p1, v4
@@ -287,7 +287,7 @@
 
     sub-float/2addr p1, v4
 
-    mul-float p1, p1, v3
+    mul-float/2addr p1, v3
 
     .line 890
     :cond_2
@@ -389,7 +389,7 @@
 
     double-to-float p1, v6
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     add-float/2addr p1, v0
 
@@ -441,7 +441,7 @@
 
     int-to-float v12, v10
 
-    mul-float v12, v12, v2
+    mul-float/2addr v12, v2
 
     float-to-double v13, v12
 
@@ -582,23 +582,17 @@
 
     float-to-double v13, v7
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v8, v13
 
     aget v7, v1, v4
 
     float-to-double v13, v7
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v5, v13
 
     invoke-static {v8, v9, v5, v6}, Ljava/lang/Math;->hypot(DD)D
 
     move-result-wide v5
-
-    invoke-static {v11, v12}, Ljava/lang/Double;->isNaN(D)Z
 
     add-double/2addr v11, v5
 
@@ -648,9 +642,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "\" outside of range"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -751,262 +749,274 @@
 .end method
 
 .method buildBounds([FI)V
-    .locals 13
+    .locals 16
 
-    add-int/lit8 v0, p2, -0x1
+    move-object/from16 v0, p0
 
-    int-to-float v0, v0
+    move/from16 v1, p2
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    add-int/lit8 v2, v1, -0x1
 
-    div-float v0, v1, v0
+    int-to-float v2, v2
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    div-float v2, v3, v2
 
     .line 212
-    iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mAttributesMap:Ljava/util/HashMap;
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mAttributesMap:Ljava/util/HashMap;
 
-    const-string v3, "translationX"
+    const-string v5, "translationX"
 
-    if-nez v2, :cond_0
+    if-nez v4, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/support/constraint/motion/SplineSet;
+    check-cast v4, Landroid/support/constraint/motion/SplineSet;
 
     .line 213
     :goto_0
-    iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mAttributesMap:Ljava/util/HashMap;
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mAttributesMap:Ljava/util/HashMap;
 
-    const-string v4, "translationY"
+    const-string v6, "translationY"
 
-    if-nez v2, :cond_1
+    if-nez v4, :cond_1
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v2, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/support/constraint/motion/SplineSet;
+    check-cast v4, Landroid/support/constraint/motion/SplineSet;
 
     .line 214
     :goto_1
-    iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mCycleMap:Ljava/util/HashMap;
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mCycleMap:Ljava/util/HashMap;
 
-    if-nez v2, :cond_2
+    if-nez v4, :cond_2
 
     goto :goto_2
 
     :cond_2
-    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/support/constraint/motion/KeyCycleOscillator;
+    check-cast v4, Landroid/support/constraint/motion/KeyCycleOscillator;
 
     .line 215
     :goto_2
-    iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mCycleMap:Ljava/util/HashMap;
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mCycleMap:Ljava/util/HashMap;
 
-    if-nez v2, :cond_3
+    if-nez v4, :cond_3
 
     goto :goto_3
 
     :cond_3
-    invoke-virtual {v2, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/support/constraint/motion/KeyCycleOscillator;
+    check-cast v4, Landroid/support/constraint/motion/KeyCycleOscillator;
 
     :goto_3
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    :goto_4
-    if-ge v3, p2, :cond_c
-
-    int-to-float v4, v3
-
-    mul-float v4, v4, v0
-
-    .line 219
-    iget v5, p0, Landroid/support/constraint/motion/MotionController;->mStaggerScale:F
-
-    const/4 v6, 0x0
-
-    cmpl-float v7, v5, v1
-
-    if-eqz v7, :cond_5
-
-    .line 220
-    iget v7, p0, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
-
-    cmpg-float v8, v4, v7
-
-    if-gez v8, :cond_4
-
     const/4 v4, 0x0
 
+    move v5, v4
+
+    :goto_4
+    if-ge v5, v1, :cond_c
+
+    int-to-float v6, v5
+
+    mul-float/2addr v6, v2
+
+    .line 219
+    iget v7, v0, Landroid/support/constraint/motion/MotionController;->mStaggerScale:F
+
+    cmpl-float v8, v7, v3
+
+    const/4 v9, 0x0
+
+    if-eqz v8, :cond_5
+
+    .line 220
+    iget v8, v0, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
+
+    cmpg-float v10, v6, v8
+
+    if-gez v10, :cond_4
+
+    move v6, v9
+
     :cond_4
-    cmpl-float v8, v4, v7
+    cmpl-float v10, v6, v8
 
-    if-lez v8, :cond_5
+    if-lez v10, :cond_5
 
-    float-to-double v8, v4
+    float-to-double v10, v6
 
-    const-wide/high16 v10, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v12, 0x3ff0000000000000L    # 1.0
 
-    cmpg-double v12, v8, v10
+    cmpg-double v10, v10, v12
 
-    if-gez v12, :cond_5
+    if-gez v10, :cond_5
 
-    sub-float/2addr v4, v7
+    sub-float/2addr v6, v8
 
-    mul-float v4, v4, v5
+    mul-float/2addr v6, v7
 
     :cond_5
-    float-to-double v7, v4
+    float-to-double v7, v6
 
     .line 230
-    iget-object v5, p0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
+    iget-object v10, v0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
-    iget-object v5, v5, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v10, v10, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     .line 233
-    iget-object v9, p0, Landroid/support/constraint/motion/MotionController;->mMotionPaths:Ljava/util/ArrayList;
+    iget-object v11, v0, Landroid/support/constraint/motion/MotionController;->mMotionPaths:Ljava/util/ArrayList;
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    const/high16 v10, 0x7fc00000    # Float.NaN
-
-    :cond_6
-    :goto_5
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_8
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v11}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v11
 
-    check-cast v11, Landroid/support/constraint/motion/MotionPaths;
+    const/high16 v12, 0x7fc00000    # Float.NaN
+
+    :cond_6
+    :goto_5
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_8
+
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/support/constraint/motion/MotionPaths;
 
     .line 234
-    iget-object v12, v11, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v14, v13, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
-    if-eqz v12, :cond_6
+    if-eqz v14, :cond_6
 
     .line 235
-    iget v12, v11, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v14, v13, Landroid/support/constraint/motion/MotionPaths;->time:F
 
-    cmpg-float v12, v12, v4
+    cmpg-float v14, v14, v6
 
-    if-gez v12, :cond_7
+    if-gez v14, :cond_7
 
     .line 236
-    iget-object v5, v11, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v9, v13, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     .line 237
-    iget v6, v11, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v10, v13, Landroid/support/constraint/motion/MotionPaths;->time:F
+
+    move v15, v10
+
+    move-object v10, v9
+
+    move v9, v15
 
     goto :goto_5
 
     .line 239
     :cond_7
-    invoke-static {v10}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {v12}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_6
+    if-eqz v14, :cond_6
 
     .line 240
-    iget v10, v11, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v12, v13, Landroid/support/constraint/motion/MotionPaths;->time:F
 
     goto :goto_5
 
     :cond_8
-    if-eqz v5, :cond_a
+    if-eqz v10, :cond_a
 
     .line 247
-    invoke-static {v10}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {v12}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v7
 
     if-eqz v7, :cond_9
 
-    const/high16 v10, 0x3f800000    # 1.0f
+    move v12, v3
 
     :cond_9
-    sub-float/2addr v4, v6
+    sub-float/2addr v6, v9
 
-    sub-float/2addr v10, v6
+    sub-float/2addr v12, v9
 
-    div-float/2addr v4, v10
+    div-float/2addr v6, v12
 
-    float-to-double v7, v4
+    float-to-double v6, v6
 
     .line 251
-    invoke-virtual {v5, v7, v8}, Landroid/support/constraint/motion/utils/Easing;->get(D)D
+    invoke-virtual {v10, v6, v7}, Landroid/support/constraint/motion/utils/Easing;->get(D)D
 
-    move-result-wide v4
+    move-result-wide v6
 
-    double-to-float v4, v4
+    double-to-float v6, v6
 
-    mul-float v4, v4, v10
+    mul-float/2addr v6, v12
 
-    add-float/2addr v4, v6
+    add-float/2addr v6, v9
 
-    float-to-double v7, v4
+    float-to-double v7, v6
 
     .line 256
     :cond_a
-    iget-object v4, p0, Landroid/support/constraint/motion/MotionController;->mSpline:[Landroid/support/constraint/motion/utils/CurveFit;
+    iget-object v6, v0, Landroid/support/constraint/motion/MotionController;->mSpline:[Landroid/support/constraint/motion/utils/CurveFit;
 
-    aget-object v4, v4, v2
+    aget-object v6, v6, v4
 
-    iget-object v5, p0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v9, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    invoke-virtual {v4, v7, v8, v5}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
+    invoke-virtual {v6, v7, v8, v9}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
 
     .line 257
-    iget-object v4, p0, Landroid/support/constraint/motion/MotionController;->mArcSpline:Landroid/support/constraint/motion/utils/CurveFit;
+    iget-object v6, v0, Landroid/support/constraint/motion/MotionController;->mArcSpline:Landroid/support/constraint/motion/utils/CurveFit;
 
-    if-eqz v4, :cond_b
+    if-eqz v6, :cond_b
 
     .line 258
-    iget-object v5, p0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v9, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    array-length v6, v5
+    array-length v10, v9
 
-    if-lez v6, :cond_b
+    if-lez v10, :cond_b
 
     .line 259
-    invoke-virtual {v4, v7, v8, v5}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
+    invoke-virtual {v6, v7, v8, v9}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
 
     .line 262
     :cond_b
-    iget-object v4, p0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
+    iget-object v6, v0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
-    iget-object v5, p0, Landroid/support/constraint/motion/MotionController;->mInterpolateVariables:[I
+    iget-object v7, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateVariables:[I
 
-    iget-object v6, p0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v8, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    mul-int/lit8 v7, v3, 0x2
+    mul-int/lit8 v9, v5, 0x2
 
-    invoke-virtual {v4, v5, v6, p1, v7}, Landroid/support/constraint/motion/MotionPaths;->getBounds([I[D[FI)V
+    move-object/from16 v10, p1
 
-    add-int/lit8 v3, v3, 0x1
+    invoke-virtual {v6, v7, v8, v10, v9}, Landroid/support/constraint/motion/MotionPaths;->getBounds([I[D[FI)V
+
+    add-int/lit8 v5, v5, 0x1
 
     goto/16 :goto_4
 
@@ -1039,7 +1049,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -1066,9 +1076,9 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, v0
 
-    const/4 v2, 0x0
+    move v2, p2
 
     .line 367
     :goto_1
@@ -1137,7 +1147,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -1164,9 +1174,9 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, v0
 
-    const/4 v2, 0x0
+    move v2, p2
 
     .line 346
     :goto_1
@@ -1211,7 +1221,7 @@
 .end method
 
 .method buildPath([FI)V
-    .locals 20
+    .locals 19
 
     move-object/from16 v0, p0
 
@@ -1302,114 +1312,105 @@
     const/4 v10, 0x0
 
     :goto_4
-    if-ge v10, v2, :cond_11
+    if-ge v10, v2, :cond_10
 
     int-to-float v11, v10
 
-    mul-float v11, v11, v3
+    mul-float/2addr v11, v3
 
     .line 143
     iget v12, v0, Landroid/support/constraint/motion/MotionController;->mStaggerScale:F
 
-    const/4 v13, 0x0
+    cmpl-float v13, v12, v4
 
-    cmpl-float v14, v12, v4
-
-    if-eqz v14, :cond_5
+    if-eqz v13, :cond_5
 
     .line 144
-    iget v14, v0, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
+    iget v13, v0, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
 
-    cmpg-float v15, v11, v14
+    cmpg-float v15, v11, v13
 
     if-gez v15, :cond_4
 
     const/4 v11, 0x0
 
     :cond_4
-    cmpl-float v15, v11, v14
+    cmpl-float v15, v11, v13
 
     if-lez v15, :cond_5
 
-    move-object/from16 v16, v5
-
-    float-to-double v4, v11
+    float-to-double v14, v11
 
     const-wide/high16 v17, 0x3ff0000000000000L    # 1.0
 
-    cmpg-double v19, v4, v17
+    cmpg-double v14, v14, v17
 
-    if-gez v19, :cond_6
+    if-gez v14, :cond_5
 
-    sub-float/2addr v11, v14
+    sub-float/2addr v11, v13
 
-    mul-float v11, v11, v12
-
-    goto :goto_5
+    mul-float/2addr v11, v12
 
     :cond_5
-    move-object/from16 v16, v5
-
-    :cond_6
-    :goto_5
-    float-to-double v4, v11
+    float-to-double v12, v11
 
     .line 154
-    iget-object v12, v0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
+    iget-object v14, v0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
-    iget-object v12, v12, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v14, v14, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     .line 157
-    iget-object v14, v0, Landroid/support/constraint/motion/MotionController;->mMotionPaths:Ljava/util/ArrayList;
+    iget-object v15, v0, Landroid/support/constraint/motion/MotionController;->mMotionPaths:Ljava/util/ArrayList;
 
-    invoke-virtual {v14}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v15}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v14
+    move-result-object v15
 
     const/high16 v17, 0x7fc00000    # Float.NaN
 
-    :cond_7
-    :goto_6
-    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
+    const/16 v16, 0x0
+
+    :goto_5
+    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_9
+    if-eqz v18, :cond_8
 
-    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v18
 
-    move-object/from16 v15, v18
+    move-object/from16 v4, v18
 
-    check-cast v15, Landroid/support/constraint/motion/MotionPaths;
+    check-cast v4, Landroid/support/constraint/motion/MotionPaths;
 
     .line 158
-    iget-object v9, v15, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v9, v4, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     if-eqz v9, :cond_7
 
     .line 159
-    iget v9, v15, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v9, v4, Landroid/support/constraint/motion/MotionPaths;->time:F
 
     cmpg-float v9, v9, v11
 
-    if-gez v9, :cond_8
+    if-gez v9, :cond_6
 
     .line 160
-    iget-object v9, v15, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iget-object v9, v4, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     .line 161
-    iget v12, v15, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v4, v4, Landroid/support/constraint/motion/MotionPaths;->time:F
 
-    move v13, v12
+    move/from16 v16, v4
 
-    move-object v12, v9
+    move-object v14, v9
 
     goto :goto_6
 
     .line 163
-    :cond_8
+    :cond_6
     invoke-static/range {v17 .. v17}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v9
@@ -1417,165 +1418,162 @@
     if-eqz v9, :cond_7
 
     .line 164
-    iget v9, v15, Landroid/support/constraint/motion/MotionPaths;->time:F
+    iget v4, v4, Landroid/support/constraint/motion/MotionPaths;->time:F
 
-    move/from16 v17, v9
+    move/from16 v17, v4
 
-    goto :goto_6
+    :cond_7
+    :goto_6
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    :cond_9
-    if-eqz v12, :cond_b
+    goto :goto_5
+
+    :cond_8
+    if-eqz v14, :cond_a
 
     .line 171
     invoke-static/range {v17 .. v17}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     const/high16 v17, 0x3f800000    # 1.0f
 
-    :cond_a
-    sub-float v4, v11, v13
+    :cond_9
+    sub-float v4, v11, v16
 
-    sub-float v17, v17, v13
+    sub-float v17, v17, v16
 
     div-float v4, v4, v17
 
-    float-to-double v4, v4
+    float-to-double v12, v4
 
     .line 175
-    invoke-virtual {v12, v4, v5}, Landroid/support/constraint/motion/utils/Easing;->get(D)D
+    invoke-virtual {v14, v12, v13}, Landroid/support/constraint/motion/utils/Easing;->get(D)D
 
-    move-result-wide v4
+    move-result-wide v12
 
-    double-to-float v4, v4
+    double-to-float v4, v12
 
     mul-float v4, v4, v17
 
-    add-float/2addr v4, v13
+    add-float v4, v4, v16
 
-    float-to-double v4, v4
+    float-to-double v12, v4
 
     .line 180
-    :cond_b
-    iget-object v9, v0, Landroid/support/constraint/motion/MotionController;->mSpline:[Landroid/support/constraint/motion/utils/CurveFit;
+    :cond_a
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mSpline:[Landroid/support/constraint/motion/utils/CurveFit;
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    aget-object v9, v9, v12
+    aget-object v4, v4, v9
 
-    iget-object v13, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v14, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    invoke-virtual {v9, v4, v5, v13}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
+    invoke-virtual {v4, v12, v13, v14}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
 
     .line 181
-    iget-object v9, v0, Landroid/support/constraint/motion/MotionController;->mArcSpline:Landroid/support/constraint/motion/utils/CurveFit;
+    iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mArcSpline:Landroid/support/constraint/motion/utils/CurveFit;
 
-    if-eqz v9, :cond_c
+    if-eqz v4, :cond_b
 
     .line 182
-    iget-object v13, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v14, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    array-length v14, v13
+    array-length v15, v14
 
-    if-lez v14, :cond_c
+    if-lez v15, :cond_b
 
     .line 183
-    invoke-virtual {v9, v4, v5, v13}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
+    invoke-virtual {v4, v12, v13, v14}, Landroid/support/constraint/motion/utils/CurveFit;->getPos(D[D)V
 
     .line 186
-    :cond_c
+    :cond_b
     iget-object v4, v0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
-    iget-object v5, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateVariables:[I
+    iget-object v12, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateVariables:[I
 
-    iget-object v9, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
+    iget-object v13, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateData:[D
 
-    mul-int/lit8 v13, v10, 0x2
+    mul-int/lit8 v14, v10, 0x2
 
-    invoke-virtual {v4, v5, v9, v1, v13}, Landroid/support/constraint/motion/MotionPaths;->getCenter([I[D[FI)V
+    invoke-virtual {v4, v12, v13, v1, v14}, Landroid/support/constraint/motion/MotionPaths;->getCenter([I[D[FI)V
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_c
 
     .line 189
-    aget v4, v1, v13
+    aget v4, v1, v14
 
     invoke-virtual {v6, v11}, Landroid/support/constraint/motion/KeyCycleOscillator;->get(F)F
 
-    move-result v5
+    move-result v12
 
-    add-float/2addr v4, v5
+    add-float/2addr v4, v12
 
-    aput v4, v1, v13
+    aput v4, v1, v14
 
     goto :goto_7
 
-    :cond_d
-    if-eqz v16, :cond_e
+    :cond_c
+    if-eqz v5, :cond_d
 
     .line 191
-    aget v4, v1, v13
-
-    move-object/from16 v5, v16
+    aget v4, v1, v14
 
     invoke-virtual {v5, v11}, Landroid/support/constraint/motion/SplineSet;->get(F)F
 
-    move-result v9
+    move-result v12
 
-    add-float/2addr v4, v9
+    add-float/2addr v4, v12
 
-    aput v4, v1, v13
+    aput v4, v1, v14
+
+    :cond_d
+    :goto_7
+    if-eqz v7, :cond_e
+
+    add-int/lit8 v14, v14, 0x1
+
+    .line 194
+    aget v4, v1, v14
+
+    invoke-virtual {v7, v11}, Landroid/support/constraint/motion/KeyCycleOscillator;->get(F)F
+
+    move-result v11
+
+    add-float/2addr v4, v11
+
+    aput v4, v1, v14
 
     goto :goto_8
 
     :cond_e
-    :goto_7
-    move-object/from16 v5, v16
+    if-eqz v8, :cond_f
 
-    :goto_8
-    if-eqz v7, :cond_f
-
-    add-int/lit8 v13, v13, 0x1
-
-    .line 194
-    aget v4, v1, v13
-
-    invoke-virtual {v7, v11}, Landroid/support/constraint/motion/KeyCycleOscillator;->get(F)F
-
-    move-result v9
-
-    add-float/2addr v4, v9
-
-    aput v4, v1, v13
-
-    goto :goto_9
-
-    :cond_f
-    if-eqz v8, :cond_10
-
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     .line 196
-    aget v4, v1, v13
+    aget v4, v1, v14
 
     invoke-virtual {v8, v11}, Landroid/support/constraint/motion/SplineSet;->get(F)F
 
-    move-result v9
+    move-result v11
 
-    add-float/2addr v4, v9
+    add-float/2addr v4, v11
 
-    aput v4, v1, v13
+    aput v4, v1, v14
 
-    :cond_10
-    :goto_9
+    :cond_f
+    :goto_8
     add-int/lit8 v10, v10, 0x1
 
     const/high16 v4, 0x3f800000    # 1.0f
 
     goto/16 :goto_4
 
-    :cond_11
+    :cond_10
     return-void
 .end method
 
@@ -1627,14 +1625,14 @@
 
     const/4 v0, 0x0
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_0
     if-ge v2, p2, :cond_0
 
     int-to-float v3, v2
 
-    mul-float v3, v3, v1
+    mul-float/2addr v3, v1
 
     const/4 v4, 0x0
 
@@ -1779,9 +1777,7 @@
 
     float-to-double v6, p1
 
-    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v4, v4, v6
+    mul-double/2addr v4, v6
 
     aput-wide v4, v9, v1
 
@@ -1903,9 +1899,9 @@
 
     sub-float v5, v4, p2
 
-    mul-float p1, p1, v5
+    mul-float/2addr p1, v5
 
-    mul-float v2, v2, p2
+    mul-float/2addr v2, p2
 
     add-float/2addr p1, v2
 
@@ -1914,9 +1910,9 @@
 
     sub-float/2addr v4, p3
 
-    mul-float v0, v0, v4
+    mul-float/2addr v0, v4
 
-    mul-float v3, v3, p3
+    mul-float/2addr v3, p3
 
     add-float/2addr v0, v3
 
@@ -2032,9 +2028,9 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -2187,7 +2183,7 @@
 .end method
 
 .method getKeyFrameParameter(IFF)F
-    .locals 10
+    .locals 9
 
     .line 409
     iget-object v0, p0, Landroid/support/constraint/motion/MotionController;->mEndMotionPath:Landroid/support/constraint/motion/MotionPaths;
@@ -2254,9 +2250,9 @@
 
     const-wide v7, 0x3e7ad7f29abcaf48L    # 1.0E-7
 
-    cmpg-double v9, v5, v7
+    cmpg-double v5, v5, v7
 
-    if-gez v9, :cond_0
+    if-gez v5, :cond_0
 
     const/high16 p1, 0x7fc00000    # Float.NaN
 
@@ -2338,9 +2334,9 @@
     return p2
 
     :cond_6
-    mul-float v4, v4, v4
+    mul-float/2addr v4, v4
 
-    mul-float v2, v2, v2
+    mul-float/2addr v2, v2
 
     sub-float/2addr v4, v2
 
@@ -2836,9 +2832,7 @@
 
     float-to-double v4, v1
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v2, v2, v4
+    mul-double/2addr v2, v4
 
     aput-wide v2, v6, v14
 
@@ -2945,7 +2939,7 @@
 
     sub-float v10, v10, p5
 
-    mul-float v15, v15, v10
+    mul-float/2addr v15, v10
 
     mul-float v4, v4, p5
 
@@ -3033,9 +3027,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -3169,7 +3163,7 @@
 
     move-object v8, v1
 
-    const/4 v9, 0x0
+    move v9, v13
 
     :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
@@ -3222,7 +3216,7 @@
     :cond_3
     move-object v8, v1
 
-    const/4 v14, 0x0
+    move v14, v13
 
     .line 953
     :goto_2
@@ -3378,7 +3372,7 @@
     move-wide/from16 v20, v9
 
     :goto_4
-    const/4 v1, 0x1
+    move v1, v15
 
     .line 976
     :goto_5
@@ -3484,7 +3478,7 @@
 
     if-eqz v1, :cond_f
 
-    const/4 v1, 0x0
+    move v1, v13
 
     .line 993
     :goto_7
@@ -3519,7 +3513,7 @@
 
     sub-float/2addr v2, v3
 
-    mul-float v2, v2, v12
+    mul-float/2addr v2, v12
 
     add-float/2addr v1, v2
 
@@ -3538,7 +3532,7 @@
 
     sub-float/2addr v3, v4
 
-    mul-float v3, v3, v12
+    mul-float/2addr v3, v12
 
     add-float/2addr v2, v3
 
@@ -3557,7 +3551,7 @@
 
     sub-float/2addr v4, v5
 
-    mul-float v4, v4, v12
+    mul-float/2addr v4, v12
 
     add-float/2addr v3, v4
 
@@ -3576,7 +3570,7 @@
 
     sub-float/2addr v5, v6
 
-    mul-float v5, v5, v12
+    mul-float/2addr v5, v12
 
     add-float/2addr v4, v5
 
@@ -4514,7 +4508,7 @@
     goto :goto_6
 
     :cond_12
-    const/4 v11, 0x0
+    move v11, v5
 
     .line 597
     :goto_6
@@ -4766,7 +4760,7 @@
     goto :goto_c
 
     :cond_1e
-    const/4 v7, 0x0
+    move v7, v5
 
     .line 649
     :goto_c
@@ -4832,7 +4826,7 @@
 
     move-result-object v1
 
-    const/4 v7, 0x1
+    move v7, v10
 
     :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -4907,6 +4901,8 @@
 
     invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v11
+
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v11
@@ -4941,7 +4937,7 @@
 
     iput-object v1, v0, Landroid/support/constraint/motion/MotionController;->mAttributeInterpCount:[I
 
-    const/4 v1, 0x0
+    move v1, v5
 
     .line 681
     :goto_f
@@ -4959,7 +4955,7 @@
 
     aput v5, v7, v1
 
-    const/4 v7, 0x0
+    move v7, v5
 
     :goto_10
     if-ge v7, v4, :cond_25
@@ -5021,12 +5017,12 @@
 
     if-eq v1, v2, :cond_27
 
-    const/4 v1, 0x1
+    move v1, v10
 
     goto :goto_12
 
     :cond_27
-    const/4 v1, 0x0
+    move v1, v5
 
     .line 692
     :goto_12
@@ -5040,7 +5036,7 @@
 
     new-array v2, v7, [Z
 
-    const/4 v8, 0x1
+    move v8, v10
 
     :goto_13
     if-ge v8, v4, :cond_28
@@ -5061,9 +5057,9 @@
     goto :goto_13
 
     :cond_28
-    const/4 v1, 0x1
+    move v8, v5
 
-    const/4 v8, 0x0
+    move v1, v10
 
     :goto_14
     if-ge v1, v7, :cond_2a
@@ -5100,9 +5096,9 @@
 
     iput-object v1, v0, Landroid/support/constraint/motion/MotionController;->mInterpolateVelocity:[D
 
-    const/4 v1, 0x1
+    move v8, v5
 
-    const/4 v8, 0x0
+    move v1, v10
 
     :goto_15
     if-ge v1, v7, :cond_2c
@@ -5151,7 +5147,7 @@
     .line 715
     new-array v7, v4, [D
 
-    const/4 v8, 0x0
+    move v8, v5
 
     :goto_16
     if-ge v8, v4, :cond_2d
@@ -5179,7 +5175,7 @@
     goto :goto_16
 
     :cond_2d
-    const/4 v8, 0x0
+    move v8, v5
 
     .line 722
     :goto_17
@@ -5214,15 +5210,19 @@
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v9
+
     const-string v11, " ["
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    const/4 v11, 0x0
+    move v11, v5
 
     :goto_18
     if-ge v11, v4, :cond_2e
@@ -5234,13 +5234,17 @@
 
     invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget-object v9, v1, v11
+    move-result-object v9
 
-    aget-wide v13, v9, v8
+    aget-object v12, v1, v11
 
-    invoke-virtual {v12, v13, v14}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    aget-wide v13, v12, v8
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v13, v14}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
 
@@ -5265,7 +5269,7 @@
 
     iput-object v8, v0, Landroid/support/constraint/motion/MotionController;->mSpline:[Landroid/support/constraint/motion/utils/CurveFit;
 
-    const/4 v8, 0x0
+    move v8, v5
 
     .line 733
     :goto_19
@@ -5285,13 +5289,13 @@
     .line 737
     aget-object v9, v9, v8
 
+    move v12, v5
+
+    move v14, v12
+
     move-object v13, v11
 
     move-object v15, v13
-
-    const/4 v12, 0x0
-
-    const/4 v14, 0x0
 
     :goto_1a
     if-ge v12, v4, :cond_32
@@ -5437,7 +5441,7 @@
 
     check-cast v2, [[D
 
-    const/4 v8, 0x0
+    move v8, v5
 
     :goto_1b
     if-ge v8, v4, :cond_34
@@ -5653,9 +5657,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " y: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mStartMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
@@ -5663,9 +5671,13 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v2, " end: x: "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Landroid/support/constraint/motion/MotionController;->mEndMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
@@ -5673,13 +5685,19 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionController;->mEndMotionPath:Landroid/support/constraint/motion/MotionPaths;
 
     iget v1, v1, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

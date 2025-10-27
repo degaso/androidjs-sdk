@@ -165,7 +165,7 @@
 
     sget-object v2, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->sHandler:Landroid/os/Handler;
 
-    invoke-static {v0, v1, v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/Window;Landroid/view/Window$OnFrameMetricsAvailableListener;Landroid/os/Handler;)V
+    invoke-virtual {v0, v1, v2}, Landroid/view/Window;->addOnFrameMetricsAvailableListener(Landroid/view/Window$OnFrameMetricsAvailableListener;Landroid/os/Handler;)V
 
     .line 425
     iget-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mActivities:Ljava/util/ArrayList;
@@ -193,23 +193,23 @@
     .line 403
     div-long/2addr v0, v2
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v1, 0x0
 
-    cmp-long v0, p2, v2
+    cmp-long p2, p2, v1
 
-    if-ltz v0, :cond_0
+    if-ltz p2, :cond_0
 
     .line 406
-    invoke-virtual {p1, v1}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {p1, v0}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result p2
 
     add-int/lit8 p2, p2, 0x1
 
     .line 407
-    invoke-virtual {p1, v1, p2}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {p1, v0, p2}, Landroid/util/SparseIntArray;->put(II)V
 
     :cond_0
     return-void
@@ -267,7 +267,7 @@
 
     iget-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mListener:Landroid/view/Window$OnFrameMetricsAvailableListener;
 
-    invoke-static {p1, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/Window;Landroid/view/Window$OnFrameMetricsAvailableListener;)V
+    invoke-virtual {p1, v0}, Landroid/view/Window;->removeOnFrameMetricsAvailableListener(Landroid/view/Window$OnFrameMetricsAvailableListener;)V
 
     .line 437
     iget-object p1, p0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mMetrics:[Landroid/util/SparseIntArray;
@@ -336,7 +336,7 @@
 
     iget-object v2, p0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mListener:Landroid/view/Window$OnFrameMetricsAvailableListener;
 
-    invoke-static {v1, v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/Window;Landroid/view/Window$OnFrameMetricsAvailableListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/Window;->removeOnFrameMetricsAvailableListener(Landroid/view/Window$OnFrameMetricsAvailableListener;)V
 
     .line 448
     iget-object v1, p0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;->mActivities:Ljava/util/ArrayList;

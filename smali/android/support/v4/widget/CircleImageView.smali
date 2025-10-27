@@ -55,19 +55,19 @@
 
     const/high16 v0, 0x3fe00000    # 1.75f
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     float-to-int v0, v0
 
     const/4 v1, 0x0
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     float-to-int v1, v1
 
     const/high16 v2, 0x40600000    # 3.5f
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     float-to-int v2, v2
 
@@ -92,7 +92,7 @@
 
     const/high16 v1, 0x40800000    # 4.0f
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     .line 63
     invoke-static {p0, p1}, Landroid/support/v4/view/ViewCompat;->setElevation(Landroid/view/View;F)V
@@ -161,23 +161,10 @@
 .end method
 
 .method private elevationSupported()Z
-    .locals 2
-
-    .line 79
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 

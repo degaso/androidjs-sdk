@@ -47,7 +47,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;Z)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setNestedScrollingEnabled(Z)V
 
     return-void
 .end method

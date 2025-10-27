@@ -56,7 +56,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/os/LocaleList;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -69,7 +69,7 @@
     .line 119
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;I)Ljava/util/Locale;
+    invoke-virtual {v0, p1}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
 
     move-result-object p1
 
@@ -85,7 +85,7 @@
     if-eqz v0, :cond_0
 
     .line 163
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;[Ljava/lang/String;)Ljava/util/Locale;
+    invoke-virtual {v0, p1}, Landroid/os/LocaleList;->getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
 
     move-result-object p1
 
@@ -112,7 +112,7 @@
     .line 146
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/os/LocaleList;)I
+    invoke-virtual {v0}, Landroid/os/LocaleList;->hashCode()I
 
     move-result v0
 
@@ -125,7 +125,7 @@
     .line 136
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;Ljava/util/Locale;)I
+    invoke-virtual {v0, p1}, Landroid/os/LocaleList;->indexOf(Ljava/util/Locale;)I
 
     move-result p1
 
@@ -138,7 +138,7 @@
     .line 124
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;)Z
+    invoke-virtual {v0}, Landroid/os/LocaleList;->isEmpty()Z
 
     move-result v0
 
@@ -164,7 +164,7 @@
     .line 130
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;)I
+    invoke-virtual {v0}, Landroid/os/LocaleList;->size()I
 
     move-result v0
 
@@ -177,7 +177,7 @@
     .line 156
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/LocaleList;)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/LocaleList;->toLanguageTags()Ljava/lang/String;
 
     move-result-object v0
 
@@ -190,7 +190,7 @@
     .line 151
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/os/LocaleList;)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/LocaleList;->toString()Ljava/lang/String;
 
     move-result-object v0
 

@@ -667,15 +667,11 @@
 .end method
 
 .method public setExclusiveCheckable(Z)V
-    .locals 6
+    .locals 5
 
     .line 374
     :try_start_0
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS;->mSetExclusiveCheckableMethod:Ljava/lang/reflect/Method;
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
 
     if-nez v0, :cond_0
 
@@ -688,16 +684,20 @@
 
     move-result-object v0
 
-    const-string v3, "setExclusiveCheckable"
+    const-string v1, "setExclusiveCheckable"
 
-    new-array v4, v2, [Ljava/lang/Class;
+    const/4 v2, 0x1
 
-    sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    new-array v2, v2, [Ljava/lang/Class;
 
-    aput-object v5, v4, v1
+    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
 
     .line 376
-    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -707,17 +707,17 @@
     :cond_0
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS;->mSetExclusiveCheckableMethod:Ljava/lang/reflect/Method;
 
-    iget-object v3, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS;->mWrappedObject:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS;->mWrappedObject:Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    aput-object p1, v2, v1
+    move-result-object p1
 
-    invoke-virtual {v0, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

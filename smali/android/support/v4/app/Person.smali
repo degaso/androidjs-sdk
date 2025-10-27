@@ -88,7 +88,7 @@
     invoke-direct {v0}, Landroid/support/v4/app/Person$Builder;-><init>()V
 
     .line 69
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/app/Person;->getName()Ljava/lang/CharSequence;
 
     move-result-object v1
 
@@ -97,14 +97,14 @@
     move-result-object v0
 
     .line 71
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person;)Landroid/graphics/drawable/Icon;
+    invoke-virtual {p0}, Landroid/app/Person;->getIcon()Landroid/graphics/drawable/Icon;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
     .line 72
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person;)Landroid/graphics/drawable/Icon;
+    invoke-virtual {p0}, Landroid/app/Person;->getIcon()Landroid/graphics/drawable/Icon;
 
     move-result-object v1
 
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 74
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/app/Person;->getUri()Ljava/lang/String;
 
     move-result-object v1
 
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 75
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Person;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/app/Person;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 76
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person;)Z
+    invoke-virtual {p0}, Landroid/app/Person;->isBot()Z
 
     move-result v1
 
@@ -151,7 +151,7 @@
     move-result-object v0
 
     .line 77
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Person;)Z
+    invoke-virtual {p0}, Landroid/app/Person;->isImportant()Z
 
     move-result p0
 
@@ -331,7 +331,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person$Builder;Ljava/lang/CharSequence;)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setName(Ljava/lang/CharSequence;)Landroid/app/Person$Builder;
 
     move-result-object v0
 
@@ -356,7 +356,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person$Builder;Landroid/graphics/drawable/Icon;)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/app/Person$Builder;
 
     move-result-object v0
 
@@ -365,7 +365,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person$Builder;Ljava/lang/String;)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setUri(Ljava/lang/String;)Landroid/app/Person$Builder;
 
     move-result-object v0
 
@@ -374,7 +374,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Person$Builder;Ljava/lang/String;)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setKey(Ljava/lang/String;)Landroid/app/Person$Builder;
 
     move-result-object v0
 
@@ -383,7 +383,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person$Builder;Z)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setBot(Z)Landroid/app/Person$Builder;
 
     move-result-object v0
 
@@ -392,12 +392,12 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Person$Builder;Z)Landroid/app/Person$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setImportant(Z)Landroid/app/Person$Builder;
 
     move-result-object v0
 
     .line 142
-    invoke-static {v0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Person$Builder;)Landroid/app/Person;
+    invoke-virtual {v0}, Landroid/app/Person$Builder;->build()Landroid/app/Person;
 
     move-result-object v0
 

@@ -412,7 +412,7 @@
     :cond_1
     check-cast v1, Landroid/support/v7/view/menu/MenuAdapter;
 
-    const/4 v2, 0x0
+    move v2, v3
 
     .line 559
     :goto_0
@@ -440,7 +440,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v3, -0x1
+    move v3, v5
 
     :goto_2
     if-ne v3, v5, :cond_4
@@ -720,12 +720,12 @@
 
     if-ne v8, v3, :cond_3
 
-    const/4 v9, 0x1
+    move v9, v3
 
     goto :goto_2
 
     :cond_3
-    const/4 v9, 0x0
+    move v9, v7
 
     .line 408
     :goto_2
@@ -743,9 +743,9 @@
     .line 415
     invoke-virtual {v4, v6}, Landroid/support/v7/widget/MenuPopupWindow;->setAnchorView(Landroid/view/View;)V
 
-    const/4 v8, 0x0
+    move v8, v7
 
-    const/4 v12, 0x0
+    move v12, v8
 
     goto :goto_3
 
@@ -1347,7 +1347,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1

@@ -17,11 +17,9 @@
     .locals 0
 
     .line 29
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState;
+    check-cast p0, Landroid/media/session/PlaybackState;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState;)Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/media/session/PlaybackState;->getExtras()Landroid/os/Bundle;
 
     move-result-object p0
 
@@ -60,22 +58,22 @@
     move-wide/from16 v5, p9
 
     .line 37
-    invoke-static/range {v0 .. v6}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;IJFJ)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual/range {v0 .. v6}, Landroid/media/session/PlaybackState$Builder;->setState(IJFJ)Landroid/media/session/PlaybackState$Builder;
 
     move-wide v0, p3
 
     .line 38
-    invoke-static {v7, p3, p4}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;J)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, p3, p4}, Landroid/media/session/PlaybackState$Builder;->setBufferedPosition(J)Landroid/media/session/PlaybackState$Builder;
 
     move-wide v0, p6
 
     .line 39
-    invoke-static {v7, p6, p7}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/PlaybackState$Builder;J)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, p6, p7}, Landroid/media/session/PlaybackState$Builder;->setActions(J)Landroid/media/session/PlaybackState$Builder;
 
     move-object/from16 v0, p8
 
     .line 40
-    invoke-static {v7, v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;Ljava/lang/CharSequence;)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, v0}, Landroid/media/session/PlaybackState$Builder;->setErrorMessage(Ljava/lang/CharSequence;)Landroid/media/session/PlaybackState$Builder;
 
     .line 41
     invoke-interface/range {p11 .. p11}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -94,11 +92,9 @@
     move-result-object v1
 
     .line 42
-    invoke-static {v1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState$CustomAction;
+    check-cast v1, Landroid/media/session/PlaybackState$CustomAction;
 
-    move-result-object v1
-
-    invoke-static {v7, v1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;Landroid/media/session/PlaybackState$CustomAction;)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, v1}, Landroid/media/session/PlaybackState$Builder;->addCustomAction(Landroid/media/session/PlaybackState$CustomAction;)Landroid/media/session/PlaybackState$Builder;
 
     goto :goto_0
 
@@ -106,15 +102,15 @@
     move-wide/from16 v1, p12
 
     .line 44
-    invoke-static {v7, v1, v2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/session/PlaybackState$Builder;J)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, v1, v2}, Landroid/media/session/PlaybackState$Builder;->setActiveQueueItemId(J)Landroid/media/session/PlaybackState$Builder;
 
     move-object/from16 v0, p14
 
     .line 45
-    invoke-static {v7, v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;Landroid/os/Bundle;)Landroid/media/session/PlaybackState$Builder;
+    invoke-virtual {v7, v0}, Landroid/media/session/PlaybackState$Builder;->setExtras(Landroid/os/Bundle;)Landroid/media/session/PlaybackState$Builder;
 
     .line 46
-    invoke-static {v7}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$Builder;)Landroid/media/session/PlaybackState;
+    invoke-virtual {v7}, Landroid/media/session/PlaybackState$Builder;->build()Landroid/media/session/PlaybackState;
 
     move-result-object v0
 

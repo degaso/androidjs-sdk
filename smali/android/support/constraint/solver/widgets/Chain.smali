@@ -63,7 +63,7 @@
 
     if-ne v4, v5, :cond_0
 
-    const/4 v4, 0x1
+    move v4, v6
 
     goto :goto_0
 
@@ -80,7 +80,7 @@
 
     if-nez v8, :cond_1
 
-    const/4 v8, 0x1
+    move v8, v6
 
     goto :goto_1
 
@@ -93,7 +93,7 @@
 
     if-ne v14, v6, :cond_2
 
-    const/4 v14, 0x1
+    move v14, v6
 
     goto :goto_2
 
@@ -114,7 +114,7 @@
 
     if-nez v8, :cond_4
 
-    const/4 v8, 0x1
+    move v8, v6
 
     goto :goto_3
 
@@ -127,7 +127,7 @@
 
     if-ne v14, v6, :cond_5
 
-    const/4 v14, 0x1
+    move v14, v6
 
     goto :goto_4
 
@@ -141,7 +141,7 @@
     if-ne v15, v5, :cond_6
 
     :goto_5
-    const/4 v5, 0x1
+    move v5, v6
 
     goto :goto_6
 
@@ -638,11 +638,11 @@
     :goto_13
     const/4 v6, 0x0
 
+    move/from16 v28, v6
+
     move-object/from16 v7, v21
 
     const/4 v8, 0x0
-
-    const/16 v28, 0x0
 
     :goto_14
     if-ge v8, v2, :cond_1d
@@ -689,7 +689,7 @@
 
     invoke-virtual {v9, v3, v15, v6, v14}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
-    const/4 v14, 0x0
+    move v14, v6
 
     goto :goto_16
 
@@ -1516,9 +1516,9 @@
     :cond_40
     move-object/from16 v17, v15
 
-    const/16 v15, 0x8
-
     const/16 v20, 0x4
+
+    move v15, v8
 
     .line 409
     :goto_2f
@@ -1534,9 +1534,9 @@
     move-object/from16 v14, v17
 
     :goto_30
-    move-object v15, v14
+    move v8, v15
 
-    const/16 v8, 0x8
+    move-object v15, v14
 
     move-object v14, v0
 
@@ -1812,7 +1812,7 @@
     .line 53
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->mHorizontalChainsArray:[Landroid/support/constraint/solver/widgets/ChainHead;
 
-    const/4 v3, 0x0
+    move v3, v0
 
     goto :goto_0
 

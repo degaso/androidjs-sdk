@@ -49,14 +49,14 @@
 
     const-wide/16 v1, 0x0
 
+    move v3, v0
+
     move-wide v4, v1
 
+    :goto_0
     move-wide v6, v4
 
-    const/4 v3, 0x0
-
     .line 38
-    :goto_0
     array-length v8, p1
 
     if-ge v3, v8, :cond_1
@@ -79,8 +79,6 @@
     add-int/lit8 v3, v3, 0x1
 
     move-wide v4, v9
-
-    move-wide v6, v4
 
     goto :goto_0
 
@@ -121,9 +119,9 @@
     .line 62
     aget-wide v6, v1, v5
 
-    cmpg-double v8, p1, v6
+    cmpg-double v6, p1, v6
 
-    if-gtz v8, :cond_1
+    if-gtz v6, :cond_1
 
     return-wide v2
 
@@ -151,7 +149,7 @@
 
     move-wide v11, v9
 
-    const/4 v1, 0x0
+    move v1, v5
 
     :goto_0
     if-ge v1, v4, :cond_6
@@ -231,7 +229,7 @@
 
     mul-double v18, v18, v20
 
-    mul-double v5, v5, v2
+    mul-double/2addr v5, v2
 
     add-double v18, v18, v5
 
@@ -239,7 +237,7 @@
 
     mul-double v9, v9, v20
 
-    mul-double v11, v11, v2
+    mul-double/2addr v11, v2
 
     add-double/2addr v9, v11
 
@@ -282,9 +280,9 @@
     .line 174
     aget-wide v3, v0, v2
 
-    cmpg-double v5, p1, v3
+    cmpg-double v3, p1, v3
 
-    if-gtz v5, :cond_0
+    if-gtz v3, :cond_0
 
     .line 175
     iget-object p1, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -368,9 +366,9 @@
 
     sub-double/2addr v0, p1
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     add-double/2addr v2, v4
 
@@ -407,11 +405,11 @@
     .line 103
     aget-wide v4, v0, v3
 
-    cmpg-double v6, p1, v4
+    cmpg-double v4, p1, v4
 
-    if-gtz v6, :cond_1
+    if-gtz v4, :cond_1
 
-    const/4 p1, 0x0
+    move p1, v3
 
     :goto_0
     if-ge p1, v2, :cond_0
@@ -462,7 +460,7 @@
     return-void
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v3
 
     :goto_2
     if-ge v0, v1, :cond_7
@@ -476,7 +474,7 @@
 
     if-nez v4, :cond_4
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_3
     if-ge v4, v2, :cond_4
@@ -534,9 +532,9 @@
 
     sub-double/2addr v10, p1
 
-    mul-double v6, v6, v10
+    mul-double/2addr v6, v10
 
-    mul-double v8, v8, p1
+    mul-double/2addr v8, p1
 
     add-double/2addr v6, v8
 
@@ -579,11 +577,11 @@
     .line 139
     aget-wide v4, v0, v3
 
-    cmpg-double v6, p1, v4
+    cmpg-double v4, p1, v4
 
-    if-gtz v6, :cond_1
+    if-gtz v4, :cond_1
 
-    const/4 p1, 0x0
+    move p1, v3
 
     :goto_0
     if-ge p1, v2, :cond_0
@@ -638,7 +636,7 @@
     return-void
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v3
 
     :goto_2
     if-ge v0, v1, :cond_7
@@ -652,7 +650,7 @@
 
     if-nez v4, :cond_4
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_3
     if-ge v4, v2, :cond_4
@@ -712,9 +710,9 @@
 
     sub-double/2addr v10, p1
 
-    mul-double v6, v6, v10
+    mul-double/2addr v6, v10
 
-    mul-double v8, v8, p1
+    mul-double/2addr v8, p1
 
     add-double/2addr v6, v8
 
@@ -867,7 +865,7 @@
 
     :cond_1
     :goto_1
-    const/4 v0, 0x0
+    move v0, v3
 
     :goto_2
     add-int/lit8 v4, v1, -0x1

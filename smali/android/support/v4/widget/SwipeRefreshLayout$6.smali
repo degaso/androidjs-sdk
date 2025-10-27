@@ -79,7 +79,7 @@
 
     int-to-float p2, p2
 
-    mul-float p2, p2, p1
+    mul-float/2addr p2, p1
 
     float-to-int p2, p2
 

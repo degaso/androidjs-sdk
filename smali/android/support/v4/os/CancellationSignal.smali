@@ -35,6 +35,7 @@
     .locals 1
 
     .line 150
+    :catch_0
     :goto_0
     iget-boolean v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancelInProgress:Z
 
@@ -45,11 +46,6 @@
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    nop
 
     goto :goto_0
 

@@ -33,11 +33,9 @@
     .locals 0
 
     .line 45
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)V
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->connect()V
 
     return-void
 .end method
@@ -48,9 +46,7 @@
     .line 40
     new-instance v0, Landroid/media/browse/MediaBrowser;
 
-    invoke-static {p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$ConnectionCallback;
-
-    move-result-object p2
+    check-cast p2, Landroid/media/browse/MediaBrowser$ConnectionCallback;
 
     invoke-direct {v0, p0, p1, p2, p3}, Landroid/media/browse/MediaBrowser;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/media/browse/MediaBrowser$ConnectionCallback;Landroid/os/Bundle;)V
 
@@ -83,11 +79,9 @@
     .locals 0
 
     .line 49
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/browse/MediaBrowser;)V
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->disconnect()V
 
     return-void
 .end method
@@ -96,11 +90,9 @@
     .locals 0
 
     .line 66
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getExtras()Landroid/os/Bundle;
 
     move-result-object p0
 
@@ -111,11 +103,9 @@
     .locals 0
 
     .line 62
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getRoot()Ljava/lang/String;
 
     move-result-object p0
 
@@ -126,11 +116,9 @@
     .locals 0
 
     .line 58
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)Landroid/content/ComponentName;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getServiceComponent()Landroid/content/ComponentName;
 
     move-result-object p0
 
@@ -141,11 +129,9 @@
     .locals 0
 
     .line 70
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)Landroid/media/session/MediaSession$Token;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getSessionToken()Landroid/media/session/MediaSession$Token;
 
     move-result-object p0
 
@@ -156,11 +142,9 @@
     .locals 0
 
     .line 54
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;)Z
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->isConnected()Z
 
     move-result p0
 
@@ -171,15 +155,11 @@
     .locals 0
 
     .line 79
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
+    check-cast p2, Landroid/media/browse/MediaBrowser$SubscriptionCallback;
 
-    invoke-static {p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$SubscriptionCallback;
-
-    move-result-object p2
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/browse/MediaBrowser;->subscribe(Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
 
     return-void
 .end method
@@ -188,11 +168,9 @@
     .locals 0
 
     .line 84
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Landroid/media/browse/MediaBrowser;->unsubscribe(Ljava/lang/String;)V
 
     return-void
 .end method

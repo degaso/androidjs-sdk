@@ -105,14 +105,14 @@
     .line 39
     const-string p2, "androidjs.notification.channel"
 
-    invoke-static {p1, p2}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/NotificationChannel;Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/app/NotificationChannel;->setDescription(Ljava/lang/String;)V
 
     .line 40
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_manager:Landroid/app/NotificationManager;
 
     iget-object p2, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
 
-    invoke-static {p1, p2}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/NotificationManager;Landroid/app/NotificationChannel;)V
+    invoke-virtual {p1, p2}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
 
     :cond_0
     return-void

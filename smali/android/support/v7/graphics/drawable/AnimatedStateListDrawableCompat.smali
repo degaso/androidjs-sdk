@@ -241,11 +241,17 @@
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string p2, ": invalid animated-selector tag "
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -420,7 +426,7 @@
     .line 577
     const-string v2, ": <item> tag requires a \'drawable\' attribute or child tag defining a drawable"
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     .line 579
     :goto_1
@@ -437,7 +443,7 @@
     :cond_1
     const/4 v3, 0x2
 
-    if-ne p1, v3, :cond_4
+    if-ne p1, v3, :cond_3
 
     .line 587
     invoke-interface {p3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -459,31 +465,16 @@
 
     goto :goto_2
 
-    .line 589
-    :cond_2
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x15
-
-    if-lt p1, v3, :cond_3
-
     .line 590
-    invoke-static {p2, p3, p4, p5}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    goto :goto_2
-
-    .line 592
-    :cond_3
-    invoke-static {p2, p3, p4}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
+    :cond_2
+    invoke-static {p2, p3, p4, p5}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     goto :goto_2
 
     .line 583
-    :cond_4
+    :cond_3
     new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -497,7 +488,11 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -507,9 +502,9 @@
 
     throw p1
 
-    :cond_5
+    :cond_4
     :goto_2
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_5
 
     .line 599
     iget-object p2, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->mState:Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;
@@ -521,7 +516,7 @@
     return p1
 
     .line 596
-    :cond_6
+    :cond_5
     new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -535,7 +530,11 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -543,13 +542,7 @@
 
     invoke-direct {p1, p2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_4
-
-    :goto_3
     throw p1
-
-    :goto_4
-    goto :goto_3
 .end method
 
 .method private parseTransition(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)I
@@ -619,7 +612,7 @@
     .line 526
     const-string v0, ": <transition> tag requires a \'drawable\' attribute or child tag defining a drawable"
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_4
 
     .line 528
     :goto_1
@@ -636,7 +629,7 @@
     :cond_1
     const/4 v6, 0x2
 
-    if-ne v4, v6, :cond_4
+    if-ne v4, v6, :cond_3
 
     .line 536
     invoke-interface {p3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -658,31 +651,16 @@
 
     goto :goto_2
 
-    .line 539
-    :cond_2
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x15
-
-    if-lt p1, v4, :cond_3
-
     .line 540
-    invoke-static {p2, p3, p4, p5}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    goto :goto_2
-
-    .line 542
-    :cond_3
-    invoke-static {p2, p3, p4}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
+    :cond_2
+    invoke-static {p2, p3, p4, p5}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     goto :goto_2
 
     .line 532
-    :cond_4
+    :cond_3
     new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -696,7 +674,11 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -706,13 +688,13 @@
 
     throw p1
 
-    :cond_5
+    :cond_4
     :goto_2
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
-    if-eq v1, v2, :cond_6
+    if-eq v1, v2, :cond_5
 
-    if-eq v3, v2, :cond_6
+    if-eq v3, v2, :cond_5
 
     .line 553
     iget-object p1, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->mState:Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;
@@ -724,7 +706,7 @@
     return p1
 
     .line 550
-    :cond_6
+    :cond_5
     new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -738,9 +720,13 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     const-string p3, ": <transition> tag requires \'fromId\' & \'toId\' attributes"
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -751,7 +737,7 @@
     throw p1
 
     .line 546
-    :cond_7
+    :cond_6
     new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -765,7 +751,11 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -773,13 +763,7 @@
 
     invoke-direct {p1, p2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_4
-
-    :goto_3
     throw p1
-
-    :goto_4
-    goto :goto_3
 .end method
 
 .method private selectTransition(I)Z
@@ -971,17 +955,10 @@
     .line 448
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->mState:Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;
 
-    .line 450
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 451
     iget v1, v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mChangingConfigurations:I
 
-    invoke-static {p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/res/TypedArray;)I
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->getChangingConfigurations()I
 
     move-result v2
 
@@ -990,7 +967,6 @@
     iput v1, v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mChangingConfigurations:I
 
     .line 454
-    :cond_0
     sget v1, Landroid/support/v7/appcompat/R$styleable;->AnimatedStateListDrawableCompat_android_variablePadding:I
 
     iget-boolean v2, v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mVariablePadding:Z

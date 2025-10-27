@@ -227,37 +227,7 @@
 .end method
 
 .method private addChildDrawingOrderCallback()V
-    .locals 2
-
-    .line 1290
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
-    return-void
-
-    .line 1293
-    :cond_0
-    iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mChildDrawingOrderCallback:Landroid/support/v7/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    if-nez v0, :cond_1
-
-    .line 1294
-    new-instance v0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;
-
-    invoke-direct {v0, p0}, Landroid/support/v7/widget/helper/ItemTouchHelper$5;-><init>(Landroid/support/v7/widget/helper/ItemTouchHelper;)V
-
-    iput-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mChildDrawingOrderCallback:Landroid/support/v7/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    .line 1312
-    :cond_1
-    iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mChildDrawingOrderCallback:Landroid/support/v7/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setChildDrawingOrderCallback(Landroid/support/v7/widget/RecyclerView$ChildDrawingOrderCallback;)V
+    .locals 0
 
     return-void
 .end method
@@ -272,22 +242,22 @@
     .line 1238
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDx:F
 
-    const/16 v1, 0x8
+    const/4 v1, 0x0
 
-    const/4 v2, 0x4
+    cmpl-float v0, v0, v1
 
-    const/4 v3, 0x0
+    const/16 v2, 0x8
 
-    cmpl-float v0, v0, v3
+    const/4 v3, 0x4
 
     if-lez v0, :cond_0
 
-    const/16 v0, 0x8
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x4
+    move v0, v3
 
     .line 1239
     :goto_0
@@ -334,26 +304,26 @@
 
     move-result v5
 
-    cmpl-float v3, v4, v3
+    cmpl-float v1, v4, v1
 
-    if-lez v3, :cond_1
+    if-lez v1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x4
+    move v2, v3
 
     .line 1245
     :goto_1
     invoke-static {v4}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result v1
 
-    and-int v3, v1, p2
+    and-int v3, v2, p2
 
     if-eqz v3, :cond_2
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v2, :cond_2
 
     .line 1246
     iget-object v3, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mCallback:Landroid/support/v7/widget/helper/ItemTouchHelper$Callback;
@@ -365,7 +335,7 @@
 
     move-result v3
 
-    cmpl-float v3, v2, v3
+    cmpl-float v3, v1, v3
 
     if-ltz v3, :cond_2
 
@@ -374,11 +344,11 @@
 
     move-result v3
 
-    cmpl-float v2, v2, v3
+    cmpl-float v1, v1, v3
 
-    if-lez v2, :cond_2
+    if-lez v1, :cond_2
 
-    return v1
+    return v2
 
     .line 1253
     :cond_2
@@ -397,7 +367,7 @@
 
     move-result p1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     and-int p1, p2, v0
 
@@ -432,22 +402,22 @@
     .line 1265
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDy:F
 
-    const/4 v1, 0x2
+    const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    cmpl-float v0, v0, v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x2
 
-    cmpl-float v0, v0, v3
+    const/4 v3, 0x1
 
     if-lez v0, :cond_0
 
-    const/4 v0, 0x2
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    move v0, v3
 
     .line 1266
     :goto_0
@@ -494,26 +464,26 @@
 
     move-result v5
 
-    cmpl-float v3, v5, v3
+    cmpl-float v1, v5, v1
 
-    if-lez v3, :cond_1
+    if-lez v1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x1
+    move v2, v3
 
     .line 1272
     :goto_1
     invoke-static {v5}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result v1
 
-    and-int v3, v1, p2
+    and-int v3, v2, p2
 
     if-eqz v3, :cond_2
 
-    if-ne v1, v0, :cond_2
+    if-ne v2, v0, :cond_2
 
     .line 1273
     iget-object v3, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mCallback:Landroid/support/v7/widget/helper/ItemTouchHelper$Callback;
@@ -525,7 +495,7 @@
 
     move-result v3
 
-    cmpl-float v3, v2, v3
+    cmpl-float v3, v1, v3
 
     if-ltz v3, :cond_2
 
@@ -534,11 +504,11 @@
 
     move-result v3
 
-    cmpl-float v2, v2, v3
+    cmpl-float v1, v1, v3
 
-    if-lez v2, :cond_2
+    if-lez v1, :cond_2
 
-    return v1
+    return v2
 
     .line 1280
     :cond_2
@@ -557,7 +527,7 @@
 
     move-result p1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     and-int p1, p2, v0
 
@@ -895,9 +865,9 @@
 
     move-result v12
 
-    mul-int v10, v10, v10
+    mul-int/2addr v10, v10
 
-    mul-int v12, v12, v12
+    mul-int/2addr v12, v12
 
     add-int/2addr v10, v12
 
@@ -1682,13 +1652,13 @@
     return-void
 
     :cond_4
-    const/4 v6, 0x0
-
     cmpl-float v4, v4, v5
+
+    const/4 v5, 0x0
 
     if-lez v4, :cond_6
 
-    cmpg-float p3, v3, v6
+    cmpg-float p3, v3, v5
 
     if-gez p3, :cond_5
 
@@ -1699,7 +1669,7 @@
     return-void
 
     :cond_5
-    cmpl-float p3, v3, v6
+    cmpl-float p3, v3, v5
 
     if-lez p3, :cond_8
 
@@ -1710,7 +1680,7 @@
     return-void
 
     :cond_6
-    cmpg-float v3, p3, v6
+    cmpg-float v3, p3, v5
 
     if-gez v3, :cond_7
 
@@ -1721,7 +1691,7 @@
     return-void
 
     :cond_7
-    cmpl-float p3, p3, v6
+    cmpl-float p3, p3, v5
 
     if-lez p3, :cond_8
 
@@ -1733,9 +1703,9 @@
 
     .line 1031
     :cond_8
-    iput v6, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDy:F
+    iput v5, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDy:F
 
-    iput v6, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDx:F
+    iput v5, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mDx:F
 
     const/4 p3, 0x0
 
@@ -1995,7 +1965,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -2099,7 +2069,7 @@
 
     int-to-float v2, v2
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     cmpg-float v1, v1, v2
 
@@ -2129,7 +2099,7 @@
 
     int-to-float v2, v2
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     cmpg-float v0, v1, v2
 
@@ -2337,9 +2307,9 @@
     :cond_0
     const/4 v0, 0x0
 
-    const/4 v7, 0x0
+    move v7, v0
 
-    const/4 v8, 0x0
+    move v8, v7
 
     .line 561
     :goto_0
@@ -2394,9 +2364,9 @@
     :cond_0
     const/4 v0, 0x0
 
-    const/4 v7, 0x0
+    move v7, v0
 
-    const/4 v8, 0x0
+    move v8, v7
 
     .line 547
     :goto_0
@@ -2621,7 +2591,7 @@
     goto :goto_1
 
     :cond_4
-    const/4 v12, 0x0
+    move v12, v2
 
     .line 765
     :goto_1
@@ -2712,7 +2682,7 @@
     goto :goto_2
 
     :cond_6
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_2
     if-eqz v12, :cond_7
@@ -2920,7 +2890,7 @@
 
     if-ne v4, v15, :cond_3
 
-    const/4 v7, 0x0
+    move v7, v8
 
     goto :goto_1
 
@@ -2956,7 +2926,9 @@
 
     if-eq v7, v2, :cond_4
 
-    const/16 v17, 0x0
+    move/from16 v17, v1
+
+    move/from16 v18, v17
 
     goto :goto_2
 
@@ -2976,14 +2948,13 @@
 
     int-to-float v3, v3
 
-    mul-float v2, v2, v3
+    mul-float/2addr v2, v3
+
+    move/from16 v18, v1
 
     move/from16 v17, v2
 
-    :goto_2
-    const/16 v18, 0x0
-
-    goto :goto_3
+    goto :goto_2
 
     .line 617
     :cond_5
@@ -3001,31 +2972,31 @@
 
     int-to-float v3, v3
 
-    mul-float v2, v2, v3
+    mul-float/2addr v2, v3
+
+    move/from16 v17, v1
 
     move/from16 v18, v2
 
-    const/16 v17, 0x0
-
-    :goto_3
+    :goto_2
     if-ne v4, v15, :cond_6
 
-    const/16 v6, 0x8
+    move v6, v10
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_6
     if-lez v7, :cond_7
 
-    const/4 v6, 0x2
+    move v6, v15
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_7
-    const/4 v6, 0x4
+    move v6, v0
 
     .line 630
-    :goto_4
+    :goto_3
     iget-object v0, v11, Landroid/support/v7/widget/helper/ItemTouchHelper;->mTmpPosition:[F
 
     invoke-direct {v11, v0}, Landroid/support/v7/widget/helper/ItemTouchHelper;->getSelectedDxDy([F)V
@@ -3067,7 +3038,7 @@
 
     move/from16 v9, v21
 
-    const/16 v21, 0x8
+    move/from16 v21, v10
 
     move-object/from16 v10, v22
 
@@ -3099,12 +3070,12 @@
 
     const/4 v8, 0x1
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_8
     move-object v0, v9
 
-    const/16 v21, 0x8
+    move/from16 v21, v10
 
     .line 669
     iget-object v1, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
@@ -3120,20 +3091,20 @@
 
     const/4 v8, 0x0
 
-    :goto_5
+    :goto_4
     const/4 v0, 0x0
 
     .line 672
     iput-object v0, v11, Landroid/support/v7/widget/helper/ItemTouchHelper;->mSelected:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_9
-    const/16 v21, 0x8
+    move/from16 v21, v10
 
     const/4 v8, 0x0
 
-    :goto_6
+    :goto_5
     if-eqz v12, :cond_a
 
     .line 675
@@ -3192,13 +3163,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->performHapticFeedback(I)Z
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_a
     const/4 v1, 0x0
 
     .line 686
-    :goto_7
+    :goto_6
     iget-object v0, v11, Landroid/support/v7/widget/helper/ItemTouchHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getParent()Landroid/view/ViewParent;
@@ -3214,12 +3185,12 @@
 
     const/4 v14, 0x1
 
-    goto :goto_8
+    goto :goto_7
 
     :cond_b
-    const/4 v14, 0x0
+    move v14, v1
 
-    :goto_8
+    :goto_7
     invoke-interface {v0, v14}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     :cond_c

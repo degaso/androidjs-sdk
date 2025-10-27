@@ -888,11 +888,11 @@
 
     move-result v3
 
-    const/4 v4, 0x0
+    move v4, v2
 
-    const/4 v5, 0x0
+    move v5, v4
 
-    const/4 v6, 0x0
+    move v6, v5
 
     :goto_0
     if-ge v4, v1, :cond_4
@@ -926,7 +926,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 v8, 0x0
+    move v8, v2
 
     .line 717
     :goto_1
@@ -1090,9 +1090,13 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, ", coord:"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     iget-object v4, p0, Landroid/support/v7/widget/LinearLayoutManager;->mOrientationHelper:Landroid/support/v7/widget/OrientationHelper;
 
@@ -1103,7 +1107,9 @@
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1229,7 +1235,7 @@
 
     const/4 p2, 0x0
 
-    const/4 v2, 0x0
+    move v2, p2
 
     :goto_0
     if-ge v2, v0, :cond_6
@@ -1383,7 +1389,7 @@
     :cond_3
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_2
     if-ge v2, v0, :cond_6
@@ -1886,19 +1892,19 @@
 
     if-ge v2, p1, :cond_9
 
-    const/4 p1, 0x1
+    move p1, v0
 
     goto :goto_2
 
     :cond_9
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_2
     iget-boolean v2, p0, Landroid/support/v7/widget/LinearLayoutManager;->mShouldReverseLayout:Z
 
     if-ne p1, v2, :cond_a
 
-    const/4 v1, 0x1
+    move v1, v0
 
     :cond_a
     iput-boolean v1, p2, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
@@ -2076,7 +2082,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p4, 0x1
+    move p4, v0
 
     :goto_0
     iput p4, v1, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mItemDirection:I
@@ -2153,7 +2159,7 @@
 
     if-eqz v2, :cond_2
 
-    const/4 p4, 0x1
+    move p4, v0
 
     :cond_2
     iput p4, v1, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mItemDirection:I
@@ -2258,7 +2264,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x1
+    move v1, v2
 
     :goto_0
     iput v1, v0, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mItemDirection:I
@@ -2336,7 +2342,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, -0x1
+    move v0, v1
 
     :goto_0
     iput v0, p1, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mItemDirection:I
@@ -2462,7 +2468,7 @@
 
     if-lez p1, :cond_2
 
-    const/4 v0, 0x1
+    move v0, p2
 
     goto :goto_1
 
@@ -2537,7 +2543,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v2
 
     :cond_2
     :goto_0
@@ -2549,7 +2555,7 @@
     const/4 v1, 0x1
 
     :goto_1
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 1246
     :goto_2
@@ -2667,7 +2673,7 @@
 
     if-ge p1, v1, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v2
 
     .line 460
     :cond_1
@@ -2780,7 +2786,7 @@
     goto :goto_0
 
     :cond_1
-    const/high16 v1, -0x80000000
+    move v1, v3
 
     :goto_0
     return v1
@@ -2794,7 +2800,7 @@
     goto :goto_1
 
     :cond_3
-    const/high16 v1, -0x80000000
+    move v1, v3
 
     :goto_1
     return v1
@@ -2808,7 +2814,7 @@
     goto :goto_2
 
     :cond_5
-    const/high16 v0, -0x80000000
+    move v0, v3
 
     :goto_2
     return v0
@@ -2822,7 +2828,7 @@
     goto :goto_3
 
     :cond_7
-    const/high16 v0, -0x80000000
+    move v0, v3
 
     :goto_3
     return v0
@@ -2978,7 +2984,7 @@
 
     iget v6, p2, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mLayoutDirection:I
 
-    mul-int v5, v5, v6
+    mul-int/2addr v5, v6
 
     add-int/2addr v4, v5
 
@@ -3295,7 +3301,7 @@
     goto :goto_0
 
     :cond_0
-    const/16 p3, 0x140
+    move p3, v0
 
     :goto_0
     if-eqz p4, :cond_1
@@ -3669,12 +3675,12 @@
 
     if-ne v3, v1, :cond_1
 
-    const/4 v3, 0x1
+    move v3, p2
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ne v0, v3, :cond_2
@@ -3698,12 +3704,12 @@
 
     if-ne v3, v1, :cond_4
 
-    const/4 v3, 0x1
+    move v3, p2
 
     goto :goto_1
 
     :cond_4
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_1
     if-ne v0, v3, :cond_5
@@ -3991,7 +3997,7 @@
 
     const v2, 0x3eaaaaab
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
     float-to-int v1, v1
 
@@ -4275,12 +4281,12 @@
 
     move v3, v0
 
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_2
 
     :cond_7
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 541
     :goto_2
@@ -4398,7 +4404,7 @@
     if-eqz v5, :cond_d
 
     :cond_b
-    const/4 v1, 0x1
+    move v1, v4
 
     goto :goto_5
 
@@ -4936,12 +4942,12 @@
 
     if-ge p3, p4, :cond_0
 
-    const/4 p3, 0x1
+    move p3, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 p3, -0x1
+    move p3, v1
 
     .line 2101
     :goto_0
@@ -5105,7 +5111,7 @@
 
     if-lez p1, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_0
 
@@ -5290,7 +5296,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -5505,6 +5513,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -5556,7 +5566,7 @@
 
     if-eqz v4, :cond_4
 
-    const/4 v4, 0x1
+    move v4, v1
 
     .line 2051
     :goto_0
@@ -5600,12 +5610,14 @@
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_1
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -5632,7 +5644,7 @@
     throw v0
 
     :cond_4
-    const/4 v4, 0x1
+    move v4, v1
 
     .line 2066
     :goto_2
@@ -5676,12 +5688,14 @@
     goto :goto_3
 
     :cond_5
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_3
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

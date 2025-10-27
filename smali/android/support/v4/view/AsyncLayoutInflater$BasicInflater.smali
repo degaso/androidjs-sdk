@@ -22,16 +22,28 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 127
-    const-string v0, "android.webkit."
+    const/4 v0, 0x3
 
-    const-string v1, "android.app."
+    .line 127
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     const-string v2, "android.widget."
 
-    filled-new-array {v2, v0, v1}, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    move-result-object v0
+    const/4 v1, 0x1
+
+    const-string v2, "android.webkit."
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string v2, "android.app."
+
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/support/v4/view/AsyncLayoutInflater$BasicInflater;->sClassPrefixList:[Ljava/lang/String;
 

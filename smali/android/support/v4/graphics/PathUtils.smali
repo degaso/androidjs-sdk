@@ -50,7 +50,7 @@
     .end annotation
 
     .line 60
-    invoke-static {p0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Path;F)[F
+    invoke-virtual {p0, p1}, Landroid/graphics/Path;->approximate(F)[F
 
     move-result-object p0
 

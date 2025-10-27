@@ -24,7 +24,7 @@
     if-lt v0, v1, :cond_0
 
     .line 42
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Landroid/view/View;->setTooltipText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 

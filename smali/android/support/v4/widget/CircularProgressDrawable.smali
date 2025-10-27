@@ -190,7 +190,7 @@
 
     sub-float/2addr v2, v3
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     add-float/2addr v1, v2
 
@@ -216,7 +216,7 @@
 
     sub-float/2addr v0, v2
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     add-float/2addr v1, v0
 
@@ -261,7 +261,7 @@
 
     int-to-float v3, v3
 
-    mul-float v3, v3, p1
+    mul-float/2addr v3, p1
 
     float-to-int v3, v3
 
@@ -273,7 +273,7 @@
 
     int-to-float v3, v4
 
-    mul-float v3, v3, p1
+    mul-float/2addr v3, p1
 
     float-to-int v3, v3
 
@@ -287,7 +287,7 @@
 
     int-to-float v1, v5
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     float-to-int v1, v1
 
@@ -301,7 +301,7 @@
 
     int-to-float p3, p3
 
-    mul-float p1, p1, p3
+    mul-float/2addr p1, p3
 
     float-to-int p1, p1
 
@@ -346,12 +346,12 @@
     .line 153
     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float p2, p2, v1
+    mul-float/2addr p2, v1
 
     .line 155
     invoke-virtual {v0, p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStrokeWidth(F)V
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     .line 156
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setCenterRadius(F)V
@@ -361,9 +361,9 @@
     .line 157
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColorIndex(I)V
 
-    mul-float p3, p3, v1
+    mul-float/2addr p3, v1
 
-    mul-float p4, p4, v1
+    mul-float/2addr p4, v1
 
     .line 158
     invoke-virtual {v0, p3, p4}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setArrowDimensions(FF)V
@@ -459,91 +459,91 @@
 
     move-result p3
 
-    const v1, 0x3c23d70a    # 0.01f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    const v2, 0x3f4a3d71    # 0.79f
+    cmpg-float v2, p1, v1
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    const v3, 0x3c23d70a    # 0.01f
 
-    cmpg-float v4, p1, v3
+    const v4, 0x3f4a3d71    # 0.79f
 
-    if-gez v4, :cond_2
+    if-gez v2, :cond_2
 
-    div-float v0, p1, v3
+    div-float v0, p1, v1
 
     .line 544
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
 
-    move-result v3
+    move-result v1
 
     .line 545
-    sget-object v4, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
+    sget-object v2, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     .line 546
-    invoke-interface {v4, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v2, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v0
 
-    mul-float v0, v0, v2
-
-    add-float/2addr v0, v1
+    mul-float/2addr v0, v4
 
     add-float/2addr v0, v3
+
+    add-float/2addr v0, v1
 
     goto :goto_0
 
     :cond_2
-    sub-float v4, p1, v3
+    sub-float v2, p1, v1
 
-    div-float/2addr v4, v3
+    div-float/2addr v2, v1
 
     .line 549
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
 
-    move-result v3
+    move-result v1
 
-    add-float/2addr v3, v2
+    add-float/2addr v1, v4
 
     .line 550
     sget-object v5, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     .line 551
-    invoke-interface {v5, v4}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v5, v2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v4
+    move-result v2
 
-    sub-float/2addr v0, v4
+    sub-float/2addr v0, v2
 
-    mul-float v0, v0, v2
+    mul-float/2addr v0, v4
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, v3
 
-    sub-float v0, v3, v0
+    sub-float v0, v1, v0
 
-    move v6, v3
+    move v6, v1
 
-    move v3, v0
+    move v1, v0
 
     move v0, v6
 
     :goto_0
-    const v1, 0x3e570a3c    # 0.20999998f
+    const v2, 0x3e570a3c    # 0.20999998f
 
-    mul-float v1, v1, p1
+    mul-float/2addr v2, p1
 
-    add-float/2addr p3, v1
+    add-float/2addr p3, v2
 
     .line 556
-    iget v1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
+    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
-    add-float/2addr p1, v1
+    add-float/2addr p1, v2
 
-    const/high16 v1, 0x43580000    # 216.0f
+    const/high16 v2, 0x43580000    # 216.0f
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v2
 
     .line 558
-    invoke-virtual {p2, v3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
+    invoke-virtual {p2, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
 
     .line 559
     invoke-virtual {p2, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V

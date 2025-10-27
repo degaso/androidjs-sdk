@@ -220,9 +220,7 @@
 
     move-result-object v3
 
-    invoke-static {v3}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/app/Person;
-
-    move-result-object v3
+    check-cast v3, Landroid/app/Person;
 
     .line 2793
     invoke-static {v3}, Landroid/support/v4/app/Person;->fromAndroidPerson(Landroid/app/Person;)Landroid/support/v4/app/Person;

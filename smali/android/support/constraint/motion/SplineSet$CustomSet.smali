@@ -173,7 +173,7 @@
 
     check-cast v1, [[D
 
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_0
     if-ge v4, v0, :cond_1
@@ -198,11 +198,9 @@
 
     const-wide v9, 0x3f847ae147ae147bL    # 0.01
 
+    mul-double/2addr v7, v9
+
     .line 275
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v7, v7, v9
-
     aput-wide v7, v3, v4
 
     .line 276
@@ -210,7 +208,7 @@
 
     invoke-virtual {v6, v5}, Landroid/support/constraint/ConstraintAttribute;->getValuesToInterpolate([F)V
 
-    const/4 v5, 0x0
+    move v5, v2
 
     .line 277
     :goto_1

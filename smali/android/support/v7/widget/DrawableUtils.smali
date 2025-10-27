@@ -86,7 +86,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_4
@@ -175,36 +175,8 @@
 .end method
 
 .method static fixDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .locals 0
 
-    .line 118
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ne v0, v1, :cond_0
-
-    .line 119
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "android.graphics.drawable.VectorDrawable"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 120
-    invoke-static {p0}, Landroid/support/v7/widget/DrawableUtils;->fixVectorDrawableTinting(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -270,13 +242,17 @@
 
     const/4 v2, 0x0
 
+    new-array v3, v2, [Ljava/lang/Class;
+
     .line 76
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     .line 77
-    invoke-virtual {v0, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -294,14 +270,12 @@
 
     move-result-object v1
 
-    array-length v2, v1
+    array-length v3, v1
 
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_0
-    if-ge v4, v2, :cond_5
+    if-ge v4, v3, :cond_5
 
     aget-object v5, v1, v4
 
@@ -333,7 +307,7 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v6, 0x2
+    move v6, v9
 
     goto :goto_2
 
@@ -346,7 +320,7 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v6, 0x0
+    move v6, v2
 
     goto :goto_2
 
@@ -359,7 +333,7 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v6, 0x1
+    move v6, v10
 
     goto :goto_2
 
@@ -372,7 +346,7 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v6, 0x3
+    move v6, v8
 
     goto :goto_2
 
@@ -452,8 +426,6 @@
     sget-object p0, Landroid/support/v7/widget/DrawableUtils;->INSETS_NONE:Landroid/graphics/Rect;
 
     return-object p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

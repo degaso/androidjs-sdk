@@ -98,11 +98,11 @@
     .locals 1
 
     .line 56
-    invoke-static {p1}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/PermissionRequest;)[Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/webkit/PermissionRequest;->getResources()[Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/PermissionRequest;[Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/webkit/PermissionRequest;->grant([Ljava/lang/String;)V
 
     return-void
 .end method

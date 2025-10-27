@@ -56,7 +56,7 @@
 
     const/4 v0, 0x1
 
-    .line 223
+    .line 221
     :try_start_0
     invoke-static {p1, v0}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -64,7 +64,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 228
+    .line 226
     invoke-virtual {p0, v1}, Lcom/android/js/webview/AndroidJSActivity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -74,7 +74,7 @@
     :catch_0
     move-exception v1
 
-    .line 232
+    .line 230
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v3, "Could not resolve intent url \""
@@ -83,13 +83,19 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "\":"
+    move-result-object p1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "\":"
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -97,7 +103,7 @@
 
     invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 234
+    .line 232
     :cond_0
     sget p1, Lcom/android/js/R$string;->intent_url_failed:I
 
@@ -113,7 +119,7 @@
 .method private handleUrl(Ljava/lang/String;)V
     .locals 2
 
-    .line 213
+    .line 211
     const-string v0, "intent://"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -122,12 +128,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 214
+    .line 212
     invoke-direct {p0, p1}, Lcom/android/js/webview/AndroidJSActivity;->handleIntentUrl(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 216
+    .line 214
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -139,7 +145,7 @@
 
     invoke-direct {v0, v1, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 217
+    .line 215
     invoke-virtual {p0, v0}, Lcom/android/js/webview/AndroidJSActivity;->startActivity(Landroid/content/Intent;)V
 
     :goto_0
@@ -149,16 +155,18 @@
 
 # virtual methods
 .method public configureWebview(I)V
-    .locals 3
+    .locals 4
 
     .line 87
     iget-object v0, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v1, Lcom/android/js/common/JavaWebviewBridge;
 
-    const-string v2, "com.android.js.webview.MainActivity"
+    iget-object v2, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
-    invoke-direct {v1, p0, v0, p1, v2}, Lcom/android/js/common/JavaWebviewBridge;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
+    const-string v3, "com.android.js.webview.MainActivity"
+
+    invoke-direct {v1, p0, v2, p1, v3}, Lcom/android/js/common/JavaWebviewBridge;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
 
     const-string p1, "android"
 
@@ -250,7 +258,7 @@
 
     invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 106
+    .line 104
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v0, Lcom/android/js/webview/AndroidJSActivity$2;

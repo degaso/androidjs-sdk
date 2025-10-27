@@ -779,7 +779,7 @@
 .end method
 
 .method public translationZ(F)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-    .locals 3
+    .locals 1
 
     .line 588
     iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -792,26 +792,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 589
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 590
     invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationZ(F)Landroid/view/ViewPropertyAnimator;
 
     :cond_0
     return-object p0
 .end method
 
 .method public translationZBy(F)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-    .locals 3
+    .locals 1
 
     .line 569
     iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -824,19 +817,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 570
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 571
     invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationZBy(F)Landroid/view/ViewPropertyAnimator;
 
     :cond_0
     return-object p0
@@ -1018,7 +1004,7 @@
 .end method
 
 .method public z(F)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-    .locals 3
+    .locals 1
 
     .line 607
     iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -1031,26 +1017,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 608
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 609
     invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->z(F)Landroid/view/ViewPropertyAnimator;
 
     :cond_0
     return-object p0
 .end method
 
 .method public zBy(F)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-    .locals 3
+    .locals 1
 
     .line 626
     iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->mView:Ljava/lang/ref/WeakReference;
@@ -1063,19 +1042,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 627
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
     .line 628
     invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewPropertyAnimator;F)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->zBy(F)Landroid/view/ViewPropertyAnimator;
 
     :cond_0
     return-object p0

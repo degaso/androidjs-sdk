@@ -55,9 +55,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/WindowInsets;
-
-    move-result-object p1
+    check-cast p1, Landroid/view/WindowInsets;
 
     return-object p1
 .end method

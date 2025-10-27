@@ -74,28 +74,11 @@
 
     goto :goto_0
 
-    .line 71
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     .line 72
+    :cond_0
     new-instance v0, Landroid/support/v4/media/MediaSessionManagerImplApi21;
 
     invoke-direct {v0, p1}, Landroid/support/v4/media/MediaSessionManagerImplApi21;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager;->mImpl:Landroid/support/v4/media/MediaSessionManager$MediaSessionManagerImpl;
-
-    goto :goto_0
-
-    .line 74
-    :cond_1
-    new-instance v0, Landroid/support/v4/media/MediaSessionManagerImplBase;
-
-    invoke-direct {v0, p1}, Landroid/support/v4/media/MediaSessionManagerImplBase;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager;->mImpl:Landroid/support/v4/media/MediaSessionManager$MediaSessionManagerImpl;
 

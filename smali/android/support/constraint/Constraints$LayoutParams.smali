@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    .locals 3
 
     .line 90
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -188,14 +188,7 @@
     :cond_0
     sget v2, Landroid/support/constraint/R$styleable;->ConstraintSet_android_elevation:I
 
-    const/16 v3, 0x15
-
     if-ne v0, v2, :cond_1
-
-    .line 98
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v3, :cond_b
 
     .line 99
     iget v2, p0, Landroid/support/constraint/Constraints$LayoutParams;->elevation:F
@@ -371,11 +364,6 @@
     sget v2, Landroid/support/constraint/R$styleable;->ConstraintSet_android_translationZ:I
 
     if-ne v0, v2, :cond_b
-
-    .line 121
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v3, :cond_b
 
     .line 122
     iget v2, p0, Landroid/support/constraint/Constraints$LayoutParams;->translationZ:F

@@ -239,7 +239,7 @@
     .line 184
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
 
-    invoke-static {v0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/view/Window$Callback;Z)V
+    invoke-interface {v0, p1}, Landroid/view/Window$Callback;->onPointerCaptureChanged(Z)V
 
     return-void
 .end method
@@ -273,7 +273,7 @@
     .line 178
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
 
-    invoke-static {v0, p1, p2, p3}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/view/Window$Callback;Ljava/util/List;Landroid/view/Menu;I)V
+    invoke-interface {v0, p1, p2, p3}, Landroid/view/Window$Callback;->onProvideKeyboardShortcuts(Ljava/util/List;Landroid/view/Menu;I)V
 
     return-void
 .end method
@@ -297,7 +297,7 @@
     .line 145
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
 
-    invoke-static {v0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/view/Window$Callback;Landroid/view/SearchEvent;)Z
+    invoke-interface {v0, p1}, Landroid/view/Window$Callback;->onSearchRequested(Landroid/view/SearchEvent;)Z
 
     move-result p1
 
@@ -345,7 +345,7 @@
     .line 161
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
 
-    invoke-static {v0, p1, p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/view/Window$Callback;Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
+    invoke-interface {v0, p1, p2}, Landroid/view/Window$Callback;->onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
 
     move-result-object p1
 

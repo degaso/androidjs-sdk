@@ -125,7 +125,7 @@
 
     move-result v0
 
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_0
     if-ge v3, v0, :cond_3
@@ -910,7 +910,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v2
 
     :cond_2
     :goto_0
@@ -933,7 +933,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v2
 
     :cond_4
     :goto_1
@@ -948,7 +948,7 @@
     goto :goto_2
 
     :cond_5
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_2
     return v1
@@ -1064,13 +1064,13 @@
     goto :goto_0
 
     :cond_4
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_1
 
     :cond_5
     :goto_0
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 291
     :goto_1
@@ -1090,7 +1090,7 @@
     if-ne v1, p1, :cond_7
 
     :cond_6
-    const/4 v0, 0x1
+    move v0, v3
 
     :cond_7
     move v2, v0
@@ -1111,13 +1111,13 @@
     goto :goto_2
 
     :cond_9
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_3
 
     :cond_a
     :goto_2
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 283
     :goto_3
@@ -1137,7 +1137,7 @@
     if-ne v1, p1, :cond_c
 
     :cond_b
-    const/4 v0, 0x1
+    move v0, v3
 
     :cond_c
     move v2, v0
@@ -1159,7 +1159,7 @@
 
     if-eq v1, p1, :cond_e
 
-    const/4 v0, 0x1
+    move v0, v3
 
     :cond_e
     return v0
@@ -1401,9 +1401,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ":"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mType:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
@@ -1412,6 +1416,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

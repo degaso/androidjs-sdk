@@ -39,11 +39,9 @@
     .locals 0
 
     .line 54
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Landroid/service/media/MediaBrowserService;->notifyChildrenChanged(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -52,11 +50,9 @@
     .locals 0
 
     .line 46
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;Landroid/content/Intent;)Landroid/os/IBinder;
+    invoke-virtual {p0, p1}, Landroid/service/media/MediaBrowserService;->onBind(Landroid/content/Intent;)Landroid/os/IBinder;
 
     move-result-object p0
 
@@ -67,11 +63,9 @@
     .locals 0
 
     .line 42
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;)V
+    invoke-virtual {p0}, Landroid/service/media/MediaBrowserService;->onCreate()V
 
     return-void
 .end method
@@ -80,15 +74,11 @@
     .locals 0
 
     .line 50
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
+    check-cast p1, Landroid/media/session/MediaSession$Token;
 
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaSession$Token;
-
-    move-result-object p1
-
-    invoke-static {p0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;Landroid/media/session/MediaSession$Token;)V
+    invoke-virtual {p0, p1}, Landroid/service/media/MediaBrowserService;->setSessionToken(Landroid/media/session/MediaSession$Token;)V
 
     return-void
 .end method

@@ -84,14 +84,14 @@
     .line 45
     new-array v4, v4, [F
 
-    const/4 v5, 0x0
+    move v5, v1
 
     :goto_0
     if-ge v5, v3, :cond_0
 
     int-to-float v6, v5
 
-    mul-float v6, v6, p1
+    mul-float/2addr v6, p1
 
     int-to-float v7, v2
 
@@ -278,7 +278,7 @@
 
     sub-float/2addr v0, v2
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     add-float/2addr v2, p1
 

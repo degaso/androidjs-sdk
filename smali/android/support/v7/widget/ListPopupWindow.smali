@@ -538,6 +538,8 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -570,14 +572,14 @@
 
     if-ltz v0, :cond_4
 
-    const/high16 v5, -0x80000000
+    move v5, v1
 
     goto :goto_1
 
     :cond_4
-    const/4 v0, 0x0
+    move v0, v4
 
-    const/4 v5, 0x0
+    move v5, v0
 
     .line 1230
     :goto_1
@@ -615,7 +617,7 @@
     goto :goto_2
 
     :cond_5
-    const/4 v0, 0x0
+    move v0, v4
 
     .line 1241
     :goto_2
@@ -663,7 +665,7 @@
     goto :goto_3
 
     :cond_7
-    const/4 v0, 0x0
+    move v0, v4
 
     .line 1256
     :goto_3
@@ -713,7 +715,7 @@
 
     invoke-virtual {v5}, Landroid/graphics/Rect;->setEmpty()V
 
-    const/4 v5, 0x0
+    move v5, v4
 
     .line 1272
     :cond_9
@@ -732,7 +734,7 @@
     goto :goto_5
 
     :cond_a
-    const/4 v3, 0x0
+    move v3, v4
 
     .line 1274
     :goto_5
@@ -895,7 +897,7 @@
 .end method
 
 .method private getMaxAvailableHeight(Landroid/view/View;IZ)I
-    .locals 5
+    .locals 3
 
     .line 1421
     sget-object v0, Landroid/support/v7/widget/ListPopupWindow;->sGetMaxAvailableHeightMethod:Ljava/lang/reflect/Method;
@@ -915,24 +917,12 @@
 
     move-result-object p3
 
-    const/4 v3, 0x3
+    filled-new-array {p1, v2, p3}, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v3, v4
-
-    const/4 v4, 0x1
-
-    aput-object v2, v3, v4
-
-    const/4 v2, 0x2
-
-    aput-object p3, v3, v2
+    move-result-object p3
 
     .line 1423
-    invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p3
 
@@ -1022,7 +1012,7 @@
 .end method
 
 .method private setPopupClipToScreenEnabled(Z)V
-    .locals 4
+    .locals 2
 
     .line 1411
     sget-object v0, Landroid/support/v7/widget/ListPopupWindow;->sClipToWindowEnabledMethod:Ljava/lang/reflect/Method;
@@ -1037,15 +1027,11 @@
 
     move-result-object p1
 
-    const/4 v2, 0x1
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result-object p1
 
-    const/4 v3, 0x0
-
-    aput-object p1, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1484,7 +1470,7 @@
 
     if-eqz v5, :cond_1
 
-    const/4 v6, 0x0
+    move v6, v1
 
     goto :goto_0
 
@@ -2298,7 +2284,7 @@
 
     if-ne v2, v6, :cond_1
 
-    const/4 v2, -0x1
+    move v2, v6
 
     goto :goto_0
 
@@ -2326,7 +2312,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v0, -0x1
+    move v0, v6
 
     :goto_1
     if-eqz v1, :cond_5
@@ -2338,12 +2324,12 @@
 
     if-ne v4, v6, :cond_4
 
-    const/4 v4, -0x1
+    move v4, v6
 
     goto :goto_2
 
     :cond_4
-    const/4 v4, 0x0
+    move v4, v5
 
     :goto_2
     invoke-virtual {v1, v4}, Landroid/widget/PopupWindow;->setWidth(I)V
@@ -2363,12 +2349,12 @@
 
     if-ne v4, v6, :cond_6
 
-    const/4 v4, -0x1
+    move v4, v6
 
     goto :goto_3
 
     :cond_6
-    const/4 v4, 0x0
+    move v4, v5
 
     :goto_3
     invoke-virtual {v1, v4}, Landroid/widget/PopupWindow;->setWidth(I)V
@@ -2403,7 +2389,7 @@
     goto :goto_5
 
     :cond_9
-    const/4 v3, 0x0
+    move v3, v5
 
     :goto_5
     invoke-virtual {v1, v3}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
@@ -2421,7 +2407,7 @@
 
     if-gez v2, :cond_a
 
-    const/4 v11, -0x1
+    move v11, v6
 
     goto :goto_6
 
@@ -2431,7 +2417,7 @@
     :goto_6
     if-gez v0, :cond_b
 
-    const/4 v12, -0x1
+    move v12, v6
 
     goto :goto_7
 
@@ -2449,7 +2435,7 @@
 
     if-ne v1, v6, :cond_d
 
-    const/4 v1, -0x1
+    move v1, v6
 
     goto :goto_8
 
@@ -2472,7 +2458,7 @@
 
     if-ne v2, v6, :cond_f
 
-    const/4 v0, -0x1
+    move v0, v6
 
     goto :goto_9
 
@@ -2509,15 +2495,13 @@
 
     if-nez v1, :cond_11
 
-    const/4 v1, 0x1
-
     goto :goto_a
 
     :cond_11
-    const/4 v1, 0x0
+    move v3, v5
 
     :goto_a
-    invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
 
     .line 723
     iget-object v0, p0, Landroid/support/v7/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -2550,11 +2534,11 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/ListPopupWindow;->mEpicenterBounds:Landroid/graphics/Rect;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {v2}, [Ljava/lang/Object;
 
-    aput-object v2, v3, v5
+    move-result-object v2
 
-    invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

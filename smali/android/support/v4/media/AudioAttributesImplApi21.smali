@@ -77,9 +77,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/AudioAttributes;
-
-    move-result-object v1
+    check-cast v1, Landroid/media/AudioAttributes;
 
     if-nez v1, :cond_1
 
@@ -113,25 +111,21 @@
     if-nez v0, :cond_0
 
     .line 65
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1()Ljava/lang/Class;
-
-    move-result-object v0
+    const-class v0, Landroid/media/AudioAttributes;
 
     const-string v1, "toLegacyStreamType"
 
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1()Ljava/lang/Class;
+    const/4 v2, 0x1
 
-    move-result-object v2
+    new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Class;
+    const-class v3, Landroid/media/AudioAttributes;
 
     const/4 v4, 0x0
 
-    aput-object v2, v3, v4
+    aput-object v3, v2, v4
 
-    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -174,7 +168,7 @@
 
     iget-object p1, p1, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/media/AudioAttributes;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -196,7 +190,7 @@
     .line 117
     iget-object v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes;)I
+    invoke-virtual {v0}, Landroid/media/AudioAttributes;->getContentType()I
 
     move-result v0
 
@@ -209,7 +203,7 @@
     .line 127
     iget-object v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/AudioAttributes;)I
+    invoke-virtual {v0}, Landroid/media/AudioAttributes;->getFlags()I
 
     move-result v0
 
@@ -217,7 +211,7 @@
 .end method
 
 .method public getLegacyStreamType()I
-    .locals 6
+    .locals 5
 
     .line 91
     iget v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mLegacyStreamType:I
@@ -250,6 +244,8 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -263,17 +259,13 @@
     :try_start_0
     iget-object v3, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    const/4 v4, 0x1
+    filled-new-array {v3}, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    move-result-object v3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object v3, v4, v5
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v4, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -309,6 +301,8 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -333,7 +327,7 @@
     .line 122
     iget-object v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$4(Landroid/media/AudioAttributes;)I
+    invoke-virtual {v0}, Landroid/media/AudioAttributes;->getUsage()I
 
     move-result v0
 
@@ -353,7 +347,7 @@
     .line 84
     iget-object v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/media/AudioAttributes;)I
+    invoke-virtual {v0}, Landroid/media/AudioAttributes;->getVolumeControlStream()I
 
     move-result v0
 
@@ -384,7 +378,7 @@
     .line 145
     iget-object v0, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/AudioAttributes;)I
+    invoke-virtual {v0}, Landroid/media/AudioAttributes;->hashCode()I
 
     move-result v0
 
@@ -435,6 +429,8 @@
     iget-object v1, p0, Landroid/support/v4/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -190,7 +190,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 278
     :goto_0
@@ -229,9 +229,13 @@
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     const-string v6, "   "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     sget-object v6, Landroid/support/constraint/motion/KeyPosition$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
@@ -240,6 +244,8 @@
     move-result v5
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -481,6 +487,8 @@
 
     :cond_5
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

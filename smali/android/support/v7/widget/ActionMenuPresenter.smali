@@ -321,7 +321,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 429
     :goto_0
@@ -340,13 +340,13 @@
 
     check-cast v7, Landroid/view/ViewGroup;
 
-    const/4 v8, 0x0
+    move v8, v2
 
-    const/4 v9, 0x0
+    move v9, v8
 
-    const/4 v10, 0x0
+    move v10, v9
 
-    const/4 v11, 0x0
+    move v11, v10
 
     :goto_1
     if-ge v8, v3, :cond_4
@@ -396,7 +396,7 @@
 
     if-eqz v12, :cond_3
 
-    const/4 v4, 0x0
+    move v4, v2
 
     :cond_3
     add-int/lit8 v8, v8, 0x1
@@ -448,14 +448,14 @@
     goto :goto_3
 
     :cond_7
-    const/4 v9, 0x0
+    move v9, v2
 
-    const/4 v10, 0x0
+    move v10, v9
 
     :goto_3
-    const/4 v11, 0x0
+    move v11, v2
 
-    const/4 v13, 0x0
+    move v13, v11
 
     :goto_4
     if-ge v11, v3, :cond_1d
@@ -537,12 +537,11 @@
     :cond_b
     invoke-virtual {v14, v15}, Landroid/support/v7/view/menu/MenuItemImpl;->setIsActionButton(Z)V
 
+    move v0, v2
+
     move/from16 v17, v3
 
-    :goto_6
-    const/4 v0, 0x0
-
-    goto/16 :goto_e
+    goto/16 :goto_d
 
     .line 497
     :cond_c
@@ -579,12 +578,12 @@
     :cond_e
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_f
     const/4 v2, 0x0
 
-    :goto_7
+    :goto_6
     move/from16 v16, v2
 
     if-eqz v2, :cond_16
@@ -625,7 +624,7 @@
 
     const/16 v16, 0x0
 
-    goto :goto_8
+    goto :goto_7
 
     .line 518
     :cond_11
@@ -633,7 +632,7 @@
 
     .line 520
     :cond_12
-    :goto_8
+    :goto_7
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v2
@@ -652,30 +651,30 @@
 
     if-ltz v5, :cond_15
 
-    goto :goto_9
+    goto :goto_8
 
     :cond_14
     add-int v2, v5, v13
 
     if-lez v2, :cond_15
 
-    :goto_9
+    :goto_8
     const/4 v2, 0x1
 
-    goto :goto_a
+    goto :goto_9
 
     :cond_15
     const/4 v2, 0x0
 
-    :goto_a
+    :goto_9
     and-int v2, v16, v2
 
-    goto :goto_b
+    goto :goto_a
 
     :cond_16
     move/from16 v17, v3
 
-    :goto_b
+    :goto_a
     if-eqz v2, :cond_17
 
     if-eqz v12, :cond_17
@@ -685,7 +684,7 @@
     .line 535
     invoke-virtual {v8, v12, v3}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    goto :goto_d
+    goto :goto_c
 
     :cond_17
     if-eqz v15, :cond_1a
@@ -697,7 +696,7 @@
 
     const/4 v3, 0x0
 
-    :goto_c
+    :goto_b
     if-ge v3, v11, :cond_1a
 
     .line 540
@@ -734,10 +733,10 @@
 
     move-object/from16 v0, p0
 
-    goto :goto_c
+    goto :goto_b
 
     :cond_1a
-    :goto_d
+    :goto_c
     if-eqz v2, :cond_1b
 
     add-int/lit8 v4, v4, -0x1
@@ -746,24 +745,26 @@
     :cond_1b
     invoke-virtual {v14, v2}, Landroid/support/v7/view/menu/MenuItemImpl;->setIsActionButton(Z)V
 
-    goto/16 :goto_6
+    const/4 v0, 0x0
+
+    goto :goto_d
 
     :cond_1c
-    move/from16 v17, v3
+    move v0, v2
 
-    const/4 v0, 0x0
+    move/from16 v17, v3
 
     .line 554
     invoke-virtual {v14, v0}, Landroid/support/v7/view/menu/MenuItemImpl;->setIsActionButton(Z)V
 
-    :goto_e
+    :goto_d
     add-int/lit8 v11, v11, 0x1
 
-    move-object/from16 v0, p0
+    move v2, v0
 
     move/from16 v3, v17
 
-    const/4 v2, 0x0
+    move-object/from16 v0, p0
 
     goto/16 :goto_4
 
@@ -1101,7 +1102,7 @@
 
     const/high16 p2, 0x42600000    # 56.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 
@@ -1353,7 +1354,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_1
     const/4 v4, 0x1
@@ -1378,7 +1379,7 @@
 
     if-eqz v5, :cond_3
 
-    const/4 v1, 0x1
+    move v1, v4
 
     goto :goto_2
 
@@ -1666,7 +1667,7 @@
 
     move-result v1
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_0
     if-ge v2, v1, :cond_1

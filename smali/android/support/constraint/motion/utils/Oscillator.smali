@@ -165,9 +165,9 @@
     :cond_0
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    cmpl-double v4, p1, v2
+    cmpl-double v2, p1, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v2, :cond_1
 
     const-wide p1, 0x3feffffde7210be9L    # 0.999999
 
@@ -212,18 +212,13 @@
 
     sub-double/2addr v6, v0
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
-
     div-double/2addr v3, v6
 
-    mul-double p1, p1, v3
+    mul-double/2addr p1, v3
 
     float-to-double v5, v2
 
-    mul-double v3, v3, v0
-
-    .line 152
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
+    mul-double/2addr v3, v0
 
     sub-double/2addr v5, v3
 
@@ -236,42 +231,44 @@
 .method getP(D)D
     .locals 12
 
-    const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
+    const-wide/16 v0, 0x0
 
-    const-wide/16 v2, 0x0
+    cmpg-double v2, p1, v0
 
-    cmpg-double v4, p1, v2
+    const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
 
-    if-gez v4, :cond_0
+    if-gez v2, :cond_0
 
-    move-wide p1, v2
+    move-wide p1, v0
 
     goto :goto_0
 
     :cond_0
-    cmpl-double v4, p1, v0
+    cmpl-double v2, p1, v3
 
-    if-lez v4, :cond_1
+    if-lez v2, :cond_1
 
-    move-wide p1, v0
+    move-wide p1, v3
 
     .line 101
     :cond_1
     :goto_0
-    iget-object v4, p0, Landroid/support/constraint/motion/utils/Oscillator;->mPosition:[D
+    iget-object v2, p0, Landroid/support/constraint/motion/utils/Oscillator;->mPosition:[D
 
-    invoke-static {v4, p1, p2}, Ljava/util/Arrays;->binarySearch([DD)I
+    invoke-static {v2, p1, p2}, Ljava/util/Arrays;->binarySearch([DD)I
 
-    move-result v4
+    move-result v2
 
-    if-lez v4, :cond_2
+    if-lez v2, :cond_2
+
+    move-wide v0, v3
 
     goto :goto_1
 
     :cond_2
-    if-eqz v4, :cond_3
+    if-eqz v2, :cond_3
 
-    neg-int v0, v4
+    neg-int v0, v2
 
     add-int/lit8 v1, v0, -0x1
 
@@ -296,8 +293,6 @@
 
     sub-double/2addr v6, v8
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
-
     div-double/2addr v3, v6
 
     .line 109
@@ -309,23 +304,21 @@
 
     mul-double v10, v3, v8
 
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v5, v10
 
     sub-double v10, p1, v8
 
-    mul-double v5, v5, v10
+    mul-double/2addr v5, v10
 
     add-double/2addr v0, v5
 
-    mul-double p1, p1, p1
+    mul-double/2addr p1, p1
 
-    mul-double v8, v8, v8
+    mul-double/2addr v8, v8
 
     sub-double/2addr p1, v8
 
-    mul-double v3, v3, p1
+    mul-double/2addr v3, p1
 
     const-wide/high16 p1, 0x4000000000000000L    # 2.0
 
@@ -333,11 +326,7 @@
 
     add-double/2addr v0, v3
 
-    goto :goto_1
-
     :cond_3
-    move-wide v0, v2
-
     :goto_1
     return-wide v0
 .end method
@@ -361,7 +350,7 @@
 
     move-result-wide v2
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
     iget-wide v2, p0, Landroid/support/constraint/motion/utils/Oscillator;->PI2:D
 
@@ -369,14 +358,14 @@
 
     move-result-wide p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide p1
 
     :goto_0
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     return-wide v0
 
@@ -386,13 +375,13 @@
 
     move-result-wide v5
 
-    mul-double v5, v5, v3
+    mul-double/2addr v5, v3
 
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/motion/utils/Oscillator;->getP(D)D
 
     move-result-wide p1
 
-    mul-double p1, p1, v3
+    mul-double/2addr p1, v3
 
     add-double/2addr p1, v1
 
@@ -401,7 +390,7 @@
     sub-double/2addr p1, v1
 
     :goto_1
-    mul-double v5, v5, p1
+    mul-double/2addr v5, p1
 
     return-wide v5
 
@@ -415,7 +404,7 @@
 
     move-result-wide v2
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
     iget-wide v2, p0, Landroid/support/constraint/motion/utils/Oscillator;->PI2:D
 
@@ -423,7 +412,7 @@
 
     move-result-wide p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     invoke-static {v2, v3}, Ljava/lang/Math;->sin(D)D
 
@@ -440,7 +429,7 @@
     neg-double p1, p1
 
     :goto_2
-    mul-double p1, p1, v1
+    mul-double/2addr p1, v1
 
     return-wide p1
 
@@ -458,13 +447,13 @@
 
     move-result-wide v5
 
-    mul-double v5, v5, v3
+    mul-double/2addr v5, v3
 
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/motion/utils/Oscillator;->getP(D)D
 
     move-result-wide p1
 
-    mul-double p1, p1, v3
+    mul-double/2addr p1, v3
 
     const-wide/high16 v7, 0x4008000000000000L    # 3.0
 
@@ -484,6 +473,8 @@
     const-wide/16 p1, 0x0
 
     return-wide p1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -517,7 +508,7 @@
 
     move-result-wide p1
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     invoke-static {v0, v1}, Ljava/lang/Math;->sin(D)D
 
@@ -531,7 +522,7 @@
 
     move-result-wide p1
 
-    mul-double p1, p1, v1
+    mul-double/2addr p1, v1
 
     rem-double/2addr p1, v1
 
@@ -543,7 +534,7 @@
 
     sub-double p1, v5, p1
 
-    mul-double p1, p1, p1
+    mul-double/2addr p1, p1
 
     :goto_0
     sub-double/2addr v5, p1
@@ -558,7 +549,7 @@
 
     move-result-wide p1
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     invoke-static {v0, v1}, Ljava/lang/Math;->cos(D)D
 
@@ -572,7 +563,7 @@
 
     move-result-wide p1
 
-    mul-double p1, p1, v3
+    mul-double/2addr p1, v3
 
     add-double/2addr p1, v5
 
@@ -586,7 +577,7 @@
 
     move-result-wide p1
 
-    mul-double p1, p1, v3
+    mul-double/2addr p1, v3
 
     add-double/2addr p1, v5
 
@@ -602,7 +593,7 @@
 
     move-result-wide p1
 
-    mul-double p1, p1, v1
+    mul-double/2addr p1, v1
 
     add-double/2addr p1, v5
 
@@ -634,8 +625,6 @@
 
     return-wide p1
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_5
@@ -658,7 +647,7 @@
 
     move-wide v5, v1
 
-    const/4 v4, 0x0
+    move v4, v3
 
     .line 74
     :goto_0
@@ -673,8 +662,6 @@
 
     float-to-double v7, v7
 
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
-
     add-double/2addr v5, v7
 
     add-int/lit8 v4, v4, 0x1
@@ -686,7 +673,7 @@
 
     move-wide v8, v1
 
-    const/4 v7, 0x1
+    move v7, v4
 
     .line 77
     :goto_1
@@ -720,10 +707,7 @@
 
     float-to-double v10, v13
 
-    .line 80
-    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v14, v14, v10
+    mul-double/2addr v14, v10
 
     add-double/2addr v8, v14
 
@@ -732,7 +716,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v7, 0x0
+    move v7, v3
 
     .line 83
     :goto_2
@@ -749,9 +733,7 @@
 
     div-double v15, v5, v8
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v13, v13, v15
+    mul-double/2addr v13, v15
 
     double-to-float v11, v13
 
@@ -767,7 +749,7 @@
 
     aput-wide v1, v5, v3
 
-    const/4 v1, 0x1
+    move v1, v4
 
     .line 87
     :goto_3
@@ -804,9 +786,7 @@
 
     float-to-double v10, v5
 
-    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v6, v6, v10
+    mul-double/2addr v6, v10
 
     add-double/2addr v8, v6
 
@@ -850,9 +830,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " period="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/constraint/motion/utils/Oscillator;->mPeriod:[F
 
@@ -861,6 +845,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

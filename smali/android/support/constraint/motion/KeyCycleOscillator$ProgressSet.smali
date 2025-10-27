@@ -67,27 +67,27 @@
     return-void
 
     :cond_1
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     .line 305
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string v5, "setProgress"
+    const-string v4, "setProgress"
 
-    new-array v6, v3, [Ljava/lang/Class;
+    new-array v5, v2, [Ljava/lang/Class;
 
-    sget-object v7, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    sget-object v6, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    aput-object v7, v6, v2
+    const/4 v7, 0x0
 
-    invoke-virtual {v4, v5, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    aput-object v6, v5, v7
 
-    move-result-object v4
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -95,12 +95,12 @@
 
     .line 307
     :catch_0
-    iput-boolean v3, p0, Landroid/support/constraint/motion/KeyCycleOscillator$ProgressSet;->mNoMethod:Z
+    iput-boolean v2, p0, Landroid/support/constraint/motion/KeyCycleOscillator$ProgressSet;->mNoMethod:Z
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
     .line 311
     :try_start_1
@@ -112,11 +112,11 @@
 
     move-result-object p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p2}, [Ljava/lang/Object;
 
-    aput-object p2, v3, v2
+    move-result-object p2
 
-    invoke-virtual {v4, p1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1

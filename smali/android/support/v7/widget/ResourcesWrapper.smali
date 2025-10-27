@@ -215,7 +215,7 @@
     .line 136
     iget-object v0, p0, Landroid/support/v7/widget/ResourcesWrapper;->mResources:Landroid/content/res/Resources;
 
-    invoke-static {v0, p1, p2}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, p1, p2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
@@ -246,7 +246,7 @@
     .line 148
     iget-object v0, p0, Landroid/support/v7/widget/ResourcesWrapper;->mResources:Landroid/content/res/Resources;
 
-    invoke-static {v0, p1, p2, p3}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/res/Resources;IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, p1, p2, p3}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 

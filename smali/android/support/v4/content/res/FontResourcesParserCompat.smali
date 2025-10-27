@@ -40,33 +40,12 @@
 .end method
 
 .method private static getType(Landroid/content/res/TypedArray;I)I
-    .locals 2
-
-    .line 230
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 231
-    invoke-static {p0, p1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/res/TypedArray;I)I
+    invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getType(I)I
 
     move-result p0
-
-    return p0
-
-    .line 233
-    :cond_0
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    .line 234
-    invoke-virtual {p0, p1, v0}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
-
-    .line 235
-    iget p0, v0, Landroid/util/TypedValue;->type:I
 
     return p0
 .end method
@@ -114,13 +93,7 @@
 
     invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public static readCerts(Landroid/content/res/Resources;I)Ljava/util/List;
@@ -189,7 +162,7 @@
 
     if-ne v3, v4, :cond_3
 
-    const/4 p1, 0x0
+    move p1, v2
 
     .line 259
     :goto_0
@@ -247,13 +220,7 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method private static readFamilies(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroid/support/v4/content/res/FontResourcesParserCompat$FamilyResourceEntry;
@@ -573,12 +540,12 @@
 
     if-ne v2, v0, :cond_2
 
-    const/4 v5, 0x1
+    move v5, v2
 
     goto :goto_2
 
     :cond_2
-    const/4 v5, 0x0
+    move v5, v1
 
     .line 295
     :goto_2
@@ -747,7 +714,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_0

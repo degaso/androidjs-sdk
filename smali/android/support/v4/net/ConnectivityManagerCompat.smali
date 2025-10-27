@@ -61,24 +61,12 @@
 .end method
 
 .method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
-    .locals 2
-
-    .line 157
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 158
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/ConnectivityManager;)I
+    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getRestrictBackgroundStatus()I
 
     move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x3
 
     return p0
 .end method

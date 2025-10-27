@@ -92,7 +92,9 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -181,5 +183,5 @@
 
     invoke-interface {v1, v0}, Landroid/support/v7/util/ThreadUtil$BackgroundCallback;->refresh(I)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

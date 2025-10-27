@@ -322,10 +322,6 @@
 
     int-to-double v5, v3
 
-    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
-
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
     div-double/2addr v1, v5
 
     int-to-double v5, v0
@@ -341,10 +337,6 @@
 
     int-to-double v7, v0
 
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
-
     div-double/2addr v5, v7
 
     .line 999
@@ -359,9 +351,7 @@
 
     int-to-double v2, v2
 
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
     invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
 
@@ -376,9 +366,7 @@
 
     int-to-double v5, v3
 
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v5, v5, v0
+    mul-double/2addr v5, v0
 
     invoke-static {v5, v6}, Ljava/lang/Math;->ceil(D)D
 
@@ -418,7 +406,7 @@
 
     iget v0, p2, Landroid/app/Notification;->flags:I
 
-    xor-int/lit8 p1, p1, -0x1
+    not-int p1, p1
 
     and-int/2addr p1, v0
 
@@ -1096,13 +1084,6 @@
 
     iput v0, p1, Landroid/app/Notification;->audioStreamType:I
 
-    .line 1020
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_0
-
     .line 1021
     iget-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
@@ -1113,25 +1094,24 @@
     const/4 v1, 0x4
 
     .line 1022
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
     const/4 v1, 0x5
 
     .line 1023
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
     .line 1024
-    invoke-static {v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;)Landroid/media/AudioAttributes;
+    invoke-virtual {v0}, Landroid/media/AudioAttributes$Builder;->build()Landroid/media/AudioAttributes;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Notification;Landroid/media/AudioAttributes;)V
+    iput-object v0, p1, Landroid/app/Notification;->audioAttributes:Landroid/media/AudioAttributes;
 
-    :cond_0
     return-object p0
 .end method
 
@@ -1148,13 +1128,6 @@
 
     iput p2, p1, Landroid/app/Notification;->audioStreamType:I
 
-    .line 1043
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_0
-
     .line 1044
     iget-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
@@ -1165,23 +1138,22 @@
     const/4 v1, 0x4
 
     .line 1045
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
     .line 1046
-    invoke-static {v0, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, p2}, Landroid/media/AudioAttributes$Builder;->setLegacyStreamType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object p2
 
     .line 1047
-    invoke-static {p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;)Landroid/media/AudioAttributes;
+    invoke-virtual {p2}, Landroid/media/AudioAttributes$Builder;->build()Landroid/media/AudioAttributes;
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Notification;Landroid/media/AudioAttributes;)V
+    iput-object p2, p1, Landroid/app/Notification;->audioAttributes:Landroid/media/AudioAttributes;
 
-    :cond_0
     return-object p0
 .end method
 

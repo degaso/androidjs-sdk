@@ -379,17 +379,15 @@
 
     move-result p0
 
-    move v7, p0
-
     goto :goto_0
 
     :cond_0
     const/4 p0, 0x0
 
-    const/4 v7, 0x0
+    :goto_0
+    move v7, p0
 
     .line 141
-    :goto_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
@@ -449,7 +447,7 @@
 
     move-result p1
 
-    mul-int p1, p1, p0
+    mul-int/2addr p1, p0
 
     int-to-float p0, p1
 
@@ -846,17 +844,25 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " ("
+    move-result-object p1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " ("
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, ")"
+    move-result-object p1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    const-string v2, ")"
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1751,7 +1757,7 @@
 
     const/high16 v0, 0x42c80000    # 100.0f
 
-    mul-float p3, p3, v0
+    mul-float/2addr p3, v0
 
     float-to-int p3, p3
 

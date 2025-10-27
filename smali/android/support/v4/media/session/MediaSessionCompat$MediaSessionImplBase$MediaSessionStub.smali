@@ -386,9 +386,10 @@
 
     move v6, v5
 
+    :goto_0
     move v5, v2
 
-    goto :goto_0
+    goto :goto_1
 
     .line 2736
     :cond_0
@@ -413,10 +414,10 @@
 
     move v7, v5
 
-    const/4 v5, 0x2
+    goto :goto_0
 
     .line 2739
-    :goto_0
+    :goto_1
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

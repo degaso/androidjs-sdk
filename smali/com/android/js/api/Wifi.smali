@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public connectWifi(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 3
 
     .line 80
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -53,6 +53,8 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -64,46 +66,44 @@
 
     invoke-direct {v0}, Landroid/net/wifi/WifiConfiguration;-><init>()V
 
-    const/4 v1, 0x1
-
     .line 82
-    new-array v2, v1, [Ljava/lang/Object;
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-result-object p1
 
-    aput-object p1, v2, v3
+    const-string v1, "\"%s\""
 
-    const-string p1, "\"%s\""
+    invoke-static {v1, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
-
-    iput-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+    iput-object p1, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
     .line 83
-    const-string v2, ""
+    const-string p1, ""
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     .line 84
     iget-object p1, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    invoke-virtual {p1, v3}, Ljava/util/BitSet;->set(I)V
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Ljava/util/BitSet;->set(I)V
 
     goto :goto_0
 
     .line 86
     :cond_0
-    new-array v2, v1, [Ljava/lang/Object;
+    filled-new-array {p2}, [Ljava/lang/Object;
 
-    aput-object p2, v2, v3
+    move-result-object p1
 
-    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -125,7 +125,9 @@
     .line 89
     iget-object p2, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {p2, p1, v1}, Landroid/net/wifi/WifiManager;->enableNetwork(IZ)Z
+    const/4 v0, 0x1
+
+    invoke-virtual {p2, p1, v0}, Landroid/net/wifi/WifiManager;->enableNetwork(IZ)Z
 
     .line 90
     iget-object p1, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;

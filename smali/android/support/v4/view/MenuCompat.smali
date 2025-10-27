@@ -37,7 +37,7 @@
     if-lt v0, v1, :cond_1
 
     .line 51
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/Menu;Z)V
+    invoke-interface {p0, p1}, Landroid/view/Menu;->setGroupDividerEnabled(Z)V
 
     :cond_1
     :goto_0

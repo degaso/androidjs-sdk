@@ -76,7 +76,7 @@
 
     if-lt v1, v4, :cond_1
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/2addr v0, v3
 
     .line 125
     new-array v0, v0, [I
@@ -270,7 +270,7 @@
 
     mul-int/lit8 v0, v0, 0x2
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1

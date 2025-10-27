@@ -139,7 +139,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, p2
 
     :goto_0
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/ActionBarContainer;->setWillNotDraw(Z)V
@@ -418,12 +418,12 @@
 
     if-eq v1, p5, :cond_0
 
-    const/4 v1, 0x1
+    move v1, p3
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     if-eqz p1, :cond_1
@@ -592,7 +592,7 @@
     goto :goto_1
 
     :cond_5
-    const/4 p3, 0x0
+    move p3, v0
 
     .line 326
     :goto_1
@@ -887,7 +887,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionBarContainer;->setWillNotDraw(Z)V
@@ -960,7 +960,7 @@
     if-nez p1, :cond_3
 
     :goto_0
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_1
 
@@ -1078,7 +1078,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionBarContainer;->setWillNotDraw(Z)V
@@ -1170,7 +1170,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v0
 
     .line 145
     :goto_0

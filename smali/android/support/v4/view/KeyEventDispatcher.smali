@@ -43,37 +43,37 @@
     .line 96
     sget-boolean v0, Landroid/support/v4/view/KeyEventDispatcher;->sActionBarFieldsFetched:Z
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_0
+
+    const/4 v0, 0x1
 
     .line 99
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v2
 
     const-string v3, "onMenuKeyEvent"
 
-    new-array v4, v1, [Ljava/lang/Class;
+    new-array v4, v0, [Ljava/lang/Class;
 
     const-class v5, Landroid/view/KeyEvent;
 
-    aput-object v5, v4, v2
+    aput-object v5, v4, v1
 
-    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v2
 
-    sput-object v0, Landroid/support/v4/view/KeyEventDispatcher;->sActionBarOnMenuKeyMethod:Ljava/lang/reflect/Method;
+    sput-object v2, Landroid/support/v4/view/KeyEventDispatcher;->sActionBarOnMenuKeyMethod:Ljava/lang/reflect/Method;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 102
     :catch_0
-    sput-boolean v1, Landroid/support/v4/view/KeyEventDispatcher;->sActionBarFieldsFetched:Z
+    sput-boolean v0, Landroid/support/v4/view/KeyEventDispatcher;->sActionBarFieldsFetched:Z
 
     .line 104
     :cond_0
@@ -83,11 +83,11 @@
 
     .line 106
     :try_start_1
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    aput-object p1, v1, v2
+    move-result-object p1
 
-    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -104,7 +104,7 @@
 
     :catch_1
     :cond_1
-    return v2
+    return v1
 .end method
 
 .method private static activitySuperDispatchKeyEventPre28(Landroid/app/Activity;Landroid/view/KeyEvent;)Z

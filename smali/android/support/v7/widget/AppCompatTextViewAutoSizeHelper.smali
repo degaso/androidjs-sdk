@@ -140,7 +140,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v0, :cond_2
@@ -272,12 +272,12 @@
     const/4 v3, 0x0
 
     .line 715
-    invoke-static {p1, v3, v1, v2, p3}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
+    invoke-static {p1, v3, v1, v2, p3}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
     .line 718
-    invoke-static {p1, p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/text/StaticLayout$Builder;Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setAlignment(Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
@@ -296,7 +296,7 @@
     move-result p3
 
     .line 719
-    invoke-static {p1, p2, p3}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/text/StaticLayout$Builder;FF)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2, p3}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
@@ -307,29 +307,29 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/text/StaticLayout$Builder;Z)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setIncludePad(Z)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
     iget-object p2, p0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     .line 723
-    invoke-static {p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$3(Landroid/widget/TextView;)I
+    invoke-virtual {p2}, Landroid/widget/TextView;->getBreakStrategy()I
 
     move-result p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
     iget-object p2, p0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
     .line 724
-    invoke-static {p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$4(Landroid/widget/TextView;)I
+    invoke-virtual {p2}, Landroid/widget/TextView;->getHyphenationFrequency()I
 
     move-result p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/text/StaticLayout$Builder;I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
@@ -341,17 +341,17 @@
 
     .line 725
     :cond_0
-    invoke-static {p1, p4}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/text/StaticLayout$Builder;I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p4}, Landroid/text/StaticLayout$Builder;->setMaxLines(I)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
     .line 726
-    invoke-static {p1, v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, v0}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
 
     move-result-object p1
 
     .line 727
-    invoke-static {p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;)Landroid/text/StaticLayout;
+    invoke-virtual {p1}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
 
     move-result-object p1
 
@@ -468,81 +468,83 @@
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p1
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method private getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
-    .locals 4
-
-    const/4 v0, 0x0
+    .locals 3
 
     .line 786
     :try_start_0
-    sget-object v1, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->sTextViewMethodByNameCache:Ljava/util/concurrent/ConcurrentHashMap;
+    sget-object v0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->sTextViewMethodByNameCache:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/reflect/Method;
+    check-cast v0, Ljava/lang/reflect/Method;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 788
-    const-class v1, Landroid/widget/TextView;
+    const-class v0, Landroid/widget/TextView;
 
-    invoke-virtual {v1, p1, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    new-array v1, v1, [Ljava/lang/Class;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, p1, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const/4 v2, 0x1
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
 
     .line 790
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 792
-    sget-object v2, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->sTextViewMethodByNameCache:Ljava/util/concurrent/ConcurrentHashMap;
+    sget-object v1, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->sTextViewMethodByNameCache:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v2, p1, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    return-object v1
+    return-object v0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 798
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v3, "Failed to retrieve TextView#"
+    const-string v2, "Failed to retrieve TextView#"
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, "() method"
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    const-string v2, "ACTVAutoSizeHelper"
+    const-string v1, "() method"
 
-    invoke-static {v2, p1, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v0
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "ACTVAutoSizeHelper"
+
+    invoke-static {v1, p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 p1, 0x0
+
+    return-object p1
 .end method
 
 .method private invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
@@ -569,6 +571,8 @@
     const/4 v2, 0x0
 
     .line 770
+    new-array v2, v2, [Ljava/lang/Object;
+
     invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p3
@@ -596,11 +600,15 @@
 
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "() method"
+    move-result-object p2
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "() method"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -660,20 +668,20 @@
 
     .line 618
     :try_start_0
-    const-string v0, "nullLayouts"
+    const-string v1, "nullLayouts"
 
-    invoke-direct {p0, v0}, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->getTextViewMethod(Ljava/lang/String;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     .line 620
-    iget-object v1, p0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
+    iget-object v2, p0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->mTextView:Landroid/widget/TextView;
 
-    const/4 v2, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v2, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -755,7 +763,7 @@
 
     int-to-float v0, v0
 
-    const/4 v3, 0x1
+    move v3, v2
 
     .line 518
     :goto_0
@@ -896,12 +904,12 @@
 
     if-lez v1, :cond_0
 
-    const/4 v4, 0x1
+    move v4, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v2
 
     .line 435
     :goto_0
@@ -1026,12 +1034,6 @@
     check-cast p1, Landroid/text/Layout$Alignment;
 
     .line 687
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x17
-
-    if-lt v2, v3, :cond_2
-
     iget v2, p2, Landroid/graphics/RectF;->right:F
 
     .line 689
@@ -1044,36 +1046,20 @@
 
     move-result-object p1
 
-    goto :goto_1
-
-    :cond_2
-    iget v2, p2, Landroid/graphics/RectF;->right:F
-
-    .line 691
-    invoke-static {v2}, Ljava/lang/Math;->round(F)I
-
-    move-result v2
-
-    .line 690
-    invoke-direct {p0, v0, p1, v2}, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;->createStaticLayoutForMeasuringPre23(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;I)Landroid/text/StaticLayout;
-
-    move-result-object p1
-
-    :goto_1
     const/4 v2, -0x1
 
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_3
 
     .line 693
     invoke-virtual {p1}, Landroid/text/StaticLayout;->getLineCount()I
 
     move-result v2
 
-    if-gt v2, v1, :cond_3
+    if-gt v2, v1, :cond_2
 
     .line 694
     invoke-virtual {p1}, Landroid/text/StaticLayout;->getLineCount()I
@@ -1090,13 +1076,13 @@
 
     move-result v0
 
-    if-eq v1, v0, :cond_4
+    if-eq v1, v0, :cond_3
 
-    :cond_3
+    :cond_2
     return v3
 
     .line 699
-    :cond_4
+    :cond_3
     invoke-virtual {p1}, Landroid/text/StaticLayout;->getHeight()I
 
     move-result p1
@@ -1107,11 +1093,11 @@
 
     cmpl-float p1, p1, p2
 
-    if-lez p1, :cond_5
+    if-lez p1, :cond_4
 
     return v3
 
-    :cond_5
+    :cond_4
     return v4
 .end method
 
@@ -1136,22 +1122,22 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
+    cmpg-float v1, p1, v0
+
     .line 485
-    const-string v0, "px) is less or equal to (0px)"
+    const-string v2, "px) is less or equal to (0px)"
 
-    const/4 v1, 0x0
+    if-lez v1, :cond_2
 
-    cmpg-float v2, p1, v1
+    cmpg-float v1, p2, p1
 
-    if-lez v2, :cond_2
+    if-lez v1, :cond_1
 
-    cmpg-float v2, p2, p1
+    cmpg-float v0, p3, v0
 
-    if-lez v2, :cond_1
-
-    cmpg-float v1, p3, v1
-
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -1180,13 +1166,17 @@
 
     new-instance p2, Ljava/lang/StringBuilder;
 
-    const-string v1, "The auto-size step granularity ("
+    const-string v0, "The auto-size step granularity ("
 
-    invoke-direct {p2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1208,17 +1198,25 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string p2, "px) is less or equal to minimum auto-size text size ("
+    move-result-object p2
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "px) is less or equal to minimum auto-size text size ("
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "px)"
+    move-result-object p2
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    const-string p2, "px)"
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1232,15 +1230,19 @@
 
     new-instance p3, Ljava/lang/StringBuilder;
 
-    const-string v1, "Minimum auto-size text size ("
+    const-string v0, "Minimum auto-size text size ("
 
-    invoke-direct {p3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1581,7 +1583,7 @@
     goto :goto_0
 
     :cond_1
-    const/high16 p2, -0x40800000    # -1.0f
+    move p2, v0
 
     .line 120
     :goto_0
@@ -1603,7 +1605,7 @@
     goto :goto_1
 
     :cond_2
-    const/high16 v1, -0x40800000    # -1.0f
+    move v1, v0
 
     .line 125
     :goto_1
@@ -1625,7 +1627,7 @@
     goto :goto_2
 
     :cond_3
-    const/high16 v3, -0x40800000    # -1.0f
+    move v3, v0
 
     .line 130
     :goto_2
@@ -1697,28 +1699,28 @@
 
     move-result-object p1
 
-    const/4 v2, 0x2
+    cmpl-float v2, v1, v0
 
-    cmpl-float v4, v1, v0
+    const/4 v4, 0x2
 
-    if-nez v4, :cond_5
+    if-nez v2, :cond_5
 
     const/high16 v1, 0x41400000    # 12.0f
 
     .line 152
-    invoke-static {v2, v1, p1}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    invoke-static {v4, v1, p1}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
     move-result v1
 
     :cond_5
-    cmpl-float v4, v3, v0
+    cmpl-float v2, v3, v0
 
-    if-nez v4, :cond_6
+    if-nez v2, :cond_6
 
-    const/high16 v3, 0x42e00000    # 112.0f
+    const/high16 v2, 0x42e00000    # 112.0f
 
     .line 159
-    invoke-static {v2, v3, p1}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    invoke-static {v4, v2, p1}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
     move-result v3
 
@@ -1916,7 +1918,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -2016,7 +2020,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 

@@ -25,9 +25,7 @@
     .locals 1
 
     .line 55
-    invoke-static {}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1()Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
+    sget-object v0, Landroid/media/MediaMetadata;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
@@ -40,11 +38,9 @@
     .locals 0
 
     .line 35
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-virtual {p0, p1}, Landroid/media/MediaMetadata;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object p0
 
@@ -55,11 +51,9 @@
     .locals 0
 
     .line 39
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;Ljava/lang/String;)J
+    invoke-virtual {p0, p1}, Landroid/media/MediaMetadata;->getLong(Ljava/lang/String;)J
 
     move-result-wide p0
 
@@ -70,11 +64,9 @@
     .locals 0
 
     .line 43
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;Ljava/lang/String;)Landroid/media/Rating;
+    invoke-virtual {p0, p1}, Landroid/media/MediaMetadata;->getRating(Ljava/lang/String;)Landroid/media/Rating;
 
     move-result-object p0
 
@@ -85,11 +77,9 @@
     .locals 0
 
     .line 47
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, p1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -110,11 +100,9 @@
     .end annotation
 
     .line 31
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;)Ljava/util/Set;
+    invoke-virtual {p0}, Landroid/media/MediaMetadata;->keySet()Ljava/util/Set;
 
     move-result-object p0
 
@@ -125,11 +113,9 @@
     .locals 0
 
     .line 51
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaMetadata;
+    check-cast p0, Landroid/media/MediaMetadata;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaMetadata;Landroid/os/Parcel;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/MediaMetadata;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
 .end method

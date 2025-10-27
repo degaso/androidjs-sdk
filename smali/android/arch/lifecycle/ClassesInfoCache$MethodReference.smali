@@ -102,7 +102,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     return v0
@@ -136,7 +136,7 @@
 .end method
 
 .method invokeCallback(Landroid/arch/lifecycle/LifecycleOwner;Landroid/arch/lifecycle/Lifecycle$Event;Ljava/lang/Object;)V
-    .locals 4
+    .locals 2
 
     .line 213
     :try_start_0
@@ -144,15 +144,13 @@
 
     if-eqz v0, :cond_2
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    if-eq v0, v1, :cond_1
 
-    if-eq v0, v2, :cond_1
+    const/4 v1, 0x2
 
-    const/4 v3, 0x2
-
-    if-eq v0, v3, :cond_0
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
@@ -160,13 +158,11 @@
     :cond_0
     iget-object v0, p0, Landroid/arch/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p1, p2}, [Ljava/lang/Object;
 
-    aput-object p1, v3, v1
+    move-result-object p1
 
-    aput-object p2, v3, v2
-
-    invoke-virtual {v0, p3, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p3, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -174,11 +170,11 @@
     :cond_1
     iget-object p2, p0, Landroid/arch/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
-    new-array v0, v2, [Ljava/lang/Object;
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    aput-object p1, v0, v1
+    move-result-object p1
 
-    invoke-virtual {p2, p3, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p3, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -187,6 +183,8 @@
     iget-object p1, p0, Landroid/arch/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
     const/4 p2, 0x0
+
+    new-array p2, p2, [Ljava/lang/Object;
 
     invoke-virtual {p1, p3, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0

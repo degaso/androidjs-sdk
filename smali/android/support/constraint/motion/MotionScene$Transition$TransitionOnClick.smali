@@ -160,6 +160,8 @@
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
@@ -202,12 +204,12 @@
 
     if-ne p2, v0, :cond_3
 
-    const/4 v2, 0x1
+    move v2, v4
 
     goto :goto_1
 
     :cond_3
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_1
     and-int/lit16 v5, v1, 0x100
@@ -216,12 +218,12 @@
 
     if-ne p2, v0, :cond_4
 
-    const/4 v5, 0x1
+    move v5, v4
 
     goto :goto_2
 
     :cond_4
-    const/4 v5, 0x0
+    move v5, v3
 
     :goto_2
     or-int/2addr v2, v5
@@ -232,12 +234,12 @@
 
     if-ne p2, v0, :cond_5
 
-    const/4 v0, 0x1
+    move v0, v4
 
     goto :goto_3
 
     :cond_5
-    const/4 v0, 0x0
+    move v0, v3
 
     :goto_3
     or-int/2addr v0, v2
@@ -248,12 +250,12 @@
 
     if-ne p2, p3, :cond_6
 
-    const/4 v2, 0x1
+    move v2, v4
 
     goto :goto_4
 
     :cond_6
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_4
     or-int/2addr v0, v2
@@ -264,7 +266,7 @@
 
     if-ne p2, p3, :cond_7
 
-    const/4 v3, 0x1
+    move v3, v4
 
     :cond_7
     or-int p2, v0, v3
@@ -317,7 +319,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v3
 
     :goto_0
     return v1
@@ -335,7 +337,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v3
 
     :cond_4
     :goto_1
@@ -457,13 +459,13 @@
     goto :goto_0
 
     :cond_3
-    const/4 v2, 0x0
+    move v2, v3
 
     goto :goto_1
 
     :cond_4
     :goto_0
-    const/4 v2, 0x1
+    move v2, v4
 
     :goto_1
     and-int/lit8 v5, v1, 0x10
@@ -477,13 +479,13 @@
     goto :goto_2
 
     :cond_5
-    const/4 v1, 0x0
+    move v1, v3
 
     goto :goto_3
 
     :cond_6
     :goto_2
-    const/4 v1, 0x1
+    move v1, v4
 
     :goto_3
     if-eqz v2, :cond_9
@@ -531,11 +533,7 @@
     goto :goto_4
 
     :cond_8
-    move v3, v2
-
-    const/4 v1, 0x0
-
-    goto :goto_4
+    move v1, v3
 
     :cond_9
     move v3, v2
@@ -665,6 +663,8 @@
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

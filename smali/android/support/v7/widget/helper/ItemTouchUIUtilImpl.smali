@@ -84,13 +84,6 @@
 .method public clearView(Landroid/view/View;)V
     .locals 2
 
-    .line 75
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     .line 76
     sget v0, Landroid/support/v7/recyclerview/R$id;->item_touch_helper_previous_elevation:I
 
@@ -122,7 +115,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    :cond_1
     const/4 v0, 0x0
 
     .line 83
@@ -136,13 +128,6 @@
 
 .method public onDraw(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;Landroid/view/View;FFIZ)V
     .locals 0
-
-    .line 36
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p6, 0x15
-
-    if-lt p1, p6, :cond_0
 
     if-eqz p7, :cond_0
 

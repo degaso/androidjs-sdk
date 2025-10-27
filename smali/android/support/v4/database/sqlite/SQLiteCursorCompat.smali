@@ -24,7 +24,7 @@
     if-lt v0, v1, :cond_0
 
     .line 46
-    invoke-static {p0, p1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/database/sqlite/SQLiteCursor;Z)V
+    invoke-virtual {p0, p1}, Landroid/database/sqlite/SQLiteCursor;->setFillWindowForwardOnly(Z)V
 
     :cond_0
     return-void

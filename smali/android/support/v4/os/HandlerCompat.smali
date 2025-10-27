@@ -24,7 +24,7 @@
     if-lt v0, v1, :cond_0
 
     .line 56
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
     move-result p0
 

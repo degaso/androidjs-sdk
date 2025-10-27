@@ -59,7 +59,7 @@
     .line 326
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompatApi21$CallbackProxy;->mCallback:Landroid/support/v4/media/session/MediaControllerCompatApi21$Callback;
 
-    invoke-static {p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p1}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
 
     move-result v1
 
@@ -68,16 +68,16 @@
 
     move-result v2
 
-    invoke-static {p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p1}, Landroid/media/session/MediaController$PlaybackInfo;->getVolumeControl()I
 
     move-result v3
 
     .line 328
-    invoke-static {p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p1}, Landroid/media/session/MediaController$PlaybackInfo;->getMaxVolume()I
 
     move-result v4
 
-    invoke-static {p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p1}, Landroid/media/session/MediaController$PlaybackInfo;->getCurrentVolume()I
 
     move-result v5
 

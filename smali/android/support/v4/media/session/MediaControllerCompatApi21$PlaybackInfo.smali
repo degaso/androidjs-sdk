@@ -36,11 +36,9 @@
     .locals 0
 
     .line 200
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$PlaybackInfo;
+    check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$PlaybackInfo;)Landroid/media/AudioAttributes;
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getAudioAttributes()Landroid/media/AudioAttributes;
 
     move-result-object p0
 
@@ -51,11 +49,9 @@
     .locals 0
 
     .line 217
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$PlaybackInfo;
+    check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getCurrentVolume()I
 
     move-result p0
 
@@ -82,11 +78,9 @@
     .locals 0
 
     .line 213
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$PlaybackInfo;
+    check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getMaxVolume()I
 
     move-result p0
 
@@ -97,11 +91,9 @@
     .locals 0
 
     .line 196
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$PlaybackInfo;
+    check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
 
     move-result p0
 
@@ -112,11 +104,9 @@
     .locals 0
 
     .line 209
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$PlaybackInfo;
+    check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaController$PlaybackInfo;)I
+    invoke-virtual {p0}, Landroid/media/session/MediaController$PlaybackInfo;->getVolumeControl()I
 
     move-result p0
 
@@ -127,7 +117,7 @@
     .locals 3
 
     .line 228
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/AudioAttributes;)I
+    invoke-virtual {p0}, Landroid/media/AudioAttributes;->getFlags()I
 
     move-result v0
 
@@ -143,7 +133,7 @@
 
     .line 232
     :cond_0
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/AudioAttributes;)I
+    invoke-virtual {p0}, Landroid/media/AudioAttributes;->getFlags()I
 
     move-result v0
 
@@ -159,7 +149,7 @@
 
     .line 237
     :cond_1
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$4(Landroid/media/AudioAttributes;)I
+    invoke-virtual {p0}, Landroid/media/AudioAttributes;->getUsage()I
 
     move-result p0
 

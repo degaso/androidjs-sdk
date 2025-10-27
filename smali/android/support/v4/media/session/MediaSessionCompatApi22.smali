@@ -17,11 +17,9 @@
     .locals 0
 
     .line 26
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaSession;
+    check-cast p0, Landroid/media/session/MediaSession;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaSession;I)V
+    invoke-virtual {p0, p1}, Landroid/media/session/MediaSession;->setRatingType(I)V
 
     return-void
 .end method

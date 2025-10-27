@@ -203,10 +203,6 @@
 
     if-lt p0, v0, :cond_0
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p0, v0, :cond_0
-
     const/4 p0, 0x1
 
     goto :goto_0
@@ -444,24 +440,24 @@
 
     move-result p1
 
-    const/high16 v0, 0x40000000    # 2.0f
+    const/high16 v0, 0x3f000000    # 0.5f
 
-    const/high16 v1, 0x3f000000    # 0.5f
+    cmpl-float v1, p2, v0
 
-    cmpl-float v2, p2, v1
+    const/high16 v2, 0x40000000    # 2.0f
 
-    if-lez v2, :cond_0
+    if-lez v1, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    sub-float/2addr p2, v1
+    sub-float/2addr p2, v0
 
     .line 366
-    invoke-static {v2, p2}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v1, p2}, Ljava/lang/Math;->max(FF)F
 
     move-result p2
 
-    mul-float p2, p2, v0
+    mul-float/2addr p2, v2
 
     invoke-static {p1, p2}, Ljava/lang/Math;->max(FF)F
 
@@ -470,7 +466,7 @@
     goto :goto_0
 
     :cond_0
-    mul-float p2, p2, v0
+    mul-float/2addr p2, v2
 
     .line 368
     invoke-static {p1, p2}, Ljava/lang/Math;->min(FF)F

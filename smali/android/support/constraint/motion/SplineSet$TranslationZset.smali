@@ -27,22 +27,14 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;F)V
-    .locals 2
-
-    .line 248
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 249
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/SplineSet$TranslationZset;->get(F)F
 
     move-result p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;F)V
+    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationZ(F)V
 
-    :cond_0
     return-void
 .end method

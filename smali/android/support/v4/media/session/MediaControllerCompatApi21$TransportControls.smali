@@ -28,11 +28,9 @@
     .locals 0
 
     .line 155
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$4(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->fastForward()V
 
     return-void
 .end method
@@ -41,11 +39,9 @@
     .locals 0
 
     .line 143
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->pause()V
 
     return-void
 .end method
@@ -54,11 +50,9 @@
     .locals 0
 
     .line 139
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->play()V
 
     return-void
 .end method
@@ -67,11 +61,9 @@
     .locals 0
 
     .line 175
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$TransportControls;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->playFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -80,11 +72,9 @@
     .locals 0
 
     .line 179
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaController$TransportControls;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->playFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -93,11 +83,9 @@
     .locals 0
 
     .line 159
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->rewind()V
 
     return-void
 .end method
@@ -106,11 +94,9 @@
     .locals 0
 
     .line 151
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$TransportControls;J)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->seekTo(J)V
 
     return-void
 .end method
@@ -119,11 +105,9 @@
     .locals 0
 
     .line 187
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/session/MediaController$TransportControls;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -132,13 +116,11 @@
     .locals 0
 
     .line 171
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
-
-    move-result-object p0
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
     check-cast p1, Landroid/media/Rating;
 
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$TransportControls;Landroid/media/Rating;)V
+    invoke-virtual {p0, p1}, Landroid/media/session/MediaController$TransportControls;->setRating(Landroid/media/Rating;)V
 
     return-void
 .end method
@@ -147,11 +129,9 @@
     .locals 0
 
     .line 163
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->skipToNext()V
 
     return-void
 .end method
@@ -160,11 +140,9 @@
     .locals 0
 
     .line 167
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->skipToPrevious()V
 
     return-void
 .end method
@@ -173,11 +151,9 @@
     .locals 0
 
     .line 183
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaController$TransportControls;J)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->skipToQueueItem(J)V
 
     return-void
 .end method
@@ -186,11 +162,9 @@
     .locals 0
 
     .line 147
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaController$TransportControls;
+    check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$6(Landroid/media/session/MediaController$TransportControls;)V
+    invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->stop()V
 
     return-void
 .end method

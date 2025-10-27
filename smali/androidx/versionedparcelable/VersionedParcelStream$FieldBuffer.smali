@@ -85,7 +85,7 @@
 
     if-lt v0, v2, :cond_0
 
-    const v3, 0xffff
+    move v3, v2
 
     goto :goto_0
 

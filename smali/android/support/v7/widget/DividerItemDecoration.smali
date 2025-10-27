@@ -143,7 +143,7 @@
 
     move-result v2
 
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 156
     :goto_0
@@ -271,7 +271,7 @@
 
     move-result v2
 
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 129
     :goto_0

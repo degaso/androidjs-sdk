@@ -67,7 +67,7 @@
 .end method
 
 .method static newInstance(Ljava/util/List;)Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,15 +82,11 @@
     :try_start_0
     sget-object v0, Landroid/support/v4/media/ParceledListSliceAdapterApi21;->sConstructor:Ljava/lang/reflect/Constructor;
 
-    const/4 v1, 0x1
+    filled-new-array {p0}, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result-object p0
 
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
     :try_end_0

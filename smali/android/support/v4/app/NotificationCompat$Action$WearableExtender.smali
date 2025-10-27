@@ -144,7 +144,7 @@
     :cond_0
     iget p2, p0, Landroid/support/v4/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    xor-int/lit8 p1, p1, -0x1
+    not-int p1, p1
 
     and-int/2addr p1, p2
 

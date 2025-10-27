@@ -258,12 +258,12 @@
 
     if-eqz v1, :cond_2
 
-    const/4 v5, 0x0
+    move v5, v3
 
     goto :goto_0
 
     :cond_2
-    const/16 v5, 0x8
+    move v5, v4
 
     :goto_0
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
@@ -278,7 +278,7 @@
     goto :goto_1
 
     :cond_3
-    const/16 v3, 0x8
+    move v3, v4
 
     :cond_4
     :goto_1
@@ -1129,7 +1129,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v6, 0x0
+    move v6, v7
 
     :goto_1
     if-eqz v6, :cond_4
@@ -1142,7 +1142,7 @@
 
     if-eqz v6, :cond_5
 
-    const/4 v6, 0x0
+    move v6, v7
 
     goto :goto_2
 
@@ -1179,12 +1179,12 @@
 
     if-eq v6, v8, :cond_8
 
-    const/high16 v6, 0x40000000    # 2.0f
+    move v6, v1
 
     goto :goto_4
 
     :cond_8
-    const/high16 v6, -0x80000000
+    move v6, v4
 
     .line 295
     :goto_4
@@ -1208,7 +1208,7 @@
     goto :goto_5
 
     :cond_a
-    const/high16 v1, -0x80000000
+    move v1, v4
 
     .line 299
     :goto_5
@@ -1250,7 +1250,7 @@
 
     move-result p2
 
-    const/4 v1, 0x0
+    move v1, v7
 
     :goto_6
     if-ge v7, p2, :cond_e
@@ -1307,9 +1307,13 @@
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     const-string v0, " can only be used with android:layout_height=\"wrap_content\""
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1337,9 +1341,13 @@
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     const-string v0, " can only be used with android:layout_width=\"match_parent\" (or fill_parent)"
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1347,13 +1355,7 @@
 
     invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_9
-
-    :goto_8
     throw p1
-
-    :goto_9
-    goto :goto_8
 .end method
 
 .method public bridge synthetic onTouchEvent(Landroid/view/MotionEvent;)Z

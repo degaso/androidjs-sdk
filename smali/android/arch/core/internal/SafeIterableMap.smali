@@ -231,7 +231,7 @@
     if-eqz v3, :cond_3
 
     .line 196
-    invoke-interface {v3, v4}, Ljava/util/Map$Entry;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -257,7 +257,7 @@
     goto :goto_0
 
     :cond_7
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0

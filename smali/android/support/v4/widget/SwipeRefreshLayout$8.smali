@@ -46,7 +46,7 @@
 
     neg-float v0, v0
 
-    mul-float v0, v0, p1
+    mul-float/2addr v0, p1
 
     add-float/2addr p2, v0
 

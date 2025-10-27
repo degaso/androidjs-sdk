@@ -21,17 +21,10 @@
 .end method
 
 .method public static request(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/support/v13/view/DragAndDropPermissionsCompat;
-    .locals 2
-
-    .line 44
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 46
-    invoke-static {p0, p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/view/DragAndDropPermissions;
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->requestDragAndDropPermissions(Landroid/view/DragEvent;)Landroid/view/DragAndDropPermissions;
 
     move-result-object p0
 
@@ -53,24 +46,14 @@
 
 # virtual methods
 .method public release()V
-    .locals 2
-
-    .line 58
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 59
     iget-object v0, p0, Landroid/support/v13/view/DragAndDropPermissionsCompat;->mDragAndDropPermissions:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DragAndDropPermissions;
+    check-cast v0, Landroid/view/DragAndDropPermissions;
 
-    move-result-object v0
+    invoke-virtual {v0}, Landroid/view/DragAndDropPermissions;->release()V
 
-    invoke-static {v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/DragAndDropPermissions;)V
-
-    :cond_0
     return-void
 .end method

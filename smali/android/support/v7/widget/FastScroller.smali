@@ -744,7 +744,7 @@
 
     int-to-float p1, p4
 
-    mul-float p2, p2, p1
+    mul-float/2addr p2, p1
 
     float-to-int p1, p2
 
@@ -1381,7 +1381,7 @@
     if-ne p1, v1, :cond_4
 
     :goto_1
-    const/4 v0, 0x1
+    move v0, v2
 
     :cond_4
     return v0
@@ -1750,12 +1750,12 @@
 
     if-lt v1, v2, :cond_0
 
-    const/4 v2, 0x1
+    move v2, v4
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_0
     iput-boolean v2, p0, Landroid/support/v7/widget/FastScroller;->mNeedVerticalScrollbar:Z
@@ -1779,12 +1779,12 @@
 
     if-lt v5, v6, :cond_1
 
-    const/4 v6, 0x1
+    move v6, v4
 
     goto :goto_1
 
     :cond_1
-    const/4 v6, 0x0
+    move v6, v3
 
     :goto_1
     iput-boolean v6, p0, Landroid/support/v7/widget/FastScroller;->mNeedHorizontalScrollbar:Z
@@ -1820,7 +1820,7 @@
 
     add-float/2addr p2, v7
 
-    mul-float v6, v6, p2
+    mul-float/2addr v6, p2
 
     int-to-float p2, v0
 
@@ -1856,7 +1856,7 @@
 
     add-float/2addr p1, v0
 
-    mul-float p2, p2, p1
+    mul-float/2addr p2, p1
 
     int-to-float p1, v2
 

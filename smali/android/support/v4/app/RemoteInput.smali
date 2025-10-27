@@ -111,7 +111,7 @@
 
     move-result-object p0
 
-    invoke-static {p0, p1, p2}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
+    invoke-static {p0, p1, p2}, Landroid/app/RemoteInput;->addDataResultToIntent(Landroid/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
 
     goto :goto_1
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public static addResultsToIntent([Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
-    .locals 8
+    .locals 5
 
     .line 338
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -236,21 +236,12 @@
 
     move-result-object p0
 
-    invoke-static {p0, p1, p2}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
+    invoke-static {p0, p1, p2}, Landroid/app/RemoteInput;->addResultsToIntent([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    goto/16 :goto_3
-
-    .line 340
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x14
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_3
+    goto :goto_2
 
     .line 345
+    :cond_0
     invoke-static {p1}, Landroid/support/v4/app/RemoteInput;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
 
     move-result-object v0
@@ -272,126 +263,45 @@
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v0, :cond_8
+    if-ge v1, v0, :cond_3
 
-    aget-object v3, p0, v1
+    aget-object v2, p0, v1
 
     .line 355
-    invoke-virtual {v3}, Landroid/support/v4/app/RemoteInput;->getResultKey()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/support/v4/app/RemoteInput;->getResultKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 354
-    invoke-static {p1, v4}, Landroid/support/v4/app/RemoteInput;->getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
+    invoke-static {p1, v3}, Landroid/support/v4/app/RemoteInput;->getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
+
+    move-result-object v3
+
+    .line 357
+    filled-new-array {v2}, [Landroid/support/v4/app/RemoteInput;
 
     move-result-object v4
 
-    const/4 v5, 0x1
-
-    .line 357
-    new-array v5, v5, [Landroid/support/v4/app/RemoteInput;
-
-    aput-object v3, v5, v2
-
     .line 359
-    invoke-static {v5}, Landroid/support/v4/app/RemoteInput;->fromCompat([Landroid/support/v4/app/RemoteInput;)[Landroid/app/RemoteInput;
+    invoke-static {v4}, Landroid/support/v4/app/RemoteInput;->fromCompat([Landroid/support/v4/app/RemoteInput;)[Landroid/app/RemoteInput;
 
-    move-result-object v5
+    move-result-object v4
 
     .line 358
-    invoke-static {v5, p1, p2}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
+    invoke-static {v4, p1, p2}, Landroid/app/RemoteInput;->addResultsToIntent([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
     .line 361
-    invoke-static {v3, p1, v4}, Landroid/support/v4/app/RemoteInput;->addDataResultToIntent(Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
+    invoke-static {v2, p1, v3}, Landroid/support/v4/app/RemoteInput;->addDataResultToIntent(Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
 
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 365
     :cond_3
-    invoke-static {p1}, Landroid/support/v4/app/RemoteInput;->getClipDataIntentFromIntent(Landroid/content/Intent;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    if-nez v0, :cond_4
-
-    .line 367
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    .line 369
-    :cond_4
-    const-string v1, "android.remoteinput.resultsData"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object v3
-
-    if-nez v3, :cond_5
-
-    .line 371
-    new-instance v3, Landroid/os/Bundle;
-
-    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
-
-    .line 373
-    :cond_5
-    array-length v4, p0
-
     :goto_2
-    if-ge v2, v4, :cond_7
-
-    aget-object v5, p0, v2
-
-    .line 374
-    invoke-virtual {v5}, Landroid/support/v4/app/RemoteInput;->getResultKey()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p2, v6}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    .line 375
-    instance-of v7, v6, Ljava/lang/CharSequence;
-
-    if-eqz v7, :cond_6
-
-    .line 377
-    invoke-virtual {v5}, Landroid/support/v4/app/RemoteInput;->getResultKey()Ljava/lang/String;
-
-    move-result-object v5
-
-    check-cast v6, Ljava/lang/CharSequence;
-
-    .line 376
-    invoke-virtual {v3, v5, v6}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
-
-    :cond_6
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_2
-
-    .line 380
-    :cond_7
-    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-
-    .line 381
-    const-string p0, "android.remoteinput.results"
-
-    invoke-static {p0, v0}, Landroid/content/ClipData;->newIntent(Ljava/lang/CharSequence;Landroid/content/Intent;)Landroid/content/ClipData;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/content/Intent;->setClipData(Landroid/content/ClipData;)V
-
-    :cond_8
-    :goto_3
     return-void
 .end method
 
@@ -412,7 +322,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/RemoteInput$Builder;->setLabel(Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
 
     move-result-object v0
 
@@ -421,7 +331,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;[Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/RemoteInput$Builder;->setChoices([Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
 
     move-result-object v0
 
@@ -430,7 +340,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Z)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/RemoteInput$Builder;->setAllowFreeFormInput(Z)Landroid/app/RemoteInput$Builder;
 
     move-result-object v0
 
@@ -439,12 +349,12 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v0, p0}, Landroid/app/RemoteInput$Builder;->addExtras(Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
 
     move-result-object p0
 
     .line 447
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;)Landroid/app/RemoteInput;
+    invoke-virtual {p0}, Landroid/app/RemoteInput$Builder;->build()Landroid/app/RemoteInput;
 
     move-result-object p0
 
@@ -576,7 +486,7 @@
     if-lt v0, v1, :cond_0
 
     .line 273
-    invoke-static {p0, p1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
+    invoke-static {p0, p1}, Landroid/app/RemoteInput;->getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object p0
 
@@ -714,7 +624,9 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -722,47 +634,12 @@
 .end method
 
 .method public static getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 2
-
-    .line 311
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x14
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 312
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Intent;)Landroid/os/Bundle;
+    invoke-static {p0}, Landroid/app/RemoteInput;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
 
     move-result-object p0
-
-    return-object p0
-
-    .line 314
-    :cond_0
-    invoke-static {p0}, Landroid/support/v4/app/RemoteInput;->getClipDataIntentFromIntent(Landroid/content/Intent;)Landroid/content/Intent;
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    .line 318
-    :cond_1
-    invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    const-string v0, "android.remoteinput.resultsData"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/os/Bundle;
 
     return-object p0
 .end method

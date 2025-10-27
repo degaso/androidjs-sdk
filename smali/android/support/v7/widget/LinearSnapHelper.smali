@@ -46,13 +46,13 @@
 
     const/4 v5, 0x0
 
+    move v6, v5
+
+    move v5, v4
+
+    move v4, v3
+
     move-object v3, v2
-
-    const v4, 0x7fffffff
-
-    const/high16 v5, -0x80000000
-
-    const/4 v6, 0x0
 
     :goto_0
     if-ge v6, v0, :cond_4
@@ -140,7 +140,7 @@
     :cond_6
     int-to-float p1, p2
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     sub-int/2addr v5, v4
 
@@ -225,9 +225,9 @@
 
     const/4 p2, 0x0
 
-    const/4 p4, 0x0
-
     cmpg-float p2, p1, p2
+
+    const/4 p4, 0x0
 
     if-gtz p2, :cond_0
 
@@ -628,7 +628,7 @@
     goto :goto_0
 
     :cond_5
-    const/4 p2, 0x0
+    move p2, v7
 
     .line 106
     :cond_6
@@ -661,7 +661,7 @@
     goto :goto_1
 
     :cond_7
-    const/4 p3, 0x0
+    move p3, v7
 
     .line 116
     :cond_8

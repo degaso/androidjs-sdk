@@ -63,11 +63,11 @@
     .line 82
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v1, Landroid/content/Context;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-class v2, Landroid/content/Context;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/support/v7/view/SupportMenuInflater;->ACTION_VIEW_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 0
 
     .line 100
     invoke-direct {p0, p1}, Landroid/view/MenuInflater;-><init>(Landroid/content/Context;)V
@@ -86,19 +86,15 @@
     .line 101
     iput-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mContext:Landroid/content/Context;
 
-    const/4 v0, 0x1
-
     .line 102
-    new-array v0, v0, [Ljava/lang/Object;
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    move-result-object p1
 
-    aput-object p1, v0, v1
-
-    iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
+    iput-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
 
     .line 103
-    iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
+    iput-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
 
     return-void
 .end method
@@ -194,6 +190,8 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
@@ -215,11 +213,11 @@
 
     const/4 v5, 0x0
 
+    move v6, v4
+
+    move v7, v6
+
     move-object v8, v5
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
 
     :goto_1
     if-nez v6, :cond_f
@@ -254,11 +252,11 @@
 
     if-eqz v11, :cond_4
 
+    move v7, v4
+
     move-object v8, v5
 
-    const/4 v7, 0x0
-
-    goto :goto_2
+    goto/16 :goto_2
 
     .line 196
     :cond_4
@@ -321,7 +319,7 @@
 
     if-eqz p3, :cond_d
 
-    const/4 v6, 0x1
+    move v6, v3
 
     goto :goto_2
 
@@ -382,7 +380,7 @@
     :cond_c
     move-object v8, p3
 
-    const/4 v7, 0x1
+    move v7, v3
 
     .line 218
     :cond_d
@@ -391,7 +389,7 @@
 
     move-result p3
 
-    goto :goto_1
+    goto/16 :goto_1
 
     .line 215
     :cond_e

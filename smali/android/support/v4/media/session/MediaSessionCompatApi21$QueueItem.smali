@@ -30,9 +30,7 @@
     .line 266
     new-instance v0, Landroid/media/session/MediaSession$QueueItem;
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
-
-    move-result-object p0
+    check-cast p0, Landroid/media/MediaDescription;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/media/session/MediaSession$QueueItem;-><init>(Landroid/media/MediaDescription;J)V
 
@@ -43,11 +41,9 @@
     .locals 0
 
     .line 270
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaSession$QueueItem;
+    check-cast p0, Landroid/media/session/MediaSession$QueueItem;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaSession$QueueItem;)Landroid/media/MediaDescription;
+    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getDescription()Landroid/media/MediaDescription;
 
     move-result-object p0
 
@@ -58,11 +54,9 @@
     .locals 2
 
     .line 274
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaSession$QueueItem;
+    check-cast p0, Landroid/media/session/MediaSession$QueueItem;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaSession$QueueItem;)J
+    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getQueueId()J
 
     move-result-wide v0
 

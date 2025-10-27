@@ -25,9 +25,7 @@
     .locals 1
 
     .line 62
-    invoke-static {}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m()Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
+    sget-object v0, Landroid/media/MediaDescription;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
@@ -40,11 +38,9 @@
     .locals 0
 
     .line 42
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getDescription()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -55,11 +51,9 @@
     .locals 0
 
     .line 54
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getExtras()Landroid/os/Bundle;
 
     move-result-object p0
 
@@ -70,11 +64,9 @@
     .locals 0
 
     .line 46
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Landroid/graphics/Bitmap;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getIconBitmap()Landroid/graphics/Bitmap;
 
     move-result-object p0
 
@@ -85,11 +77,9 @@
     .locals 0
 
     .line 50
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Landroid/net/Uri;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getIconUri()Landroid/net/Uri;
 
     move-result-object p0
 
@@ -100,11 +90,9 @@
     .locals 0
 
     .line 30
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getMediaId()Ljava/lang/String;
 
     move-result-object p0
 
@@ -115,11 +103,9 @@
     .locals 0
 
     .line 38
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/MediaDescription;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getSubtitle()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -130,11 +116,9 @@
     .locals 0
 
     .line 34
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -145,11 +129,9 @@
     .locals 0
 
     .line 58
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/MediaDescription;
+    check-cast p0, Landroid/media/MediaDescription;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/MediaDescription;Landroid/os/Parcel;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/MediaDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
 .end method

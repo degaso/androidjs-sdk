@@ -667,7 +667,7 @@
 
     move-result-object v0
 
-    const/4 v11, 0x0
+    move v11, v2
 
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -689,9 +689,7 @@
 
     const-wide v8, 0x3f847ae147ae147bL    # 0.01
 
-    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v6, v6, v8
+    mul-double/2addr v6, v8
 
     aput-wide v6, v1, v11
 
@@ -751,7 +749,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .locals 5
 
     .line 70
     iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator;->mType:Ljava/lang/String;
@@ -790,33 +788,45 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "["
+    move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, "["
 
-    iget v0, v3, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, " , "
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v0, v3, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
-
-    float-to-double v5, v0
-
-    invoke-virtual {v1, v5, v6}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v4, v3, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
 
-    const-string v0, "] "
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v4, " , "
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v3, v3, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
+
+    float-to-double v3, v3
+
+    invoke-virtual {v1, v3, v4}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v3, "] "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

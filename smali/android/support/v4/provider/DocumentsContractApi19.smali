@@ -161,7 +161,7 @@
 .end method
 
 .method public static exists(Landroid/content/Context;Landroid/net/Uri;)Z
-    .locals 8
+    .locals 9
 
     const-string v0, "Failed query: "
 
@@ -170,17 +170,19 @@
 
     move-result-object v1
 
-    const/4 p0, 0x0
+    const/4 p0, 0x1
 
     const/4 v7, 0x0
 
+    const/4 v8, 0x0
+
     .line 145
     :try_start_0
+    new-array v3, p0, [Ljava/lang/String;
+
     const-string v2, "document_id"
 
-    filled-new-array {v2}, [Ljava/lang/String;
-
-    move-result-object v3
+    aput-object v2, v3, v7
 
     const/4 v5, 0x0
 
@@ -192,10 +194,10 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v7
+    move-result-object v8
 
     .line 147
-    invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
     move-result p1
     :try_end_0
@@ -204,47 +206,52 @@
 
     if-lez p1, :cond_0
 
-    const/4 p0, 0x1
+    goto :goto_0
+
+    :cond_0
+    move p0, v7
 
     .line 152
-    :cond_0
-    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    :goto_0
+    invoke-static {v8}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return p0
 
     :catchall_0
     move-exception p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 149
     :try_start_1
-    const-string v1, "DocumentFile"
+    const-string p1, "DocumentFile"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object p0
+
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 152
-    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v8}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    return p0
+    return v7
 
-    :goto_0
-    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    :goto_1
+    invoke-static {v8}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw p0
 .end method
@@ -397,9 +404,9 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v0, p0, v2
+    cmp-long p0, p0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     const/4 v1, 0x1
 
@@ -447,13 +454,13 @@
 
     move-result-wide p0
 
-    long-to-int p1, p0
+    long-to-int p0, p0
 
-    return p1
+    return p0
 .end method
 
 .method private static queryForLong(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;J)J
-    .locals 7
+    .locals 8
 
     const-string v0, "Failed query: "
 
@@ -462,13 +469,17 @@
 
     move-result-object v1
 
-    const/4 p0, 0x0
+    const/4 p0, 0x1
+
+    const/4 v7, 0x0
 
     .line 188
     :try_start_0
-    filled-new-array {p2}, [Ljava/lang/String;
+    new-array v3, p0, [Ljava/lang/String;
 
-    move-result-object v3
+    const/4 p0, 0x0
+
+    aput-object p2, v3, p0
 
     const/4 v5, 0x0
 
@@ -480,80 +491,80 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object p0
+    move-result-object v7
 
     .line 189
-    invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result p1
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x0
+    invoke-interface {v7, p0}, Landroid/database/Cursor;->isNull(I)Z
 
-    invoke-interface {p0, p1}, Landroid/database/Cursor;->isNull(I)Z
+    move-result p1
 
-    move-result p2
-
-    if-nez p2, :cond_0
+    if-nez p1, :cond_0
 
     .line 190
-    invoke-interface {p0, p1}, Landroid/database/Cursor;->getLong(I)J
+    invoke-interface {v7, p0}, Landroid/database/Cursor;->getLong(I)J
 
-    move-result-wide p1
+    move-result-wide p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 198
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    return-wide p1
+    return-wide p0
 
     :cond_0
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-wide p3
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     goto :goto_0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 195
     :try_start_1
-    const-string p2, "DocumentFile"
+    const-string p1, "DocumentFile"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {p2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object p0
+
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 198
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-wide p3
 
     :goto_0
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method private static queryForString(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .locals 8
 
     const-string v0, "Failed query: "
 
@@ -562,13 +573,17 @@
 
     move-result-object v1
 
-    const/4 p0, 0x0
+    const/4 p0, 0x1
+
+    const/4 v7, 0x0
 
     .line 163
     :try_start_0
-    filled-new-array {p2}, [Ljava/lang/String;
+    new-array v3, p0, [Ljava/lang/String;
 
-    move-result-object v3
+    const/4 p0, 0x0
+
+    aput-object p2, v3, p0
 
     const/4 v5, 0x0
 
@@ -580,74 +595,74 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object p0
+    move-result-object v7
 
     .line 164
-    invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result p1
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x0
+    invoke-interface {v7, p0}, Landroid/database/Cursor;->isNull(I)Z
 
-    invoke-interface {p0, p1}, Landroid/database/Cursor;->isNull(I)Z
+    move-result p1
 
-    move-result p2
-
-    if-nez p2, :cond_0
+    if-nez p1, :cond_0
 
     .line 165
-    invoke-interface {p0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v7, p0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 173
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    return-object p1
+    return-object p0
 
     :cond_0
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-object p3
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     goto :goto_0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 170
     :try_start_1
-    const-string p2, "DocumentFile"
+    const-string p1, "DocumentFile"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {p2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object p0
+
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 173
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-object p3
 
     :goto_0
-    invoke-static {p0}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v7}, Landroid/support/v4/provider/DocumentsContractApi19;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    throw p1
+    throw p0
 .end method

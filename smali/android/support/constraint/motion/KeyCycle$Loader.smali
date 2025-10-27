@@ -308,9 +308,13 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, "   "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     sget-object v4, Landroid/support/constraint/motion/KeyCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
@@ -320,7 +324,9 @@
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -344,15 +350,8 @@
 
     goto/16 :goto_1
 
-    .line 336
-    :pswitch_1
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_3
-
     .line 337
+    :pswitch_1
     invoke-static {p0}, Landroid/support/constraint/motion/KeyCycle;->access$1700(Landroid/support/constraint/motion/KeyCycle;)F
 
     move-result v3
@@ -693,6 +692,8 @@
 
     :cond_4
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

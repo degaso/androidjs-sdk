@@ -27,18 +27,11 @@
 .end method
 
 .method public static onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
-    .locals 2
-
-    .line 379
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 381
     :try_start_0
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
+    invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/ViewParent;->onNestedFling(Landroid/view/View;FFZ)Z
 
     move-result p0
     :try_end_0
@@ -58,11 +51,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onNestedFling"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onNestedFling"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -70,43 +67,17 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 386
-    :cond_0
-    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz v0, :cond_1
-
-    .line 387
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/view/NestedScrollingParent;->onNestedFling(Landroid/view/View;FFZ)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
-    .locals 2
-
-    .line 416
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 418
     :try_start_0
-    invoke-static {p0, p1, p2, p3}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;FF)Z
+    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onNestedPreFling(Landroid/view/View;FF)Z
 
     move-result p0
     :try_end_0
@@ -126,11 +97,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onNestedPreFling"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onNestedPreFling"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -138,25 +113,6 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 423
-    :cond_0
-    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz v0, :cond_1
-
-    .line 424
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroid/support/v4/view/NestedScrollingParent;->onNestedPreFling(Landroid/view/View;FF)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x0
 
     return p0
@@ -211,18 +167,11 @@
     goto :goto_0
 
     :cond_0
-    if-nez p5, :cond_2
-
-    .line 344
-    sget p5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p5, v0, :cond_1
+    if-nez p5, :cond_1
 
     .line 346
     :try_start_0
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;II[I)V
+    invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/ViewParent;->onNestedPreScroll(Landroid/view/View;II[I)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -240,11 +189,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onNestedPreScroll"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onNestedPreScroll"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -252,20 +205,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 351
     :cond_1
-    instance-of p5, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz p5, :cond_2
-
-    .line 352
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/view/NestedScrollingParent;->onNestedPreScroll(Landroid/view/View;II[I)V
-
-    :cond_2
     :goto_0
     return-void
 .end method
@@ -323,18 +263,11 @@
     goto :goto_0
 
     :cond_0
-    if-nez p6, :cond_2
-
-    .line 300
-    sget p6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p6, v0, :cond_1
+    if-nez p6, :cond_1
 
     .line 302
     :try_start_0
-    invoke-static/range {p0 .. p5}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;IIII)V
+    invoke-interface/range {p0 .. p5}, Landroid/view/ViewParent;->onNestedScroll(Landroid/view/View;IIII)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -352,11 +285,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onNestedScroll"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onNestedScroll"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -364,32 +301,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 308
     :cond_1
-    instance-of p6, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz p6, :cond_2
-
-    .line 309
-    move-object v0, p0
-
-    check-cast v0, Landroid/support/v4/view/NestedScrollingParent;
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    invoke-interface/range {v0 .. v5}, Landroid/support/v4/view/NestedScrollingParent;->onNestedScroll(Landroid/view/View;IIII)V
-
-    :cond_2
     :goto_0
     return-void
 .end method
@@ -421,18 +333,11 @@
     goto :goto_0
 
     :cond_0
-    if-nez p4, :cond_2
-
-    .line 223
-    sget p4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p4, v0, :cond_1
+    if-nez p4, :cond_1
 
     .line 225
     :try_start_0
-    invoke-static {p0, p1, p2, p3}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
+    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -450,11 +355,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onNestedScrollAccepted"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onNestedScrollAccepted"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -462,20 +371,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 230
     :cond_1
-    instance-of p4, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz p4, :cond_2
-
-    .line 231
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroid/support/v4/view/NestedScrollingParent;->onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
-
-    :cond_2
     :goto_0
     return-void
 .end method
@@ -511,18 +407,11 @@
     return p0
 
     :cond_0
-    if-nez p4, :cond_2
-
-    .line 182
-    sget p4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p4, v0, :cond_1
+    if-nez p4, :cond_1
 
     .line 184
     :try_start_0
-    invoke-static {p0, p1, p2, p3}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)Z
+    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
 
     move-result p0
     :try_end_0
@@ -542,11 +431,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onStartNestedScroll"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onStartNestedScroll"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -554,25 +447,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 189
     :cond_1
-    instance-of p4, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz p4, :cond_2
-
-    .line 190
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroid/support/v4/view/NestedScrollingParent;->onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_2
-    :goto_0
     const/4 p0, 0x0
 
     return p0
@@ -605,18 +480,11 @@
     goto :goto_0
 
     :cond_0
-    if-nez p2, :cond_2
-
-    .line 256
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_1
+    if-nez p2, :cond_1
 
     .line 258
     :try_start_0
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewParent;Landroid/view/View;)V
+    invoke-interface {p0, p1}, Landroid/view/ViewParent;->onStopNestedScroll(Landroid/view/View;)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -634,11 +502,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " does not implement interface method onStopNestedScroll"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " does not implement interface method onStopNestedScroll"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -646,20 +518,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    .line 263
     :cond_1
-    instance-of p2, p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    if-eqz p2, :cond_2
-
-    .line 264
-    check-cast p0, Landroid/support/v4/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1}, Landroid/support/v4/view/NestedScrollingParent;->onStopNestedScroll(Landroid/view/View;)V
-
-    :cond_2
     :goto_0
     return-void
 .end method

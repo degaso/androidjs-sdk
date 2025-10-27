@@ -81,7 +81,7 @@
     return p0
 
     :cond_0
-    xor-int/lit8 v2, v1, -0x1
+    not-int v2, v1
 
     and-int/2addr p0, v2
 
@@ -469,7 +469,7 @@
     return p1
 
     :cond_0
-    xor-int/lit8 v2, v1, -0x1
+    not-int v2, v1
 
     and-int/2addr p1, v2
 
@@ -677,7 +677,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    mul-float p4, p4, v1
+    mul-float/2addr p4, v1
 
     int-to-float p2, p2
 
@@ -688,7 +688,7 @@
 
     move-result p2
 
-    mul-int v0, v0, p1
+    mul-int/2addr v0, p1
 
     int-to-float p1, v0
 
@@ -700,7 +700,7 @@
 
     move-result p2
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 
@@ -730,7 +730,7 @@
 
     move-result p2
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 
@@ -839,7 +839,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v10, 0x0
+    move v10, v0
 
     :goto_0
     if-ge v10, v9, :cond_0
@@ -946,7 +946,7 @@
 
     const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    move v12, v11
 
     :goto_0
     if-ge v12, v10, :cond_0
@@ -1054,7 +1054,7 @@
 
     if-nez v1, :cond_3
 
-    const/4 v11, 0x1
+    move v11, v0
 
     :cond_3
     :goto_2

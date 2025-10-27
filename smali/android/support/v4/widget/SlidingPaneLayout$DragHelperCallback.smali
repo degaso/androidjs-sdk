@@ -363,11 +363,9 @@
 
     add-int/2addr p3, v0
 
-    cmpl-float v0, p2, v2
-
-    if-gtz v0, :cond_3
-
     cmpl-float p2, p2, v2
+
+    if-gtz p2, :cond_3
 
     if-nez p2, :cond_4
 

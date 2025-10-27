@@ -345,7 +345,7 @@
 
     const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    move v12, v11
 
     :goto_0
     if-ge v12, v9, :cond_3
@@ -353,7 +353,7 @@
     .line 121
     aget v13, v10, v12
 
-    const/4 v14, 0x0
+    move v14, v11
 
     :goto_1
     if-ge v14, v9, :cond_2
@@ -398,7 +398,7 @@
 
     iget v2, v6, Landroid/support/constraint/utils/MotionTelltales;->mTailScale:F
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
     sub-float v19, v17, v1
 
@@ -407,7 +407,7 @@
     .line 130
     aget v1, v0, v1
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
     sub-float v20, v18, v1
 
@@ -463,7 +463,7 @@
     .locals 0
 
     .line 95
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object p1
 

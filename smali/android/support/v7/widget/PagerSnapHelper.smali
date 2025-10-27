@@ -498,7 +498,7 @@
     if-lez p2, :cond_6
 
     :goto_1
-    const/4 v3, 0x1
+    move v3, v4
 
     goto :goto_2
 

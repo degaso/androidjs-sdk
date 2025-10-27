@@ -136,7 +136,7 @@
 
     iput v2, v0, Landroid/graphics/Rect;->left:I
 
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 768
     :goto_0

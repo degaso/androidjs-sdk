@@ -221,7 +221,7 @@
     .line 148
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
-    xor-int/lit8 v1, p2, -0x1
+    not-int v1, p2
 
     and-int/2addr v0, v1
 

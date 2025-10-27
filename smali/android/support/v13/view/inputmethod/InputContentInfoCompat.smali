@@ -19,17 +19,10 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
-    .locals 2
+    .locals 1
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 170
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x19
-
-    if-lt v0, v1, :cond_0
 
     .line 171
     new-instance v0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;
@@ -38,17 +31,6 @@
 
     iput-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat;->mImpl:Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
-    goto :goto_0
-
-    .line 173
-    :cond_0
-    new-instance v0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;
-
-    invoke-direct {v0, p1, p2, p3}, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;-><init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
-
-    iput-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat;->mImpl:Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
-
-    :goto_0
     return-void
 .end method
 
@@ -65,26 +47,16 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroid/support/v13/view/inputmethod/InputContentInfoCompat;
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 2
 
     if-nez p0, :cond_0
 
-    return-object v0
+    const/4 p0, 0x0
 
-    .line 222
-    :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x19
-
-    if-ge v1, v2, :cond_1
-
-    return-object v0
+    return-object p0
 
     .line 225
-    :cond_1
+    :cond_0
     new-instance v0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat;
 
     new-instance v1, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;

@@ -51,7 +51,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     return v0
@@ -76,7 +76,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     return v0
@@ -109,7 +109,7 @@
     goto :goto_2
 
     :cond_5
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_2
     return v0
@@ -125,7 +125,7 @@
 
     if-nez p0, :cond_0
 
-    const/4 v2, -0x1
+    move v2, v1
 
     goto :goto_0
 
@@ -137,7 +137,7 @@
     :goto_0
     if-nez p1, :cond_1
 
-    const/4 v0, -0x1
+    move v0, v1
 
     goto :goto_1
 
@@ -153,7 +153,7 @@
 
     if-nez p0, :cond_2
 
-    const/4 p0, -0x1
+    move p0, v1
 
     goto :goto_2
 
@@ -166,7 +166,7 @@
     :goto_2
     if-nez p1, :cond_3
 
-    const/4 p1, -0x1
+    move p1, v1
 
     goto :goto_3
 
@@ -190,7 +190,7 @@
     goto :goto_4
 
     :cond_4
-    mul-int v2, v2, p0
+    mul-int/2addr v2, p0
 
     add-int/2addr p0, v2
 
@@ -200,9 +200,9 @@
 
     :cond_5
     :goto_4
-    const p0, 0x7fffffff
+    move p0, v3
 
-    const/4 v2, 0x0
+    move v2, v5
 
     :goto_5
     if-eq v0, v1, :cond_7
@@ -212,7 +212,7 @@
     goto :goto_6
 
     :cond_6
-    mul-int v0, v0, p1
+    mul-int/2addr v0, p1
 
     add-int/2addr p1, v0
 
@@ -222,7 +222,7 @@
 
     :cond_7
     :goto_6
-    const/4 v0, 0x0
+    move v0, v5
 
     :goto_7
     if-lt p0, v0, :cond_8
@@ -232,7 +232,7 @@
     goto :goto_8
 
     :cond_8
-    const/4 v4, 0x0
+    move v4, v5
 
     :goto_8
     return v4

@@ -38,29 +38,31 @@
 .end method
 
 .method public static getCallingPackage(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
     .line 38
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/MediaSession;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
+    check-cast p0, Landroid/media/session/MediaSession;
 
     .line 40
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "getCallingPackage"
+    const-string v1, "getCallingPackage"
 
-    invoke-virtual {v1, v2, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    new-array v3, v2, [Ljava/lang/Class;
+
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
 
     .line 41
-    invoke-virtual {v1, p0, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -87,11 +89,13 @@
 
     .line 43
     :goto_0
-    const-string v1, "MediaSessionCompatApi24"
+    const-string v0, "MediaSessionCompatApi24"
 
-    const-string v2, "Cannot execute MediaSession.getCallingPackage()"
+    const-string v1, "Cannot execute MediaSession.getCallingPackage()"
 
-    invoke-static {v1, v2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-object v0
+    const/4 p0, 0x0
+
+    return-object p0
 .end method

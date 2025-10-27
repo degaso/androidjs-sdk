@@ -156,7 +156,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 p2, 0x0
+    move p2, v0
 
     :goto_1
     invoke-static {p3, p2}, Landroid/support/v7/graphics/drawable/DrawableContainer;->resolveDensity(Landroid/content/res/Resources;I)I
@@ -491,22 +491,14 @@
 .end method
 
 .method private prepareDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 2
-
-    .line 817
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 818
     iget v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mLayoutDirection:I
 
-    invoke-static {p1, v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable;I)Z
+    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
 
     .line 820
-    :cond_0
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
@@ -622,7 +614,7 @@
 
     if-eqz v3, :cond_0
 
-    invoke-static {v3}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable;)Z
+    invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->canApplyTheme()Z
 
     move-result v3
 
@@ -631,7 +623,7 @@
     .line 904
     aget-object v3, v1, v2
 
-    invoke-static {v3, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
+    invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->applyTheme(Landroid/content/res/Resources$Theme;)V
 
     .line 906
     iget v3, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mChildrenChangingConfigurations:I
@@ -653,7 +645,7 @@
 
     .line 909
     :cond_1
-    invoke-static {p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/res/Resources$Theme;)Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/content/res/Resources$Theme;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
@@ -674,7 +666,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v0, :cond_2
@@ -687,7 +679,7 @@
     if-eqz v4, :cond_0
 
     .line 921
-    invoke-static {v4}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable;)Z
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->canApplyTheme()Z
 
     move-result v4
 
@@ -708,7 +700,7 @@
     if-eqz v4, :cond_1
 
     .line 926
-    invoke-static {v4}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable$ConstantState;)Z
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable$ConstantState;->canApplyTheme()Z
 
     move-result v4
 
@@ -763,7 +755,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v4, v1, :cond_2
@@ -809,13 +801,7 @@
 
     monitor-exit p0
 
-    goto :goto_2
-
-    :goto_1
     throw v0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method final clearMutated()V
@@ -1130,7 +1116,7 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     if-ge v5, v2, :cond_7
@@ -1298,7 +1284,7 @@
     :goto_0
     const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    move v4, v3
 
     :goto_1
     if-ge v4, v0, :cond_2
@@ -1395,7 +1381,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     const/4 v4, 0x1
@@ -1411,7 +1397,7 @@
 
     if-eqz v5, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v4
 
     goto :goto_1
 
@@ -1495,7 +1481,7 @@
 .end method
 
 .method final setLayoutDirection(II)Z
-    .locals 7
+    .locals 5
 
     .line 858
     iget v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
@@ -1505,52 +1491,37 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
+    move v3, v2
 
     :goto_0
-    if-ge v3, v0, :cond_2
+    if-ge v2, v0, :cond_1
 
     .line 861
-    aget-object v5, v1, v3
+    aget-object v4, v1, v2
 
-    if-eqz v5, :cond_1
-
-    .line 863
-    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v6, 0x17
-
-    if-lt v5, v6, :cond_0
+    if-eqz v4, :cond_0
 
     .line 864
-    aget-object v5, v1, v3
+    aget-object v4, v1, v2
 
-    invoke-static {v5, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Drawable;I)Z
+    invoke-virtual {v4, p1}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
 
-    move-result v5
+    move-result v4
 
-    goto :goto_1
+    if-ne v2, p2, :cond_0
+
+    move v3, v4
 
     :cond_0
-    const/4 v5, 0x0
-
-    :goto_1
-    if-ne v3, p2, :cond_1
-
-    move v4, v5
-
-    :cond_1
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 871
-    :cond_2
+    :cond_1
     iput p1, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mLayoutDirection:I
 
-    return v4
+    return v3
 .end method
 
 .method public final setVariablePadding(Z)V

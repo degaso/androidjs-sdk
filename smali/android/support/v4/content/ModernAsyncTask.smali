@@ -526,7 +526,7 @@
 .end method
 
 .method postResult(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)TResult;"
@@ -540,15 +540,13 @@
 
     new-instance v1, Landroid/support/v4/content/ModernAsyncTask$AsyncTaskResult;
 
+    filled-new-array {p1}, [Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-direct {v1, p0, v2}, Landroid/support/v4/content/ModernAsyncTask$AsyncTaskResult;-><init>(Landroid/support/v4/content/ModernAsyncTask;[Ljava/lang/Object;)V
+
     const/4 v2, 0x1
-
-    new-array v3, v2, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v3, v4
-
-    invoke-direct {v1, p0, v3}, Landroid/support/v4/content/ModernAsyncTask$AsyncTaskResult;-><init>(Landroid/support/v4/content/ModernAsyncTask;[Ljava/lang/Object;)V
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 

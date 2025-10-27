@@ -568,12 +568,12 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaselineDistance:I
 
     .line 393
-    sget v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
+    sget v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
 
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
 
     .line 394
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
 
     .line 402
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mContainerItemSkip:I
@@ -597,29 +597,25 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalChainStyle:I
 
     .line 428
-    new-array v5, v1, [F
+    new-array v0, v1, [F
 
-    fill-array-data v5, :array_1
+    fill-array-data v0, :array_1
 
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
 
     .line 430
-    new-array v5, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v5, v0
+    move-result-object v0
 
-    aput-object v2, v5, v3
-
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 431
-    new-array v1, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v1, v0
+    move-result-object v0
 
-    aput-object v2, v1, v3
-
-    iput-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 433
     iput-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalNextWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -954,12 +950,12 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaselineDistance:I
 
     .line 393
-    sget v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
+    sget v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
 
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
 
     .line 394
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
 
     .line 402
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mContainerItemSkip:I
@@ -983,29 +979,25 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalChainStyle:I
 
     .line 428
-    new-array v5, v1, [F
+    new-array v0, v1, [F
 
-    fill-array-data v5, :array_1
+    fill-array-data v0, :array_1
 
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
 
     .line 430
-    new-array v5, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v5, v0
+    move-result-object v0
 
-    aput-object v2, v5, v3
-
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 431
-    new-array v1, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v1, v0
+    move-result-object v0
 
-    aput-object v2, v1, v3
-
-    iput-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 433
     iput-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalNextWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -1353,12 +1345,12 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaselineDistance:I
 
     .line 393
-    sget v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
+    sget v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;->DEFAULT_BIAS:F
 
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
 
     .line 394
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
+    iput v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
 
     .line 402
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mContainerItemSkip:I
@@ -1382,29 +1374,25 @@
     iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalChainStyle:I
 
     .line 428
-    new-array v5, v1, [F
+    new-array v0, v1, [F
 
-    fill-array-data v5, :array_1
+    fill-array-data v0, :array_1
 
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
 
     .line 430
-    new-array v5, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v5, v0
+    move-result-object v0
 
-    aput-object v2, v5, v3
-
-    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 431
-    new-array v1, v1, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    filled-new-array {v2, v2}, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aput-object v2, v1, v0
+    move-result-object v0
 
-    aput-object v2, v1, v3
-
-    iput-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 433
     iput-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalNextWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -1701,7 +1689,7 @@
     move/from16 v14, p13
 
     :goto_3
-    if-eqz p27, :cond_9
+    if-eqz p27, :cond_a
 
     if-nez v11, :cond_8
 
@@ -1740,10 +1728,17 @@
 
     const/16 v6, 0x8
 
-    :goto_5
-    if-nez v18, :cond_d
+    goto :goto_5
 
-    if-eqz p9, :cond_b
+    :cond_a
+    move-object/from16 v21, v6
+
+    move v6, v13
+
+    :goto_5
+    if-nez v18, :cond_e
+
+    if-eqz p9, :cond_c
 
     const/4 v6, 0x0
 
@@ -1754,34 +1749,36 @@
 
     const/16 v13, 0x8
 
-    if-lez v15, :cond_a
+    if-lez v15, :cond_b
 
     .line 2682
     invoke-virtual {v10, v8, v9, v15, v13}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    :cond_a
+    :cond_b
     const v14, 0x7fffffff
 
-    if-ge v1, v14, :cond_c
+    if-ge v1, v14, :cond_d
 
     .line 2685
     invoke-virtual {v10, v8, v9, v1, v13}, Landroid/support/constraint/solver/LinearSystem;->addLowerThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
     goto :goto_6
 
-    :cond_b
-    const/4 v6, 0x0
+    :cond_c
+    move v13, v6
 
-    const/16 v13, 0x8
+    const/4 v6, 0x0
 
     .line 2688
     invoke-virtual {v10, v8, v9, v14, v13}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
-    :cond_c
+    :cond_d
     :goto_6
     move/from16 v22, v3
 
     move v1, v4
+
+    move/from16 v19, v6
 
     move-object v14, v7
 
@@ -1792,8 +1789,6 @@
 
     move-object/from16 v13, v21
 
-    const/16 v19, 0x0
-
     move/from16 v18, p5
 
     :goto_8
@@ -1801,35 +1796,35 @@
 
     goto/16 :goto_f
 
-    :cond_d
+    :cond_e
     const/4 v1, 0x2
 
     const/4 v6, 0x0
 
-    if-eq v5, v1, :cond_10
+    if-eq v5, v1, :cond_11
 
-    if-nez p17, :cond_10
+    if-nez p17, :cond_11
 
     const/4 v1, 0x1
 
-    if-eq v2, v1, :cond_e
+    if-eq v2, v1, :cond_f
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_11
 
     .line 2696
-    :cond_e
+    :cond_f
     invoke-static {v3, v14}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    if-lez v4, :cond_f
+    if-lez v4, :cond_10
 
     .line 2698
     invoke-static {v4, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
-    :cond_f
+    :cond_10
     const/16 v13, 0x8
 
     .line 2700
@@ -1841,53 +1836,53 @@
 
     move v1, v4
 
+    move/from16 v19, v6
+
+    move/from16 v23, v19
+
     move-object v14, v7
 
     move-object v15, v8
 
     move-object/from16 v13, v21
 
-    const/16 v19, 0x0
-
-    const/16 v23, 0x0
-
     goto :goto_8
 
-    :cond_10
+    :cond_11
     const/4 v1, -0x2
 
-    if-ne v3, v1, :cond_11
+    if-ne v3, v1, :cond_12
 
     move v13, v14
 
     goto :goto_9
 
-    :cond_11
+    :cond_12
     move v13, v3
 
     :goto_9
-    if-ne v4, v1, :cond_12
+    if-ne v4, v1, :cond_13
 
     move v1, v14
 
     goto :goto_a
 
-    :cond_12
+    :cond_13
     move v1, v4
 
     :goto_a
-    if-lez v14, :cond_13
+    if-lez v14, :cond_14
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_13
+    if-eq v2, v3, :cond_14
 
-    const/4 v14, 0x0
+    move v14, v6
 
-    :cond_13
+    :cond_14
     const/16 v3, 0x8
 
-    if-lez v13, :cond_14
+    if-lez v13, :cond_15
 
     .line 2717
     invoke-virtual {v10, v8, v9, v13, v3}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
@@ -1897,19 +1892,19 @@
 
     move-result v14
 
-    :cond_14
+    :cond_15
     const/4 v4, 0x1
 
-    if-lez v1, :cond_16
+    if-lez v1, :cond_17
 
-    if-eqz p3, :cond_15
+    if-eqz p3, :cond_16
 
-    if-ne v2, v4, :cond_15
+    if-ne v2, v4, :cond_16
 
     goto :goto_b
 
     .line 2726
-    :cond_15
+    :cond_16
     invoke-virtual {v10, v8, v9, v1, v3}, Landroid/support/constraint/solver/LinearSystem;->addLowerThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
     .line 2728
@@ -1918,18 +1913,18 @@
 
     move-result v14
 
-    :cond_16
-    if-ne v2, v4, :cond_19
+    :cond_17
+    if-ne v2, v4, :cond_1a
 
-    if-eqz p3, :cond_17
+    if-eqz p3, :cond_18
 
     .line 2732
     invoke-virtual {v10, v8, v9, v14, v3}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
     goto :goto_c
 
-    :cond_17
-    if-eqz p19, :cond_18
+    :cond_18
+    if-eqz p19, :cond_19
 
     const/4 v4, 0x5
 
@@ -1941,7 +1936,7 @@
 
     goto :goto_c
 
-    :cond_18
+    :cond_19
     const/4 v4, 0x5
 
     .line 2737
@@ -1951,6 +1946,8 @@
     invoke-virtual {v10, v8, v9, v14, v3}, Landroid/support/constraint/solver/LinearSystem;->addLowerThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
     :goto_c
+    move/from16 v19, v6
+
     move-object v14, v7
 
     move-object v15, v8
@@ -1959,10 +1956,10 @@
 
     goto :goto_7
 
-    :cond_19
+    :cond_1a
     const/4 v14, 0x2
 
-    if-ne v2, v14, :cond_1c
+    if-ne v2, v14, :cond_1d
 
     .line 2743
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getType()Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
@@ -1971,7 +1968,7 @@
 
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-eq v3, v4, :cond_1b
+    if-eq v3, v4, :cond_1c
 
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getType()Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
@@ -1979,12 +1976,12 @@
 
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-ne v3, v4, :cond_1a
+    if-ne v3, v4, :cond_1b
 
     goto :goto_d
 
     .line 2748
-    :cond_1a
+    :cond_1b
     iget-object v3, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
@@ -2013,7 +2010,7 @@
     goto :goto_e
 
     .line 2745
-    :cond_1b
+    :cond_1c
     :goto_d
     iget-object v3, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
@@ -2082,11 +2079,13 @@
 
     move/from16 v22, p9
 
-    const/16 v23, 0x0
+    move/from16 v23, v19
 
     goto :goto_f
 
-    :cond_1c
+    :cond_1d
+    move/from16 v19, v6
+
     move-object v14, v7
 
     move-object v15, v8
@@ -2094,8 +2093,6 @@
     move/from16 p9, v13
 
     move-object/from16 v13, v21
-
-    const/16 v19, 0x0
 
     move/from16 v21, v5
 
@@ -2106,9 +2103,9 @@
     const/16 v18, 0x1
 
     :goto_f
-    if-eqz p27, :cond_56
+    if-eqz p27, :cond_58
 
-    if-eqz p19, :cond_1d
+    if-eqz p19, :cond_1e
 
     move-object/from16 v1, p6
 
@@ -2116,36 +2113,42 @@
 
     move-object v2, v15
 
-    move/from16 v5, v21
+    move/from16 v3, v19
 
-    const/4 v3, 0x0
+    move/from16 v5, v21
 
     const/4 v6, 0x2
 
     move-object v15, v9
 
-    goto/16 :goto_2a
-
-    :cond_1d
-    if-nez v11, :cond_1e
-
-    if-nez v12, :cond_1e
-
-    if-nez v16, :cond_1e
-
-    goto/16 :goto_27
+    goto/16 :goto_2c
 
     :cond_1e
-    if-eqz v11, :cond_1f
+    if-nez v11, :cond_1f
 
     if-nez v12, :cond_1f
 
-    goto/16 :goto_27
+    if-nez v16, :cond_1f
+
+    goto :goto_10
 
     :cond_1f
-    if-nez v11, :cond_22
+    if-eqz v11, :cond_21
 
-    if-eqz v12, :cond_22
+    if-nez v12, :cond_21
+
+    :cond_20
+    :goto_10
+    move-object v2, v15
+
+    move/from16 v3, v19
+
+    goto/16 :goto_29
+
+    :cond_21
+    if-nez v11, :cond_24
+
+    if-eqz v12, :cond_24
 
     .line 2799
     invoke-virtual/range {p11 .. p11}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
@@ -2158,47 +2161,47 @@
 
     invoke-virtual {v10, v15, v13, v1, v2}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
-    if-eqz p3, :cond_51
+    if-eqz p3, :cond_20
 
     .line 2801
     iget-boolean v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->OPTIMIZE_WRAP:Z
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_23
 
     iget-boolean v1, v9, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_23
 
     iget-object v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_23
 
     .line 2802
     check-cast v1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    if-eqz p2, :cond_20
+    if-eqz p2, :cond_22
 
     move-object/from16 v7, p10
 
-    const/4 v8, 0x0
+    move/from16 v8, v19
 
     .line 2804
     invoke-virtual {v1, v7}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addHorizontalWrapMinVariable(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
 
-    goto/16 :goto_27
+    goto/16 :goto_28
 
-    :cond_20
+    :cond_22
     move-object/from16 v7, p10
 
-    const/4 v8, 0x0
+    move/from16 v8, v19
 
     .line 2806
     invoke-virtual {v1, v7}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addVerticalWrapMinVariable(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
 
-    goto/16 :goto_27
+    goto/16 :goto_28
 
-    :cond_21
-    const/4 v8, 0x0
+    :cond_23
+    move/from16 v8, v19
 
     move-object/from16 v6, p6
 
@@ -2207,18 +2210,18 @@
     .line 2812
     invoke-virtual {v10, v9, v6, v8, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto/16 :goto_27
+    goto/16 :goto_28
 
-    :cond_22
+    :cond_24
     move-object/from16 v6, p6
 
     move-object/from16 v7, p10
 
-    const/4 v8, 0x0
+    move/from16 v8, v19
 
-    if-eqz v11, :cond_51
+    if-eqz v11, :cond_53
 
-    if-eqz v12, :cond_51
+    if-eqz v12, :cond_53
 
     .line 2827
     iget-object v3, v7, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -2241,22 +2244,22 @@
 
     const/16 v16, 0x6
 
-    if-eqz v23, :cond_34
+    if-eqz v23, :cond_36
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_29
 
-    if-nez v1, :cond_24
+    if-nez v1, :cond_26
 
-    if-nez v22, :cond_24
+    if-nez v22, :cond_26
 
     .line 2838
     iget-boolean v1, v14, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_25
 
     iget-boolean v1, v13, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_25
 
     .line 2839
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
@@ -2278,23 +2281,23 @@
 
     return-void
 
-    :cond_23
-    const/4 v1, 0x0
+    :cond_25
+    move v1, v8
+
+    move/from16 v19, v1
 
     const/4 v3, 0x1
-
-    const/16 v19, 0x0
 
     const/16 v21, 0x8
 
     const/16 v24, 0x8
 
-    goto :goto_10
+    goto :goto_11
 
-    :cond_24
+    :cond_26
+    move v3, v8
+
     const/4 v1, 0x1
-
-    const/4 v3, 0x0
 
     const/16 v19, 0x1
 
@@ -2303,49 +2306,49 @@
     const/16 v24, 0x5
 
     .line 2850
-    :goto_10
+    :goto_11
     instance-of v8, v11, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-nez v8, :cond_26
+    if-nez v8, :cond_28
 
     instance-of v8, v5, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-eqz v8, :cond_25
+    if-eqz v8, :cond_27
 
-    goto :goto_11
+    goto :goto_12
 
-    :cond_25
+    :cond_27
     move-object/from16 v8, p7
 
     move/from16 v25, v21
 
-    goto :goto_12
+    goto :goto_13
 
-    :cond_26
-    :goto_11
+    :cond_28
+    :goto_12
     move-object/from16 v8, p7
 
     move/from16 v25, v21
 
     const/16 v24, 0x4
 
-    :goto_12
+    :goto_13
     move/from16 v21, v3
 
-    const/4 v3, 0x6
+    move/from16 v3, v16
 
-    goto/16 :goto_1c
+    goto/16 :goto_1d
 
-    :cond_27
+    :cond_29
     const/4 v8, 0x1
 
-    if-ne v2, v8, :cond_28
+    if-ne v2, v8, :cond_2a
 
     move-object/from16 v8, p7
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
@@ -2353,109 +2356,109 @@
 
     const/16 v24, 0x4
 
-    :goto_13
+    :goto_14
     const/16 v25, 0x8
 
-    goto/16 :goto_1c
+    goto/16 :goto_1d
 
-    :cond_28
+    :cond_2a
     const/4 v8, 0x3
 
-    if-ne v2, v8, :cond_33
+    if-ne v2, v8, :cond_35
 
     .line 2858
     iget v8, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedDimensionRatioSide:I
 
     const/4 v3, -0x1
 
-    if-ne v8, v3, :cond_2b
+    if-ne v8, v3, :cond_2d
 
-    if-eqz p20, :cond_2a
+    if-eqz p20, :cond_2c
 
     move-object/from16 v8, p7
 
     const/4 v1, 0x1
 
-    if-eqz p3, :cond_29
+    if-eqz p3, :cond_2b
 
     const/4 v3, 0x5
 
-    goto :goto_14
+    goto :goto_15
 
-    :cond_29
+    :cond_2b
     const/4 v3, 0x4
 
-    goto :goto_14
+    goto :goto_15
 
-    :cond_2a
+    :cond_2c
     move-object/from16 v8, p7
 
     const/4 v1, 0x1
 
     const/16 v3, 0x8
 
-    :goto_14
+    :goto_15
     const/16 v19, 0x1
 
     const/16 v21, 0x1
 
     const/16 v24, 0x5
 
-    goto :goto_13
+    goto :goto_14
 
-    :cond_2b
-    if-eqz p17, :cond_2e
+    :cond_2d
+    if-eqz p17, :cond_30
 
     move/from16 v3, p23
 
     const/4 v8, 0x2
 
-    if-eq v3, v8, :cond_2d
+    if-eq v3, v8, :cond_2f
 
     const/4 v1, 0x1
 
-    if-ne v3, v1, :cond_2c
+    if-ne v3, v1, :cond_2e
 
-    goto :goto_15
+    goto :goto_16
 
-    :cond_2c
+    :cond_2e
     const/16 v1, 0x8
 
     const/4 v3, 0x5
 
-    goto :goto_16
+    goto :goto_17
 
-    :cond_2d
-    :goto_15
+    :cond_2f
+    :goto_16
     const/4 v1, 0x5
 
     const/4 v3, 0x4
 
-    :goto_16
+    :goto_17
     move-object/from16 v8, p7
 
     move/from16 v25, v1
 
     move/from16 v24, v3
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
     const/16 v21, 0x1
 
-    goto/16 :goto_1c
+    goto/16 :goto_1d
 
-    :cond_2e
-    if-lez v1, :cond_2f
+    :cond_30
+    if-lez v1, :cond_31
 
     move-object/from16 v8, p7
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
@@ -2463,20 +2466,20 @@
 
     const/16 v24, 0x5
 
-    goto/16 :goto_1b
+    goto/16 :goto_1c
 
-    :cond_2f
-    if-nez v1, :cond_32
+    :cond_31
+    if-nez v1, :cond_34
 
-    if-nez v22, :cond_32
+    if-nez v22, :cond_34
 
-    if-nez p20, :cond_30
+    if-nez p20, :cond_32
 
     move-object/from16 v8, p7
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
@@ -2484,28 +2487,28 @@
 
     const/16 v24, 0x8
 
-    goto/16 :goto_1b
+    goto/16 :goto_1c
 
-    :cond_30
-    if-eq v11, v4, :cond_31
+    :cond_32
+    if-eq v11, v4, :cond_33
 
-    if-eq v5, v4, :cond_31
+    if-eq v5, v4, :cond_33
 
     const/4 v1, 0x4
 
-    goto :goto_17
+    goto :goto_18
 
-    :cond_31
+    :cond_33
     const/4 v1, 0x5
 
-    :goto_17
+    :goto_18
     move-object/from16 v8, p7
 
     move/from16 v25, v1
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
@@ -2513,41 +2516,41 @@
 
     const/16 v24, 0x4
 
-    goto :goto_1c
+    goto :goto_1d
 
-    :cond_32
+    :cond_34
     move-object/from16 v8, p7
 
-    const/4 v1, 0x1
+    move/from16 v3, v16
 
-    const/4 v3, 0x6
+    const/4 v1, 0x1
 
     const/16 v19, 0x1
 
     const/16 v21, 0x1
 
-    goto :goto_1a
+    goto :goto_1b
 
-    :cond_33
+    :cond_35
     move-object/from16 v8, p7
+
+    move/from16 v3, v16
 
     const/4 v1, 0x0
 
-    const/4 v3, 0x6
-
     const/16 v19, 0x0
 
-    goto :goto_19
+    goto :goto_1a
 
     .line 2910
-    :cond_34
+    :cond_36
     iget-boolean v1, v14, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_39
 
     iget-boolean v1, v13, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_39
 
     .line 2911
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
@@ -2582,14 +2585,14 @@
     .line 2911
     invoke-virtual/range {p17 .. p25}, Landroid/support/constraint/solver/LinearSystem;->addCentering(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;IFLandroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    if-eqz p3, :cond_36
+    if-eqz p3, :cond_38
 
-    if-eqz v18, :cond_36
+    if-eqz v18, :cond_38
 
     .line 2915
     iget-object v1, v12, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_37
 
     .line 2916
     invoke-virtual/range {p11 .. p11}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
@@ -2598,70 +2601,70 @@
 
     move-object/from16 v8, p7
 
-    goto :goto_18
+    goto :goto_19
 
-    :cond_35
+    :cond_37
     move-object/from16 v8, p7
 
     const/4 v1, 0x0
 
-    :goto_18
-    if-eq v13, v8, :cond_36
+    :goto_19
+    if-eq v13, v8, :cond_38
 
     const/4 v2, 0x5
 
     .line 2922
     invoke-virtual {v10, v8, v15, v1, v2}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    :cond_36
+    :cond_38
     return-void
 
-    :cond_37
+    :cond_39
     move-object/from16 v8, p7
+
+    move/from16 v3, v16
 
     const/4 v1, 0x1
 
-    const/4 v3, 0x6
-
     const/16 v19, 0x1
 
-    :goto_19
+    :goto_1a
     const/16 v21, 0x0
 
-    :goto_1a
+    :goto_1b
     const/16 v24, 0x4
 
-    :goto_1b
+    :goto_1c
     const/16 v25, 0x5
 
-    :goto_1c
-    if-eqz v19, :cond_38
+    :goto_1d
+    if-eqz v19, :cond_3a
 
-    if-ne v14, v13, :cond_38
+    if-ne v14, v13, :cond_3a
 
-    if-eq v11, v4, :cond_38
+    if-eq v11, v4, :cond_3a
 
     const/16 v19, 0x0
 
     const/16 v26, 0x0
 
-    goto :goto_1d
+    goto :goto_1e
 
-    :cond_38
+    :cond_3a
     const/16 v26, 0x1
 
-    :goto_1d
-    if-eqz v1, :cond_3a
+    :goto_1e
+    if-eqz v1, :cond_3c
 
-    if-nez v23, :cond_39
+    if-nez v23, :cond_3b
 
-    if-nez p18, :cond_39
+    if-nez p18, :cond_3b
 
-    if-nez p20, :cond_39
+    if-nez p20, :cond_3b
 
-    if-ne v14, v6, :cond_39
+    if-ne v14, v6, :cond_3b
 
-    if-ne v13, v8, :cond_39
+    if-ne v13, v8, :cond_3b
 
     const/16 v25, 0x0
 
@@ -2671,9 +2674,9 @@
 
     const/16 v28, 0x8
 
-    goto :goto_1e
+    goto :goto_1f
 
-    :cond_39
+    :cond_3b
     move/from16 v28, v25
 
     move/from16 v27, v26
@@ -2683,7 +2686,7 @@
     move/from16 v26, v3
 
     .line 2944
-    :goto_1e
+    :goto_1f
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
     move-result v29
@@ -2732,9 +2735,9 @@
 
     move/from16 v26, v27
 
-    goto :goto_1f
+    goto :goto_20
 
-    :cond_3a
+    :cond_3c
     move/from16 p8, v2
 
     move-object/from16 v29, v4
@@ -2750,49 +2753,49 @@
     move/from16 v25, p3
 
     .line 2948
-    :goto_1f
+    :goto_20
     iget v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVisibility:I
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_3b
+    if-ne v1, v2, :cond_3d
 
     invoke-virtual/range {p11 .. p11}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->hasDependents()Z
 
     move-result v1
 
-    if-nez v1, :cond_3b
+    if-nez v1, :cond_3d
 
     return-void
 
-    :cond_3b
-    if-eqz v19, :cond_3e
+    :cond_3d
+    if-eqz v19, :cond_40
 
-    if-eqz v25, :cond_3d
+    if-eqz v25, :cond_3f
 
-    if-eq v14, v13, :cond_3d
+    if-eq v14, v13, :cond_3f
 
-    if-nez v23, :cond_3d
+    if-nez v23, :cond_3f
 
     .line 2955
     instance-of v1, v11, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_3e
 
     instance-of v1, v12, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_3f
 
-    :cond_3c
-    const/4 v1, 0x6
+    :cond_3e
+    move/from16 v1, v16
 
-    goto :goto_20
+    goto :goto_21
 
-    :cond_3d
+    :cond_3f
     move/from16 v1, v28
 
     .line 2959
-    :goto_20
+    :goto_21
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
     move-result v2
@@ -2812,128 +2815,128 @@
 
     move/from16 v28, v1
 
-    goto :goto_21
+    goto :goto_22
 
-    :cond_3e
+    :cond_40
     move-object/from16 v3, v20
 
-    :goto_21
-    if-eqz v25, :cond_3f
+    :goto_22
+    if-eqz v25, :cond_41
 
-    if-eqz p21, :cond_3f
+    if-eqz p21, :cond_41
 
     .line 2963
     instance-of v1, v11, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_41
 
     instance-of v1, v12, Landroid/support/constraint/solver/widgets/Barrier;
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_41
 
-    const/4 v1, 0x6
+    move/from16 v1, v16
 
-    const/4 v2, 0x6
+    move v2, v1
 
     const/16 v26, 0x1
-
-    goto :goto_22
-
-    :cond_3f
-    move/from16 v1, v24
-
-    move/from16 v2, v28
-
-    :goto_22
-    if-eqz v26, :cond_4b
-
-    if-eqz v21, :cond_48
-
-    if-eqz p20, :cond_40
-
-    if-eqz p4, :cond_48
-
-    :cond_40
-    move-object/from16 v4, v29
-
-    if-eq v11, v4, :cond_42
-
-    if-ne v12, v4, :cond_41
 
     goto :goto_23
 
     :cond_41
+    move/from16 v1, v24
+
+    move/from16 v2, v28
+
+    :goto_23
+    if-eqz v26, :cond_4d
+
+    if-eqz v21, :cond_4a
+
+    if-eqz p20, :cond_42
+
+    if-eqz p4, :cond_4a
+
+    :cond_42
+    move-object/from16 v4, v29
+
+    if-eq v11, v4, :cond_44
+
+    if-ne v12, v4, :cond_43
+
+    goto :goto_24
+
+    :cond_43
     move/from16 v16, v1
 
     .line 2978
-    :cond_42
-    :goto_23
-    instance-of v5, v11, Landroid/support/constraint/solver/widgets/Guideline;
-
-    if-nez v5, :cond_43
-
-    instance-of v5, v12, Landroid/support/constraint/solver/widgets/Guideline;
-
-    if-eqz v5, :cond_44
-
-    :cond_43
-    const/16 v16, 0x5
-
-    .line 2981
     :cond_44
-    instance-of v5, v11, Landroid/support/constraint/solver/widgets/Barrier;
+    :goto_24
+    instance-of v5, v11, Landroid/support/constraint/solver/widgets/Guideline;
 
     if-nez v5, :cond_45
 
-    instance-of v5, v12, Landroid/support/constraint/solver/widgets/Barrier;
+    instance-of v5, v12, Landroid/support/constraint/solver/widgets/Guideline;
 
     if-eqz v5, :cond_46
 
     :cond_45
     const/16 v16, 0x5
 
+    .line 2981
     :cond_46
-    if-eqz p20, :cond_47
+    instance-of v5, v11, Landroid/support/constraint/solver/widgets/Barrier;
+
+    if-nez v5, :cond_47
+
+    instance-of v5, v12, Landroid/support/constraint/solver/widgets/Barrier;
+
+    if-eqz v5, :cond_48
+
+    :cond_47
+    const/16 v16, 0x5
+
+    :cond_48
+    if-eqz p20, :cond_49
 
     const/4 v5, 0x5
 
-    goto :goto_24
+    goto :goto_25
 
-    :cond_47
+    :cond_49
     move/from16 v5, v16
 
     .line 2987
-    :goto_24
+    :goto_25
     invoke-static {v5, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    goto :goto_25
+    goto :goto_26
 
-    :cond_48
+    :cond_4a
     move-object/from16 v4, v29
 
-    :goto_25
-    if-eqz v25, :cond_4a
+    :goto_26
+    if-eqz v25, :cond_4c
 
     .line 2991
     invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
-    if-eqz p17, :cond_4a
+    if-eqz p17, :cond_4c
 
-    if-nez p20, :cond_4a
+    if-nez p20, :cond_4c
 
-    if-eq v11, v4, :cond_49
+    if-eq v11, v4, :cond_4b
 
-    if-ne v12, v4, :cond_4a
+    if-ne v12, v4, :cond_4c
 
-    :cond_49
+    :cond_4b
     const/4 v1, 0x4
 
     .line 2998
-    :cond_4a
+    :cond_4c
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
     move-result v2
@@ -2949,49 +2952,49 @@
 
     invoke-virtual {v10, v3, v13, v2, v1}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
-    :cond_4b
-    if-eqz v25, :cond_4d
+    :cond_4d
+    if-eqz v25, :cond_4f
 
     move-object/from16 v1, p6
 
-    if-ne v1, v14, :cond_4c
+    if-ne v1, v14, :cond_4e
 
     .line 3005
     invoke-virtual/range {p10 .. p10}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
     move-result v2
 
-    goto :goto_26
+    goto :goto_27
 
-    :cond_4c
+    :cond_4e
     const/4 v2, 0x0
 
-    :goto_26
-    if-eq v14, v1, :cond_4d
+    :goto_27
+    if-eq v14, v1, :cond_4f
 
     const/4 v4, 0x5
 
     .line 3011
     invoke-virtual {v10, v15, v1, v2, v4}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    :cond_4d
-    if-eqz v25, :cond_4f
+    :cond_4f
+    if-eqz v25, :cond_51
 
-    if-eqz v23, :cond_4f
+    if-eqz v23, :cond_51
 
     move-object v2, v3
 
-    if-nez p14, :cond_50
+    if-nez p14, :cond_52
 
-    if-nez v22, :cond_50
+    if-nez v22, :cond_52
 
-    if-eqz v23, :cond_4e
+    if-eqz v23, :cond_50
 
     move/from16 v1, p8
 
     const/4 v3, 0x3
 
-    if-ne v1, v3, :cond_4e
+    if-ne v1, v3, :cond_50
 
     const/16 v1, 0x8
 
@@ -3000,9 +3003,9 @@
     .line 3020
     invoke-virtual {v10, v2, v15, v3, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto :goto_28
+    goto :goto_2a
 
-    :cond_4e
+    :cond_50
     const/4 v3, 0x0
 
     const/4 v1, 0x5
@@ -3010,93 +3013,94 @@
     .line 3022
     invoke-virtual {v10, v2, v15, v3, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto :goto_28
-
-    :cond_4f
-    move-object v2, v3
-
-    :cond_50
-    const/4 v3, 0x0
-
-    goto :goto_28
+    goto :goto_2a
 
     :cond_51
-    :goto_27
-    move-object v2, v15
+    move-object v2, v3
 
+    :cond_52
     const/4 v3, 0x0
 
+    goto :goto_2a
+
+    :cond_53
+    :goto_28
+    move v3, v8
+
+    move-object v2, v15
+
+    :goto_29
     move/from16 v25, p3
 
-    :goto_28
-    if-eqz v25, :cond_55
+    :goto_2a
+    if-eqz v25, :cond_57
 
-    if-eqz v18, :cond_55
+    if-eqz v18, :cond_57
 
     move-object/from16 v1, p11
 
     .line 3029
     iget-object v4, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-eqz v4, :cond_52
+    if-eqz v4, :cond_54
 
     .line 3030
     invoke-virtual/range {p11 .. p11}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
     move-result v3
 
-    :cond_52
+    :cond_54
     move-object/from16 v4, p7
 
-    if-eq v13, v4, :cond_55
+    if-eq v13, v4, :cond_57
 
     .line 3033
     iget-boolean v5, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->OPTIMIZE_WRAP:Z
 
-    if-eqz v5, :cond_54
+    if-eqz v5, :cond_56
 
     iget-boolean v5, v2, Landroid/support/constraint/solver/SolverVariable;->isFinalValue:Z
 
-    if-eqz v5, :cond_54
+    if-eqz v5, :cond_56
 
     iget-object v5, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    if-eqz v5, :cond_54
+    if-eqz v5, :cond_56
 
     .line 3034
     check-cast v5, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    if-eqz p2, :cond_53
+    if-eqz p2, :cond_55
 
     .line 3036
     invoke-virtual {v5, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addHorizontalWrapMaxVariable(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
 
-    goto :goto_29
+    goto :goto_2b
 
     .line 3038
-    :cond_53
+    :cond_55
     invoke-virtual {v5, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addVerticalWrapMaxVariable(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
 
-    :goto_29
+    :goto_2b
     return-void
 
-    :cond_54
+    :cond_56
     const/4 v1, 0x5
 
     .line 3045
     invoke-virtual {v10, v4, v2, v3, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    :cond_55
+    :cond_57
     return-void
 
-    :cond_56
+    :cond_58
     move-object/from16 v1, p6
 
     move-object/from16 v4, p7
 
     move-object v2, v15
 
-    const/4 v3, 0x0
+    move/from16 v3, v19
 
     move-object v15, v9
 
@@ -3104,47 +3108,47 @@
 
     const/4 v6, 0x2
 
-    :goto_2a
-    if-ge v5, v6, :cond_5a
+    :goto_2c
+    if-ge v5, v6, :cond_5c
 
-    if-eqz p3, :cond_5a
+    if-eqz p3, :cond_5c
 
-    if-eqz v18, :cond_5a
+    if-eqz v18, :cond_5c
 
     const/16 v5, 0x8
 
     .line 2766
     invoke-virtual {v10, v15, v1, v3, v5}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    if-nez p2, :cond_58
+    if-nez p2, :cond_5a
 
     .line 2767
     iget-object v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaseline:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-nez v1, :cond_57
+    if-nez v1, :cond_59
 
-    goto :goto_2b
+    goto :goto_2d
 
-    :cond_57
-    const/4 v13, 0x0
+    :cond_59
+    move v13, v3
 
-    goto :goto_2c
+    goto :goto_2e
 
-    :cond_58
-    :goto_2b
+    :cond_5a
+    :goto_2d
     const/4 v13, 0x1
 
-    :goto_2c
-    if-nez p2, :cond_59
+    :goto_2e
+    if-nez p2, :cond_5b
 
     .line 2768
     iget-object v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaseline:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-eqz v1, :cond_59
+    if-eqz v1, :cond_5b
 
     .line 2771
     iget-object v1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaseline:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -3160,7 +3164,7 @@
 
     cmpl-float v5, v5, v6
 
-    if-eqz v5, :cond_5a
+    if-eqz v5, :cond_5c
 
     iget-object v5, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -3168,7 +3172,7 @@
 
     sget-object v6, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v5, v6, :cond_5a
+    if-ne v5, v6, :cond_5c
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -3178,20 +3182,20 @@
 
     sget-object v5, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v1, v5, :cond_5a
+    if-ne v1, v5, :cond_5c
 
-    goto :goto_2d
+    goto :goto_2f
 
-    :cond_59
-    if-eqz v13, :cond_5a
+    :cond_5b
+    if-eqz v13, :cond_5c
 
-    :goto_2d
+    :goto_2f
     const/16 v1, 0x8
 
     .line 2784
     invoke-virtual {v10, v4, v2, v3, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    :cond_5a
+    :cond_5c
     return-void
 .end method
 
@@ -3521,17 +3525,9 @@
 
     move v5, p4
 
-    :try_start_0
     invoke-virtual/range {v1 .. v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->addChildrenToSolverByDependency(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/LinearSystem;Ljava/util/HashSet;IZ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_4
-
-    :catchall_0
-    move-exception p1
-
-    throw p1
 
     :cond_6
     return-void
@@ -3626,12 +3622,12 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v8
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v7
 
     .line 2178
     :goto_0
@@ -3647,12 +3643,12 @@
 
     if-ne v1, v2, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v8
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v7
 
     :goto_1
     move v5, v0
@@ -3662,9 +3658,9 @@
     goto :goto_2
 
     :cond_2
-    const/4 v5, 0x0
+    move v5, v7
 
-    const/4 v6, 0x0
+    move v6, v5
 
     .line 2181
     :goto_2
@@ -4081,7 +4077,7 @@
 
     invoke-virtual {v0, v15, v7}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addChain(Landroid/support/constraint/solver/widgets/ConstraintWidget;I)V
 
-    const/4 v0, 0x1
+    move v0, v8
 
     goto :goto_5
 
@@ -4106,7 +4102,7 @@
 
     invoke-virtual {v1, v15, v8}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addChain(Landroid/support/constraint/solver/widgets/ConstraintWidget;I)V
 
-    const/4 v1, 0x1
+    move v1, v8
 
     goto :goto_6
 
@@ -4200,9 +4196,9 @@
     goto :goto_7
 
     :cond_15
-    const/16 v28, 0x0
+    move/from16 v28, v7
 
-    const/16 v29, 0x0
+    move/from16 v29, v28
 
     .line 2315
     :goto_7
@@ -4236,12 +4232,12 @@
 
     if-eq v2, v3, :cond_18
 
-    const/4 v2, 0x1
+    move v2, v8
 
     goto :goto_8
 
     :cond_18
-    const/4 v2, 0x0
+    move v2, v7
 
     .line 2327
     :goto_8
@@ -4253,12 +4249,12 @@
 
     if-eq v3, v4, :cond_19
 
-    const/4 v3, 0x1
+    move v3, v8
 
     goto :goto_9
 
     :cond_19
-    const/4 v3, 0x0
+    move v3, v7
 
     .line 2333
     :goto_9
@@ -4279,9 +4275,9 @@
 
     const/16 v20, 0x0
 
-    move/from16 v21, v0
-
     cmpl-float v4, v4, v20
+
+    move/from16 v20, v0
 
     if-lez v4, :cond_22
 
@@ -4309,7 +4305,7 @@
 
     if-nez v8, :cond_1a
 
-    const/4 v8, 0x3
+    move v8, v1
 
     .line 2345
     :cond_1a
@@ -4325,7 +4321,7 @@
 
     if-nez v7, :cond_1b
 
-    const/4 v7, 0x3
+    move v7, v1
 
     .line 2350
     :cond_1b
@@ -4384,7 +4380,7 @@
 
     int-to-float v1, v1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
@@ -4397,22 +4393,24 @@
 
     sget-object v3, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
+    if-eq v1, v3, :cond_1d
+
+    move/from16 v32, v4
+
     move/from16 v31, v7
 
-    if-eq v1, v3, :cond_1d
+    goto :goto_c
+
+    :cond_1d
+    move/from16 v31, v7
+
+    move/from16 v32, v8
 
     move/from16 v30, v22
 
-    const/4 v8, 0x0
+    move v8, v2
 
-    const/16 v32, 0x4
-
-    goto :goto_d
-
-    :cond_1d
-    move/from16 v32, v8
-
-    goto :goto_b
+    goto :goto_e
 
     :cond_1e
     const/4 v2, 0x1
@@ -4455,7 +4453,7 @@
 
     int-to-float v1, v1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v1, v0
 
@@ -4472,13 +4470,11 @@
 
     if-eq v0, v2, :cond_20
 
+    move/from16 v31, v4
+
     move/from16 v32, v8
 
-    move/from16 v0, v21
-
-    const/4 v8, 0x0
-
-    const/16 v31, 0x4
+    move/from16 v0, v20
 
     goto :goto_d
 
@@ -4487,9 +4483,9 @@
 
     move/from16 v32, v8
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    goto :goto_c
+    goto :goto_b
 
     :cond_21
     :goto_a
@@ -4497,15 +4493,14 @@
 
     move/from16 v32, v8
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    :goto_b
     move/from16 v30, v22
 
-    :goto_c
+    :goto_b
     const/4 v8, 0x1
 
-    goto :goto_d
+    goto :goto_e
 
     :cond_22
     move/from16 v22, v1
@@ -4514,14 +4509,16 @@
 
     move/from16 v32, v8
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
+    :goto_c
     move/from16 v30, v22
 
+    :goto_d
     const/4 v8, 0x0
 
     .line 2378
-    :goto_d
+    :goto_e
     iget-object v1, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
 
     const/4 v2, 0x0
@@ -4550,7 +4547,7 @@
     :cond_23
     const/16 v20, 0x1
 
-    goto :goto_e
+    goto :goto_f
 
     :cond_24
     const/4 v2, -0x1
@@ -4558,7 +4555,7 @@
     :cond_25
     const/16 v20, 0x0
 
-    :goto_e
+    :goto_f
     if-eqz v8, :cond_27
 
     .line 2385
@@ -4573,13 +4570,13 @@
     :cond_26
     const/16 v33, 0x1
 
-    goto :goto_f
+    goto :goto_10
 
     :cond_27
     const/16 v33, 0x0
 
     .line 2389
-    :goto_f
+    :goto_10
     iget-object v1, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     const/4 v2, 0x0
@@ -4596,23 +4593,23 @@
 
     const/16 v21, 0x1
 
-    goto :goto_10
+    goto :goto_11
 
     :cond_28
     const/16 v21, 0x0
 
-    :goto_10
+    :goto_11
     if-eqz v21, :cond_29
 
     const/16 v22, 0x0
 
-    goto :goto_11
+    goto :goto_12
 
     :cond_29
     move/from16 v22, v0
 
     .line 2396
-    :goto_11
+    :goto_12
     iget-object v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mCenter:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->isConnected()Z
@@ -4667,7 +4664,7 @@
 
     if-nez v0, :cond_2a
 
-    goto :goto_12
+    goto :goto_13
 
     :cond_2a
     if-eqz p2, :cond_2f
@@ -4726,10 +4723,10 @@
     .line 2420
     invoke-virtual {v14, v0, v12, v1, v4}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto/16 :goto_16
+    goto/16 :goto_17
 
     :cond_2b
-    :goto_12
+    :goto_13
     const/16 v4, 0x8
 
     .line 2405
@@ -4745,13 +4742,13 @@
 
     move-object/from16 v16, v0
 
-    goto :goto_13
+    goto :goto_14
 
     :cond_2c
     move-object/from16 v16, v36
 
     .line 2406
-    :goto_13
+    :goto_14
     iget-object v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     if-eqz v0, :cond_2d
@@ -4764,13 +4761,13 @@
 
     move-object/from16 v27, v0
 
-    goto :goto_14
+    goto :goto_15
 
     :cond_2d
     move-object/from16 v27, v36
 
     .line 2407
-    :goto_14
+    :goto_15
     iget-object v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->isTerminalWidget:[Z
 
     const/16 v19, 0x0
@@ -4805,14 +4802,14 @@
 
     if-ne v0, v7, :cond_2e
 
-    const/16 v43, 0x1
+    move/from16 v43, v18
 
-    goto :goto_15
+    goto :goto_16
 
     :cond_2e
-    const/16 v43, 0x0
+    move/from16 v43, v19
 
-    :goto_15
+    :goto_16
     iget v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinWidth:I
 
     move/from16 v24, v0
@@ -4905,10 +4902,10 @@
 
     invoke-direct/range {v0 .. v27}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->applyConstraints(Landroid/support/constraint/solver/LinearSystem;ZZZZLandroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;ZLandroid/support/constraint/solver/widgets/ConstraintAnchor;Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIIIFZZZZZIIIIFZ)V
 
-    goto :goto_17
+    goto :goto_18
 
     :cond_2f
-    :goto_16
+    :goto_17
     move/from16 v46, v5
 
     move/from16 v37, v6
@@ -4925,7 +4922,7 @@
 
     move-object/from16 v39, v13
 
-    :goto_17
+    :goto_18
     if-eqz p2, :cond_33
 
     move-object/from16 v15, p0
@@ -5016,14 +5013,14 @@
     .line 2437
     invoke-virtual {v14, v0, v12, v10, v2}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto :goto_18
+    goto :goto_19
 
     :cond_30
     const/16 v2, 0x8
 
     const/4 v10, 0x0
 
-    goto :goto_18
+    goto :goto_19
 
     :cond_31
     const/16 v2, 0x8
@@ -5032,10 +5029,10 @@
 
     const/4 v11, 0x1
 
-    :goto_18
-    const/4 v8, 0x0
+    :goto_19
+    move v8, v10
 
-    goto :goto_1a
+    goto :goto_1b
 
     :cond_32
     move-object/from16 v14, p1
@@ -5052,7 +5049,7 @@
 
     const/4 v11, 0x1
 
-    goto :goto_19
+    goto :goto_1a
 
     :cond_33
     const/16 v2, 0x8
@@ -5071,18 +5068,18 @@
 
     move-object/from16 v13, v49
 
-    :goto_19
-    const/4 v8, 0x1
+    :goto_1a
+    move v8, v11
 
     .line 2442
-    :goto_1a
+    :goto_1b
     iget v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalResolution:I
 
     const/4 v3, 0x2
 
     if-ne v0, v3, :cond_34
 
-    goto/16 :goto_21
+    goto/16 :goto_22
 
     :cond_34
     if-eqz v8, :cond_3f
@@ -5105,17 +5102,17 @@
 
     if-eqz v0, :cond_35
 
-    const/4 v9, 0x1
+    move v9, v11
 
-    goto :goto_1b
+    goto :goto_1c
 
     :cond_35
-    const/4 v9, 0x0
+    move v9, v10
 
-    :goto_1b
+    :goto_1c
     if-eqz v9, :cond_36
 
-    const/16 v30, 0x0
+    move/from16 v30, v10
 
     .line 2459
     :cond_36
@@ -5131,13 +5128,13 @@
 
     move-object v7, v0
 
-    goto :goto_1c
+    goto :goto_1d
 
     :cond_37
     move-object/from16 v7, v36
 
     .line 2460
-    :goto_1c
+    :goto_1d
     iget-object v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mParent:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     if-eqz v0, :cond_38
@@ -5150,13 +5147,13 @@
 
     move-object v6, v0
 
-    goto :goto_1d
+    goto :goto_1e
 
     :cond_38
     move-object/from16 v6, v36
 
     .line 2462
-    :goto_1d
+    :goto_1e
     iget v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaselineDistance:I
 
     if-gtz v0, :cond_39
@@ -5207,9 +5204,9 @@
     invoke-virtual {v14, v7, v0, v10, v1}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
     :cond_3a
-    const/16 v27, 0x0
+    move/from16 v27, v10
 
-    goto :goto_1f
+    goto :goto_20
 
     .line 2478
     :cond_3b
@@ -5220,7 +5217,7 @@
     .line 2480
     invoke-virtual {v14, v1, v13, v10, v2}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
-    goto :goto_1e
+    goto :goto_1f
 
     .line 2482
     :cond_3c
@@ -5231,11 +5228,11 @@
     invoke-virtual {v14, v1, v13, v0, v2}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)Landroid/support/constraint/solver/ArrayRow;
 
     :cond_3d
-    :goto_1e
+    :goto_1f
     move/from16 v27, v34
 
     .line 2486
-    :goto_1f
+    :goto_20
     iget-object v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->isTerminalWidget:[Z
 
     aget-boolean v5, v0, v11
@@ -5268,12 +5265,12 @@
 
     const/16 v18, 0x1
 
-    goto :goto_20
+    goto :goto_21
 
     :cond_3e
-    const/16 v18, 0x0
+    move/from16 v18, v17
 
-    :goto_20
+    :goto_21
     iget v0, v15, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinHeight:I
 
     move/from16 v24, v0
@@ -5338,15 +5335,15 @@
 
     invoke-direct/range {v0 .. v27}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->applyConstraints(Landroid/support/constraint/solver/LinearSystem;ZZZZLandroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;ZLandroid/support/constraint/solver/widgets/ConstraintAnchor;Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIIIFZZZZZIIIIFZ)V
 
-    goto :goto_22
+    goto :goto_23
 
     :cond_3f
-    :goto_21
+    :goto_22
     move-object/from16 v34, v12
 
     move-object/from16 v36, v13
 
-    :goto_22
+    :goto_23
     move-object/from16 v7, p0
 
     if-eqz v42, :cond_41
@@ -5375,7 +5372,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/solver/LinearSystem;->addRatio(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;FI)V
 
-    goto :goto_23
+    goto :goto_24
 
     .line 2497
     :cond_40
@@ -5395,7 +5392,7 @@
 
     .line 2501
     :cond_41
-    :goto_23
+    :goto_24
     iget-object v0, v7, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mCenter:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->isConnected()Z
@@ -5548,7 +5545,7 @@
     if-eqz p1, :cond_2
 
     :cond_1
-    const/4 p1, 0x0
+    move p1, v1
 
     goto :goto_0
 
@@ -5567,7 +5564,7 @@
 
     invoke-virtual {p0, p1, p2, p3, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;I)V
 
-    const/4 p1, 0x1
+    move p1, v2
 
     :goto_0
     if-eqz p4, :cond_3
@@ -5590,7 +5587,7 @@
     if-eqz p3, :cond_5
 
     :cond_4
-    const/4 v2, 0x0
+    move v2, v1
 
     goto :goto_1
 
@@ -5607,10 +5604,7 @@
 
     sget-object p4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    :try_start_0
     invoke-virtual {p0, p3, p2, p4, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_1
     if-eqz p1, :cond_6
@@ -5676,12 +5670,6 @@
     invoke-virtual {p1, p2, v1}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Z
 
     goto/16 :goto_5
-
-    :catchall_0
-    move-exception p1
-
-    .line 1692
-    throw p1
 
     .line 1706
     :cond_8
@@ -6033,7 +6021,7 @@
     invoke-virtual {p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->reset()V
 
     :cond_14
-    const/4 p4, 0x0
+    move p4, v1
 
     goto :goto_4
 
@@ -7475,7 +7463,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 849
     :goto_0
@@ -7971,12 +7959,12 @@
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x1
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v2
 
     :goto_0
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mRight:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -7985,12 +7973,12 @@
 
     if-eqz v3, :cond_1
 
-    const/4 v3, 0x1
+    move v3, v1
 
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_1
     add-int/2addr p1, v3
@@ -8000,7 +7988,7 @@
     goto :goto_2
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_2
     return v1
@@ -8013,12 +8001,12 @@
 
     if-eqz p1, :cond_4
 
-    const/4 p1, 0x1
+    move p1, v1
 
     goto :goto_3
 
     :cond_4
-    const/4 p1, 0x0
+    move p1, v2
 
     :goto_3
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBottom:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -8027,12 +8015,12 @@
 
     if-eqz v3, :cond_5
 
-    const/4 v3, 0x1
+    move v3, v1
 
     goto :goto_4
 
     :cond_5
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_4
     add-int/2addr p1, v3
@@ -8043,12 +8031,12 @@
 
     if-eqz v3, :cond_6
 
-    const/4 v3, 0x1
+    move v3, v1
 
     goto :goto_5
 
     :cond_6
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_5
     add-int/2addr p1, v3
@@ -8058,7 +8046,7 @@
     goto :goto_6
 
     :cond_7
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_6
     return v1
@@ -8076,7 +8064,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -8477,12 +8465,12 @@
 
     if-nez p1, :cond_0
 
-    const/4 v2, 0x1
+    move v2, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 504
     :goto_0
@@ -8505,7 +8493,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     return v0
@@ -8535,7 +8523,7 @@
 
     if-ne v0, v3, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_0
     return v1
@@ -9363,9 +9351,13 @@
 
     invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     const-string v5, ".left"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -9380,9 +9372,13 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v4, ".top"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -9397,9 +9393,13 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".right"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -9414,9 +9414,13 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".bottom"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -9438,11 +9442,15 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, ".baseline"
+    move-result-object p2
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ".baseline"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -9560,12 +9568,12 @@
 
     if-eqz v3, :cond_2
 
-    const/4 v3, 0x1
+    move v3, v4
 
     goto :goto_0
 
     :cond_2
-    const/4 v3, -0x1
+    move v3, v5
 
     :goto_0
     add-int/2addr v2, v4
@@ -9679,10 +9687,8 @@
     goto :goto_1
 
     :catch_0
-    nop
-
     :cond_6
-    const/4 p1, 0x0
+    move p1, v0
 
     :goto_1
     cmpl-float v0, p1, v0
@@ -10876,7 +10882,11 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -10889,6 +10899,8 @@
 
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mDebugName:Ljava/lang/String;
 
@@ -10904,7 +10916,11 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -10913,41 +10929,61 @@
     :cond_1
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mX:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mY:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ") - ("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWidth:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHeight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -11036,13 +11072,13 @@
     if-ne v3, v5, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v6
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v2, 0x0
+    move v2, v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :cond_1
     sub-int/2addr v2, v0
@@ -11276,11 +11312,11 @@
     :cond_2
     const/4 v0, 0x0
 
-    const/4 p1, 0x0
+    move p1, v0
 
-    const/4 v1, 0x0
+    move v1, p1
 
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 3083
     :cond_3

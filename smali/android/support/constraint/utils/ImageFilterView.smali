@@ -166,7 +166,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .locals 6
 
     if-eqz p2, :cond_8
 
@@ -196,7 +196,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, p2, :cond_7
@@ -271,14 +271,7 @@
     :cond_3
     sget v4, Landroid/support/constraint/R$styleable;->ImageFilterView_round:I
 
-    const/16 v6, 0x15
-
     if-ne v3, v4, :cond_4
-
-    .line 329
-    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v4, v6, :cond_6
 
     .line 330
     invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -294,11 +287,6 @@
     sget v4, Landroid/support/constraint/R$styleable;->ImageFilterView_roundPercent:I
 
     if-ne v3, v4, :cond_5
-
-    .line 333
-    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v4, v6, :cond_6
 
     .line 334
     invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -375,7 +363,7 @@
 
     iget v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mCrossfade:F
 
-    mul-float v0, v0, p2
+    mul-float/2addr v0, p2
 
     float-to-int p2, v0
 
@@ -402,53 +390,11 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 2
-
-    .line 598
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    .line 599
-    iget v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
-
-    const/4 v1, 0x0
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
-
-    if-eqz v0, :cond_0
-
-    .line 601
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    .line 602
-    iget-object v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
+    .locals 0
 
     .line 605
-    :goto_0
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->draw(Landroid/graphics/Canvas;)V
 
-    if-eqz v0, :cond_1
-
-    .line 607
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
-
-    :cond_1
     return-void
 .end method
 
@@ -588,7 +534,7 @@
 
     sub-float/2addr v1, v2
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     float-to-int v1, v1
 
@@ -606,7 +552,7 @@
 
     iget v1, p0, Landroid/support/constraint/utils/ImageFilterView;->mCrossfade:F
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     float-to-int v0, v1
 
@@ -622,7 +568,7 @@
 .end method
 
 .method public setRound(F)V
-    .locals 5
+    .locals 4
 
     .line 528
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
@@ -651,32 +597,30 @@
     :cond_0
     iget v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mRound:F
 
+    cmpl-float v0, v0, p1
+
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    cmpl-float v0, v0, p1
-
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 536
     :goto_0
     iput p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRound:F
 
-    const/16 v3, 0x15
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    cmpl-float p1, p1, v3
 
-    cmpl-float p1, p1, v4
-
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_5
 
     .line 539
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
@@ -703,13 +647,8 @@
 
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRect:Landroid/graphics/RectF;
 
-    .line 545
-    :cond_3
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_5
-
     .line 546
+    :cond_3
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     if-nez p1, :cond_4
@@ -722,14 +661,13 @@
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     .line 555
-    invoke-static {p0, p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Landroid/view/ViewOutlineProvider;)V
+    invoke-virtual {p0, p1}, Landroid/support/constraint/utils/ImageFilterView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 557
     :cond_4
-    invoke-static {p0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Z)V
+    invoke-virtual {p0, v1}, Landroid/support/constraint/utils/ImageFilterView;->setClipToOutline(Z)V
 
     .line 559
-    :cond_5
     invoke-virtual {p0}, Landroid/support/constraint/utils/ImageFilterView;->getWidth()I
 
     move-result p1
@@ -746,7 +684,7 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v2, v4, v4, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v2, v3, v3, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 562
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
@@ -760,69 +698,56 @@
 
     iget v2, p0, Landroid/support/constraint/utils/ImageFilterView;->mRound:F
 
-    sget-object v4, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+    sget-object v3, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
-    invoke-virtual {p1, v1, v2, v2, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+    invoke-virtual {p1, v1, v2, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
     goto :goto_1
 
-    .line 565
-    :cond_6
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_7
-
     .line 566
-    invoke-static {p0, v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Z)V
+    :cond_5
+    invoke-virtual {p0, v2}, Landroid/support/constraint/utils/ImageFilterView;->setClipToOutline(Z)V
 
-    :cond_7
     :goto_1
-    if-eqz v0, :cond_8
-
-    .line 570
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_8
+    if-eqz v0, :cond_6
 
     .line 571
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;)V
+    invoke-virtual {p0}, Landroid/support/constraint/utils/ImageFilterView;->invalidateOutline()V
 
-    :cond_8
+    :cond_6
     return-void
 .end method
 
 .method public setRoundPercent(F)V
-    .locals 6
+    .locals 5
 
     .line 477
     iget v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
+
+    cmpl-float v0, v0, p1
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    cmpl-float v0, v0, p1
-
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 478
     :goto_0
     iput p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
 
-    const/16 v3, 0x15
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    cmpl-float p1, p1, v3
 
-    cmpl-float p1, p1, v4
-
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_4
 
     .line 480
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
@@ -849,13 +774,8 @@
 
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRect:Landroid/graphics/RectF;
 
-    .line 486
-    :cond_2
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_4
-
     .line 487
+    :cond_2
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     if-nez p1, :cond_3
@@ -868,14 +788,13 @@
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     .line 497
-    invoke-static {p0, p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Landroid/view/ViewOutlineProvider;)V
+    invoke-virtual {p0, p1}, Landroid/support/constraint/utils/ImageFilterView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 499
     :cond_3
-    invoke-static {p0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Z)V
+    invoke-virtual {p0, v1}, Landroid/support/constraint/utils/ImageFilterView;->setClipToOutline(Z)V
 
     .line 502
-    :cond_4
     invoke-virtual {p0}, Landroid/support/constraint/utils/ImageFilterView;->getWidth()I
 
     move-result p1
@@ -892,22 +811,22 @@
 
     int-to-float v2, v2
 
-    iget v5, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
+    iget v4, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
 
-    mul-float v2, v2, v5
+    mul-float/2addr v2, v4
 
-    const/high16 v5, 0x40000000    # 2.0f
+    const/high16 v4, 0x40000000    # 2.0f
 
-    div-float/2addr v2, v5
+    div-float/2addr v2, v4
 
     .line 505
-    iget-object v5, p0, Landroid/support/constraint/utils/ImageFilterView;->mRect:Landroid/graphics/RectF;
+    iget-object v4, p0, Landroid/support/constraint/utils/ImageFilterView;->mRect:Landroid/graphics/RectF;
 
     int-to-float p1, p1
 
     int-to-float v1, v1
 
-    invoke-virtual {v5, v4, v4, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v4, v3, v3, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 506
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mPath:Landroid/graphics/Path;
@@ -919,34 +838,23 @@
 
     iget-object v1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRect:Landroid/graphics/RectF;
 
-    sget-object v4, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+    sget-object v3, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
-    invoke-virtual {p1, v1, v2, v2, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+    invoke-virtual {p1, v1, v2, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
     goto :goto_1
 
-    .line 509
-    :cond_5
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_6
-
     .line 510
-    invoke-static {p0, v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;Z)V
+    :cond_4
+    invoke-virtual {p0, v2}, Landroid/support/constraint/utils/ImageFilterView;->setClipToOutline(Z)V
 
-    :cond_6
     :goto_1
-    if-eqz v0, :cond_7
-
-    .line 514
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p1, v3, :cond_7
+    if-eqz v0, :cond_5
 
     .line 515
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/utils/ImageFilterView;)V
+    invoke-virtual {p0}, Landroid/support/constraint/utils/ImageFilterView;->invalidateOutline()V
 
-    :cond_7
+    :cond_5
     return-void
 .end method
 

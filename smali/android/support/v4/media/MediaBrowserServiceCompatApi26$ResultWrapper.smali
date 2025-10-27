@@ -39,7 +39,7 @@
     .line 81
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi26$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;)V
+    invoke-virtual {v0}, Landroid/service/media/MediaBrowserService$Result;->detach()V
 
     return-void
 .end method
@@ -94,9 +94,7 @@
     invoke-virtual {v1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 91
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m()Landroid/os/Parcelable$Creator;
-
-    move-result-object v2
+    sget-object v2, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v2, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
@@ -152,7 +150,7 @@
 
     move-result-object p1
 
-    invoke-static {p2, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;Ljava/lang/Object;)V
+    invoke-virtual {p2, p1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     return-void
 .end method

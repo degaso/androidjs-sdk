@@ -59,7 +59,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     and-int v2, v0, p2
@@ -68,7 +68,7 @@
 
     if-eqz v2, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v3
 
     .line 39
     :cond_1

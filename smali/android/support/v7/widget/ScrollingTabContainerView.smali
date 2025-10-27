@@ -766,12 +766,12 @@
 
     if-ne p2, v2, :cond_0
 
-    const/4 v3, 0x1
+    move v3, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 99
     :goto_0
@@ -806,7 +806,7 @@
 
     const v0, 0x3ecccccd    # 0.4f
 
-    mul-float p2, p2, v0
+    mul-float/2addr p2, v0
 
     float-to-int p2, p2
 
@@ -1038,7 +1038,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_2
@@ -1057,7 +1057,7 @@
     goto :goto_1
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v1
 
     .line 188
     :goto_1

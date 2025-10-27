@@ -30,24 +30,20 @@
     if-lt v0, v1, :cond_0
 
     .line 136
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$10()Ljava/lang/Class;
+    const-class v0, Landroid/content/pm/ShortcutManager;
 
-    move-result-object v0
-
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/content/pm/ShortcutManager;
-
-    move-result-object p0
+    check-cast p0, Landroid/content/pm/ShortcutManager;
 
     .line 137
     invoke-virtual {p1}, Landroid/support/v4/content/pm/ShortcutInfoCompat;->toShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/pm/ShortcutManager;Landroid/content/pm/ShortcutInfo;)Landroid/content/Intent;
+    invoke-virtual {p0, v0}, Landroid/content/pm/ShortcutManager;->createShortcutResultIntent(Landroid/content/pm/ShortcutInfo;)Landroid/content/Intent;
 
     move-result-object p0
 
@@ -84,19 +80,15 @@
     if-lt v0, v1, :cond_0
 
     .line 55
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$10()Ljava/lang/Class;
+    const-class v0, Landroid/content/pm/ShortcutManager;
 
-    move-result-object v0
-
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/content/pm/ShortcutManager;
+    check-cast p0, Landroid/content/pm/ShortcutManager;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/pm/ShortcutManager;)Z
+    invoke-virtual {p0}, Landroid/content/pm/ShortcutManager;->isRequestPinShortcutSupported()Z
 
     move-result p0
 
@@ -187,17 +179,13 @@
     if-lt v0, v1, :cond_0
 
     .line 92
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$10()Ljava/lang/Class;
+    const-class v0, Landroid/content/pm/ShortcutManager;
 
-    move-result-object v0
-
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/content/pm/ShortcutManager;
-
-    move-result-object p0
+    check-cast p0, Landroid/content/pm/ShortcutManager;
 
     .line 93
     invoke-virtual {p1}, Landroid/support/v4/content/pm/ShortcutInfoCompat;->toShortcutInfo()Landroid/content/pm/ShortcutInfo;
@@ -205,7 +193,7 @@
     move-result-object p1
 
     .line 92
-    invoke-static {p0, p1, p2}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/pm/ShortcutManager;Landroid/content/pm/ShortcutInfo;Landroid/content/IntentSender;)Z
+    invoke-virtual {p0, p1, p2}, Landroid/content/pm/ShortcutManager;->requestPinShortcut(Landroid/content/pm/ShortcutInfo;Landroid/content/IntentSender;)Z
 
     move-result p0
 

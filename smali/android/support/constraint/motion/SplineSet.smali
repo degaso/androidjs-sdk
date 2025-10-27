@@ -677,9 +677,9 @@
 
     invoke-static {v1, v2, v4, v0}, Landroid/support/constraint/motion/SplineSet$Sort;->doubleQuickSort([I[FII)V
 
-    const/4 v0, 0x1
+    move v0, v3
 
-    const/4 v1, 0x1
+    move v1, v0
 
     .line 138
     :goto_0
@@ -726,9 +726,9 @@
 
     check-cast v1, [[D
 
-    const/4 v2, 0x0
+    move v2, v4
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 147
     :goto_1
@@ -761,9 +761,7 @@
 
     const-wide v7, 0x3f847ae147ae147bL    # 0.01
 
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v5, v5, v7
+    mul-double/2addr v5, v7
 
     aput-wide v5, v0, v3
 
@@ -797,7 +795,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .locals 5
 
     .line 47
     iget-object v0, p0, Landroid/support/constraint/motion/SplineSet;->mType:Ljava/lang/String;
@@ -824,37 +822,49 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "["
+    move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "["
 
-    iget-object v0, p0, Landroid/support/constraint/motion/SplineSet;->mTimePoints:[I
-
-    aget v0, v0, v2
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, " , "
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v0, p0, Landroid/support/constraint/motion/SplineSet;->mValues:[F
-
-    aget v0, v0, v2
-
-    float-to-double v4, v0
-
-    invoke-virtual {v1, v4, v5}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Landroid/support/constraint/motion/SplineSet;->mTimePoints:[I
 
-    const-string v0, "] "
+    aget v3, v3, v2
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    const-string v3, " , "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v3, p0, Landroid/support/constraint/motion/SplineSet;->mValues:[F
+
+    aget v3, v3, v2
+
+    float-to-double v3, v3
+
+    invoke-virtual {v1, v3, v4}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v3, "] "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

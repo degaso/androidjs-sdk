@@ -224,11 +224,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "\""
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "\""
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -312,7 +316,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 508
     :goto_0
@@ -391,7 +395,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_0
     if-ge v3, v2, :cond_3
@@ -536,13 +540,8 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
-
     :catch_0
-    nop
-
     :cond_3
-    :goto_1
     if-nez v3, :cond_4
 
     .line 303
@@ -657,80 +656,62 @@
 .end method
 
 .method protected applyLayoutFeatures(Landroid/support/constraint/ConstraintLayout;)V
-    .locals 7
+    .locals 5
 
     .line 370
     invoke-virtual {p0}, Landroid/support/constraint/ConstraintHelper;->getVisibility()I
 
     move-result v0
 
-    .line 372
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x15
-
-    if-lt v1, v3, :cond_0
-
     .line 373
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/constraint/ConstraintHelper;)F
+    invoke-virtual {p0}, Landroid/support/constraint/ConstraintHelper;->getElevation()F
 
     move-result v1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     .line 375
-    :goto_1
-    iget v5, p0, Landroid/support/constraint/ConstraintHelper;->mCount:I
+    :goto_0
+    iget v3, p0, Landroid/support/constraint/ConstraintHelper;->mCount:I
 
-    if-ge v4, v5, :cond_2
+    if-ge v2, v3, :cond_1
 
     .line 376
-    iget-object v5, p0, Landroid/support/constraint/ConstraintHelper;->mIds:[I
+    iget-object v3, p0, Landroid/support/constraint/ConstraintHelper;->mIds:[I
 
-    aget v5, v5, v4
+    aget v3, v3, v2
 
     .line 377
-    invoke-virtual {p1, v5}, Landroid/support/constraint/ConstraintLayout;->getViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v3}, Landroid/support/constraint/ConstraintLayout;->getViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_0
 
     .line 379
-    invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v3, v0}, Landroid/view/View;->setVisibility(I)V
 
-    cmpl-float v6, v1, v2
+    const/4 v4, 0x0
 
-    if-lez v6, :cond_1
+    cmpl-float v4, v1, v4
 
-    .line 380
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v6, v3, :cond_1
+    if-lez v4, :cond_0
 
     .line 381
-    invoke-static {v5}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;)F
+    invoke-virtual {v3}, Landroid/view/View;->getTranslationZ()F
 
-    move-result v6
+    move-result v4
 
-    add-float/2addr v6, v1
+    add-float/2addr v4, v1
 
-    invoke-static {v5, v6}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;F)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setTranslationZ(F)V
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1
-
-    :cond_2
     return-void
 .end method
 
@@ -1047,7 +1028,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 156
     :goto_0

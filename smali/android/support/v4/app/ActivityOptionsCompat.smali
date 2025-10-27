@@ -30,61 +30,31 @@
 .method public static makeBasic()Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
 
-    .line 246
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
     .line 247
     new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
-    invoke-static {}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1()Landroid/app/ActivityOptions;
+    invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
-
-    .line 249
-    :cond_0
-    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
-
-    return-object v0
 .end method
 
 .method public static makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/support/v4/app/ActivityOptionsCompat;
-    .locals 2
-
-    .line 122
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 123
     new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
+    invoke-static {p0, p1, p2, p3, p4}, Landroid/app/ActivityOptions;->makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
 
     move-result-object p0
 
     invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
-
-    .line 126
-    :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
-
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
-
-    return-object p0
 .end method
 
 .method public static makeCustomAnimation(Landroid/content/Context;II)Landroid/support/v4/app/ActivityOptionsCompat;
@@ -118,33 +88,18 @@
 .end method
 
 .method public static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/support/v4/app/ActivityOptionsCompat;
-    .locals 2
-
-    .line 179
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 180
     new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
-    invoke-static {p0, p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/app/ActivityOptions;
+    invoke-static {p0, p1, p2}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/app/ActivityOptions;
 
     move-result-object p0
 
     invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
-
-    .line 183
-    :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
-
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
-
-    return-object p0
 .end method
 
 .method public static varargs makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/support/v4/util/Pair;)Landroid/support/v4/app/ActivityOptionsCompat;
@@ -161,13 +116,6 @@
             "Landroid/support/v4/app/ActivityOptionsCompat;"
         }
     .end annotation
-
-    .line 207
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_2
 
     if-eqz p1, :cond_0
 
@@ -211,49 +159,26 @@
     new-instance p1, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
     .line 217
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
+    invoke-static {p0, v0}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
 
     move-result-object p0
 
     invoke-direct {p1, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object p1
-
-    .line 219
-    :cond_2
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
-
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
-
-    return-object p0
 .end method
 
 .method public static makeTaskLaunchBehind()Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
 
-    .line 234
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     .line 235
     new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
-    invoke-static {}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m()Landroid/app/ActivityOptions;
+    invoke-static {}, Landroid/app/ActivityOptions;->makeTaskLaunchBehind()Landroid/app/ActivityOptions;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
-
-    return-object v0
-
-    .line 237
-    :cond_0
-    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
     return-object v0
 .end method

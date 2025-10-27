@@ -108,13 +108,19 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, "="
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "="
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -739,7 +745,7 @@
 .end method
 
 .method public final declared-synchronized toString()Ljava/lang/String;
-    .locals 8
+    .locals 6
 
     monitor-enter p0
 
@@ -750,8 +756,6 @@
     iget v1, p0, Landroid/support/v4/util/LruCache;->missCount:I
 
     add-int/2addr v1, v0
-
-    const/4 v2, 0x0
 
     if-eqz v1, :cond_0
 
@@ -769,51 +773,37 @@
     :goto_0
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const-string v3, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]"
+    const-string v2, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]"
 
-    iget v4, p0, Landroid/support/v4/util/LruCache;->maxSize:I
+    iget v3, p0, Landroid/support/v4/util/LruCache;->maxSize:I
 
     .line 351
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    iget v4, p0, Landroid/support/v4/util/LruCache;->hitCount:I
+
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    iget v5, p0, Landroid/support/v4/util/LruCache;->hitCount:I
+    iget v5, p0, Landroid/support/v4/util/LruCache;->missCount:I
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    iget v6, p0, Landroid/support/v4/util/LruCache;->missCount:I
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    const/4 v7, 0x4
+    filled-new-array {v3, v4, v5, v0}, [Ljava/lang/Object;
 
-    new-array v7, v7, [Ljava/lang/Object;
-
-    aput-object v4, v7, v2
-
-    const/4 v2, 0x1
-
-    aput-object v5, v7, v2
-
-    const/4 v2, 0x2
-
-    aput-object v6, v7, v2
-
-    const/4 v2, 0x3
-
-    aput-object v0, v7, v2
+    move-result-object v0
 
     .line 350
-    invoke-static {v1, v3, v7}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
     :try_end_0
@@ -963,9 +953,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".sizeOf() is reporting inconsistent results!"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -983,11 +977,5 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_3
-
-    :goto_2
     throw p1
-
-    :goto_3
-    goto :goto_2
 .end method

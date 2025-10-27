@@ -272,7 +272,7 @@
     .line 361
     iget v3, v1, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float v3, v3, v2
+    mul-float/2addr v3, v2
 
     float-to-int v2, v3
 
@@ -291,7 +291,7 @@
     .line 366
     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float v1, v1, v3
+    mul-float/2addr v1, v3
 
     float-to-int v1, v1
 
@@ -681,13 +681,11 @@
 
     const-wide v4, 0x3fd999999999999aL    # 0.4
 
-    .line 920
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v2, v4
 
     const-wide/16 v4, 0x0
 
+    .line 920
     invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->max(DD)D
 
     move-result-wide v2
@@ -696,7 +694,7 @@
 
     const/high16 v3, 0x40a00000    # 5.0f
 
-    mul-float v2, v2, v3
+    mul-float/2addr v2, v3
 
     const/high16 v3, 0x40400000    # 3.0f
 
@@ -770,22 +768,20 @@
 
     move-result-wide v9
 
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v7, v9
 
     double-to-float v3, v7
 
-    mul-float v3, v3, v5
+    mul-float/2addr v3, v5
 
     mul-float v7, v4, v3
 
-    mul-float v7, v7, v5
+    mul-float/2addr v7, v5
 
     .line 933
     iget v8, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mOriginalOffsetTop:I
 
-    mul-float v4, v4, v0
+    mul-float/2addr v4, v0
 
     add-float/2addr v4, v7
 
@@ -924,19 +920,19 @@
 
     const p1, 0x3ecccccd    # 0.4f
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     const/high16 p1, -0x41800000    # -0.25f
 
     add-float/2addr v2, p1
 
-    mul-float v3, v3, v5
+    mul-float/2addr v3, v5
 
     add-float/2addr v2, v3
 
     const/high16 p1, 0x3f000000    # 0.5f
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     .line 963
     iget-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
@@ -1496,7 +1492,7 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     float-to-int p1, v1
 
@@ -2324,7 +2320,7 @@
 
     if-eq v0, v2, :cond_2
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 1053
     :cond_2
@@ -2400,7 +2396,7 @@
 
     sub-float/2addr p1, v0
 
-    mul-float p1, p1, v3
+    mul-float/2addr p1, v3
 
     const/4 v0, 0x0
 
@@ -2451,7 +2447,7 @@
 
     sub-float/2addr p1, v0
 
-    mul-float p1, p1, v3
+    mul-float/2addr p1, v3
 
     .line 1066
     iput-boolean v2, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mIsBeingDragged:Z
@@ -2488,40 +2484,26 @@
 .end method
 
 .method public requestDisallowInterceptTouchEvent(Z)V
-    .locals 2
+    .locals 1
 
     .line 753
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
 
-    instance-of v0, v0, Landroid/widget/AbsListView;
-
-    if-nez v0, :cond_2
-
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 754
     invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->isNestedScrollingEnabled(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     goto :goto_0
 
     .line 757
-    :cond_1
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->requestDisallowInterceptTouchEvent(Z)V
 
-    :cond_2
     :goto_0
     return-void
 .end method
@@ -2894,7 +2876,7 @@
     .line 322
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
@@ -2908,7 +2890,7 @@
     .line 324
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 

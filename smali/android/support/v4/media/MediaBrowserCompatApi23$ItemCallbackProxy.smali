@@ -87,7 +87,7 @@
     const/4 v1, 0x0
 
     .line 54
-    invoke-static {p1, v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser$MediaItem;Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v0, v1}, Landroid/media/browse/MediaBrowser$MediaItem;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 55
     iget-object p1, p0, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallbackProxy;->mItemCallback:Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;

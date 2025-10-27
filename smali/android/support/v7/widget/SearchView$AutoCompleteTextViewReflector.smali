@@ -41,8 +41,10 @@
 
     const-string v3, "doBeforeTextChanged"
 
+    new-array v4, v0, [Ljava/lang/Class;
+
     .line 2028
-    invoke-virtual {v2, v3, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v2
 
@@ -60,35 +62,35 @@
 
     const-string v3, "doAfterTextChanged"
 
+    new-array v4, v0, [Ljava/lang/Class;
+
     .line 2035
-    invoke-virtual {v2, v3, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
+    iput-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
 
     .line 2036
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 2041
     :catch_1
     :try_start_2
-    const-class v0, Landroid/widget/AutoCompleteTextView;
+    const-class v2, Landroid/widget/AutoCompleteTextView;
 
-    const-string v2, "ensureImeVisible"
+    const-string v3, "ensureImeVisible"
 
-    new-array v3, v1, [Ljava/lang/Class;
+    new-array v4, v1, [Ljava/lang/Class;
 
-    sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
+    aput-object v5, v4, v0
 
     .line 2042
-    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -117,6 +119,8 @@
 
     .line 2061
     :try_start_0
+    new-array v1, v1, [Ljava/lang/Object;
+
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -138,6 +142,8 @@
 
     .line 2052
     :try_start_0
+    new-array v1, v1, [Ljava/lang/Object;
+
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -148,7 +154,7 @@
 .end method
 
 .method ensureImeVisible(Landroid/widget/AutoCompleteTextView;Z)V
-    .locals 3
+    .locals 1
 
     .line 2068
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
@@ -161,15 +167,11 @@
 
     move-result-object p2
 
-    const/4 v1, 0x1
+    filled-new-array {p2}, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result-object p2
 
-    const/4 v2, 0x0
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

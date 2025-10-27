@@ -58,17 +58,13 @@
     if-eqz v0, :cond_0
 
     .line 124
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m()Ljava/lang/Class;
+    const-class v0, Landroid/hardware/fingerprint/FingerprintManager;
 
-    move-result-object v0
-
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/hardware/fingerprint/FingerprintManager;
-
-    move-result-object p0
+    check-cast p0, Landroid/hardware/fingerprint/FingerprintManager;
 
     return-object p0
 
@@ -89,7 +85,7 @@
 
     .line 149
     :cond_0
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljavax/crypto/Cipher;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getCipher()Ljavax/crypto/Cipher;
 
     move-result-object v1
 
@@ -98,7 +94,7 @@
     .line 150
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljavax/crypto/Cipher;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getCipher()Ljavax/crypto/Cipher;
 
     move-result-object p0
 
@@ -108,7 +104,7 @@
 
     .line 151
     :cond_1
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljava/security/Signature;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getSignature()Ljava/security/Signature;
 
     move-result-object v1
 
@@ -117,7 +113,7 @@
     .line 152
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljava/security/Signature;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getSignature()Ljava/security/Signature;
 
     move-result-object p0
 
@@ -127,7 +123,7 @@
 
     .line 153
     :cond_2
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljavax/crypto/Mac;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getMac()Ljavax/crypto/Mac;
 
     move-result-object v1
 
@@ -136,7 +132,7 @@
     .line 154
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Ljavax/crypto/Mac;
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getMac()Ljavax/crypto/Mac;
 
     move-result-object p0
 
@@ -230,13 +226,6 @@
 .method public authenticate(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;ILandroid/support/v4/os/CancellationSignal;Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationCallback;Landroid/os/Handler;)V
     .locals 7
 
-    .line 104
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_1
-
     .line 105
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->mContext:Landroid/content/Context;
 
@@ -278,23 +267,14 @@
     move-object v6, p5
 
     .line 110
-    invoke-static/range {v1 .. v6}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/os/CancellationSignal;ILandroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;Landroid/os/Handler;)V
+    invoke-virtual/range {v1 .. v6}, Landroid/hardware/fingerprint/FingerprintManager;->authenticate(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/os/CancellationSignal;ILandroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;Landroid/os/Handler;)V
 
     :cond_1
     return-void
 .end method
 
 .method public hasEnrolledFingerprints()Z
-    .locals 3
-
-    .line 63
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 64
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->mContext:Landroid/content/Context;
@@ -306,29 +286,25 @@
     if-eqz v0, :cond_0
 
     .line 65
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/hardware/fingerprint/FingerprintManager;)Z
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager;->hasEnrolledFingerprints()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    return v2
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method public isHardwareDetected()Z
-    .locals 3
-
-    .line 78
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 79
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;->mContext:Landroid/content/Context;
@@ -340,14 +316,19 @@
     if-eqz v0, :cond_0
 
     .line 80
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/hardware/fingerprint/FingerprintManager;)Z
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager;->isHardwareDetected()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    return v2
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method

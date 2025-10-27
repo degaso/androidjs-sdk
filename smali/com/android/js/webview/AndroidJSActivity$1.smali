@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 5
 
     .line 66
     new-instance v0, Ljava/lang/StringBuilder;
@@ -68,9 +68,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "/myapp"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -137,27 +141,39 @@
     :cond_1
     iget-object v1, p0, Lcom/android/js/webview/AndroidJSActivity$1;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const/4 v2, 0x2
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    new-array v2, v2, [Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v3, 0x0
 
-    const-string v0, "/main.js"
+    const-string v4, "node"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-object v4, v2, v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "node"
-
-    filled-new-array {v2, v0}, [Ljava/lang/String;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/android/js/webview/AndroidJSActivity;->startNodeWithArguments([Ljava/lang/String;)Ljava/lang/Integer;
+    const-string v3, "/main.js"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v3, 0x1
+
+    aput-object v0, v2, v3
+
+    invoke-virtual {v1, v2}, Lcom/android/js/webview/AndroidJSActivity;->startNodeWithArguments([Ljava/lang/String;)Ljava/lang/Integer;
 
     return-void
 .end method

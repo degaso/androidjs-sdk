@@ -226,7 +226,7 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     if-ge v5, v3, :cond_0
@@ -281,7 +281,7 @@
 
     move-result-object p1
 
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_1
     if-ge v3, v2, :cond_1
@@ -394,28 +394,12 @@
 .end method
 
 .method updateIntent(Landroid/content/Intent;)V
-    .locals 2
-
-    .line 411
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/high16 v0, 0x8080000
 
     .line 413
     invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    goto :goto_0
-
-    :cond_0
-    const/high16 v0, 0x80000
-
-    .line 417
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    :goto_0
     return-void
 .end method

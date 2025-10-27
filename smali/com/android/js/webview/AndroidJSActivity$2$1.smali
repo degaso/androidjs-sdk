@@ -24,7 +24,7 @@
 .method constructor <init>(Lcom/android/js/webview/AndroidJSActivity$2;Landroid/webkit/WebView;)V
     .locals 0
 
-    .line 177
+    .line 175
     iput-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
     iput-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
@@ -39,10 +39,10 @@
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
     .locals 0
 
-    .line 196
+    .line 194
     invoke-super {p0, p1, p2}, Landroid/webkit/WebViewClient;->onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
 
-    .line 199
+    .line 197
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
 
     invoke-virtual {p1}, Landroid/webkit/WebView;->destroy()V
@@ -51,35 +51,28 @@
 .end method
 
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;)Z
-    .locals 2
+    .locals 1
 
-    .line 182
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    const/4 v1, 0x1
-
-    if-lt p1, v0, :cond_2
+    const/4 p1, 0x1
 
     if-eqz p2, :cond_1
 
-    .line 183
-    invoke-static {p2}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/WebResourceRequest;)Landroid/net/Uri;
+    .line 181
+    invoke-interface {p2}, Landroid/webkit/WebResourceRequest;->getUrl()Landroid/net/Uri;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
     goto :goto_0
 
-    .line 186
+    .line 184
     :cond_0
-    iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
+    iget-object v0, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
-    iget-object p1, p1, Lcom/android/js/webview/AndroidJSActivity$2;->this$0:Lcom/android/js/webview/AndroidJSActivity;
+    iget-object v0, v0, Lcom/android/js/webview/AndroidJSActivity$2;->this$0:Lcom/android/js/webview/AndroidJSActivity;
 
-    invoke-static {p2}, Lcom/android/js/api/Hotspot$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/WebResourceRequest;)Landroid/net/Uri;
+    invoke-interface {p2}, Landroid/webkit/WebResourceRequest;->getUrl()Landroid/net/Uri;
 
     move-result-object p2
 
@@ -87,20 +80,14 @@
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Lcom/android/js/webview/AndroidJSActivity;->access$000(Lcom/android/js/webview/AndroidJSActivity;Ljava/lang/String;)V
+    invoke-static {v0, p2}, Lcom/android/js/webview/AndroidJSActivity;->access$000(Lcom/android/js/webview/AndroidJSActivity;Ljava/lang/String;)V
 
-    goto :goto_1
+    .line 187
+    iget-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {p2}, Landroid/webkit/WebView;->destroy()V
 
     :cond_1
     :goto_0
-    return v1
-
-    .line 189
-    :cond_2
-    :goto_1
-    iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {p1}, Landroid/webkit/WebView;->destroy()V
-
-    return v1
+    return p1
 .end method

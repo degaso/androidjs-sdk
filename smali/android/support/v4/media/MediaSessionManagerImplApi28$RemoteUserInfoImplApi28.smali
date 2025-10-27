@@ -80,7 +80,7 @@
 
     iget-object p1, p1, Landroid/support/v4/media/MediaSessionManagerImplApi28$RemoteUserInfoImplApi28;->mObject:Landroid/media/session/MediaSessionManager$RemoteUserInfo;
 
-    invoke-static {v0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaSessionManager$RemoteUserInfo;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/media/session/MediaSessionManager$RemoteUserInfo;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -93,7 +93,7 @@
     .line 57
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManagerImplApi28$RemoteUserInfoImplApi28;->mObject:Landroid/media/session/MediaSessionManager$RemoteUserInfo;
 
-    invoke-static {v0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaSessionManager$RemoteUserInfo;)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/media/session/MediaSessionManager$RemoteUserInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
     .line 62
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManagerImplApi28$RemoteUserInfoImplApi28;->mObject:Landroid/media/session/MediaSessionManager$RemoteUserInfo;
 
-    invoke-static {v0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/MediaSessionManager$RemoteUserInfo;)I
+    invoke-virtual {v0}, Landroid/media/session/MediaSessionManager$RemoteUserInfo;->getPid()I
 
     move-result v0
 
@@ -119,7 +119,7 @@
     .line 67
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManagerImplApi28$RemoteUserInfoImplApi28;->mObject:Landroid/media/session/MediaSessionManager$RemoteUserInfo;
 
-    invoke-static {v0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/session/MediaSessionManager$RemoteUserInfo;)I
+    invoke-virtual {v0}, Landroid/media/session/MediaSessionManager$RemoteUserInfo;->getUid()I
 
     move-result v0
 
@@ -127,20 +127,16 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 1
 
     .line 72
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManagerImplApi28$RemoteUserInfoImplApi28;->mObject:Landroid/media/session/MediaSessionManager$RemoteUserInfo;
 
-    const/4 v1, 0x1
+    filled-new-array {v0}, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result-object v0
 
-    const/4 v2, 0x0
-
-    aput-object v0, v1, v2
-
-    invoke-static {v1}, Landroid/support/v4/util/ObjectsCompat;->hash([Ljava/lang/Object;)I
+    invoke-static {v0}, Landroid/support/v4/util/ObjectsCompat;->hash([Ljava/lang/Object;)I
 
     move-result v0
 

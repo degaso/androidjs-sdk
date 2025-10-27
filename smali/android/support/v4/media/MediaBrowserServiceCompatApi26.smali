@@ -25,9 +25,7 @@
 
     .line 41
     :try_start_0
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$2()Ljava/lang/Class;
-
-    move-result-object v0
+    const-class v0, Landroid/service/media/MediaBrowserService$Result;
 
     const-string v1, "mFlags"
 
@@ -82,11 +80,9 @@
     .locals 0
 
     .line 57
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;)Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/service/media/MediaBrowserService;->getBrowserRootHints()Landroid/os/Bundle;
 
     move-result-object p0
 
@@ -97,11 +93,9 @@
     .locals 0
 
     .line 53
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/service/media/MediaBrowserService;
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    move-result-object p0
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, p2}, Landroid/service/media/MediaBrowserService;->notifyChildrenChanged(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

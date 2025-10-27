@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 5
 
     .line 44
     new-instance v0, Ljava/util/HashMap;
@@ -55,7 +55,9 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v4, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
@@ -68,7 +70,9 @@
 
     const-class v2, Landroid/support/constraint/motion/KeyPosition;
 
-    invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v4, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
@@ -81,7 +85,9 @@
 
     const-class v2, Landroid/support/constraint/motion/KeyCycle;
 
-    invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v4, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
@@ -94,7 +100,9 @@
 
     const-class v2, Landroid/support/constraint/motion/KeyTimeCycle;
 
-    invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v4, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
@@ -106,6 +114,8 @@
     const-string v1, "KeyTrigger"
 
     const-class v2, Landroid/support/constraint/motion/KeyTrigger;
+
+    new-array v3, v3, [Ljava/lang/Class;
 
     invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
@@ -132,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 6
+    .locals 5
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -152,20 +162,18 @@
 
     const/4 v1, 0x0
 
-    move-object v2, v1
-
     :goto_0
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v3, :cond_4
+    if-eq v0, v2, :cond_4
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v2, :cond_1
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v2, :cond_0
 
     goto :goto_3
 
@@ -175,9 +183,9 @@
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -192,28 +200,32 @@
     move-result-object v0
 
     .line 80
-    sget-object v3, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
+    sget-object v2, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     .line 82
     :try_start_1
-    sget-object v3, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
+    sget-object v2, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/reflect/Constructor;
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x0
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-virtual {v0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -227,9 +239,9 @@
     :try_start_2
     invoke-static {p2}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, p1, v2}, Landroid/support/constraint/motion/Key;->load(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-virtual {v0, p1, v1}, Landroid/support/constraint/motion/Key;->load(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 84
     invoke-direct {p0, v0}, Landroid/support/constraint/motion/KeyFrames;->addKey(Landroid/support/constraint/motion/Key;)V
@@ -241,52 +253,52 @@
     goto :goto_2
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
     goto :goto_1
 
     :catch_1
     move-exception v0
 
-    move-object v5, v2
+    move-object v4, v1
 
-    move-object v2, v0
+    move-object v1, v0
 
-    move-object v0, v5
+    move-object v0, v4
 
     .line 86
     :goto_1
     :try_start_3
-    const-string v3, "KeyFrames"
+    const-string v2, "KeyFrames"
 
-    const-string v4, "unable to create "
+    const-string v3, "unable to create "
 
-    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_2
-    move-object v2, v0
+    move-object v1, v0
 
     goto :goto_3
 
     .line 88
     :cond_2
-    const-string v3, "CustomAttribute"
+    const-string v2, "CustomAttribute"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 89
-    iget-object v0, v2, Landroid/support/constraint/motion/Key;->mCustomConstraints:Ljava/util/HashMap;
+    iget-object v0, v1, Landroid/support/constraint/motion/Key;->mCustomConstraints:Ljava/util/HashMap;
 
     if-eqz v0, :cond_3
 
     .line 90
-    iget-object v0, v2, Landroid/support/constraint/motion/Key;->mCustomConstraints:Ljava/util/HashMap;
+    iget-object v0, v1, Landroid/support/constraint/motion/Key;->mCustomConstraints:Ljava/util/HashMap;
 
     invoke-static {p1, p2, v0}, Landroid/support/constraint/ConstraintAttribute;->parse(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Ljava/util/HashMap;)V
 

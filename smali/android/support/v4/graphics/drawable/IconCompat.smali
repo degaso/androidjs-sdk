@@ -228,6 +228,8 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -436,7 +438,7 @@
 
     const v1, 0x3f2aaaab
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
@@ -463,17 +465,17 @@
 
     const/high16 v5, 0x3f000000    # 0.5f
 
-    mul-float v5, v5, v4
+    mul-float/2addr v5, v4
 
     const v6, 0x3f6aaaab
 
-    mul-float v6, v6, v5
+    mul-float/2addr v6, v5
 
     if-eqz p1, :cond_0
 
     const p1, 0x3c2aaaab
 
-    mul-float p1, p1, v4
+    mul-float/2addr p1, v4
 
     const/4 v7, 0x0
 
@@ -482,7 +484,7 @@
 
     const v7, 0x3caaaaab
 
-    mul-float v4, v4, v7
+    mul-float/2addr v4, v7
 
     const/high16 v7, 0x3d000000    # 0.03125f
 
@@ -831,7 +833,7 @@
     if-lt v2, v3, :cond_0
 
     .line 946
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/graphics/drawable/Icon;)I
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
 
     move-result p0
 
@@ -848,13 +850,15 @@
 
     const-string v4, "getResId"
 
-    const/4 v5, 0x0
+    new-array v5, v2, [Ljava/lang/Class;
 
     invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    invoke-virtual {v3, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v4, v2, [Ljava/lang/Object;
+
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -896,7 +900,7 @@
 .end method
 
 .method private static getResPackage(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
-    .locals 5
+    .locals 7
 
     .line 916
     const-string v0, "Unable to get icon package"
@@ -910,7 +914,7 @@
     if-lt v2, v3, :cond_0
 
     .line 917
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object p0
 
@@ -927,11 +931,17 @@
 
     const-string v4, "getResPackage"
 
-    invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v5, 0x0
+
+    new-array v6, v5, [Ljava/lang/Class;
+
+    invoke-virtual {v3, v4, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    invoke-virtual {v3, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -969,7 +979,7 @@
 .end method
 
 .method private static getResources(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/Resources;
-    .locals 3
+    .locals 2
 
     .line 562
     const-string v0, "android"
@@ -1020,18 +1030,14 @@
     :catch_0
     move-exception p0
 
-    const/4 v0, 0x1
-
     .line 575
-    new-array v0, v0, [Ljava/lang/Object;
+    const-string v0, "Unable to find pkg=%s for icon"
 
-    const/4 v2, 0x0
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    aput-object p1, v0, v2
+    move-result-object p1
 
-    const-string p1, "Unable to find pkg=%s for icon"
-
-    invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -1043,7 +1049,7 @@
 .end method
 
 .method private static getType(Landroid/graphics/drawable/Icon;)I
-    .locals 6
+    .locals 7
 
     .line 888
     const-string v0, "Unable to get icon type "
@@ -1057,7 +1063,7 @@
     if-lt v2, v3, :cond_0
 
     .line 889
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;)I
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getType()I
 
     move-result p0
 
@@ -1076,11 +1082,15 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v6, v5, [Ljava/lang/Class;
+
+    invoke-virtual {v3, v4, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    invoke-virtual {v3, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1106,7 +1116,9 @@
 
     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1124,7 +1136,9 @@
 
     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1142,7 +1156,9 @@
 
     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1152,7 +1168,7 @@
 .end method
 
 .method private static getUri(Landroid/graphics/drawable/Icon;)Landroid/net/Uri;
-    .locals 5
+    .locals 7
 
     .line 973
     const-string v0, "Unable to get icon uri"
@@ -1166,7 +1182,7 @@
     if-lt v2, v3, :cond_0
 
     .line 974
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;)Landroid/net/Uri;
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUri()Landroid/net/Uri;
 
     move-result-object p0
 
@@ -1183,11 +1199,17 @@
 
     const-string v4, "getUri"
 
-    invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v5, 0x0
+
+    new-array v6, v5, [Ljava/lang/Class;
+
+    invoke-virtual {v3, v4, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    invoke-virtual {v3, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -1225,7 +1247,7 @@
 .end method
 
 .method private loadDrawableInner(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 7
+    .locals 6
 
     .line 507
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
@@ -1234,15 +1256,13 @@
 
     if-eq v0, v1, :cond_8
 
+    const/4 v1, 0x2
+
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const-string v3, "IconCompat"
 
-    const/4 v4, 0x2
-
-    const-string v5, "IconCompat"
-
-    if-eq v0, v4, :cond_5
+    if-eq v0, v1, :cond_5
 
     const/4 v1, 0x3
 
@@ -1270,6 +1290,8 @@
 
     check-cast v1, Landroid/graphics/Bitmap;
 
+    const/4 v2, 0x0
+
     .line 512
     invoke-static {v1, v2}, Landroid/support/v4/graphics/drawable/IconCompat;->createLegacyIconFromAdaptiveIcon(Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
 
@@ -1295,18 +1317,18 @@
     move-result-object v1
 
     .line 538
-    const-string v2, "content"
+    const-string v4, "content"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_3
+    if-nez v4, :cond_3
 
-    const-string v2, "file"
+    const-string v4, "file"
 
     .line 539
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -1319,15 +1341,15 @@
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    iget-object v4, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+    iget-object v5, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    invoke-direct {v2, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v1, v4}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1337,19 +1359,21 @@
     move-exception v1
 
     .line 549
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v4, "Unable to load image from path: "
+    const-string v5, "Unable to load image from path: "
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {v5, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
@@ -1373,22 +1397,24 @@
     move-exception v1
 
     .line 543
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v4, "Unable to load image from URI: "
+    const-string v5, "Unable to load image from URI: "
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {v5, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    move-object v1, v3
+    move-object v1, v2
 
     :goto_2
     if-eqz v1, :cond_7
@@ -1445,9 +1471,9 @@
     .line 516
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v1
 
-    if-eqz v6, :cond_6
+    if-eqz v1, :cond_6
 
     .line 518
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -1462,13 +1488,13 @@
 
     .line 522
     :try_start_2
-    iget v6, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
+    iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
 
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object p1
 
-    invoke-static {v0, v6, p1}, Landroid/support/v4/content/res/ResourcesCompat;->getDrawable(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, v1, p1}, Landroid/support/v4/content/res/ResourcesCompat;->getDrawable(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
     :try_end_2
@@ -1487,26 +1513,24 @@
 
     move-result-object v0
 
-    iget-object v6, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
-
-    aput-object v0, v4, v2
-
-    aput-object v6, v4, v1
-
-    .line 524
-    const-string v0, "Unable to load resource 0x%08x from pkg=%s"
-
-    invoke-static {v0, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    filled-new-array {v0, v1}, [Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {v5, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .line 524
+    const-string v1, "Unable to load resource 0x%08x from pkg=%s"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_7
     :goto_3
-    return-object v3
+    return-object v2
 
     .line 509
     :cond_8
@@ -1763,6 +1787,8 @@
 
     invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p3
+
     invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p3
@@ -1912,11 +1938,17 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1941,18 +1973,10 @@
 
     if-ne v0, v1, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
     .line 357
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
+    check-cast v0, Landroid/graphics/drawable/Icon;
 
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/IconCompat;->getResId(Landroid/graphics/drawable/Icon;)I
 
@@ -1960,10 +1984,7 @@
 
     return v0
 
-    .line 359
     :cond_0
-    iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
-
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_1
@@ -1985,6 +2006,8 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2004,18 +2027,10 @@
 
     if-ne v0, v1, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v0, v2, :cond_0
-
     .line 339
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
+    check-cast v0, Landroid/graphics/drawable/Icon;
 
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/IconCompat;->getResPackage(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
 
@@ -2023,10 +2038,7 @@
 
     return-object v0
 
-    .line 341
     :cond_0
-    iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
-
     const/4 v2, 0x2
 
     if-ne v0, v2, :cond_1
@@ -2060,6 +2072,8 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2079,29 +2093,16 @@
 
     if-ne v0, v1, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
     .line 324
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
+    check-cast v0, Landroid/graphics/drawable/Icon;
 
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/IconCompat;->getType(Landroid/graphics/drawable/Icon;)I
 
     move-result v0
 
-    return v0
-
-    .line 326
     :cond_0
-    iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
-
     return v0
 .end method
 
@@ -2115,18 +2116,10 @@
 
     if-ne v0, v1, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
     .line 375
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
+    check-cast v0, Landroid/graphics/drawable/Icon;
 
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/IconCompat;->getUri(Landroid/graphics/drawable/Icon;)Landroid/net/Uri;
 
@@ -2148,63 +2141,20 @@
 .end method
 
 .method public loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .locals 1
 
     .line 489
     invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/IconCompat;->checkResource(Landroid/content/Context;)V
-
-    .line 490
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
 
     .line 491
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/IconCompat;->toIcon()Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    return-object p1
-
-    .line 493
-    :cond_0
-    invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/IconCompat;->loadDrawableInner(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_2
-
-    .line 494
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    sget-object v1, Landroid/support/v4/graphics/drawable/IconCompat;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
-
-    if-eq v0, v1, :cond_2
-
-    .line 495
-    :cond_1
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
-
-    .line 496
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
-
-    invoke-static {p1, v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
-
-    .line 497
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-static {p1, v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
-
-    :cond_2
     return-object p1
 .end method
 
@@ -2704,7 +2654,7 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
+    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithAdaptiveBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2724,7 +2674,7 @@
     move-result-object v0
 
     .line 431
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
+    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2746,7 +2696,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;)Landroid/graphics/drawable/Icon;
+    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithContentUri(Ljava/lang/String;)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2764,7 +2714,7 @@
 
     iget v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt2:I
 
-    invoke-static {v0, v1, v2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m([BII)Landroid/graphics/drawable/Icon;
+    invoke-static {v0, v1, v2}, Landroid/graphics/drawable/Icon;->createWithData([BII)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2778,7 +2728,7 @@
 
     iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
 
-    invoke-static {v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;I)Landroid/graphics/drawable/Icon;
+    invoke-static {v0, v1}, Landroid/graphics/drawable/Icon;->createWithResource(Ljava/lang/String;I)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2790,7 +2740,7 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
+    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
 
     move-result-object v0
 
@@ -2801,7 +2751,7 @@
     if-eqz v1, :cond_6
 
     .line 448
-    invoke-static {v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;Landroid/content/res/ColorStateList;)Landroid/graphics/drawable/Icon;
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->setTintList(Landroid/content/res/ColorStateList;)Landroid/graphics/drawable/Icon;
 
     .line 450
     :cond_6
@@ -2812,7 +2762,7 @@
     if-eq v1, v2, :cond_7
 
     .line 451
-    invoke-static {v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/drawable/Icon;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Icon;
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->setTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Icon;
 
     :cond_7
     return-object v0
@@ -2821,9 +2771,7 @@
     :cond_8
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
+    check-cast v0, Landroid/graphics/drawable/Icon;
 
     return-object v0
 .end method
@@ -2863,6 +2811,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 684
     iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
 
@@ -2870,9 +2820,9 @@
 
     if-eq v1, v2, :cond_4
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v2, :cond_3
 
     const/4 v2, 0x3
 
@@ -2894,9 +2844,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
@@ -2906,9 +2858,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 700
     iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt2:I
@@ -2920,9 +2874,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt2:I
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt2:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
@@ -2932,40 +2888,44 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     .line 694
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/IconCompat;->getResPackage()Ljava/lang/String;
 
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, " id="
+    const-string v2, " id="
 
     .line 695
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 696
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/IconCompat;->getResId()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-array v2, v2, [Ljava/lang/Object;
+    filled-new-array {v2}, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    aput-object v1, v2, v3
+    const-string v3, "0x%08x"
 
-    const-string v1, "0x%08x"
+    invoke-static {v3, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
@@ -2975,32 +2935,38 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+    move-result-object v1
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    iget-object v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+
+    check-cast v2, Landroid/graphics/Bitmap;
 
     .line 688
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, "x"
+    move-result-object v1
+
+    const-string v2, "x"
 
     .line 689
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+    move-result-object v1
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    iget-object v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
+
+    check-cast v2, Landroid/graphics/Bitmap;
 
     .line 690
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 708
     :cond_5
@@ -3032,9 +2998,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 715
     :cond_7

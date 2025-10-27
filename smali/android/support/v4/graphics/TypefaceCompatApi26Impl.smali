@@ -113,6 +113,8 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -169,6 +171,8 @@
 
     const/4 v1, 0x0
 
+    new-array v1, v1, [Ljava/lang/Object;
+
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
@@ -194,110 +198,88 @@
 .end method
 
 .method private addFontFromAssetManager(Landroid/content/Context;Ljava/lang/Object;Ljava/lang/String;III[Landroid/graphics/fonts/FontVariationAxis;)Z
-    .locals 5
+    .locals 10
+
+    move-object v1, p0
 
     .line 140
     :try_start_0
-    iget-object v0, p0, Landroid/support/v4/graphics/TypefaceCompatApi26Impl;->mAddFontFromAssetManager:Ljava/lang/reflect/Method;
+    iget-object v0, v1, Landroid/support/v4/graphics/TypefaceCompatApi26Impl;->mAddFontFromAssetManager:Ljava/lang/reflect/Method;
 
     .line 141
     invoke-virtual {p1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object p1
-
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
     move-result-object v2
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v3, 0x0
 
-    move-result-object v3
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p4
+    move-result-object v6
 
     .line 142
     invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p5
+    move-result-object v7
 
-    invoke-static {p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {p6 .. p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p6
+    move-result-object v8
 
-    const/16 v4, 0x8
+    move-object v3, p3
 
-    new-array v4, v4, [Ljava/lang/Object;
+    move-object/from16 v9, p7
 
-    aput-object p1, v4, v1
+    filled-new-array/range {v2 .. v9}, [Ljava/lang/Object;
 
-    const/4 p1, 0x1
+    move-result-object v2
 
-    aput-object p3, v4, p1
-
-    const/4 p1, 0x2
-
-    aput-object v2, v4, p1
-
-    const/4 p1, 0x3
-
-    aput-object v3, v4, p1
-
-    const/4 p1, 0x4
-
-    aput-object p4, v4, p1
-
-    const/4 p1, 0x5
-
-    aput-object p5, v4, p1
-
-    const/4 p1, 0x6
-
-    aput-object p6, v4, p1
-
-    const/4 p1, 0x7
-
-    aput-object p7, v4, p1
+    move-object v3, p2
 
     .line 140
-    invoke-virtual {v0, p2, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p2, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast v0, Ljava/lang/Boolean;
 
     .line 143
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p1
+    move-result v0
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return p1
+    return v0
 
     :catch_0
-    move-exception p1
+    move-exception v0
 
     goto :goto_0
 
     :catch_1
-    move-exception p1
+    move-exception v0
 
     .line 145
     :goto_0
-    new-instance p2, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw v2
 .end method
 
 .method private addFontFromBuffer(Ljava/lang/Object;Ljava/nio/ByteBuffer;III)Z
-    .locals 3
+    .locals 2
 
     .line 156
     :try_start_0
@@ -316,34 +298,14 @@
 
     move-result-object p5
 
-    const/4 v1, 0x5
+    const/4 v1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {p2, p3, v1, p4, p5}, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
-
-    aput-object p2, v1, v2
-
-    const/4 p2, 0x1
-
-    aput-object p3, v1, p2
-
-    const/4 p2, 0x2
-
-    const/4 p3, 0x0
-
-    aput-object p3, v1, p2
-
-    const/4 p2, 0x3
-
-    aput-object p4, v1, p2
-
-    const/4 p2, 0x4
-
-    aput-object p5, v1, p2
+    move-result-object p2
 
     .line 156
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -384,6 +346,8 @@
     iget-object v0, p0, Landroid/support/v4/graphics/TypefaceCompatApi26Impl;->mFreeze:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -459,6 +423,8 @@
 
     const/4 v1, 0x0
 
+    new-array v1, v1, [Ljava/lang/Object;
+
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -494,7 +460,7 @@
 
 # virtual methods
 .method protected createFromFamiliesWithDefault(Ljava/lang/Object;)Landroid/graphics/Typeface;
-    .locals 6
+    .locals 3
 
     .line 170
     :try_start_0
@@ -506,41 +472,33 @@
 
     move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     .line 171
-    invoke-static {v0, v2, p1}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
     .line 172
     iget-object p1, p0, Landroid/support/v4/graphics/TypefaceCompatApi26Impl;->mCreateFromFamiliesWithDefault:Ljava/lang/reflect/Method;
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
     .line 173
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v5, 0x3
+    filled-new-array {v0, v2, v1}, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    move-result-object v0
 
-    aput-object v0, v5, v2
-
-    aput-object v4, v5, v1
-
-    const/4 v0, 0x2
-
-    aput-object v3, v5, v0
-
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 172
-    invoke-virtual {p1, v0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -600,7 +558,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v8, 0x0
+    move v8, v0
 
     :goto_0
     const/4 v9, 0x0
@@ -632,7 +590,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;)[Landroid/graphics/fonts/FontVariationAxis;
+    invoke-static {v0}, Landroid/graphics/fonts/FontVariationAxis;->fromFontVariationSettings(Ljava/lang/String;)[Landroid/graphics/fonts/FontVariationAxis;
 
     move-result-object v7
 
@@ -750,7 +708,7 @@
 
     move-result p4
 
-    invoke-static {p2, p4}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Typeface$Builder;I)Landroid/graphics/Typeface$Builder;
+    invoke-virtual {p2, p4}, Landroid/graphics/Typeface$Builder;->setWeight(I)Landroid/graphics/Typeface$Builder;
 
     move-result-object p2
 
@@ -759,12 +717,12 @@
 
     move-result p3
 
-    invoke-static {p2, p3}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Typeface$Builder;Z)Landroid/graphics/Typeface$Builder;
+    invoke-virtual {p2, p3}, Landroid/graphics/Typeface$Builder;->setItalic(Z)Landroid/graphics/Typeface$Builder;
 
     move-result-object p2
 
     .line 244
-    invoke-static {p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Typeface$Builder;)Landroid/graphics/Typeface;
+    invoke-virtual {p2}, Landroid/graphics/Typeface$Builder;->build()Landroid/graphics/Typeface;
 
     move-result-object p2
     :try_end_1
@@ -834,7 +792,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v9, 0x0
+    move v9, v3
 
     :goto_1
     if-ge v9, v0, :cond_8
@@ -887,7 +845,7 @@
     return-object v1
 
     :cond_7
-    const/4 v3, 0x1
+    move v3, v2
 
     :goto_2
     add-int/lit8 v9, v9, 0x1
@@ -1006,12 +964,14 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 331
-    const-string v0, "abortCreation"
+    new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-string v1, "abortCreation"
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p1, v1, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object p1
 
@@ -1019,7 +979,7 @@
 .end method
 
 .method protected obtainAddFontFromAssetManagerMethod(Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NoSuchMethodException;
@@ -1031,47 +991,53 @@
     .line 315
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v1, Landroid/content/res/AssetManager;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-class v2, Landroid/content/res/AssetManager;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    const-class v1, Ljava/lang/String;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const-class v2, Ljava/lang/String;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
 
     sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    const/4 v3, 0x3
+    aput-object v2, v0, v1
 
-    aput-object v2, v0, v3
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    aput-object v1, v0, v2
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v2, 0x6
+    aput-object v2, v0, v1
 
-    aput-object v1, v0, v2
+    const/4 v1, 0x6
 
-    const-class v1, [Landroid/graphics/fonts/FontVariationAxis;
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v2, 0x7
+    aput-object v2, v0, v1
 
-    aput-object v1, v0, v2
+    const/4 v1, 0x7
+
+    const-class v2, [Landroid/graphics/fonts/FontVariationAxis;
+
+    aput-object v2, v0, v1
 
     const-string v1, "addFontFromAssetManager"
 
@@ -1083,7 +1049,7 @@
 .end method
 
 .method protected obtainAddFontFromBufferMethod(Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NoSuchMethodException;
@@ -1095,31 +1061,35 @@
     .line 321
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v1, Ljava/nio/ByteBuffer;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-class v2, Ljava/nio/ByteBuffer;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
 
     const-class v2, [Landroid/graphics/fonts/FontVariationAxis;
 
-    const/4 v3, 0x2
+    aput-object v2, v0, v1
 
-    aput-object v2, v0, v3
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    aput-object v1, v0, v2
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v2, v0, v1
 
     const-string v1, "addFontFromBuffer"
 
@@ -1148,16 +1118,16 @@
     .line 337
     const-class v1, Landroid/graphics/Typeface;
 
-    .line 338
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p1
-
     const/4 v2, 0x3
 
     new-array v2, v2, [Ljava/lang/Class;
 
     const/4 v3, 0x0
+
+    .line 338
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
 
     aput-object p1, v2, v3
 
@@ -1165,9 +1135,11 @@
 
     aput-object p1, v2, v0
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
-    aput-object p1, v2, v3
+    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v3, v2, p1
 
     .line 337
     const-string p1, "createFromFamiliesWithDefault"
@@ -1211,6 +1183,8 @@
     const/4 v0, 0x0
 
     .line 310
+    new-array v0, v0, [Ljava/lang/Class;
+
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object p1
@@ -1226,12 +1200,14 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 327
-    const-string v0, "freeze"
+    new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-string v1, "freeze"
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p1, v1, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object p1
 

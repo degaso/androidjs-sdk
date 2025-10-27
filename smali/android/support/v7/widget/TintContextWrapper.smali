@@ -100,14 +100,12 @@
 .end method
 
 .method private static shouldWrap(Landroid/content/Context;)Z
-    .locals 2
+    .locals 1
 
     .line 78
     instance-of v0, p0, Landroid/support/v7/widget/TintContextWrapper;
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     .line 79
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -116,7 +114,7 @@
 
     instance-of v0, v0, Landroid/support/v7/widget/TintResources;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     .line 80
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -131,24 +129,17 @@
 
     .line 85
     :cond_0
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p0, v0, :cond_1
-
     invoke-static {}, Landroid/support/v7/widget/VectorEnabledTintResources;->shouldBeUsed()Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    return p0
 
     :cond_1
-    const/4 v1, 0x1
-
-    :cond_2
     :goto_0
-    return v1
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public static wrap(Landroid/content/Context;)Landroid/content/Context;

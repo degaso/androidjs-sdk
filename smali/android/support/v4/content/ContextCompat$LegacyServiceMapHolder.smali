@@ -39,38 +39,19 @@
 
     sput-object v0, Landroid/support/v4/content/ContextCompat$LegacyServiceMapHolder;->SERVICES:Ljava/util/HashMap;
 
-    .line 725
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x16
-
-    if-le v1, v2, :cond_0
-
     .line 726
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/telephony/SubscriptionManager;
 
     const-string v2, "telephony_subscription_service"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 727
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/app/usage/UsageStatsManager;
 
     const-string v2, "usagestats"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 729
-    :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-le v1, v2, :cond_1
 
     .line 730
     const-class v1, Landroid/appwidget/AppWidgetManager;
@@ -87,84 +68,60 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 732
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$2()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/hardware/camera2/CameraManager;
 
     const-string v2, "camera"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 733
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$3()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/app/job/JobScheduler;
 
     const-string v2, "jobscheduler"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 734
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$4()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/content/pm/LauncherApps;
 
     const-string v2, "launcherapps"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 735
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$5()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/media/projection/MediaProjectionManager;
 
     const-string v2, "media_projection"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 736
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$6()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/media/session/MediaSessionManager;
 
     const-string v2, "media_session"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 737
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$7()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/content/RestrictionsManager;
 
     const-string v2, "restrictions"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 738
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$8()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/telecom/TelecomManager;
 
     const-string v2, "telecom"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 739
-    invoke-static {}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$9()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Landroid/media/tv/TvInputManager;
 
     const-string v2, "tv_input"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 741
-    :cond_1
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x13
-
-    if-le v1, v2, :cond_2
 
     .line 742
     const-class v1, Landroid/app/AppOpsManager;
@@ -195,7 +152,6 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 748
-    :cond_2
     const-class v1, Landroid/bluetooth/BluetoothManager;
 
     const-string v2, "bluetooth"

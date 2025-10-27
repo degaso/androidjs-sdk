@@ -89,7 +89,7 @@
 .end method
 
 .method private getLastKnownLocation()Landroid/location/Location;
-    .locals 7
+    .locals 6
 
     .line 110
     iget-object v0, p0, Landroid/support/v7/app/TwilightManager;->mContext:Landroid/content/Context;
@@ -149,9 +149,9 @@
 
     move-result-wide v4
 
-    cmp-long v6, v2, v4
+    cmp-long v2, v2, v4
 
-    if-lez v6, :cond_2
+    if-lez v2, :cond_2
 
     move-object v0, v1
 
@@ -208,7 +208,7 @@
 .end method
 
 .method private isStateValid()Z
-    .locals 5
+    .locals 4
 
     .line 144
     iget-object v0, p0, Landroid/support/v7/app/TwilightManager;->mTwilightState:Landroid/support/v7/app/TwilightManager$TwilightState;
@@ -219,9 +219,9 @@
 
     move-result-wide v2
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -302,17 +302,15 @@
 
     if-ne v2, v3, :cond_0
 
-    const/4 v7, 0x1
-
     goto :goto_0
 
     :cond_0
     const/4 v3, 0x0
 
-    const/4 v7, 0x0
+    :goto_0
+    move v7, v3
 
     .line 160
-    :goto_0
     iget-wide v5, v11, Landroid/support/v7/app/TwilightCalculator;->sunrise:J
 
     .line 161
@@ -357,9 +355,9 @@
 
     if-eqz v4, :cond_4
 
-    cmp-long v4, v14, v2
+    cmp-long v2, v14, v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
     goto :goto_2
 

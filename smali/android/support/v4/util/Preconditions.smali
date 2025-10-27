@@ -78,11 +78,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be infinite"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " must not be infinite"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -100,11 +104,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be NaN"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " must not be NaN"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -114,7 +122,7 @@
 .end method
 
 .method public static checkArgumentInRange(FFFLjava/lang/String;)F
-    .locals 5
+    .locals 1
 
     .line 282
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
@@ -123,21 +131,13 @@
 
     if-nez v0, :cond_2
 
-    const/4 v0, 0x2
+    cmpg-float v0, p0, p1
 
-    const/4 v1, 0x1
+    if-ltz v0, :cond_1
 
-    const/4 v2, 0x0
+    cmpl-float v0, p0, p2
 
-    const/4 v3, 0x3
-
-    cmpg-float v4, p0, p1
-
-    if-ltz v4, :cond_1
-
-    cmpl-float v4, p0, p2
-
-    if-gtz v4, :cond_0
+    if-gtz v0, :cond_0
 
     return p0
 
@@ -145,7 +145,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 291
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -156,18 +156,14 @@
 
     move-result-object p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p3, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v3, v2
-
-    aput-object p1, v3, v1
-
-    aput-object p2, v3, v0
+    move-result-object p1
 
     .line 290
-    const-string p1, "%s is out of range of [%f, %f] (too high)"
+    const-string p2, "%s is out of range of [%f, %f] (too high)"
 
-    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -179,7 +175,7 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 287
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -190,18 +186,14 @@
 
     move-result-object p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p3, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v3, v2
-
-    aput-object p1, v3, v1
-
-    aput-object p2, v3, v0
+    move-result-object p1
 
     .line 286
-    const-string p1, "%s is out of range of [%f, %f] (too low)"
+    const-string p2, "%s is out of range of [%f, %f] (too low)"
 
-    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -219,9 +211,13 @@
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string p2, " must not be NaN"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -233,15 +229,7 @@
 .end method
 
 .method public static checkArgumentInRange(IIILjava/lang/String;)I
-    .locals 5
-
-    const/4 v0, 0x2
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x3
+    .locals 1
 
     if-lt p0, p1, :cond_1
 
@@ -253,7 +241,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 318
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -264,18 +252,14 @@
 
     move-result-object p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p3, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v3, v2
-
-    aput-object p1, v3, v1
-
-    aput-object p2, v3, v0
+    move-result-object p1
 
     .line 317
-    const-string p1, "%s is out of range of [%d, %d] (too high)"
+    const-string p2, "%s is out of range of [%d, %d] (too high)"
 
-    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -287,7 +271,7 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 314
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -298,18 +282,14 @@
 
     move-result-object p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    filled-new-array {p3, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v3, v2
-
-    aput-object p1, v3, v1
-
-    aput-object p2, v3, v0
+    move-result-object p1
 
     .line 313
-    const-string p1, "%s is out of range of [%d, %d] (too low)"
+    const-string p2, "%s is out of range of [%d, %d] (too low)"
 
-    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -319,23 +299,15 @@
 .end method
 
 .method public static checkArgumentInRange(JJJLjava/lang/String;)J
-    .locals 5
+    .locals 1
 
-    const/4 v0, 0x2
+    cmp-long v0, p0, p2
 
-    const/4 v1, 0x1
+    if-ltz v0, :cond_1
 
-    const/4 v2, 0x0
+    cmp-long v0, p0, p4
 
-    const/4 v3, 0x3
-
-    cmp-long v4, p0, p2
-
-    if-ltz v4, :cond_1
-
-    cmp-long v4, p0, p4
-
-    if-gtz v4, :cond_0
+    if-gtz v0, :cond_0
 
     return-wide p0
 
@@ -354,18 +326,14 @@
 
     move-result-object p3
 
-    new-array p4, v3, [Ljava/lang/Object;
+    filled-new-array {p6, p2, p3}, [Ljava/lang/Object;
 
-    aput-object p6, p4, v2
-
-    aput-object p2, p4, v1
-
-    aput-object p3, p4, v0
+    move-result-object p2
 
     .line 344
-    const-string p2, "%s is out of range of [%d, %d] (too high)"
+    const-string p3, "%s is out of range of [%d, %d] (too high)"
 
-    invoke-static {p1, p2, p4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p3, p2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -388,18 +356,14 @@
 
     move-result-object p3
 
-    new-array p4, v3, [Ljava/lang/Object;
+    filled-new-array {p6, p2, p3}, [Ljava/lang/Object;
 
-    aput-object p6, p4, v2
-
-    aput-object p2, p4, v1
-
-    aput-object p3, p4, v0
+    move-result-object p2
 
     .line 340
-    const-string p2, "%s is out of range of [%d, %d] (too low)"
+    const-string p3, "%s is out of range of [%d, %d] (too low)"
 
-    invoke-static {p1, p2, p4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p3, p2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -441,13 +405,13 @@
 .end method
 
 .method public static checkArgumentNonnegative(J)J
-    .locals 3
+    .locals 2
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p0, v0
+    cmp-long v0, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v0, :cond_0
 
     return-wide p0
 
@@ -461,13 +425,13 @@
 .end method
 
 .method public static checkArgumentNonnegative(JLjava/lang/String;)J
-    .locals 3
+    .locals 2
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p0, v0
+    cmp-long v0, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v0, :cond_0
 
     return-wide p0
 
@@ -497,7 +461,7 @@
 .end method
 
 .method public static checkArrayElementsInRange([FFFLjava/lang/String;)[F
-    .locals 8
+    .locals 3
 
     .line 445
     new-instance v0, Ljava/lang/StringBuilder;
@@ -506,9 +470,13 @@
 
     invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " must not be null"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -518,41 +486,31 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
     .line 447
     :goto_0
-    array-length v2, p0
+    array-length v1, p0
 
-    if-ge v1, v2, :cond_3
+    if-ge v0, v1, :cond_3
 
     .line 448
-    aget v2, p0, v1
+    aget v1, p0, v0
 
     .line 450
-    invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    const/4 v3, 0x3
+    cmpg-float v2, v1, p1
 
-    const/4 v4, 0x2
+    if-ltz v2, :cond_1
 
-    const/4 v5, 0x4
+    cmpl-float v1, v1, p2
 
-    const/4 v6, 0x1
+    if-gtz v1, :cond_0
 
-    cmpg-float v7, v2, p1
-
-    if-ltz v7, :cond_1
-
-    cmpl-float v2, v2, p2
-
-    if-gtz v2, :cond_0
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
@@ -560,12 +518,12 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 459
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -575,20 +533,14 @@
 
     move-result-object p2
 
-    new-array v5, v5, [Ljava/lang/Object;
+    filled-new-array {p3, v0, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v5, v0
-
-    aput-object v1, v5, v6
-
-    aput-object p1, v5, v4
-
-    aput-object p2, v5, v3
+    move-result-object p1
 
     .line 458
-    const-string p1, "%s[%d] is out of range of [%f, %f] (too high)"
+    const-string p2, "%s[%d] is out of range of [%f, %f] (too high)"
 
-    invoke-static {v2, p1, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -600,12 +552,12 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 455
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -615,20 +567,14 @@
 
     move-result-object p2
 
-    new-array v5, v5, [Ljava/lang/Object;
+    filled-new-array {p3, v0, p1, p2}, [Ljava/lang/Object;
 
-    aput-object p3, v5, v0
-
-    aput-object v1, v5, v6
-
-    aput-object p1, v5, v4
-
-    aput-object p2, v5, v3
+    move-result-object p1
 
     .line 454
-    const-string p1, "%s[%d] is out of range of [%f, %f] (too low)"
+    const-string p2, "%s[%d] is out of range of [%f, %f] (too low)"
 
-    invoke-static {v2, p1, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, p2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -646,15 +592,23 @@
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string p2, "["
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     const-string p2, "] must not be NaN"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -669,7 +623,7 @@
 .end method
 
 .method public static checkArrayElementsNotNull([Ljava/lang/Object;Ljava/lang/String;)[Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -684,20 +638,18 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
     .line 366
     :goto_0
-    array-length v2, p0
+    array-length v1, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
     .line 367
-    aget-object v2, p0, v1
+    aget-object v1, p0, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
@@ -705,26 +657,20 @@
     :cond_0
     new-instance p0, Ljava/lang/NullPointerException;
 
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 369
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v3, 0x2
+    filled-new-array {p1, v0}, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move-result-object p1
 
-    aput-object p1, v3, v0
+    const-string v0, "%s[%d] must not be null"
 
-    const/4 p1, 0x1
-
-    aput-object v1, v3, p1
-
-    const-string p1, "%s[%d] must not be null"
-
-    invoke-static {v2, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -745,23 +691,21 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be null"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " must not be null"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public static checkCollectionElementsNotNull(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
@@ -817,21 +761,13 @@
 
     move-result-object v1
 
-    const/4 v2, 0x2
+    filled-new-array {p1, v1}, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result-object p1
 
-    const/4 v3, 0x0
+    const-string v1, "%s[%d] must not be null"
 
-    aput-object p1, v2, v3
-
-    const/4 p1, 0x1
-
-    aput-object v1, v2, p1
-
-    const-string p1, "%s[%d] must not be null"
-
-    invoke-static {v0, p1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -852,23 +788,21 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be null"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " must not be null"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public static checkCollectionNotEmpty(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
@@ -908,11 +842,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is empty"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " is empty"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -930,11 +868,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be null"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " must not be null"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -969,22 +911,30 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, ", but only 0x"
+    move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ", but only 0x"
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     .line 156
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, " are allowed"
 
-    const-string p0, " are allowed"
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 

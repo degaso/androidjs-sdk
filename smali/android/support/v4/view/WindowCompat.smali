@@ -41,7 +41,7 @@
     if-lt v0, v1, :cond_0
 
     .line 86
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/Window;I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/view/Window;->requireViewById(I)Landroid/view/View;
 
     move-result-object p0
 

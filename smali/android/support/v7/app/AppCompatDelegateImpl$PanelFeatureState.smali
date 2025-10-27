@@ -218,7 +218,7 @@
 
     if-lez v0, :cond_2
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_2
     return v1

@@ -84,11 +84,11 @@
 
     sub-float v4, v5, v4
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     const/high16 v2, 0x3f000000    # 0.5f
 
-    mul-float v2, v2, v4
+    mul-float/2addr v2, v4
 
     sub-float/2addr p0, v2
 
@@ -107,7 +107,7 @@
 
     sub-float/2addr v5, v2
 
-    mul-float v5, v5, v4
+    mul-float/2addr v5, v4
 
     float-to-int v1, v1
 
@@ -118,18 +118,18 @@
 
     packed-switch v1, :pswitch_data_0
 
-    const/4 p0, 0x0
+    move p0, v0
 
-    const/4 v1, 0x0
+    move v1, p0
 
-    const/4 v3, 0x0
+    move v3, v1
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :pswitch_0
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 346
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
@@ -145,7 +145,7 @@
 
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 348
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -157,7 +157,7 @@
     :pswitch_1
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 340
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -173,7 +173,7 @@
 
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 342
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
@@ -192,7 +192,7 @@
 
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 336
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -201,7 +201,7 @@
 
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 337
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
@@ -220,7 +220,7 @@
 
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 331
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
@@ -229,7 +229,7 @@
 
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 332
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -241,7 +241,7 @@
     :pswitch_4
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 325
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
@@ -250,14 +250,14 @@
 
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 326
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
 
     move-result v3
 
-    mul-float p0, p0, v2
+    mul-float/2addr p0, v2
 
     .line 327
     invoke-static {p0}, Ljava/lang/Math;->round(F)I
@@ -269,7 +269,7 @@
     :pswitch_5
     add-float/2addr v4, p0
 
-    mul-float v4, v4, v2
+    mul-float/2addr v4, v2
 
     .line 320
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
@@ -278,14 +278,14 @@
 
     add-float/2addr v5, p0
 
-    mul-float v5, v5, v2
+    mul-float/2addr v5, v2
 
     .line 321
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
     move-result v3
 
-    mul-float p0, p0, v2
+    mul-float/2addr p0, v2
 
     .line 322
     invoke-static {p0}, Ljava/lang/Math;->round(F)I
@@ -400,29 +400,29 @@
 
     move-result-wide v12
 
-    const-wide v14, 0x408c3a6666666666L    # 903.3
+    const-wide v14, 0x3f82231832fcac8eL    # 0.008856
 
-    const-wide v16, 0x3f82231832fcac8eL    # 0.008856
+    cmpl-double v16, v12, v14
 
-    cmpl-double v18, v12, v16
+    const-wide v17, 0x408c3a6666666666L    # 903.3
 
-    if-lez v18, :cond_0
+    if-lez v16, :cond_0
 
     goto :goto_0
 
     :cond_0
-    mul-double v6, v6, v4
+    mul-double/2addr v6, v4
 
     sub-double/2addr v6, v0
 
-    div-double v12, v6, v14
+    div-double v12, v6, v17
 
     :goto_0
     const-wide v6, 0x401fff9da4c11507L    # 7.9996247999999985
 
-    cmpl-double v18, p0, v6
+    cmpl-double v6, p0, v6
 
-    if-lez v18, :cond_1
+    if-lez v6, :cond_1
 
     .line 519
     invoke-static {v2, v3, v10, v11}, Ljava/lang/Math;->pow(DD)D
@@ -432,7 +432,7 @@
     goto :goto_1
 
     :cond_1
-    div-double v2, p0, v14
+    div-double v2, p0, v17
 
     .line 521
     :goto_1
@@ -440,23 +440,23 @@
 
     move-result-wide v6
 
-    cmpl-double v10, v6, v16
+    cmpl-double v10, v6, v14
 
     if-lez v10, :cond_2
 
     goto :goto_2
 
     :cond_2
-    mul-double v8, v8, v4
+    mul-double/2addr v8, v4
 
     sub-double/2addr v8, v0
 
-    div-double v6, v8, v14
+    div-double v6, v8, v17
 
     :goto_2
     const-wide v0, 0x4057c3020c49ba5eL    # 95.047
 
-    mul-double v12, v12, v0
+    mul-double/2addr v12, v0
 
     const/4 v0, 0x0
 
@@ -465,7 +465,7 @@
 
     const-wide/high16 v0, 0x4059000000000000L    # 100.0
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
     const/4 v0, 0x1
 
@@ -474,7 +474,7 @@
 
     const-wide v0, 0x405b3883126e978dL    # 108.883
 
-    mul-double v6, v6, v0
+    mul-double/2addr v6, v0
 
     const/4 v0, 0x2
 
@@ -527,17 +527,17 @@
 
     div-float/2addr v3, v4
 
+    cmpl-float v1, v0, v1
+
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/4 v6, 0x0
 
-    cmpl-float v1, v0, v1
-
     if-nez v1, :cond_0
 
-    const/4 p1, 0x0
+    move p1, v6
 
-    const/4 v2, 0x0
+    move v2, p1
 
     goto :goto_1
 
@@ -579,7 +579,7 @@
     add-float/2addr p1, p0
 
     :goto_0
-    mul-float v4, v4, v3
+    mul-float/2addr v4, v3
 
     sub-float/2addr v4, v5
 
@@ -595,7 +595,7 @@
     :goto_1
     const/high16 p0, 0x42700000    # 60.0f
 
-    mul-float p1, p1, p0
+    mul-float/2addr p1, p0
 
     const/high16 p0, 0x43b40000    # 360.0f
 
@@ -682,167 +682,158 @@
 
     const-wide v3, 0x406fe00000000000L    # 255.0
 
-    .line 448
-    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
-
     div-double/2addr v1, v3
 
-    const-wide v5, 0x4029d70a3d70a3d7L    # 12.92
+    const-wide v5, 0x3fa4b5dcc63f1412L    # 0.04045
 
-    const-wide v7, 0x4003333333333333L    # 2.4
+    cmpg-double v7, v1, v5
 
-    const-wide v9, 0x3ff0e147ae147ae1L    # 1.055
+    const-wide v8, 0x4029d70a3d70a3d7L    # 12.92
 
-    const-wide v11, 0x3fac28f5c28f5c29L    # 0.055
+    const-wide v10, 0x4003333333333333L    # 2.4
 
-    const-wide v13, 0x3fa4b5dcc63f1412L    # 0.04045
+    const-wide v12, 0x3ff0e147ae147ae1L    # 1.055
 
-    cmpg-double v15, v1, v13
+    const-wide v14, 0x3fac28f5c28f5c29L    # 0.055
 
-    if-gez v15, :cond_0
+    if-gez v7, :cond_0
 
-    div-double/2addr v1, v5
+    div-double/2addr v1, v8
 
     goto :goto_0
 
     :cond_0
-    add-double/2addr v1, v11
+    add-double/2addr v1, v14
 
-    div-double/2addr v1, v9
+    div-double/2addr v1, v12
 
     .line 449
-    invoke-static {v1, v2, v7, v8}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v1, v2, v10, v11}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v1
 
     :goto_0
-    move/from16 v15, p1
+    move/from16 v7, p1
 
-    int-to-double v7, v15
+    int-to-double v10, v7
 
-    .line 450
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
+    div-double/2addr v10, v3
 
-    div-double/2addr v7, v3
+    cmpg-double v7, v10, v5
 
-    cmpg-double v15, v7, v13
+    if-gez v7, :cond_1
 
-    if-gez v15, :cond_1
-
-    div-double/2addr v7, v5
+    div-double/2addr v10, v8
 
     goto :goto_1
 
     :cond_1
-    add-double/2addr v7, v11
+    add-double/2addr v10, v14
 
-    div-double/2addr v7, v9
+    div-double/2addr v10, v12
 
-    const-wide v9, 0x4003333333333333L    # 2.4
+    const-wide v12, 0x4003333333333333L    # 2.4
 
     .line 451
-    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v10, v11, v12, v13}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v7
+    move-result-wide v10
 
     :goto_1
-    move/from16 v15, p2
+    move/from16 v7, p2
 
-    int-to-double v9, v15
+    int-to-double v12, v7
 
-    .line 452
-    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
+    div-double/2addr v12, v3
 
-    div-double/2addr v9, v3
-
-    cmpg-double v3, v9, v13
+    cmpg-double v3, v12, v5
 
     if-gez v3, :cond_2
 
-    div-double/2addr v9, v5
+    div-double/2addr v12, v8
 
     goto :goto_2
 
     :cond_2
-    add-double/2addr v9, v11
+    add-double/2addr v12, v14
 
     const-wide v3, 0x3ff0e147ae147ae1L    # 1.055
 
-    div-double/2addr v9, v3
+    div-double/2addr v12, v3
 
     const-wide v3, 0x4003333333333333L    # 2.4
 
     .line 453
-    invoke-static {v9, v10, v3, v4}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v12, v13, v3, v4}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v9
+    move-result-wide v12
 
     :goto_2
     const-wide v3, 0x3fda64c2f837b4a2L    # 0.4124
 
-    mul-double v3, v3, v1
+    mul-double/2addr v3, v1
 
     const-wide v5, 0x3fd6e2eb1c432ca5L    # 0.3576
 
-    mul-double v5, v5, v7
+    mul-double/2addr v5, v10
 
     add-double/2addr v3, v5
 
     const-wide v5, 0x3fc71a9fbe76c8b4L    # 0.1805
 
-    mul-double v5, v5, v9
+    mul-double/2addr v5, v12
 
     add-double/2addr v3, v5
 
     const-wide/high16 v5, 0x4059000000000000L    # 100.0
 
-    mul-double v3, v3, v5
+    mul-double/2addr v3, v5
 
-    const/4 v11, 0x0
+    const/4 v7, 0x0
 
     .line 455
-    aput-wide v3, v0, v11
+    aput-wide v3, v0, v7
 
     const-wide v3, 0x3fcb367a0f9096bcL    # 0.2126
 
-    mul-double v3, v3, v1
+    mul-double/2addr v3, v1
 
-    const-wide v11, 0x3fe6e2eb1c432ca5L    # 0.7152
+    const-wide v7, 0x3fe6e2eb1c432ca5L    # 0.7152
 
-    mul-double v11, v11, v7
+    mul-double/2addr v7, v10
 
-    add-double/2addr v3, v11
+    add-double/2addr v3, v7
 
-    const-wide v11, 0x3fb27bb2fec56d5dL    # 0.0722
+    const-wide v7, 0x3fb27bb2fec56d5dL    # 0.0722
 
-    mul-double v11, v11, v9
+    mul-double/2addr v7, v12
 
-    add-double/2addr v3, v11
+    add-double/2addr v3, v7
 
-    mul-double v3, v3, v5
+    mul-double/2addr v3, v5
 
-    const/4 v11, 0x1
+    const/4 v7, 0x1
 
     .line 456
-    aput-wide v3, v0, v11
+    aput-wide v3, v0, v7
 
     const-wide v3, 0x3f93c36113404ea5L    # 0.0193
 
-    mul-double v1, v1, v3
+    mul-double/2addr v1, v3
 
     const-wide v3, 0x3fbe83e425aee632L    # 0.1192
 
-    mul-double v7, v7, v3
+    mul-double/2addr v10, v3
 
-    add-double/2addr v1, v7
+    add-double/2addr v1, v10
 
     const-wide v3, 0x3fee6a7ef9db22d1L    # 0.9505
 
-    mul-double v9, v9, v3
+    mul-double/2addr v12, v3
 
-    add-double/2addr v1, v9
+    add-double/2addr v1, v12
 
-    mul-double v1, v1, v5
+    mul-double/2addr v1, v5
 
     const/4 v3, 0x2
 
@@ -921,120 +912,120 @@
 
     div-double/2addr v6, v2
 
-    const-wide v2, 0x3fac28f5c28f5c29L    # 0.055
+    const-wide v2, 0x3f69a5c37387b719L    # 0.0031308
 
-    const-wide v8, 0x3fdaaaaaaaaaaaabL    # 0.4166666666666667
+    cmpl-double v8, v0, v2
 
-    const-wide v10, 0x3ff0e147ae147ae1L    # 1.055
+    const-wide v9, 0x3fac28f5c28f5c29L    # 0.055
 
-    const-wide v12, 0x4029d70a3d70a3d7L    # 12.92
+    const-wide v11, 0x3fdaaaaaaaaaaaabL    # 0.4166666666666667
 
-    const-wide v14, 0x3f69a5c37387b719L    # 0.0031308
+    const-wide v13, 0x3ff0e147ae147ae1L    # 1.055
 
-    cmpl-double v16, v0, v14
+    const-wide v15, 0x4029d70a3d70a3d7L    # 12.92
 
-    if-lez v16, :cond_0
+    if-lez v8, :cond_0
 
     .line 548
-    invoke-static {v0, v1, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v0, v1, v11, v12}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v0
 
-    mul-double v0, v0, v10
+    mul-double/2addr v0, v13
 
-    sub-double/2addr v0, v2
+    sub-double/2addr v0, v9
 
     goto :goto_0
 
     :cond_0
-    mul-double v0, v0, v12
+    mul-double/2addr v0, v15
 
     :goto_0
-    cmpl-double v16, v4, v14
+    cmpl-double v8, v4, v2
 
-    if-lez v16, :cond_1
+    if-lez v8, :cond_1
 
     .line 549
-    invoke-static {v4, v5, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v4, v5, v11, v12}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
-    mul-double v4, v4, v10
+    mul-double/2addr v4, v13
 
-    sub-double/2addr v4, v2
+    sub-double/2addr v4, v9
 
     goto :goto_1
 
     :cond_1
-    mul-double v4, v4, v12
+    mul-double/2addr v4, v15
 
     :goto_1
-    cmpl-double v16, v6, v14
+    cmpl-double v2, v6, v2
 
-    if-lez v16, :cond_2
+    if-lez v2, :cond_2
 
     .line 550
-    invoke-static {v6, v7, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v6, v7, v11, v12}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v6
+    move-result-wide v2
 
-    mul-double v6, v6, v10
+    mul-double/2addr v2, v13
 
-    sub-double/2addr v6, v2
+    sub-double/2addr v2, v9
 
     goto :goto_2
 
     :cond_2
-    mul-double v6, v6, v12
+    mul-double v2, v6, v15
 
     :goto_2
-    const-wide v2, 0x406fe00000000000L    # 255.0
+    const-wide v6, 0x406fe00000000000L    # 255.0
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v6
 
     .line 553
     invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     const/16 v8, 0xff
 
-    invoke-static {v1, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v0, v1, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
-    move-result v1
+    move-result v0
 
-    mul-double v4, v4, v2
+    mul-double/2addr v4, v6
 
     .line 554
     invoke-static {v4, v5}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v4
 
-    long-to-int v5, v4
+    long-to-int v4, v4
 
-    invoke-static {v5, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v4, v1, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
     move-result v4
 
-    mul-double v6, v6, v2
+    mul-double/2addr v2, v6
 
     .line 555
-    invoke-static {v6, v7}, Ljava/lang/Math;->round(D)J
+    invoke-static {v2, v3}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v2
 
-    long-to-int v3, v2
+    long-to-int v2, v2
 
-    invoke-static {v3, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v2, v1, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
-    move-result v0
+    move-result v1
 
     .line 552
-    invoke-static {v1, v4, v0}, Landroid/graphics/Color;->rgb(III)I
+    invoke-static {v0, v4, v1}, Landroid/graphics/Color;->rgb(III)I
 
     move-result v0
 
@@ -1080,7 +1071,7 @@
 
     const-wide/high16 v0, 0x405d000000000000L    # 116.0
 
-    mul-double v0, v0, p2
+    mul-double/2addr v0, p2
 
     const-wide/high16 v2, 0x4030000000000000L    # 16.0
 
@@ -1101,7 +1092,7 @@
 
     sub-double/2addr p0, p2
 
-    mul-double p0, p0, v0
+    mul-double/2addr p0, v0
 
     const/4 v0, 0x1
 
@@ -1112,7 +1103,7 @@
 
     sub-double/2addr p2, p4
 
-    mul-double p2, p2, p0
+    mul-double/2addr p2, p0
 
     const/4 p0, 0x2
 
@@ -1146,7 +1137,7 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
@@ -1154,7 +1145,7 @@
 
     int-to-float v2, v2
 
-    mul-float v2, v2, p2
+    mul-float/2addr v2, p2
 
     add-float/2addr v1, v2
 
@@ -1165,7 +1156,7 @@
 
     int-to-float v2, v2
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
@@ -1173,7 +1164,7 @@
 
     int-to-float v3, v3
 
-    mul-float v3, v3, p2
+    mul-float/2addr v3, p2
 
     add-float/2addr v2, v3
 
@@ -1184,7 +1175,7 @@
 
     int-to-float v3, v3
 
-    mul-float v3, v3, v0
+    mul-float/2addr v3, v0
 
     invoke-static {p1}, Landroid/graphics/Color;->green(I)I
 
@@ -1192,7 +1183,7 @@
 
     int-to-float v4, v4
 
-    mul-float v4, v4, p2
+    mul-float/2addr v4, p2
 
     add-float/2addr v3, v4
 
@@ -1203,7 +1194,7 @@
 
     int-to-float p0, p0
 
-    mul-float p0, p0, v0
+    mul-float/2addr p0, v0
 
     invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
 
@@ -1211,7 +1202,7 @@
 
     int-to-float p1, p1
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     add-float/2addr p0, p1
 
@@ -1263,11 +1254,11 @@
     .line 639
     aget v2, p0, v1
 
-    mul-float v2, v2, v0
+    mul-float/2addr v2, v0
 
     aget v3, p1, v1
 
-    mul-float v3, v3, p2
+    mul-float/2addr v3, p2
 
     add-float/2addr v2, v3
 
@@ -1278,11 +1269,11 @@
     .line 640
     aget p0, p0, v1
 
-    mul-float p0, p0, v0
+    mul-float/2addr p0, v0
 
     aget p1, p1, v1
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     add-float/2addr p0, p1
 
@@ -1320,11 +1311,11 @@
     .line 660
     aget-wide v3, p0, v2
 
-    mul-double v3, v3, v0
+    mul-double/2addr v3, v0
 
     aget-wide v5, p1, v2
 
-    mul-double v5, v5, p2
+    mul-double/2addr v5, p2
 
     add-double/2addr v3, v5
 
@@ -1335,11 +1326,11 @@
     .line 661
     aget-wide v3, p0, v2
 
-    mul-double v3, v3, v0
+    mul-double/2addr v3, v0
 
     aget-wide v5, p1, v2
 
-    mul-double v5, v5, p2
+    mul-double/2addr v5, p2
 
     add-double/2addr v3, v5
 
@@ -1350,11 +1341,11 @@
     .line 662
     aget-wide v3, p0, v2
 
-    mul-double v3, v3, v0
+    mul-double/2addr v3, v0
 
     aget-wide p0, p1, v2
 
-    mul-double p0, p0, p2
+    mul-double/2addr p0, p2
 
     add-double/2addr v3, p0
 
@@ -1444,7 +1435,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1511,7 +1504,7 @@
     :cond_0
     const/4 p2, 0x0
 
-    const/4 v0, 0x0
+    move v0, p2
 
     :goto_0
     const/16 v2, 0xa
@@ -1575,23 +1568,19 @@
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p0
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method static circularInterpolate(FFF)F
-    .locals 3
+    .locals 2
 
     sub-float v0, p1, p0
 
@@ -1602,9 +1591,9 @@
 
     const/high16 v1, 0x43340000    # 180.0f
 
-    const/high16 v2, 0x43b40000    # 360.0f
-
     cmpl-float v0, v0, v1
+
+    const/high16 v1, 0x43b40000    # 360.0f
 
     if-lez v0, :cond_1
 
@@ -1612,22 +1601,22 @@
 
     if-lez v0, :cond_0
 
-    add-float/2addr p0, v2
+    add-float/2addr p0, v1
 
     goto :goto_0
 
     :cond_0
-    add-float/2addr p1, v2
+    add-float/2addr p1, v1
 
     :cond_1
     :goto_0
     sub-float/2addr p1, p0
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     add-float/2addr p0, p1
 
-    rem-float/2addr p0, v2
+    rem-float/2addr p0, v1
 
     return p0
 .end method
@@ -1702,7 +1691,7 @@
 
     rsub-int p0, p0, 0xff
 
-    mul-int p1, p1, p0
+    mul-int/2addr p1, p0
 
     .line 131
     div-int/lit16 p1, p1, 0xff
@@ -1787,11 +1776,11 @@
     .locals 7
 
     .line 92
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace$Model;
+    invoke-virtual {p0}, Landroid/graphics/Color;->getModel()Landroid/graphics/ColorSpace$Model;
 
     move-result-object v0
 
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace$Model;
+    invoke-virtual {p1}, Landroid/graphics/Color;->getModel()Landroid/graphics/ColorSpace$Model;
 
     move-result-object v1
 
@@ -1802,11 +1791,11 @@
     if-eqz v0, :cond_3
 
     .line 98
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace;
+    invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v0
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace;
+    invoke-virtual {p0}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v1
 
@@ -1820,32 +1809,32 @@
 
     .line 100
     :cond_0
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace;
+    invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;Landroid/graphics/ColorSpace;)Landroid/graphics/Color;
+    invoke-virtual {p0, v0}, Landroid/graphics/Color;->convert(Landroid/graphics/ColorSpace;)Landroid/graphics/Color;
 
     move-result-object p0
 
     .line 102
     :goto_0
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)[F
+    invoke-virtual {p0}, Landroid/graphics/Color;->getComponents()[F
 
     move-result-object v0
 
     .line 103
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)[F
+    invoke-virtual {p1}, Landroid/graphics/Color;->getComponents()[F
 
     move-result-object v1
 
     .line 105
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)F
+    invoke-virtual {p0}, Landroid/graphics/Color;->alpha()F
 
     move-result p0
 
     .line 107
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)F
+    invoke-virtual {p1}, Landroid/graphics/Color;->alpha()F
 
     move-result v2
 
@@ -1853,10 +1842,10 @@
 
     sub-float/2addr v3, p0
 
-    mul-float v2, v2, v3
+    mul-float/2addr v2, v3
 
     .line 111
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)I
+    invoke-virtual {p1}, Landroid/graphics/Color;->getComponentCount()I
 
     move-result v3
 
@@ -1886,11 +1875,11 @@
     .line 124
     aget v5, v0, v4
 
-    mul-float v5, v5, p0
+    mul-float/2addr v5, p0
 
     aget v6, v1, v4
 
-    mul-float v6, v6, v2
+    mul-float/2addr v6, v2
 
     add-float/2addr v5, v6
 
@@ -1902,11 +1891,11 @@
 
     .line 127
     :cond_2
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace;
+    invoke-virtual {p1}, Landroid/graphics/Color;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object p0
 
-    invoke-static {v1, p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m([FLandroid/graphics/ColorSpace;)Landroid/graphics/Color;
+    invoke-static {v1, p0}, Landroid/graphics/Color;->valueOf([FLandroid/graphics/ColorSpace;)Landroid/graphics/Color;
 
     move-result-object p0
 
@@ -1923,40 +1912,42 @@
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 94
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace$Model;
+    invoke-virtual {p0}, Landroid/graphics/Color;->getModel()Landroid/graphics/ColorSpace$Model;
 
     move-result-object p0
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, " vs. "
+    move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " vs. "
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     .line 95
-    invoke-static {p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Color;)Landroid/graphics/ColorSpace$Model;
+    invoke-virtual {p1}, Landroid/graphics/Color;->getModel()Landroid/graphics/ColorSpace$Model;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string p1, ")"
 
-    const-string p0, ")"
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method private static compositeComponent(IIIII)I
@@ -1971,13 +1962,13 @@
     :cond_0
     mul-int/lit16 p0, p0, 0xff
 
-    mul-int p0, p0, p1
+    mul-int/2addr p0, p1
 
-    mul-int p2, p2, p3
+    mul-int/2addr p2, p3
 
     rsub-int p1, p1, 0xff
 
-    mul-int p2, p2, p1
+    mul-int/2addr p2, p1
 
     add-int/2addr p0, p2
 
@@ -2114,13 +2105,13 @@
 .end method
 
 .method private static pivotXyzComponent(D)D
-    .locals 3
+    .locals 2
 
     const-wide v0, 0x3f82231832fcac8eL    # 0.008856
 
-    cmpl-double v2, p0, v0
+    cmpl-double v0, p0, v0
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
     const-wide v0, 0x3fd5555555555555L    # 0.3333333333333333
 
@@ -2134,7 +2125,7 @@
     :cond_0
     const-wide v0, 0x408c3a6666666666L    # 903.3
 
-    mul-double p0, p0, v0
+    mul-double/2addr p0, v0
 
     const-wide/high16 v0, 0x4030000000000000L    # 16.0
 

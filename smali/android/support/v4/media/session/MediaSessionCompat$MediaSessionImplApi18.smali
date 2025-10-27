@@ -37,7 +37,7 @@
 
 # virtual methods
 .method getRccTransportControlFlagsFromActions(J)I
-    .locals 4
+    .locals 3
 
     .line 3258
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->getRccTransportControlFlagsFromActions(J)I
@@ -50,9 +50,9 @@
 
     const-wide/16 v1, 0x0
 
-    cmp-long v3, p1, v1
+    cmp-long p1, p1, v1
 
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
     or-int/lit16 v0, v0, 0x100
 
@@ -195,7 +195,7 @@
 
     long-to-float v3, v7
 
-    mul-float v3, v3, v2
+    mul-float/2addr v3, v2
 
     float-to-long v7, v3
 

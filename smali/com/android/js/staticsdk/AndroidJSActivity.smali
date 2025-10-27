@@ -20,16 +20,18 @@
 
 # virtual methods
 .method public configureWebview(I)V
-    .locals 3
+    .locals 4
 
     .line 32
     iget-object v0, p0, Lcom/android/js/staticsdk/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v1, Lcom/android/js/common/JavaWebviewBridge;
 
-    const-string v2, "com.android.js.staticsdk.MainActivity"
+    iget-object v2, p0, Lcom/android/js/staticsdk/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
-    invoke-direct {v1, p0, v0, p1, v2}, Lcom/android/js/common/JavaWebviewBridge;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
+    const-string v3, "com.android.js.staticsdk.MainActivity"
+
+    invoke-direct {v1, p0, v2, p1, v3}, Lcom/android/js/common/JavaWebviewBridge;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
 
     const-string p1, "android"
 

@@ -29,7 +29,7 @@
 
     if-le p2, v0, :cond_0
 
-    const/4 p2, 0x1
+    move p2, v0
 
     :cond_0
     if-gez p2, :cond_1

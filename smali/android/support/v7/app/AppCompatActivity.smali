@@ -420,18 +420,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/support/v7/app/AppCompatActivity;->mThemeId:I
 
-    if-eqz v0, :cond_1
-
-    .line 79
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 80
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getTheme()Landroid/content/res/Resources$Theme;
@@ -444,17 +437,8 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/v7/app/AppCompatActivity;->onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
 
-    goto :goto_0
-
-    .line 82
-    :cond_0
-    iget v0, p0, Landroid/support/v7/app/AppCompatActivity;->mThemeId:I
-
-    invoke-virtual {p0, v0}, Landroid/support/v7/app/AppCompatActivity;->setTheme(I)V
-
     .line 85
-    :cond_1
-    :goto_0
+    :cond_0
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
     return-void

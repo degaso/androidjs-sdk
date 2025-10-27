@@ -58,7 +58,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 98
     :goto_0
@@ -82,7 +82,7 @@
 
     move-result-object v0
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_0
 

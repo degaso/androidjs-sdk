@@ -778,7 +778,7 @@
 
     const/4 p3, 0x0
 
-    const/4 v1, 0x0
+    move v1, p3
 
     :goto_0
     if-ge v1, p2, :cond_7
@@ -1006,7 +1006,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     if-ge v1, v7, :cond_1
@@ -1039,7 +1039,7 @@
 
     if-eqz v6, :cond_3
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_2
     if-ge v2, v7, :cond_3
@@ -1115,7 +1115,7 @@
 
     if-eq v2, v1, :cond_5
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_3
     if-ge v1, v7, :cond_5
@@ -1178,7 +1178,7 @@
 
     if-lez v1, :cond_7
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_4
     if-ge v2, v1, :cond_7
@@ -1200,7 +1200,7 @@
     goto :goto_4
 
     :cond_7
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_5
     if-ge v1, v7, :cond_9
@@ -1249,7 +1249,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_6
     if-ge v1, v7, :cond_a
@@ -1278,7 +1278,7 @@
     goto :goto_6
 
     :cond_a
-    const/4 v8, 0x0
+    move v8, v0
 
     :goto_7
     if-ge v8, v7, :cond_c
@@ -1340,7 +1340,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -2215,7 +2215,7 @@
 
     if-lez v1, :cond_0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_0
@@ -2266,7 +2266,7 @@
 
     int-to-float v4, v4
 
-    const/4 v5, 0x0
+    move v5, v2
 
     :goto_1
     if-ge v5, v1, :cond_3
@@ -2357,7 +2357,7 @@
 
     div-float/2addr v7, v10
 
-    mul-float v7, v7, v3
+    mul-float/2addr v7, v3
 
     float-to-int v7, v7
 
@@ -2367,7 +2367,7 @@
 
     div-float/2addr v8, v11
 
-    mul-float v8, v8, v4
+    mul-float/2addr v8, v4
 
     float-to-int v8, v8
 
@@ -2375,7 +2375,7 @@
 
     div-float/2addr v9, v10
 
-    mul-float v9, v9, v3
+    mul-float/2addr v9, v3
 
     float-to-int v9, v9
 
@@ -2383,7 +2383,7 @@
 
     div-float/2addr v6, v11
 
-    mul-float v6, v6, v4
+    mul-float/2addr v6, v4
 
     float-to-int v6, v6
 
@@ -2795,7 +2795,7 @@
 
     const/4 p3, 0x0
 
-    const/4 p4, 0x0
+    move p4, p3
 
     :goto_0
     if-ge p4, p1, :cond_3
@@ -3633,10 +3633,16 @@
 
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    .line 545
-    iget-object p1, p0, Landroid/support/constraint/ConstraintLayout;->mDesignIds:Ljava/util/HashMap;
+    move-result p1
 
-    invoke-virtual {p1, p2, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .line 545
+    iget-object p3, p0, Landroid/support/constraint/ConstraintLayout;->mDesignIds:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-virtual {p3, p2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_2
     return-void
@@ -3818,7 +3824,7 @@
     if-eq p2, v5, :cond_1
 
     :cond_0
-    const/4 p3, 0x0
+    move p3, v7
 
     goto :goto_0
 
@@ -3871,7 +3877,7 @@
     if-eq p4, v5, :cond_6
 
     :cond_5
-    const/4 p5, 0x0
+    move p5, v7
 
     goto :goto_1
 

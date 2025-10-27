@@ -351,7 +351,7 @@
 
     const/high16 p2, 0x41800000    # 16.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 
@@ -541,7 +541,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, p2
 
     .line 458
     :goto_0
@@ -594,7 +594,7 @@
 
     const v6, 0x3e4ccccd    # 0.2f
 
-    mul-float v5, v5, v6
+    mul-float/2addr v5, v6
 
     float-to-int v5, v5
 
@@ -715,7 +715,7 @@
 
     const/high16 v0, 0x437f0000    # 255.0f
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     float-to-int p1, p1
 
@@ -893,7 +893,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const/4 v2, 0x1
@@ -984,7 +984,7 @@
 
     const v1, 0x3f4ccccd    # 0.8f
 
-    mul-float p2, p2, v1
+    mul-float/2addr p2, v1
 
     float-to-int p2, p2
 
@@ -1185,7 +1185,7 @@
 
     int-to-float v12, v12
 
-    mul-float v12, v12, v14
+    mul-float/2addr v12, v14
 
     float-to-int v12, v12
 

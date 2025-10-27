@@ -230,7 +230,7 @@
 
     const/high16 v1, 0x41400000    # 12.0f
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setTextSize(F)V
 
@@ -315,8 +315,6 @@
     :cond_0
     return-void
 
-    nop
-
     :array_0
     .array-data 4
         0x40800000    # 4.0f
@@ -342,9 +340,9 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 2733
     :goto_0
@@ -361,14 +359,14 @@
 
     if-ne v3, v4, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v4
 
     :cond_0
     const/4 v5, 0x2
 
     if-ne v3, v5, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v4
 
     :cond_1
     add-int/lit8 v0, v0, 0x1
@@ -557,8 +555,6 @@
 
     const-wide/high16 v16, 0x3fe0000000000000L    # 0.5
 
-    invoke-static {v14, v15}, Ljava/lang/Double;->isNaN(D)Z
-
     add-double v14, v14, v16
 
     double-to-int v6, v14
@@ -568,6 +564,8 @@
     div-float/2addr v6, v13
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -641,8 +639,6 @@
 
     float-to-double v2, v2
 
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
     add-double v2, v2, v16
 
     double-to-int v2, v2
@@ -652,6 +648,8 @@
     div-float/2addr v2, v13
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -792,13 +790,13 @@
 
     sub-float/2addr v4, v1
 
-    mul-float v5, v5, v4
+    mul-float/2addr v5, v4
 
     sub-float v6, p3, v3
 
     sub-float/2addr v0, v3
 
-    mul-float v6, v6, v0
+    mul-float/2addr v6, v0
 
     add-float/2addr v5, v6
 
@@ -806,11 +804,11 @@
 
     div-float/2addr v5, v6
 
-    mul-float v4, v4, v5
+    mul-float/2addr v4, v5
 
     add-float v9, v1, v4
 
-    mul-float v5, v5, v0
+    mul-float/2addr v5, v0
 
     add-float v10, v3, v5
 
@@ -860,6 +858,8 @@
     div-float/2addr v2, v3
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -932,7 +932,7 @@
 
     const/high16 v9, 0x42c80000    # 100.0f
 
-    mul-float v2, v2, v9
+    mul-float/2addr v2, v9
 
     iget-object v3, v0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -950,8 +950,6 @@
 
     const-wide/high16 v10, 0x3fe0000000000000L    # 0.5
 
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
     add-double/2addr v2, v10
 
     double-to-int v2, v2
@@ -961,6 +959,8 @@
     div-float/2addr v2, v9
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1032,7 +1032,7 @@
 
     sub-float v2, p3, v2
 
-    mul-float v2, v2, v9
+    mul-float/2addr v2, v9
 
     iget-object v3, v0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1048,8 +1048,6 @@
 
     float-to-double v2, v2
 
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
     add-double/2addr v2, v10
 
     double-to-int v2, v2
@@ -1059,6 +1057,8 @@
     div-float/2addr v2, v9
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1126,7 +1126,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const/16 v2, 0x32
@@ -1297,7 +1297,7 @@
     :goto_0
     const/4 v13, 0x1
 
-    const/4 v14, 0x1
+    move v14, v13
 
     :goto_1
     add-int/lit8 v0, p3, -0x1
@@ -1401,11 +1401,11 @@
 
     :cond_2
     :goto_2
+    move v10, v3
+
     move/from16 v17, v4
 
     move/from16 v18, v5
-
-    const/4 v10, 0x3
 
     goto :goto_3
 
@@ -1432,7 +1432,7 @@
 
     move-object/from16 v1, p1
 
-    const/4 v10, 0x3
+    move v10, v3
 
     move/from16 v3, v17
 
@@ -1458,11 +1458,11 @@
     goto :goto_4
 
     :cond_5
+    move v10, v3
+
     move/from16 v17, v4
 
     move/from16 v18, v5
-
-    const/4 v10, 0x3
 
     :goto_4
     if-ne v8, v15, :cond_6
@@ -1671,9 +1671,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ":"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1682,6 +1686,8 @@
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1756,7 +1762,7 @@
 
     if-nez v1, :cond_3
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_3
     if-nez v1, :cond_4

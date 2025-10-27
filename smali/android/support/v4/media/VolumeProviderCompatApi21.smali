@@ -36,11 +36,9 @@
     .locals 0
 
     .line 41
-    invoke-static {p0}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/VolumeProvider;
+    check-cast p0, Landroid/media/VolumeProvider;
 
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/support/v4/media/MediaMetadataCompatApi21$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/VolumeProvider;I)V
+    invoke-virtual {p0, p1}, Landroid/media/VolumeProvider;->setCurrentVolume(I)V
 
     return-void
 .end method

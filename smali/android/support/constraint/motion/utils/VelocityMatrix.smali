@@ -62,11 +62,11 @@
 
     const/high16 v8, 0x40000000    # 2.0f
 
-    mul-float v7, v7, v8
+    mul-float/2addr v7, v8
 
     sub-float v6, p2, v6
 
-    mul-float v6, v6, v8
+    mul-float/2addr v6, v8
 
     .line 106
     iget v8, v0, Landroid/support/constraint/motion/utils/VelocityMatrix;->mDTranslateX:F
@@ -81,14 +81,14 @@
     .line 108
     iget v8, v0, Landroid/support/constraint/motion/utils/VelocityMatrix;->mDScaleX:F
 
-    mul-float v8, v8, v7
+    mul-float/2addr v8, v7
 
     add-float/2addr v3, v8
 
     .line 109
     iget v8, v0, Landroid/support/constraint/motion/utils/VelocityMatrix;->mDScaleY:F
 
-    mul-float v8, v8, v6
+    mul-float/2addr v8, v6
 
     add-float/2addr v5, v8
 
@@ -118,7 +118,7 @@
 
     int-to-float v10, v10
 
-    mul-float v10, v10, v7
+    mul-float/2addr v10, v7
 
     float-to-double v10, v10
 
@@ -129,15 +129,13 @@
 
     move-result-wide v14
 
-    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v10, v10, v14
+    mul-double/2addr v10, v14
 
     move/from16 v8, p4
 
     int-to-float v8, v8
 
-    mul-float v8, v8, v6
+    mul-float/2addr v8, v6
 
     float-to-double v14, v8
 
@@ -145,21 +143,19 @@
 
     move-result-wide v16
 
-    invoke-static {v14, v15}, Ljava/lang/Double;->isNaN(D)Z
-
     mul-double v16, v16, v14
 
     sub-double v10, v10, v16
 
     double-to-float v6, v10
 
-    mul-float v6, v6, v9
+    mul-float/2addr v6, v9
 
     add-float/2addr v3, v6
 
     int-to-float v1, v1
 
-    mul-float v1, v1, v7
+    mul-float/2addr v1, v7
 
     float-to-double v6, v1
 
@@ -168,23 +164,19 @@
 
     move-result-wide v10
 
-    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v6, v6, v10
+    mul-double/2addr v6, v10
 
     invoke-static {v12, v13}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v10
 
-    invoke-static {v14, v15}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v14, v14, v10
+    mul-double/2addr v14, v10
 
     sub-double/2addr v6, v14
 
     double-to-float v1, v6
 
-    mul-float v9, v9, v1
+    mul-float/2addr v9, v1
 
     add-float/2addr v5, v9
 

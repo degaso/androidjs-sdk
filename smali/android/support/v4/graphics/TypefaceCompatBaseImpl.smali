@@ -80,12 +80,12 @@
 
     if-eqz p1, :cond_1
 
-    const/4 p1, 0x1
+    move p1, v2
 
     goto :goto_1
 
     :cond_1
-    const/4 p1, 0x0
+    move p1, v1
 
     .line 58
     :goto_1
@@ -95,7 +95,7 @@
 
     const v5, 0x7fffffff
 
-    const/4 v6, 0x0
+    move v6, v1
 
     :goto_2
     if-ge v6, v3, :cond_5
@@ -122,12 +122,12 @@
 
     if-ne v9, p1, :cond_2
 
-    const/4 v9, 0x0
+    move v9, v1
 
     goto :goto_3
 
     :cond_2
-    const/4 v9, 0x1
+    move v9, v2
 
     :goto_3
     add-int/2addr v8, v9

@@ -781,17 +781,17 @@
 
     const-string v4, ""
 
-    const/4 v5, 0x1
+    move v9, v1
 
-    const/4 v6, 0x1
+    move v10, v9
 
-    const/4 v7, 0x1
+    move v5, v2
 
-    const/4 v8, 0x0
+    move v6, v5
 
-    const/4 v9, -0x1
+    move v7, v6
 
-    const/4 v10, -0x1
+    move v8, v3
 
     .line 412
     :goto_0
@@ -877,7 +877,7 @@
 
     if-le v5, v11, :cond_4
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_4
     add-int/2addr v6, v2
@@ -886,7 +886,7 @@
 
     if-le v6, v12, :cond_5
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     .line 433
     :cond_5
@@ -909,7 +909,7 @@
 
     move v9, p1
 
-    goto :goto_3
+    goto :goto_4
 
     .line 446
     :cond_7
@@ -921,39 +921,41 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_9
 
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    goto :goto_3
+    move v8, v2
 
     :cond_8
-    if-ne v6, v11, :cond_9
+    :goto_3
+    move v7, v3
 
-    if-nez v8, :cond_9
+    goto :goto_4
+
+    :cond_9
+    if-ne v6, v11, :cond_a
+
+    if-nez v8, :cond_a
 
     .line 453
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->end()I
 
     move-result p1
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_9
-    if-eqz v8, :cond_c
+    :cond_a
+    if-eqz v8, :cond_8
 
     const/4 v7, 0x4
 
-    if-le v6, v7, :cond_c
+    if-le v6, v7, :cond_8
 
     .line 459
     invoke-static {p0, p1}, Landroid/support/v4/text/util/FindAddress;->matchState(Ljava/lang/String;I)Ljava/util/regex/MatchResult;
 
     move-result-object p1
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_8
 
     .line 461
     const-string v7, "et"
@@ -962,7 +964,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     invoke-interface {p1, v3}, Ljava/util/regex/MatchResult;->group(I)Ljava/lang/String;
 
@@ -974,17 +976,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     .line 463
     invoke-interface {p1}, Ljava/util/regex/MatchResult;->end()I
 
     move-result p1
 
-    goto :goto_4
+    goto :goto_5
 
     .line 468
-    :cond_a
+    :cond_b
     sget-object v4, Landroid/support/v4/text/util/FindAddress;->sWordRe:Ljava/util/regex/Pattern;
 
     invoke-virtual {v4, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -1000,7 +1002,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_c
 
     .line 470
     invoke-virtual {v4, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -1011,7 +1013,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_8
 
     .line 471
     invoke-virtual {v4}, Ljava/util/regex/Matcher;->end()I
@@ -1021,17 +1023,16 @@
     return p0
 
     .line 482
-    :cond_b
+    :cond_c
     invoke-interface {p1}, Ljava/util/regex/MatchResult;->end()I
 
     move-result v10
 
-    :cond_c
-    const/4 v7, 0x0
+    goto :goto_3
 
     .line 412
     :cond_d
-    :goto_3
+    :goto_4
     invoke-virtual {v0, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v4
@@ -1043,7 +1044,7 @@
     goto/16 :goto_0
 
     :cond_e
-    :goto_4
+    :goto_5
     if-lez v10, :cond_f
 
     return v10
@@ -1051,12 +1052,12 @@
     :cond_f
     if-lez v9, :cond_10
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_10
     move v9, p1
 
-    :goto_5
+    :goto_6
     neg-int p0, v9
 
     return p0
@@ -1067,9 +1068,9 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 273
     :goto_0
@@ -1246,7 +1247,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 502
     :goto_0

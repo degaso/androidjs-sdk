@@ -48,7 +48,7 @@
     .line 84
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;)V
+    invoke-virtual {v0}, Landroid/service/media/MediaBrowserService$Result;->detach()V
 
     return-void
 .end method
@@ -103,9 +103,7 @@
     invoke-virtual {v1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 94
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m()Landroid/os/Parcelable$Creator;
-
-    move-result-object v2
+    sget-object v2, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v2, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
@@ -144,7 +142,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -165,15 +163,13 @@
     .line 75
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
-    invoke-static {}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m()Landroid/os/Parcelable$Creator;
-
-    move-result-object v1
+    sget-object v1, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     .line 76
     invoke-virtual {p1}, Landroid/os/Parcel;->recycle()V
@@ -186,7 +182,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/service/media/MediaBrowserService$Result;Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     :goto_0
     return-void

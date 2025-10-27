@@ -334,104 +334,54 @@
 
     sput-object v0, Landroid/support/v7/widget/RecyclerView;->CLIP_TO_PADDING_ATTR:[I
 
-    .line 227
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-eq v0, v1, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x14
-
-    if-ne v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
-
-    :goto_1
+    .line 227
     sput-boolean v0, Landroid/support/v7/widget/RecyclerView;->FORCE_INVALIDATE_DISPLAY_LIST:Z
 
+    const/4 v1, 0x1
+
     .line 234
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_2
-
-    const/4 v0, 0x1
-
-    goto :goto_2
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_2
-    sput-boolean v0, Landroid/support/v7/widget/RecyclerView;->ALLOW_SIZE_IN_UNSPECIFIED_SPEC:Z
+    sput-boolean v1, Landroid/support/v7/widget/RecyclerView;->ALLOW_SIZE_IN_UNSPECIFIED_SPEC:Z
 
     .line 236
-    sput-boolean v2, Landroid/support/v7/widget/RecyclerView;->POST_UPDATES_ON_ANIMATION:Z
+    sput-boolean v1, Landroid/support/v7/widget/RecyclerView;->POST_UPDATES_ON_ANIMATION:Z
 
     .line 242
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_3
-
-    const/4 v0, 0x1
-
-    goto :goto_3
-
-    :cond_3
-    const/4 v0, 0x0
-
-    :goto_3
-    sput-boolean v0, Landroid/support/v7/widget/RecyclerView;->ALLOW_THREAD_GAP_WORK:Z
+    sput-boolean v1, Landroid/support/v7/widget/RecyclerView;->ALLOW_THREAD_GAP_WORK:Z
 
     .line 248
-    sput-boolean v3, Landroid/support/v7/widget/RecyclerView;->FORCE_ABS_FOCUS_SEARCH_DIRECTION:Z
+    sput-boolean v0, Landroid/support/v7/widget/RecyclerView;->FORCE_ABS_FOCUS_SEARCH_DIRECTION:Z
 
     .line 258
-    sput-boolean v3, Landroid/support/v7/widget/RecyclerView;->IGNORE_DETACHED_FOCUSED_CHILD:Z
+    sput-boolean v0, Landroid/support/v7/widget/RecyclerView;->IGNORE_DETACHED_FOCUSED_CHILD:Z
 
-    const/4 v0, 0x4
+    const/4 v2, 0x4
 
     .line 355
-    new-array v0, v0, [Ljava/lang/Class;
+    new-array v2, v2, [Ljava/lang/Class;
 
-    const-class v1, Landroid/content/Context;
+    const-class v3, Landroid/content/Context;
 
-    aput-object v1, v0, v3
+    aput-object v3, v2, v0
 
-    const-class v1, Landroid/util/AttributeSet;
+    const-class v0, Landroid/util/AttributeSet;
 
-    aput-object v1, v0, v2
+    aput-object v0, v2, v1
+
+    const/4 v0, 0x2
 
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v2, 0x2
+    aput-object v1, v2, v0
 
-    aput-object v1, v0, v2
+    const/4 v0, 0x3
 
-    const/4 v2, 0x3
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v1, v0, v2
+    aput-object v1, v2, v0
 
-    sput-object v0, Landroid/support/v7/widget/RecyclerView;->LAYOUT_MANAGER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
+    sput-object v2, Landroid/support/v7/widget/RecyclerView;->LAYOUT_MANAGER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
     .line 595
     new-instance v0, Landroid/support/v7/widget/RecyclerView$3;
@@ -760,12 +710,12 @@
 
     if-ne v4, v3, :cond_2
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_2
 
     :cond_2
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_2
     invoke-virtual {p0, v3}, Landroid/support/v7/widget/RecyclerView;->setWillNotDraw(Z)V
@@ -920,13 +870,6 @@
     .line 713
     invoke-direct/range {v5 .. v10}, Landroid/support/v7/widget/RecyclerView;->createLayoutManager(Landroid/content/Context;Ljava/lang/String;Landroid/util/AttributeSet;II)V
 
-    .line 715
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x15
-
-    if-lt v1, v3, :cond_7
-
     .line 716
     sget-object v1, Landroid/support/v7/widget/RecyclerView;->NESTED_SCROLLING_ATTRS:[I
 
@@ -937,12 +880,10 @@
     .line 718
     invoke-virtual {p1, v0, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result p2
+    move-result v2
 
     .line 719
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
-
-    move v2, p2
 
     goto :goto_3
 
@@ -951,7 +892,6 @@
     invoke-virtual {p0, v3}, Landroid/support/v7/widget/RecyclerView;->setDescendantFocusability(I)V
 
     .line 726
-    :cond_7
     :goto_3
     invoke-virtual {p0, v2}, Landroid/support/v7/widget/RecyclerView;->setNestedScrollingEnabled(Z)V
 
@@ -1011,7 +951,7 @@
 
     if-ne v1, p0, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_0
 
@@ -1266,25 +1206,25 @@
 
     const/4 v2, 0x1
 
+    const/4 v3, 0x0
+
     .line 795
     :try_start_1
-    sget-object v3, Landroid/support/v7/widget/RecyclerView;->LAYOUT_MANAGER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
+    sget-object v4, Landroid/support/v7/widget/RecyclerView;->LAYOUT_MANAGER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
     .line 796
-    invoke-virtual {v1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {v1, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
     .line 797
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    aput-object p1, v5, v3
 
-    aput-object p1, v4, v5
-
-    aput-object p3, v4, v2
+    aput-object p3, v5, v2
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1292,7 +1232,7 @@
 
     const/4 p4, 0x2
 
-    aput-object p1, v4, p4
+    aput-object p1, v5, p4
 
     invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1300,7 +1240,7 @@
 
     const/4 p4, 0x3
 
-    aput-object p1, v4, p4
+    aput-object p1, v5, p4
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_6
@@ -1314,13 +1254,13 @@
     :catch_0
     move-exception p1
 
-    const/4 v4, 0x0
-
     .line 800
     :try_start_2
-    invoke-virtual {v1, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array p4, v3, [Ljava/lang/Class;
 
-    move-result-object v3
+    invoke-virtual {v1, p4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+
+    move-result-object v4
     :try_end_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_6
@@ -1329,13 +1269,15 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_2} :catch_2
 
+    const/4 v5, 0x0
+
     .line 807
     :goto_1
     :try_start_3
-    invoke-virtual {v3, v2}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {v4, v2}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 808
-    invoke-virtual {v3, v4}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -1364,11 +1306,17 @@
 
     invoke-virtual {p5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p5
+
     const-string v1, ": Error creating LayoutManager "
 
     invoke-virtual {p5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p5
+
     invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p5
 
     invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1400,13 +1348,19 @@
 
     invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, ": Class is not a LayoutManager "
+    move-result-object p3
 
-    invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p5, ": Class is not a LayoutManager "
 
-    invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1430,13 +1384,19 @@
 
     invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, ": Cannot access non-public constructor "
+    move-result-object p3
 
-    invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p5, ": Cannot access non-public constructor "
 
-    invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1460,11 +1420,17 @@
 
     invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1488,11 +1454,17 @@
 
     invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1516,13 +1488,19 @@
 
     invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, ": Unable to find LayoutManager "
+    move-result-object p3
 
-    invoke-virtual {p5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p5, ": Unable to find LayoutManager "
 
-    invoke-virtual {p5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1559,7 +1537,7 @@
     if-eq p1, p2, :cond_1
 
     :cond_0
-    const/4 v1, 0x1
+    move v1, v3
 
     :cond_1
     return v1
@@ -1658,7 +1636,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     iput-boolean v1, v0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
@@ -1705,7 +1683,7 @@
 
     move-result v0
 
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_1
     if-ge v1, v0, :cond_3
@@ -1853,7 +1831,7 @@
 
     iput-boolean v0, v1, Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
 
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 3878
     :goto_3
@@ -2053,7 +2031,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     iput-boolean v2, v0, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
@@ -2427,7 +2405,7 @@
 
     move-result v0
 
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_1
     if-ge v3, v0, :cond_5
@@ -2492,7 +2470,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v4, v2, :cond_3
@@ -2562,7 +2540,7 @@
 
     const/high16 v4, -0x80000000
 
-    const/4 v5, 0x0
+    move v5, v2
 
     :goto_0
     if-ge v5, v0, :cond_4
@@ -2960,9 +2938,13 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -2998,9 +2980,15 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3032,7 +3020,7 @@
 .end method
 
 .method private handleMissingPreInfoForChangeError(JLandroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 6
+    .locals 5
 
     .line 4045
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mChildHelper:Landroid/support/v7/widget/ChildHelper;
@@ -3068,9 +3056,9 @@
 
     move-result-wide v3
 
-    cmp-long v5, v3, p1
+    cmp-long v3, v3, p1
 
-    if-nez v5, :cond_2
+    if-nez v3, :cond_2
 
     .line 4054
     iget-object p1, p0, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -3096,18 +3084,26 @@
 
     invoke-virtual {p4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p4
+
     invoke-virtual {p4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     .line 4058
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
 
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p2
 
-    invoke-virtual {p4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -3127,18 +3123,26 @@
 
     invoke-virtual {p4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p4
+
     invoke-virtual {p4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     .line 4064
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
 
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p2
 
-    invoke-virtual {p4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -3162,11 +3166,17 @@
 
     invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string p2, " cannot be found but it is necessary for "
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 4071
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
@@ -3174,6 +3184,8 @@
     move-result-object p2
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3199,7 +3211,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_2
@@ -3370,12 +3382,12 @@
 
     if-ne p1, v1, :cond_4
 
-    const/4 p1, -0x1
+    move p1, p2
 
     goto :goto_0
 
     :cond_4
-    const/4 p1, 0x1
+    move p1, v1
 
     .line 2684
     :goto_0
@@ -3410,7 +3422,7 @@
 
     if-ge v2, v3, :cond_6
 
-    const/4 v2, 0x1
+    move v2, v1
 
     goto :goto_1
 
@@ -3447,12 +3459,12 @@
 
     if-le v2, v3, :cond_8
 
-    const/4 v2, -0x1
+    move v2, p2
 
     goto :goto_1
 
     :cond_8
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 2694
     :goto_1
@@ -3487,7 +3499,7 @@
 
     if-ge v3, v4, :cond_a
 
-    const/4 p2, 0x1
+    move p2, v1
 
     goto :goto_2
 
@@ -3527,7 +3539,7 @@
     goto :goto_2
 
     :cond_c
-    const/4 p2, 0x0
+    move p2, v0
 
     :goto_2
     if-eq p3, v1, :cond_18
@@ -3554,7 +3566,7 @@
 
     if-lez p2, :cond_d
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_d
     return v0
@@ -3571,11 +3583,15 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
 
     move-result-object p3
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3588,7 +3604,7 @@
     :cond_f
     if-lez v2, :cond_10
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_10
     return v0
@@ -3596,7 +3612,7 @@
     :cond_11
     if-gez p2, :cond_12
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_12
     return v0
@@ -3604,7 +3620,7 @@
     :cond_13
     if-gez v2, :cond_14
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_14
     return v0
@@ -3614,12 +3630,12 @@
 
     if-nez p2, :cond_17
 
-    mul-int v2, v2, p1
+    mul-int/2addr v2, p1
 
     if-ltz v2, :cond_17
 
     :cond_16
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_17
     return v0
@@ -3629,12 +3645,12 @@
 
     if-nez p2, :cond_1a
 
-    mul-int v2, v2, p1
+    mul-int/2addr v2, p1
 
     if-gtz v2, :cond_1a
 
     :cond_19
-    const/4 v0, 0x1
+    move v0, v1
 
     :cond_1a
     :goto_3
@@ -3795,13 +3811,13 @@
     goto :goto_1
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_2
 
     :cond_3
     :goto_1
-    const/4 v0, 0x1
+    move v0, v2
 
     .line 3588
     :goto_2
@@ -3842,12 +3858,12 @@
     if-eqz v4, :cond_6
 
     :cond_5
-    const/4 v4, 0x1
+    move v4, v2
 
     goto :goto_3
 
     :cond_6
-    const/4 v4, 0x0
+    move v4, v1
 
     :goto_3
     iput-boolean v4, v3, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
@@ -3872,7 +3888,7 @@
 
     if-eqz v0, :cond_7
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_7
     iput-boolean v1, v3, Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
@@ -3883,21 +3899,21 @@
 .method private pullGlows(FFFF)V
     .locals 6
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    cmpg-float v1, p2, v0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    cmpg-float v3, p2, v2
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    if-gez v3, :cond_0
+    if-gez v1, :cond_0
 
     .line 2369
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->ensureLeftGlow()V
 
     .line 2370
-    iget-object v3, p0, Landroid/support/v7/widget/RecyclerView;->mLeftGlow:Landroid/widget/EdgeEffect;
+    iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mLeftGlow:Landroid/widget/EdgeEffect;
 
     neg-float v4, p2
 
@@ -3917,22 +3933,22 @@
 
     div-float/2addr p3, v5
 
-    sub-float p3, v1, p3
+    sub-float p3, v3, p3
 
-    invoke-static {v3, v4, p3}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
+    invoke-static {v1, v4, p3}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
 
     goto :goto_0
 
     :cond_0
-    cmpl-float v3, p2, v2
+    cmpl-float v1, p2, v0
 
-    if-lez v3, :cond_1
+    if-lez v1, :cond_1
 
     .line 2373
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->ensureRightGlow()V
 
     .line 2374
-    iget-object v3, p0, Landroid/support/v7/widget/RecyclerView;->mRightGlow:Landroid/widget/EdgeEffect;
+    iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mRightGlow:Landroid/widget/EdgeEffect;
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->getWidth()I
 
@@ -3950,15 +3966,15 @@
 
     div-float/2addr p3, v5
 
-    invoke-static {v3, v4, p3}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
+    invoke-static {v1, v4, p3}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    cmpg-float p3, p4, v2
+    cmpg-float p3, p4, v0
 
     if-gez p3, :cond_2
 
@@ -3991,7 +4007,7 @@
     goto :goto_1
 
     :cond_2
-    cmpl-float p3, p4, v2
+    cmpl-float p3, p4, v0
 
     if-lez p3, :cond_3
 
@@ -4017,20 +4033,20 @@
 
     div-float/2addr p1, p3
 
-    sub-float/2addr v1, p1
+    sub-float/2addr v3, p1
 
-    invoke-static {p2, p4, v1}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
+    invoke-static {p2, p4, v3}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
 
     goto :goto_1
 
     :cond_3
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
-    cmpl-float p1, p2, v2
+    cmpl-float p1, p2, v0
 
     if-nez p1, :cond_4
 
-    cmpl-float p1, p4, v2
+    cmpl-float p1, p4, v0
 
     if-eqz p1, :cond_5
 
@@ -4153,11 +4169,11 @@
 
     const-wide/16 v2, -0x1
 
-    const/4 v4, 0x0
+    cmp-long v0, v0, v2
 
-    cmp-long v5, v0, v2
+    const/4 v1, 0x0
 
-    if-eqz v5, :cond_4
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
 
@@ -4170,45 +4186,45 @@
     .line 3761
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    iget-wide v0, v0, Landroid/support/v7/widget/RecyclerView$State;->mFocusedItemId:J
+    iget-wide v4, v0, Landroid/support/v7/widget/RecyclerView$State;->mFocusedItemId:J
 
-    invoke-virtual {p0, v0, v1}, Landroid/support/v7/widget/RecyclerView;->findViewHolderForItemId(J)Landroid/support/v7/widget/RecyclerView$ViewHolder;
+    invoke-virtual {p0, v4, v5}, Landroid/support/v7/widget/RecyclerView;->findViewHolderForItemId(J)Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_4
-    move-object v0, v4
+    move-object v0, v1
 
     :goto_0
     if-eqz v0, :cond_6
 
     .line 3764
-    iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mChildHelper:Landroid/support/v7/widget/ChildHelper;
+    iget-object v4, p0, Landroid/support/v7/widget/RecyclerView;->mChildHelper:Landroid/support/v7/widget/ChildHelper;
 
     iget-object v5, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-virtual {v1, v5}, Landroid/support/v7/widget/ChildHelper;->isHidden(Landroid/view/View;)Z
+    invoke-virtual {v4, v5}, Landroid/support/v7/widget/ChildHelper;->isHidden(Landroid/view/View;)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_6
+    if-nez v4, :cond_6
 
-    iget-object v1, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iget-object v4, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
     .line 3765
-    invoke-virtual {v1}, Landroid/view/View;->hasFocusable()Z
+    invoke-virtual {v4}, Landroid/view/View;->hasFocusable()Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_5
+    if-nez v4, :cond_5
 
     goto :goto_1
 
     .line 3778
     :cond_5
-    iget-object v4, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iget-object v1, v0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
     goto :goto_2
 
@@ -4226,29 +4242,29 @@
     .line 3773
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView;->findNextViewToFocus()Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v1
 
     :cond_7
     :goto_2
-    if-eqz v4, :cond_9
+    if-eqz v1, :cond_9
 
     .line 3782
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
     iget v0, v0, Landroid/support/v7/widget/RecyclerView$State;->mFocusedSubChildId:I
 
-    int-to-long v0, v0
+    int-to-long v4, v0
 
-    cmp-long v5, v0, v2
+    cmp-long v0, v4, v2
 
-    if-eqz v5, :cond_8
+    if-eqz v0, :cond_8
 
     .line 3783
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
     iget v0, v0, Landroid/support/v7/widget/RecyclerView$State;->mFocusedSubChildId:I
 
-    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -4257,15 +4273,15 @@
     .line 3784
     invoke-virtual {v0}, Landroid/view/View;->isFocusable()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_8
+    if-eqz v2, :cond_8
 
-    move-object v4, v0
+    move-object v1, v0
 
     .line 3788
     :cond_8
-    invoke-virtual {v4}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     :cond_9
     :goto_3
@@ -4479,12 +4495,12 @@
 
     if-nez p2, :cond_3
 
-    const/4 v10, 0x1
+    move v10, v1
 
     goto :goto_1
 
     :cond_3
-    const/4 v10, 0x0
+    move v10, v4
 
     :goto_1
     move-object v6, p0
@@ -5066,6 +5082,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -5084,13 +5102,17 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -5130,6 +5152,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -5167,6 +5191,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -6452,7 +6478,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_0
@@ -6505,7 +6531,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_1
     const/high16 v4, 0x43870000    # 270.0f
@@ -6539,12 +6565,12 @@
 
     if-eqz v3, :cond_2
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_2
 
     :cond_2
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 4234
     :goto_2
@@ -6553,7 +6579,7 @@
     goto :goto_3
 
     :cond_3
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 4236
     :goto_3
@@ -6604,12 +6630,12 @@
 
     if-eqz v4, :cond_5
 
-    const/4 v4, 0x1
+    move v4, v2
 
     goto :goto_4
 
     :cond_5
-    const/4 v4, 0x0
+    move v4, v1
 
     :goto_4
     or-int/2addr v3, v4
@@ -6651,7 +6677,7 @@
     goto :goto_5
 
     :cond_7
-    const/4 v5, 0x0
+    move v5, v1
 
     :goto_5
     const/high16 v6, 0x42b40000    # 90.0f
@@ -6681,12 +6707,12 @@
 
     if-eqz v4, :cond_8
 
-    const/4 v4, 0x1
+    move v4, v2
 
     goto :goto_6
 
     :cond_8
-    const/4 v4, 0x0
+    move v4, v1
 
     :goto_6
     or-int/2addr v3, v4
@@ -6786,7 +6812,7 @@
 
     if-eqz v4, :cond_b
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_b
     or-int/2addr v3, v1
@@ -7187,25 +7213,37 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", adapter:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", layout:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", context:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 737
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->getContext()Landroid/content/Context;
@@ -7213,6 +7251,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -7523,7 +7563,7 @@
 .end method
 
 .method public findViewHolderForItemId(J)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 7
+    .locals 6
 
     .line 4776
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -7577,9 +7617,9 @@
 
     move-result-wide v4
 
-    cmp-long v6, v4, p1
+    cmp-long v4, v4, p1
 
-    if-nez v6, :cond_2
+    if-nez v4, :cond_2
 
     .line 4784
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mChildHelper:Landroid/support/v7/widget/ChildHelper;
@@ -7775,7 +7815,7 @@
     if-ge v3, v4, :cond_3
 
     :cond_2
-    const/4 p1, 0x0
+    move p1, v1
 
     :cond_3
     if-eqz v2, :cond_4
@@ -7790,7 +7830,7 @@
     if-ge v3, v4, :cond_5
 
     :cond_4
-    const/4 p2, 0x0
+    move p2, v1
 
     :cond_5
     if-nez p1, :cond_6
@@ -7820,13 +7860,13 @@
     goto :goto_0
 
     :cond_7
-    const/4 v6, 0x0
+    move v6, v1
 
     goto :goto_1
 
     :cond_8
     :goto_0
-    const/4 v6, 0x1
+    move v6, v5
 
     .line 2300
     :goto_1
@@ -7932,12 +7972,12 @@
 
     if-nez v0, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 2584
     :goto_0
@@ -7982,12 +8022,12 @@
 
     if-nez v6, :cond_4
 
-    const/4 v6, 0x1
+    move v6, v1
 
     goto :goto_2
 
     :cond_4
-    const/4 v6, 0x0
+    move v6, v2
 
     .line 2595
     :goto_2
@@ -8000,7 +8040,7 @@
     goto :goto_3
 
     :cond_5
-    const/4 v6, 0x0
+    move v6, v2
 
     :cond_6
     :goto_3
@@ -8024,22 +8064,22 @@
 
     if-ne v0, v1, :cond_7
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_4
 
     :cond_7
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_4
     if-ne p2, v5, :cond_8
 
-    const/4 v5, 0x1
+    move v5, v1
 
     goto :goto_5
 
     :cond_8
-    const/4 v5, 0x0
+    move v5, v2
 
     :goto_5
     xor-int/2addr v0, v5
@@ -8064,7 +8104,7 @@
     goto :goto_7
 
     :cond_a
-    const/4 v1, 0x0
+    move v1, v2
 
     .line 2606
     :goto_7
@@ -8242,6 +8282,8 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -8286,6 +8328,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -8325,6 +8369,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -8582,13 +8628,19 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a direct child of "
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " is not a direct child of "
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -8715,7 +8767,7 @@
 
     move-result v3
 
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_0
     if-ge v4, v3, :cond_3
@@ -8828,13 +8880,19 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " is an invalid index for size "
+    move-result-object p1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " is an invalid index for size "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -9110,6 +9168,8 @@
     move-result-object p3
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -9473,7 +9533,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -9556,12 +9616,12 @@
 
     move v3, p2
 
-    const/4 v2, 0x1
+    move v2, v1
 
     :goto_0
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    move v6, v5
 
     :goto_1
     if-ge v6, v0, :cond_4
@@ -9753,7 +9813,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView;->mFirstLayoutComplete:Z
@@ -10069,7 +10129,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     .line 3265
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -10092,7 +10152,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 3272
     :goto_0
@@ -10102,7 +10162,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_3
 
     const/16 v3, 0xa
 
@@ -10113,8 +10173,14 @@
 
     goto :goto_2
 
-    .line 3277
     :cond_3
+    :goto_1
+    move v3, v2
+
+    goto :goto_2
+
+    .line 3277
+    :cond_4
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v0
@@ -10123,7 +10189,7 @@
 
     and-int/2addr v0, v3
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     const/16 v0, 0x1a
 
@@ -10139,34 +10205,32 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     neg-float v0, v0
 
     goto :goto_1
 
     .line 3284
-    :cond_4
+    :cond_5
     iget-object v3, p0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->canScrollHorizontally()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     move v3, v0
 
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_2
 
-    :cond_5
-    const/4 v0, 0x0
-
     :cond_6
-    :goto_1
-    const/4 v3, 0x0
+    move v0, v2
+
+    move v3, v0
 
     :goto_2
     cmpl-float v4, v0, v2
@@ -10181,13 +10245,13 @@
     :cond_7
     iget v2, p0, Landroid/support/v7/widget/RecyclerView;->mScaledHorizontalScrollFactor:F
 
-    mul-float v3, v3, v2
+    mul-float/2addr v3, v2
 
     float-to-int v2, v3
 
     iget v3, p0, Landroid/support/v7/widget/RecyclerView;->mScaledVerticalScrollFactor:F
 
-    mul-float v0, v0, v3
+    mul-float/2addr v0, v3
 
     float-to-int v0, v0
 
@@ -10366,9 +10430,13 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string v0, " not found. Did any MotionEvents get skipped?"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -10428,12 +10496,12 @@
     .line 3046
     iput v5, p0, Landroid/support/v7/widget/RecyclerView;->mLastTouchX:I
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_0
 
     :cond_9
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     if-eqz v3, :cond_a
@@ -10553,7 +10621,7 @@
 
     if-ne p1, v2, :cond_11
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_11
     return v1
@@ -11206,9 +11274,13 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string v0, " not found. Did any MotionEvents get skipped?"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -11342,12 +11414,12 @@
     add-int/2addr v5, v8
 
     :goto_0
-    const/4 v7, 0x1
+    move v7, v2
 
     goto :goto_1
 
     :cond_c
-    const/4 v7, 0x0
+    move v7, v1
 
     :goto_1
     if-eqz v3, :cond_e
@@ -11371,7 +11443,7 @@
     add-int/2addr v13, v9
 
     :goto_2
-    const/4 v7, 0x1
+    move v7, v2
 
     :cond_e
     if-eqz v7, :cond_f
@@ -11408,7 +11480,7 @@
     goto :goto_3
 
     :cond_10
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_3
     if-eqz v3, :cond_11
@@ -11482,7 +11554,7 @@
     goto :goto_4
 
     :cond_15
-    const/4 v0, 0x0
+    move v0, p1
 
     :goto_4
     if-eqz v3, :cond_16
@@ -11502,7 +11574,7 @@
     goto :goto_5
 
     :cond_16
-    const/4 v3, 0x0
+    move v3, p1
 
     :goto_5
     cmpl-float v5, v0, p1
@@ -11818,12 +11890,16 @@
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     .line 4130
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->exceptionLabel()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -11935,13 +12011,19 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " is an invalid index for size "
+    move-result-object p1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " is an invalid index for size "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -12292,7 +12374,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 p1, 0x0
+    move p1, v2
 
     :goto_0
     if-eqz v1, :cond_4
@@ -12300,7 +12382,7 @@
     goto :goto_1
 
     :cond_4
-    const/4 p2, 0x0
+    move p2, v2
 
     :goto_1
     const/4 v0, 0x0
@@ -12363,13 +12445,13 @@
     goto :goto_0
 
     :cond_0
-    const/4 v6, 0x0
+    move v6, v12
 
-    const/4 v13, 0x0
+    move v13, v6
 
-    const/4 v14, 0x0
+    move v14, v13
 
-    const/4 v15, 0x0
+    move v15, v14
 
     .line 1933
     :goto_0
@@ -12535,7 +12617,7 @@
     goto :goto_2
 
     :cond_9
-    const/4 v11, 0x0
+    move v11, v12
 
     :cond_a
     :goto_2
@@ -12579,7 +12661,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v0
 
     :goto_0
     if-eqz p2, :cond_1
@@ -12598,7 +12680,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 p2, 0x0
+    move p2, v0
 
     .line 1835
     :goto_1
@@ -13097,9 +13179,13 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " is already attached to a RecyclerView:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object p1, p1, Landroid/support/v7/widget/RecyclerView$LayoutManager;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
@@ -13110,7 +13196,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -13248,11 +13336,15 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, "; using default value"
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "; using default value"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -13318,7 +13410,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_0
     if-nez p1, :cond_1
@@ -13390,7 +13482,7 @@
 
     if-nez v0, :cond_2
 
-    const/4 p1, 0x0
+    move p1, v1
 
     .line 2253
     :cond_2
@@ -13402,7 +13494,7 @@
 
     if-nez v0, :cond_3
 
-    const/4 p2, 0x0
+    move p2, v1
 
     :cond_3
     if-nez p1, :cond_4

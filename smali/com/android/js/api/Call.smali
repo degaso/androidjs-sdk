@@ -47,7 +47,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -71,13 +73,17 @@
     .line 23
     iget-object p1, p0, Lcom/android/js/api/Call;->activity:Landroid/app/Activity;
 
-    filled-new-array {v0}, [Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    new-array v1, v1, [Ljava/lang/String;
 
-    const/4 v1, 0x2
+    const/4 v2, 0x0
 
-    invoke-static {p1, v0, v1}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
+    aput-object v0, v1, v2
+
+    const/4 v0, 0x2
+
+    invoke-static {p1, v1, v0}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
     goto :goto_0
 

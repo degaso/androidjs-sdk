@@ -28,11 +28,9 @@
     .locals 0
 
     .line 149
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$MediaItem;
+    check-cast p0, Landroid/media/browse/MediaBrowser$MediaItem;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser$MediaItem;)Landroid/media/MediaDescription;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser$MediaItem;->getDescription()Landroid/media/MediaDescription;
 
     move-result-object p0
 
@@ -43,11 +41,9 @@
     .locals 0
 
     .line 145
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$MediaItem;
+    check-cast p0, Landroid/media/browse/MediaBrowser$MediaItem;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser$MediaItem;)I
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser$MediaItem;->getFlags()I
 
     move-result p0
 

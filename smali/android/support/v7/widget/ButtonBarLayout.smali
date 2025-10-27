@@ -256,14 +256,14 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_2
     move v0, p1
 
-    const/4 v1, 0x0
+    move v1, v2
 
     .line 94
     :goto_0
@@ -382,7 +382,7 @@
 
     const/high16 v0, 0x41800000    # 16.0f
 
-    mul-float p2, p2, v0
+    mul-float/2addr p2, v0
 
     float-to-int p2, p2
 

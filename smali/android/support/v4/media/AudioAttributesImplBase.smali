@@ -283,7 +283,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .locals 4
 
     .line 123
     iget v0, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mContentType:I
@@ -310,27 +310,11 @@
 
     move-result-object v3
 
-    const/4 v4, 0x4
+    filled-new-array {v0, v1, v2, v3}, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    move-result-object v0
 
-    const/4 v5, 0x0
-
-    aput-object v0, v4, v5
-
-    const/4 v0, 0x1
-
-    aput-object v1, v4, v0
-
-    const/4 v0, 0x2
-
-    aput-object v2, v4, v0
-
-    const/4 v0, 0x3
-
-    aput-object v3, v4, v0
-
-    invoke-static {v4}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -404,9 +388,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mLegacyStream:I
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mLegacyStream:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 143
     const-string v1, " derived"
@@ -419,42 +405,52 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mUsage:I
+    move-result-object v1
+
+    iget v2, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mUsage:I
 
     .line 146
-    invoke-static {v1}, Landroid/support/v4/media/AudioAttributesCompat;->usageToString(I)Ljava/lang/String;
+    invoke-static {v2}, Landroid/support/v4/media/AudioAttributesCompat;->usageToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, " content="
+    const-string v2, " content="
 
     .line 147
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mContentType:I
+    move-result-object v1
+
+    iget v2, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mContentType:I
 
     .line 148
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " flags=0x"
+    move-result-object v1
+
+    const-string v2, " flags=0x"
 
     .line 149
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mFlags:I
+    move-result-object v1
+
+    iget v2, p0, Landroid/support/v4/media/AudioAttributesImplBase;->mFlags:I
 
     .line 150
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 151
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;

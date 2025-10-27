@@ -121,7 +121,7 @@
 
     const/high16 v1, 0x40400000    # 3.0f
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     const/high16 v2, 0x3f000000    # 0.5f
 
@@ -134,7 +134,7 @@
 
     const/high16 v1, 0x40c00000    # 6.0f
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     add-float/2addr v1, v2
 
@@ -145,7 +145,7 @@
 
     const/high16 v1, 0x42800000    # 64.0f
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     float-to-int v1, v1
 
@@ -154,7 +154,7 @@
 
     const/high16 v1, 0x41800000    # 16.0f
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     add-float/2addr v1, v2
 
@@ -165,7 +165,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     add-float/2addr v1, v2
 
@@ -176,7 +176,7 @@
 
     const/high16 v1, 0x42000000    # 32.0f
 
-    mul-float p2, p2, v1
+    mul-float/2addr p2, v1
 
     add-float/2addr p2, v2
 
@@ -825,11 +825,11 @@
 
     const/high16 p2, 0x40000000    # 2.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     const/high16 p2, 0x437f0000    # 255.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     float-to-int p1, p1
 

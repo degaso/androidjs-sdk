@@ -132,7 +132,7 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_0
 
@@ -149,7 +149,7 @@
 
     if-eqz v2, :cond_1
 
-    const/4 v2, 0x0
+    move v2, v1
 
     goto :goto_1
 
@@ -166,7 +166,7 @@
 
     if-eqz v3, :cond_2
 
-    const/4 v3, 0x0
+    move v3, v1
 
     goto :goto_2
 
@@ -189,11 +189,11 @@
     iget v1, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentX:F
 
     :goto_3
-    mul-float v0, v0, p3
+    mul-float/2addr v0, p3
 
     add-float/2addr p1, v0
 
-    mul-float v1, v1, p4
+    mul-float/2addr v1, p4
 
     add-float/2addr p1, v1
 
@@ -204,11 +204,11 @@
     .line 118
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
-    mul-float p3, p3, v2
+    mul-float/2addr p3, v2
 
     add-float/2addr p2, p3
 
-    mul-float p4, p4, v3
+    mul-float/2addr p4, v3
 
     add-float/2addr p2, p4
 
@@ -240,17 +240,17 @@
 
     iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    mul-float v0, v0, v2
+    mul-float/2addr v0, v2
 
     add-float/2addr p1, v0
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
-    mul-float p4, p4, v1
+    mul-float/2addr p4, v1
 
     add-float/2addr p2, p4
 
-    mul-float p3, p3, v2
+    mul-float/2addr p3, v2
 
     add-float/2addr p2, p3
 
@@ -268,7 +268,7 @@
     .line 96
     iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     const/4 v1, 0x0
 
@@ -280,7 +280,7 @@
 
     int-to-float p1, p2
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     add-float/2addr p1, v1
 
@@ -605,7 +605,7 @@
 .end method
 
 .method positionPathAttributes(Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
-    .locals 12
+    .locals 7
 
     .line 154
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerX()F
@@ -615,123 +615,123 @@
     .line 155
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerY()F
 
-    move-result v1
+    move-result p1
 
     .line 156
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
 
-    move-result v2
+    move-result v1
 
     .line 157
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
 
-    move-result v3
+    move-result p2
 
-    sub-float/2addr v2, v0
+    sub-float/2addr v1, v0
 
-    sub-float/2addr v3, v1
+    sub-float/2addr p2, p1
 
-    float-to-double v4, v2
+    float-to-double v2, v1
 
-    float-to-double v6, v3
+    float-to-double v4, p2
 
     .line 160
-    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->hypot(DD)D
+    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->hypot(DD)D
 
-    move-result-wide v4
+    move-result-wide v2
 
-    double-to-float v4, v4
+    double-to-float v2, v2
 
-    float-to-double v5, v4
+    float-to-double v3, v2
 
-    const-wide v7, 0x3f1a36e2eb1c432dL    # 1.0E-4
+    const-wide v5, 0x3f1a36e2eb1c432dL    # 1.0E-4
 
-    const/4 v9, 0x1
+    cmpg-double v3, v3, v5
 
-    const/4 v10, 0x0
+    const/4 v4, 0x1
 
-    cmpg-double v11, v5, v7
+    const/4 v5, 0x0
 
-    if-gez v11, :cond_0
+    if-gez v3, :cond_0
 
     .line 162
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v1, "distance ~ 0"
+    const-string p2, "distance ~ 0"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     .line 163
-    aput v0, p6, v10
+    aput p1, p6, v5
 
     .line 164
-    aput v0, p6, v9
+    aput p1, p6, v4
 
     return-void
 
     :cond_0
-    div-float/2addr v2, v4
+    div-float/2addr v1, v2
 
-    div-float/2addr v3, v4
+    div-float/2addr p2, v2
 
-    sub-float v1, p4, v1
+    sub-float/2addr p4, p1
 
-    mul-float v5, v2, v1
+    mul-float p1, v1, p4
 
-    sub-float v0, p3, v0
+    sub-float/2addr p3, v0
 
-    mul-float v6, v0, v3
+    mul-float v0, p3, p2
 
-    sub-float/2addr v5, v6
+    sub-float/2addr p1, v0
 
-    div-float/2addr v5, v4
+    div-float/2addr p1, v2
 
-    mul-float v2, v2, v0
+    mul-float/2addr v1, p3
 
-    mul-float v3, v3, v1
+    mul-float/2addr p2, p4
 
-    add-float/2addr v2, v3
+    add-float/2addr v1, p2
 
-    div-float/2addr v2, v4
+    div-float/2addr v1, v2
 
     .line 172
-    aget-object v0, p5, v10
+    aget-object p2, p5, v5
 
-    const-string v1, "percentX"
+    const-string p3, "percentX"
 
-    if-eqz v0, :cond_1
+    if-eqz p2, :cond_1
 
     .line 173
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_2
+    if-eqz p2, :cond_2
 
     .line 174
-    aput v2, p6, v10
+    aput v1, p6, v5
 
     .line 175
-    aput v5, p6, v9
+    aput p1, p6, v4
 
     goto :goto_0
 
     .line 178
     :cond_1
-    aput-object v1, p5, v10
+    aput-object p3, p5, v5
 
     .line 179
-    const-string v0, "percentY"
+    const-string p2, "percentY"
 
-    aput-object v0, p5, v9
+    aput-object p2, p5, v4
 
     .line 180
-    aput v2, p6, v10
+    aput v1, p6, v5
 
     .line 181
-    aput v5, p6, v9
+    aput p1, p6, v4
 
     :cond_2
     :goto_0

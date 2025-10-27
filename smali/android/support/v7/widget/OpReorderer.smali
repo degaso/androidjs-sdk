@@ -72,7 +72,7 @@
     return v0
 
     :cond_0
-    const/4 v2, 0x1
+    move v2, v1
 
     :cond_1
     add-int/lit8 v0, v0, -0x1
@@ -342,14 +342,16 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v0, 0x0
+    move v0, v3
+
+    move v3, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v3
 
-    goto :goto_1
+    goto :goto_0
 
     .line 69
     :cond_1
@@ -371,18 +373,17 @@
 
     if-ne v0, v1, :cond_2
 
-    const/4 v0, 0x1
+    move v0, v2
 
-    :goto_0
-    const/4 v3, 0x1
+    move v3, v0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
+    move v0, v2
 
     .line 76
-    :goto_1
+    :goto_0
     iget v1, p3, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->itemCount:I
 
     iget v4, p5, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->positionStart:I
@@ -398,7 +399,7 @@
 
     iput v1, p5, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->positionStart:I
 
-    goto :goto_2
+    goto :goto_1
 
     .line 78
     :cond_3
@@ -443,7 +444,7 @@
 
     .line 92
     :cond_5
-    :goto_2
+    :goto_1
     iget v1, p3, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->positionStart:I
 
     iget v4, p5, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->positionStart:I
@@ -459,7 +460,7 @@
 
     iput v1, p5, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->positionStart:I
 
-    goto :goto_3
+    goto :goto_2
 
     .line 94
     :cond_6
@@ -505,7 +506,7 @@
     iput v1, p5, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->itemCount:I
 
     :cond_7
-    :goto_3
+    :goto_2
     if-eqz v3, :cond_8
 
     .line 103
@@ -593,7 +594,7 @@
 
     iput v0, p3, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->itemCount:I
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_c
     if-eqz v6, :cond_e
@@ -667,7 +668,7 @@
 
     .line 142
     :cond_10
-    :goto_4
+    :goto_3
     invoke-interface {p1, p2, p5}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 143
@@ -680,13 +681,13 @@
     .line 144
     invoke-interface {p1, p4, p3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_5
+    goto :goto_4
 
     .line 146
     :cond_11
     invoke-interface {p1, p4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    :goto_5
+    :goto_4
     if-eqz v6, :cond_12
 
     .line 149

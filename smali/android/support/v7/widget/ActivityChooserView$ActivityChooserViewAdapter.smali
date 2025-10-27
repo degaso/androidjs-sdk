@@ -471,9 +471,9 @@
 
     const/4 v5, 0x0
 
-    move-object v7, v5
+    move v6, v1
 
-    const/4 v6, 0x0
+    move-object v7, v5
 
     :goto_0
     if-ge v1, v4, :cond_0

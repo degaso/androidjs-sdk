@@ -70,7 +70,7 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, p1
+    mul-float/2addr v1, p1
 
     float-to-int v1, v1
 
@@ -87,7 +87,7 @@
     .line 49
     iget v2, p0, Landroid/support/v4/view/animation/LookupTableInterpolator;->mStepSize:F
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
     sub-float/2addr p1, v1
 
@@ -104,7 +104,7 @@
 
     sub-float/2addr v0, v2
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     add-float/2addr v2, p1
 

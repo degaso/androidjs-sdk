@@ -145,7 +145,7 @@
     if-lt v0, v1, :cond_1
 
     .line 485
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/MenuItem;)I
+    invoke-interface {p0}, Landroid/view/MenuItem;->getAlphabeticModifiers()I
 
     move-result p0
 
@@ -183,7 +183,7 @@
     if-lt v0, v1, :cond_1
 
     .line 339
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
+    invoke-interface {p0}, Landroid/view/MenuItem;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -221,7 +221,7 @@
     if-lt v0, v1, :cond_1
 
     .line 519
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;)Landroid/content/res/ColorStateList;
+    invoke-interface {p0}, Landroid/view/MenuItem;->getIconTintList()Landroid/content/res/ColorStateList;
 
     move-result-object p0
 
@@ -259,7 +259,7 @@
     if-lt v0, v1, :cond_1
 
     .line 552
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;)Landroid/graphics/PorterDuff$Mode;
+    invoke-interface {p0}, Landroid/view/MenuItem;->getIconTintMode()Landroid/graphics/PorterDuff$Mode;
 
     move-result-object p0
 
@@ -297,7 +297,7 @@
     if-lt v0, v1, :cond_1
 
     .line 440
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;)I
+    invoke-interface {p0}, Landroid/view/MenuItem;->getNumericModifiers()I
 
     move-result p0
 
@@ -335,7 +335,7 @@
     if-lt v0, v1, :cond_1
 
     .line 368
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
+    invoke-interface {p0}, Landroid/view/MenuItem;->getTooltipText()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -438,7 +438,7 @@
     if-lt v0, v1, :cond_1
 
     .line 466
-    invoke-static {p0, p1, p2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/MenuItem;CI)Landroid/view/MenuItem;
+    invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -469,7 +469,7 @@
     if-lt v0, v1, :cond_1
 
     .line 325
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p0, p1}, Landroid/view/MenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -500,7 +500,7 @@
     if-lt v0, v1, :cond_1
 
     .line 506
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
+    invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -531,7 +531,7 @@
     if-lt v0, v1, :cond_1
 
     .line 537
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
+    invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -562,7 +562,7 @@
     if-lt v0, v1, :cond_1
 
     .line 421
-    invoke-static {p0, p1, p2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;CI)Landroid/view/MenuItem;
+    invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -610,7 +610,7 @@
     if-lt v0, v1, :cond_1
 
     .line 401
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/MenuItem;CCII)Landroid/view/MenuItem;
+    invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/MenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0
@@ -652,7 +652,7 @@
     if-lt v0, v1, :cond_1
 
     .line 354
-    invoke-static {p0, p1}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/MenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p0, p1}, Landroid/view/MenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     :cond_1
     :goto_0

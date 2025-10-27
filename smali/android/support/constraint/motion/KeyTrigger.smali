@@ -335,7 +335,7 @@
 .end method
 
 .method public conditionallyFire(FLandroid/view/View;)V
-    .locals 9
+    .locals 10
 
     .line 116
     iget v0, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerCollisionId:I
@@ -404,12 +404,12 @@
     .line 128
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCrossReset:Z
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 130
     :goto_0
@@ -420,18 +420,22 @@
     .line 132
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveReset:Z
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_1
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v3
 
     .line 134
     :goto_1
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeReset:Z
 
-    goto/16 :goto_8
+    move v2, v1
+
+    move v1, v3
+
+    goto/16 :goto_7
 
     .line 136
     :cond_3
@@ -442,12 +446,12 @@
     .line 138
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCrossReset:Z
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_2
 
     :cond_4
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 140
     :goto_2
@@ -458,18 +462,18 @@
     .line 142
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeReset:Z
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_3
 
     :cond_5
-    const/4 v1, 0x0
+    move v1, v3
 
     .line 144
     :goto_3
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveReset:Z
 
-    move v3, v1
+    move v2, v3
 
     goto/16 :goto_7
 
@@ -491,7 +495,7 @@
 
     sub-float/2addr v5, v0
 
-    mul-float v4, v4, v5
+    mul-float/2addr v4, v5
 
     cmpg-float v0, v4, v1
 
@@ -500,7 +504,7 @@
     .line 157
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCrossReset:Z
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_4
 
@@ -524,7 +528,7 @@
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCrossReset:Z
 
     :cond_8
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 166
     :goto_4
@@ -542,7 +546,7 @@
 
     sub-float/2addr v6, v4
 
-    mul-float v6, v6, v5
+    mul-float/2addr v6, v5
 
     cmpg-float v4, v6, v1
 
@@ -555,7 +559,7 @@
     .line 171
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeReset:Z
 
-    const/4 v4, 0x1
+    move v4, v2
 
     goto :goto_5
 
@@ -579,13 +583,13 @@
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeReset:Z
 
     :cond_a
-    const/4 v4, 0x0
+    move v4, v3
 
     .line 179
     :goto_5
     iget-boolean v5, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveReset:Z
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_b
 
     .line 180
     iget v5, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireThreshold:F
@@ -597,33 +601,23 @@
 
     sub-float/2addr v7, v5
 
-    mul-float v7, v7, v6
+    mul-float/2addr v7, v6
 
     cmpg-float v5, v7, v1
 
-    if-gez v5, :cond_b
+    if-gez v5, :cond_c
 
     cmpl-float v1, v6, v1
 
-    if-lez v1, :cond_b
+    if-lez v1, :cond_c
 
     .line 184
     iput-boolean v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveReset:Z
 
     goto :goto_6
 
-    :cond_b
-    const/4 v2, 0x0
-
-    :goto_6
-    move v1, v2
-
-    move v3, v4
-
-    goto :goto_8
-
     .line 187
-    :cond_c
+    :cond_b
     iget v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireThreshold:F
 
     sub-float v1, p1, v1
@@ -636,50 +630,50 @@
 
     cmpl-float v1, v1, v5
 
-    if-lez v1, :cond_d
+    if-lez v1, :cond_c
 
     .line 188
     iput-boolean v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveReset:Z
 
-    :cond_d
-    move v3, v4
+    :cond_c
+    move v2, v3
 
-    :goto_7
-    const/4 v1, 0x0
+    :goto_6
+    move v1, v4
 
     .line 192
-    :goto_8
+    :goto_7
     iput p1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireLastPos:F
 
-    if-nez v3, :cond_e
+    if-nez v1, :cond_d
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
-    if-eqz v1, :cond_f
+    if-eqz v2, :cond_e
 
     .line 195
-    :cond_e
+    :cond_d
     invoke-virtual {p2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/support/constraint/motion/MotionLayout;
+    check-cast v4, Landroid/support/constraint/motion/MotionLayout;
 
-    iget v4, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerID:I
+    iget v5, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerID:I
 
-    invoke-virtual {v2, v4, v1, p1}, Landroid/support/constraint/motion/MotionLayout;->fireTrigger(IZF)V
+    invoke-virtual {v4, v5, v2, p1}, Landroid/support/constraint/motion/MotionLayout;->fireTrigger(IZF)V
 
     .line 197
-    :cond_f
+    :cond_e
     iget p1, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerReceiver:I
 
-    sget v2, Landroid/support/constraint/motion/KeyTrigger;->UNSET:I
+    sget v4, Landroid/support/constraint/motion/KeyTrigger;->UNSET:I
 
-    if-ne p1, v2, :cond_10
+    if-ne p1, v4, :cond_f
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_10
+    :cond_f
     invoke-virtual {p2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object p1
@@ -693,12 +687,10 @@
     move-result-object p2
 
     .line 199
-    :goto_9
+    :goto_8
     const-string p1, "Could not find method \""
 
-    const-string v2, "Exception in call \""
-
-    const/4 v4, 0x0
+    const-string v4, "Exception in call \""
 
     const-string v5, " "
 
@@ -706,46 +698,52 @@
 
     const-string v7, "KeyTrigger"
 
-    if-eqz v3, :cond_12
+    if-eqz v1, :cond_11
 
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mNegativeCross:Ljava/lang/String;
+    iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mNegativeCross:Ljava/lang/String;
 
-    if-eqz v3, :cond_12
+    if-eqz v1, :cond_11
 
     .line 200
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
+    iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
 
-    if-nez v3, :cond_11
+    if-nez v1, :cond_10
 
     .line 202
     :try_start_0
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v1
 
     iget-object v8, p0, Landroid/support/constraint/motion/KeyTrigger;->mNegativeCross:Ljava/lang/String;
 
-    invoke-virtual {v3, v8, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v9, v3, [Ljava/lang/Class;
 
-    move-result-object v3
+    invoke-virtual {v1, v8, v9}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    iput-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_a
+    goto :goto_9
 
     .line 204
     :catch_0
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v8, p0, Landroid/support/constraint/motion/KeyTrigger;->mNegativeCross:Ljava/lang/String;
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 205
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -756,46 +754,58 @@
 
     move-result-object v8
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     .line 204
-    invoke-static {v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 209
-    :cond_11
-    :goto_a
+    :cond_10
+    :goto_9
     :try_start_1
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
+    iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireNegativeCross:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v3, p2, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v8, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v1, p2, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_b
+    goto :goto_a
 
     .line 211
     :catch_1
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v8, p0, Landroid/support/constraint/motion/KeyTrigger;->mNegativeCross:Ljava/lang/String;
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 212
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -806,36 +816,42 @@
 
     move-result-object v8
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     .line 211
-    invoke-static {v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
-    :goto_b
-    if-eqz v1, :cond_14
+    :cond_11
+    :goto_a
+    if-eqz v2, :cond_13
 
     .line 215
     iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_13
 
     .line 216
     iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveCross:Ljava/lang/reflect/Method;
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_12
 
     .line 218
     :try_start_2
@@ -843,9 +859,11 @@
 
     move-result-object v1
 
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v8, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v1, v2, v8}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
@@ -853,7 +871,7 @@
     :try_end_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
 
-    goto :goto_c
+    goto :goto_b
 
     .line 220
     :catch_2
@@ -861,30 +879,40 @@
 
     invoke-direct {v1, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 221
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -894,47 +922,59 @@
     invoke-static {v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 225
-    :cond_13
-    :goto_c
+    :cond_12
+    :goto_b
     :try_start_3
     iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFirePositiveCross:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v1, p2, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v1, p2, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
 
-    goto :goto_d
+    goto :goto_c
 
     .line 227
     :catch_3
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mPositiveCross:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 228
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -943,19 +983,19 @@
     .line 227
     invoke-static {v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_14
-    :goto_d
-    if-eqz v0, :cond_16
+    :cond_13
+    :goto_c
+    if-eqz v0, :cond_15
 
     .line 231
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTrigger;->mCross:Ljava/lang/String;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_15
 
     .line 232
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCross:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_14
 
     .line 234
     :try_start_4
@@ -965,7 +1005,9 @@
 
     iget-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mCross:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v2, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -973,7 +1015,7 @@
     :try_end_4
     .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_4} :catch_4
 
-    goto :goto_e
+    goto :goto_d
 
     .line 236
     :catch_4
@@ -985,28 +1027,38 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
+
+    invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 237
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p1
 
-    invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1014,28 +1066,34 @@
     invoke-static {v7, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 241
-    :cond_15
-    :goto_e
+    :cond_14
+    :goto_d
     :try_start_5
     iget-object p1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFireCross:Ljava/lang/reflect/Method;
 
-    invoke-virtual {p1, p2, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v0, v3, [Ljava/lang/Object;
+
+    invoke-virtual {p1, p2, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_5
 
-    goto :goto_f
+    goto :goto_e
 
     .line 243
     :catch_5
     new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTrigger;->mCross:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 244
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1048,13 +1106,19 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-static {p2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object p2
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1063,8 +1127,8 @@
     .line 243
     invoke-static {v7, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_16
-    :goto_f
+    :cond_15
+    :goto_e
     return-void
 .end method
 

@@ -153,7 +153,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 1
 
     const v0, 0x1010434
 
@@ -179,18 +179,6 @@
     sput-boolean v0, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
 
     .line 192
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/support/v4/widget/DrawerLayout;->SET_DRAWER_SHADOW_FROM_ELEVATION:Z
 
     return-void
@@ -219,7 +207,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .locals 5
 
     .line 314
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -276,90 +264,90 @@
     .line 241
     iput-object v0, p0, Landroid/support/v4/widget/DrawerLayout;->mShadowRight:Landroid/graphics/drawable/Drawable;
 
-    const/high16 v1, 0x40000
+    const/high16 v0, 0x40000
 
     .line 315
-    invoke-virtual {p0, v1}, Landroid/support/v4/widget/DrawerLayout;->setDescendantFocusability(I)V
+    invoke-virtual {p0, v0}, Landroid/support/v4/widget/DrawerLayout;->setDescendantFocusability(I)V
 
     .line 316
     invoke-virtual {p0}, Landroid/support/v4/widget/DrawerLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    const/high16 v2, 0x42800000    # 64.0f
+    const/high16 v1, 0x42800000    # 64.0f
 
-    mul-float v2, v2, v1
+    mul-float/2addr v1, v0
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    const/high16 v2, 0x3f000000    # 0.5f
 
-    add-float/2addr v2, v3
+    add-float/2addr v1, v2
 
-    float-to-int v2, v2
+    float-to-int v1, v1
 
     .line 317
-    iput v2, p0, Landroid/support/v4/widget/DrawerLayout;->mMinDrawerMargin:I
+    iput v1, p0, Landroid/support/v4/widget/DrawerLayout;->mMinDrawerMargin:I
 
-    const/high16 v2, 0x43c80000    # 400.0f
+    const/high16 v1, 0x43c80000    # 400.0f
 
-    mul-float v2, v2, v1
+    mul-float/2addr v1, v0
 
     .line 320
-    new-instance v3, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
+    new-instance v2, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
-    invoke-direct {v3, p0, p3}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;-><init>(Landroid/support/v4/widget/DrawerLayout;I)V
+    invoke-direct {v2, p0, p3}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;-><init>(Landroid/support/v4/widget/DrawerLayout;I)V
 
-    iput-object v3, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftCallback:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
+    iput-object v2, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftCallback:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
     .line 321
     new-instance p3, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    invoke-direct {p3, p0, v4}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;-><init>(Landroid/support/v4/widget/DrawerLayout;I)V
+    invoke-direct {p3, p0, v3}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;-><init>(Landroid/support/v4/widget/DrawerLayout;I)V
 
     iput-object p3, p0, Landroid/support/v4/widget/DrawerLayout;->mRightCallback:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
-    const/high16 v4, 0x3f800000    # 1.0f
+    const/high16 v3, 0x3f800000    # 1.0f
 
     .line 323
-    invoke-static {p0, v4, v3}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
+    invoke-static {p0, v3, v2}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
 
-    move-result-object v5
+    move-result-object v4
 
-    iput-object v5, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftDragger:Landroid/support/v4/widget/ViewDragHelper;
+    iput-object v4, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftDragger:Landroid/support/v4/widget/ViewDragHelper;
 
     .line 324
-    invoke-virtual {v5, p2}, Landroid/support/v4/widget/ViewDragHelper;->setEdgeTrackingEnabled(I)V
+    invoke-virtual {v4, p2}, Landroid/support/v4/widget/ViewDragHelper;->setEdgeTrackingEnabled(I)V
 
     .line 325
-    invoke-virtual {v5, v2}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
+    invoke-virtual {v4, v1}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
 
     .line 326
-    invoke-virtual {v3, v5}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->setDragger(Landroid/support/v4/widget/ViewDragHelper;)V
+    invoke-virtual {v2, v4}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->setDragger(Landroid/support/v4/widget/ViewDragHelper;)V
 
     .line 328
-    invoke-static {p0, v4, p3}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
+    invoke-static {p0, v3, p3}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, p0, Landroid/support/v4/widget/DrawerLayout;->mRightDragger:Landroid/support/v4/widget/ViewDragHelper;
+    iput-object v2, p0, Landroid/support/v4/widget/DrawerLayout;->mRightDragger:Landroid/support/v4/widget/ViewDragHelper;
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
     .line 329
-    invoke-virtual {v3, v4}, Landroid/support/v4/widget/ViewDragHelper;->setEdgeTrackingEnabled(I)V
+    invoke-virtual {v2, v3}, Landroid/support/v4/widget/ViewDragHelper;->setEdgeTrackingEnabled(I)V
 
     .line 330
-    invoke-virtual {v3, v2}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
+    invoke-virtual {v2, v1}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
 
     .line 331
-    invoke-virtual {p3, v3}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->setDragger(Landroid/support/v4/widget/ViewDragHelper;)V
+    invoke-virtual {p3, v2}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->setDragger(Landroid/support/v4/widget/ViewDragHelper;)V
 
     .line 334
     invoke-virtual {p0, p2}, Landroid/support/v4/widget/DrawerLayout;->setFocusableInTouchMode(Z)V
@@ -384,21 +372,14 @@
 
     move-result p3
 
-    if-eqz p3, :cond_1
-
-    .line 342
-    sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt p3, v2, :cond_0
+    if-eqz p3, :cond_0
 
     .line 343
     new-instance p3, Landroid/support/v4/widget/DrawerLayout$1;
 
     invoke-direct {p3, p0}, Landroid/support/v4/widget/DrawerLayout$1;-><init>(Landroid/support/v4/widget/DrawerLayout;)V
 
-    invoke-static {p0, p3}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v4/widget/DrawerLayout;Landroid/view/View$OnApplyWindowInsetsListener;)V
+    invoke-virtual {p0, p3}, Landroid/support/v4/widget/DrawerLayout;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
     const/16 p3, 0x500
 
@@ -434,18 +415,14 @@
 
     throw p2
 
-    .line 360
     :cond_0
-    iput-object v0, p0, Landroid/support/v4/widget/DrawerLayout;->mStatusBarBackground:Landroid/graphics/drawable/Drawable;
-
-    :cond_1
     :goto_0
     const/high16 p1, 0x41200000    # 10.0f
 
-    mul-float v1, v1, p1
+    mul-float/2addr v0, p1
 
     .line 364
-    iput v1, p0, Landroid/support/v4/widget/DrawerLayout;->mDrawerElevation:F
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout;->mDrawerElevation:F
 
     .line 366
     new-instance p1, Ljava/util/ArrayList;
@@ -681,7 +658,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -1064,9 +1041,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v2, v0, :cond_3
@@ -1360,7 +1337,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1500,11 +1479,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a sliding drawer"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " is not a sliding drawer"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1534,9 +1517,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v2, v0, :cond_3
@@ -2056,9 +2039,9 @@
 
     move-result v9
 
-    const/4 v10, 0x0
+    move v10, v8
 
-    const/4 v11, 0x0
+    move v11, v10
 
     :goto_0
     if-ge v10, v9, :cond_3
@@ -2175,7 +2158,7 @@
 
     int-to-float v4, v4
 
-    mul-float v4, v4, v3
+    mul-float/2addr v4, v3
 
     float-to-int v3, v4
 
@@ -2284,7 +2267,7 @@
     .line 1445
     iget-object v2, v0, Landroid/support/v4/widget/DrawerLayout;->mShadowLeftResolved:Landroid/graphics/drawable/Drawable;
 
-    mul-float v5, v5, v4
+    mul-float/2addr v5, v4
 
     float-to-int v3, v5
 
@@ -2373,7 +2356,7 @@
     .line 1457
     iget-object v2, v0, Landroid/support/v4/widget/DrawerLayout;->mShadowRightResolved:Landroid/graphics/drawable/Drawable;
 
-    mul-float v5, v5, v4
+    mul-float/2addr v5, v4
 
     float-to-int v3, v5
 
@@ -2784,11 +2767,15 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a drawer"
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " is not a drawer"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -2977,11 +2964,15 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a drawer"
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " is not a drawer"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -3103,11 +3094,15 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a drawer"
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " is not a drawer"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -3131,11 +3126,11 @@
 
     int-to-float v1, v1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     float-to-int v1, v1
 
@@ -3208,45 +3203,36 @@
 
     if-eqz v0, :cond_1
 
-    .line 1386
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_0
-
     .line 1387
     iget-object v0, p0, Landroid/support/v4/widget/DrawerLayout;->mLastInsets:Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/WindowInsets;
-
-    move-result-object v0
+    check-cast v0, Landroid/view/WindowInsets;
 
     .line 1388
-    invoke-static {v0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v0}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     if-lez v0, :cond_1
 
     .line 1393
-    iget-object v1, p0, Landroid/support/v4/widget/DrawerLayout;->mStatusBarBackground:Landroid/graphics/drawable/Drawable;
+    iget-object v2, p0, Landroid/support/v4/widget/DrawerLayout;->mStatusBarBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Landroid/support/v4/widget/DrawerLayout;->getWidth()I
 
     move-result v3
 
-    invoke-virtual {v1, v2, v2, v3, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v2, v1, v1, v3, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 1394
     iget-object v0, p0, Landroid/support/v4/widget/DrawerLayout;->mStatusBarBackground:Landroid/graphics/drawable/Drawable;
@@ -3333,7 +3319,7 @@
 
     :cond_2
     :goto_0
-    const/4 p1, 0x0
+    move p1, v3
 
     goto :goto_2
 
@@ -3383,12 +3369,12 @@
 
     if-eqz p1, :cond_4
 
-    const/4 p1, 0x1
+    move p1, v2
 
     goto :goto_1
 
     :cond_4
-    const/4 p1, 0x0
+    move p1, v3
 
     .line 1505
     :goto_1
@@ -3416,7 +3402,7 @@
     goto :goto_3
 
     :cond_5
-    const/4 v2, 0x0
+    move v2, v3
 
     :cond_6
     :goto_3
@@ -3518,7 +3504,7 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     if-ge v5, v3, :cond_b
@@ -3609,7 +3595,7 @@
     .line 1241
     iget v12, v7, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
 
-    mul-float v12, v12, v11
+    mul-float/2addr v12, v11
 
     float-to-int v12, v12
 
@@ -3629,7 +3615,7 @@
     .line 1244
     iget v11, v7, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
 
-    mul-float v11, v11, v10
+    mul-float/2addr v11, v10
 
     float-to-int v11, v11
 
@@ -3651,12 +3637,12 @@
 
     if-eqz v11, :cond_3
 
-    const/4 v11, 0x1
+    move v11, v1
 
     goto :goto_2
 
     :cond_3
-    const/4 v11, 0x0
+    move v11, v4
 
     .line 1250
     :goto_2
@@ -3771,7 +3757,7 @@
 
     if-lez v1, :cond_9
 
-    const/4 v1, 0x0
+    move v1, v4
 
     goto :goto_5
 
@@ -3857,7 +3843,7 @@
     :cond_1
     if-nez v1, :cond_2
 
-    const/16 v3, 0x12c
+    move v3, v6
 
     :cond_2
     :goto_0
@@ -3868,7 +3854,7 @@
     :cond_3
     if-nez v2, :cond_4
 
-    const/16 v4, 0x12c
+    move v4, v6
 
     .line 1058
     :cond_4
@@ -3893,7 +3879,7 @@
     goto :goto_2
 
     :cond_5
-    const/4 v1, 0x0
+    move v1, v6
 
     .line 1061
     :goto_2
@@ -3906,11 +3892,11 @@
 
     move-result v8
 
-    const/4 v9, 0x0
+    move v9, v6
 
-    const/4 v10, 0x0
+    move v10, v9
 
-    const/4 v11, 0x0
+    move v11, v10
 
     :goto_3
     if-ge v9, v8, :cond_15
@@ -3955,167 +3941,149 @@
 
     move-result v16
 
-    const/16 v5, 0x15
+    const/4 v2, 0x5
 
     if-eqz v16, :cond_9
 
-    .line 1080
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v5, :cond_c
-
     .line 1081
-    iget-object v2, v0, Landroid/support/v4/widget/DrawerLayout;->mLastInsets:Ljava/lang/Object;
+    iget-object v5, v0, Landroid/support/v4/widget/DrawerLayout;->mLastInsets:Ljava/lang/Object;
 
-    invoke-static {v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/WindowInsets;
-
-    move-result-object v2
+    check-cast v5, Landroid/view/WindowInsets;
 
     if-ne v15, v14, :cond_7
 
     .line 1083
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
 
-    move-result v5
+    move-result v2
 
     .line 1084
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v15
 
     .line 1085
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v14
 
     .line 1083
-    invoke-static {v2, v5, v15, v6, v14}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;IIII)Landroid/view/WindowInsets;
+    invoke-virtual {v5, v2, v15, v6, v14}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    move-result-object v2
+    move-result-object v5
 
     goto :goto_4
 
     :cond_7
-    const/4 v5, 0x5
-
-    if-ne v15, v5, :cond_8
+    if-ne v15, v2, :cond_8
 
     .line 1087
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
-    move-result v5
+    move-result v2
 
     .line 1088
-    invoke-static {v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
 
     move-result v14
 
     .line 1089
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v15
 
     .line 1087
-    invoke-static {v2, v6, v5, v14, v15}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;IIII)Landroid/view/WindowInsets;
+    invoke-virtual {v5, v6, v2, v14, v15}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 1091
     :cond_8
     :goto_4
-    invoke-static {v12, v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    invoke-virtual {v12, v5}, Landroid/view/View;->dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     goto :goto_6
 
-    .line 1094
-    :cond_9
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v5, :cond_c
-
     .line 1095
-    iget-object v2, v0, Landroid/support/v4/widget/DrawerLayout;->mLastInsets:Ljava/lang/Object;
+    :cond_9
+    iget-object v5, v0, Landroid/support/v4/widget/DrawerLayout;->mLastInsets:Ljava/lang/Object;
 
-    invoke-static {v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/WindowInsets;
+    check-cast v5, Landroid/view/WindowInsets;
 
-    move-result-object v2
+    const/4 v14, 0x3
 
-    const/4 v5, 0x3
-
-    if-ne v15, v5, :cond_a
+    if-ne v15, v14, :cond_a
 
     .line 1097
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
 
-    move-result v5
+    move-result v2
 
     .line 1098
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v14
 
     .line 1099
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v15
 
     .line 1097
-    invoke-static {v2, v5, v14, v6, v15}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;IIII)Landroid/view/WindowInsets;
+    invoke-virtual {v5, v2, v14, v6, v15}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    move-result-object v2
+    move-result-object v5
 
     goto :goto_5
 
     :cond_a
-    const/4 v5, 0x5
-
-    if-ne v15, v5, :cond_b
+    if-ne v15, v2, :cond_b
 
     .line 1101
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
-    move-result v5
+    move-result v2
 
     .line 1102
-    invoke-static {v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
 
     move-result v14
 
     .line 1103
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v15
 
     .line 1101
-    invoke-static {v2, v6, v5, v14, v15}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;IIII)Landroid/view/WindowInsets;
+    invoke-virtual {v5, v6, v2, v14, v15}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 1105
     :cond_b
     :goto_5
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
 
-    move-result v5
+    move-result v2
 
-    iput v5, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->leftMargin:I
+    iput v2, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->leftMargin:I
 
     .line 1106
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
-    move-result v5
+    move-result v2
 
-    iput v5, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->topMargin:I
+    iput v2, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->topMargin:I
 
     .line 1107
-    invoke-static {v2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
 
-    move-result v5
+    move-result v2
 
-    iput v5, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->rightMargin:I
+    iput v2, v13, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->rightMargin:I
 
     .line 1108
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/WindowInsets;)I
+    invoke-virtual {v5}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v2
 
@@ -4214,7 +4182,7 @@
     goto :goto_8
 
     :cond_f
-    const/4 v14, 0x0
+    move v14, v6
 
     :goto_8
     if-eqz v14, :cond_10
@@ -4245,11 +4213,15 @@
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " but this DrawerLayout already has a drawer view along that edge"
+    move-result-object v2
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " but this DrawerLayout already has a drawer view along that edge"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -4325,15 +4297,23 @@
 
     invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     const-string v3, " at index "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     const-string v3, " does not have a valid layout_gravity - must be Gravity.LEFT, Gravity.RIGHT or Gravity.NO_GRAVITY"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -4354,13 +4334,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_d
-
-    :goto_c
     throw v1
-
-    :goto_d
-    goto :goto_c
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -4489,7 +4463,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v0, :cond_4
@@ -4513,12 +4487,12 @@
 
     if-ne v5, v6, :cond_0
 
-    const/4 v5, 0x1
+    move v5, v6
 
     goto :goto_1
 
     :cond_0
-    const/4 v5, 0x0
+    move v5, v2
 
     .line 2038
     :goto_1
@@ -4531,7 +4505,7 @@
     goto :goto_2
 
     :cond_1
-    const/4 v6, 0x0
+    move v6, v2
 
     :goto_2
     if-nez v5, :cond_3
@@ -4670,13 +4644,13 @@
 
     move-result v3
 
-    mul-float v0, v0, v0
+    mul-float/2addr v0, v0
 
-    mul-float p1, p1, p1
+    mul-float/2addr p1, p1
 
     add-float/2addr v0, p1
 
-    mul-int v3, v3, v3
+    mul-int/2addr v3, v3
 
     int-to-float p1, v3
 
@@ -4703,13 +4677,13 @@
     goto :goto_0
 
     :cond_2
-    const/4 p1, 0x0
+    move p1, v1
 
     goto :goto_1
 
     :cond_3
     :goto_0
-    const/4 p1, 0x1
+    move p1, v2
 
     .line 1603
     :goto_1
@@ -4790,7 +4764,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -4933,11 +4909,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is not a sliding drawer"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " is not a sliding drawer"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -5267,11 +5247,15 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p2, " is not a drawer with appropriate layout_gravity"
+    move-result-object p2
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " is not a drawer with appropriate layout_gravity"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -5537,7 +5521,7 @@
 
     :cond_2
     :goto_0
-    const/4 v2, 0x1
+    move v2, v1
 
     :cond_3
     :goto_1

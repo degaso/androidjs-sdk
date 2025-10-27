@@ -133,13 +133,13 @@
     goto :goto_1
 
     :cond_4
-    const/4 v0, 0x0
+    move v0, v4
 
     goto :goto_2
 
     :cond_5
     :goto_1
-    const/4 v0, 0x1
+    move v0, v5
 
     .line 657
     :goto_2
@@ -183,13 +183,13 @@
     goto :goto_3
 
     :cond_7
-    const/4 v1, 0x0
+    move v1, v4
 
     goto :goto_4
 
     :cond_8
     :goto_3
-    const/4 v1, 0x1
+    move v1, v5
 
     .line 665
     :goto_4
@@ -211,7 +211,7 @@
 
     if-eqz v1, :cond_b
 
-    const/4 v4, 0x1
+    move v4, v5
 
     :cond_b
     return v4
@@ -687,7 +687,7 @@
     goto :goto_3
 
     :cond_11
-    const/4 v8, 0x0
+    move v8, v1
 
     .line 304
     :goto_3
@@ -1042,15 +1042,15 @@
 
     invoke-direct {v9}, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;-><init>()V
 
+    move v10, v0
+
+    move v11, v10
+
+    move v13, v11
+
+    move v14, v13
+
     move-object v12, v1
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v13, 0x0
-
-    const/4 v14, 0x0
 
     :goto_0
     const/16 v16, 0x0
@@ -1280,7 +1280,7 @@
 
     int-to-float v1, v8
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     add-float/2addr v2, v1
 
@@ -1326,9 +1326,9 @@
 
     add-int/2addr v6, v8
 
-    move-object/from16 v1, v17
+    move v9, v0
 
-    const/4 v9, 0x0
+    move-object/from16 v1, v17
 
     :goto_7
     if-nez v9, :cond_21
@@ -1640,7 +1640,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const/high16 v0, 0x3f000000    # 0.5f
+    move v0, v5
 
     goto :goto_0
 
@@ -1686,7 +1686,7 @@
     :cond_2
     int-to-float v4, v4
 
-    mul-float v0, v0, v4
+    mul-float/2addr v0, v4
 
     add-float/2addr v0, v5
 
@@ -1805,11 +1805,11 @@
 
     move-result v3
 
-    mul-float v3, v3, v6
+    mul-float/2addr v3, v6
 
     int-to-float p0, p0
 
-    mul-float v3, v3, p0
+    mul-float/2addr v3, p0
 
     float-to-int v3, v3
 
@@ -1851,7 +1851,7 @@
 
     int-to-float p0, v2
 
-    mul-float v0, v0, p0
+    mul-float/2addr v0, p0
 
     add-float/2addr v0, v6
 
@@ -1919,7 +1919,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const/high16 v0, 0x3f000000    # 0.5f
+    move v0, v5
 
     goto :goto_0
 
@@ -1947,7 +1947,7 @@
     :cond_1
     int-to-float v4, v4
 
-    mul-float v0, v0, v4
+    mul-float/2addr v0, v4
 
     add-float/2addr v0, v5
 
@@ -2067,7 +2067,7 @@
 
     int-to-float p0, p0
 
-    mul-float v3, v3, p0
+    mul-float/2addr v3, p0
 
     float-to-int v3, v3
 
@@ -2109,7 +2109,7 @@
 
     int-to-float p0, v2
 
-    mul-float v0, v0, p0
+    mul-float/2addr v0, p0
 
     add-float/2addr v0, v6
 
@@ -2157,7 +2157,7 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     if-ge v5, v3, :cond_0
@@ -2196,11 +2196,11 @@
     invoke-virtual {p0, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setFinalLeft(I)V
 
     :goto_1
-    const/4 v0, 0x0
+    move v0, v4
 
-    const/4 v5, 0x0
+    move v5, v0
 
-    const/4 v6, 0x0
+    move v6, v5
 
     :goto_2
     const/high16 v7, 0x3f000000    # 0.5f
@@ -2297,7 +2297,7 @@
 
     int-to-float v8, v8
 
-    mul-float v5, v5, v8
+    mul-float/2addr v5, v8
 
     add-float/2addr v5, v7
 
@@ -2308,7 +2308,7 @@
 
     :cond_4
     :goto_3
-    const/4 v5, 0x1
+    move v5, v9
 
     goto :goto_4
 
@@ -2328,7 +2328,7 @@
 
     if-nez v7, :cond_6
 
-    const/4 v6, 0x1
+    move v6, v9
 
     :cond_6
     :goto_4
@@ -2339,7 +2339,7 @@
     :cond_7
     if-eqz v5, :cond_9
 
-    const/4 v0, 0x0
+    move v0, v4
 
     :goto_5
     if-ge v0, v3, :cond_9
@@ -2380,7 +2380,7 @@
 
     if-eqz v6, :cond_b
 
-    const/4 v0, 0x0
+    move v0, v4
 
     :goto_6
     if-ge v0, v3, :cond_b
@@ -2435,11 +2435,11 @@
     invoke-virtual {p0, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setFinalTop(I)V
 
     :goto_7
-    const/4 v0, 0x0
+    move v0, v4
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v5, 0x0
+    move v5, v1
 
     :goto_8
     if-ge v0, v3, :cond_12
@@ -2530,7 +2530,7 @@
 
     int-to-float v10, v10
 
-    mul-float v1, v1, v10
+    mul-float/2addr v1, v10
 
     add-float/2addr v1, v7
 
@@ -2541,7 +2541,7 @@
 
     :cond_f
     :goto_9
-    const/4 v1, 0x1
+    move v1, v9
 
     goto :goto_a
 
@@ -2561,7 +2561,7 @@
 
     if-ne v6, v9, :cond_11
 
-    const/4 v5, 0x1
+    move v5, v9
 
     :cond_11
     :goto_a
@@ -2572,7 +2572,7 @@
     :cond_12
     if-eqz v1, :cond_14
 
-    const/4 v0, 0x0
+    move v0, v4
 
     :goto_b
     if-ge v0, v3, :cond_14
@@ -2613,7 +2613,7 @@
 
     if-eqz v5, :cond_16
 
-    const/4 p0, 0x0
+    move p0, v4
 
     :goto_c
     if-ge p0, v3, :cond_16
@@ -2649,7 +2649,7 @@
     goto :goto_c
 
     :cond_16
-    const/4 p0, 0x0
+    move p0, v4
 
     :goto_d
     if-ge p0, v3, :cond_18
@@ -3158,7 +3158,7 @@
     goto :goto_3
 
     :cond_11
-    const/4 v8, 0x0
+    move v8, v1
 
     .line 423
     :goto_3
@@ -3310,17 +3310,9 @@
     invoke-virtual {v3, v5, v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalVertical(II)V
 
     .line 441
-    :try_start_0
     invoke-static {v3, p1}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto/16 :goto_2
-
-    :catchall_0
-    move-exception p0
-
-    throw p0
 
     :cond_17
     if-eqz v8, :cond_d

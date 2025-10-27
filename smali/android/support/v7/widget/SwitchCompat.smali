@@ -794,7 +794,7 @@
 
     int-to-float v1, v1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     const/high16 v1, 0x3f000000    # 0.5f
 
@@ -998,16 +998,14 @@
 
     double-to-int v0, v3
 
-    move v3, v0
-
     goto :goto_0
 
     :cond_1
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
-
     :goto_0
+    move v3, v0
+
     sget-object v4, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
     const/4 v6, 0x0
@@ -1088,12 +1086,12 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 1001
     :goto_0
@@ -1153,7 +1151,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_1
 
@@ -1375,37 +1373,29 @@
 .end method
 
 .method public drawableHotspotChanged(FF)V
-    .locals 2
-
-    .line 1353
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 1354
     invoke-super {p0, p1, p2}, Landroid/widget/CompoundButton;->drawableHotspotChanged(FF)V
 
     .line 1357
-    :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 1358
     invoke-static {v0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setHotspot(Landroid/graphics/drawable/Drawable;FF)V
 
     .line 1361
-    :cond_1
+    :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     .line 1362
     invoke-static {v0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setHotspot(Landroid/graphics/drawable/Drawable;FF)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -1994,7 +1984,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 3
+    .locals 4
 
     .line 1397
     invoke-super {p0, p1}, Landroid/widget/CompoundButton;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
@@ -2052,11 +2042,15 @@
     .line 1406
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x20
+    move-result-object v1
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v3, 0x20
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 1407
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setText(Ljava/lang/CharSequence;)V
@@ -2129,7 +2123,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 p4, 0x0
+    move p4, p2
 
     .line 1096
     :goto_1
@@ -2346,9 +2340,9 @@
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v2
 
-    const/4 v3, 0x0
+    move v3, v1
 
     .line 821
     :goto_0
@@ -2382,7 +2376,7 @@
     goto :goto_1
 
     :cond_3
-    const/4 v4, 0x0
+    move v4, v2
 
     .line 828
     :goto_1
@@ -2598,14 +2592,14 @@
 
     if-lez v0, :cond_3
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    move v2, v3
 
     goto :goto_0
 
     :cond_3
     const/high16 v0, -0x40800000    # -1.0f
 
-    const/high16 v2, -0x40800000    # -1.0f
+    move v2, v0
 
     .line 952
     :goto_0
@@ -3105,10 +3099,10 @@
     goto :goto_1
 
     :cond_1
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_1
-    xor-int/lit8 p1, p1, -0x1
+    not-int p1, p1
 
     and-int/2addr p1, p2
 

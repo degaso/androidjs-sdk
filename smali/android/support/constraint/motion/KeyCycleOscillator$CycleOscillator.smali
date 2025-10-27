@@ -168,7 +168,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -258,7 +260,7 @@
 
     aget-wide v7, p1, v2
 
-    mul-double v5, v5, v7
+    mul-double/2addr v5, v7
 
     add-double/2addr v0, v5
 
@@ -266,7 +268,7 @@
 
     aget-wide v5, p1, v2
 
-    mul-double v3, v3, v5
+    mul-double/2addr v3, v5
 
     add-double/2addr v0, v3
 
@@ -335,7 +337,7 @@
 
     aget-wide v0, p1, v1
 
-    mul-double v4, v4, v0
+    mul-double/2addr v4, v0
 
     add-double/2addr v2, v4
 
@@ -351,8 +353,6 @@
     int-to-double v1, p2
 
     const-wide/high16 v3, 0x4059000000000000L    # 100.0
-
-    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
 
     div-double/2addr v1, v3
 
@@ -474,7 +474,7 @@
     invoke-virtual {v1, v6, v7, v3}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 504
     :goto_0
@@ -493,7 +493,7 @@
 
     aput-wide v4, v3, v0
 
-    const/4 v3, 0x0
+    move v3, v0
 
     .line 506
     :goto_1

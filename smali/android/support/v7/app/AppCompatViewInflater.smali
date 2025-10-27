@@ -48,48 +48,54 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 5
 
     const/4 v0, 0x2
 
     .line 62
-    new-array v0, v0, [Ljava/lang/Class;
+    new-array v1, v0, [Ljava/lang/Class;
 
-    const-class v1, Landroid/content/Context;
+    const-class v2, Landroid/content/Context;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v3
 
-    const-class v1, Landroid/util/AttributeSet;
+    const-class v2, Landroid/util/AttributeSet;
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v4
 
-    sput-object v0, Landroid/support/v7/app/AppCompatViewInflater;->sConstructorSignature:[Ljava/lang/Class;
+    sput-object v1, Landroid/support/v7/app/AppCompatViewInflater;->sConstructorSignature:[Ljava/lang/Class;
 
-    const v0, 0x101026f
+    const v1, 0x101026f
 
     .line 64
-    filled-new-array {v0}, [I
+    filled-new-array {v1}, [I
 
-    move-result-object v0
+    move-result-object v1
 
-    sput-object v0, Landroid/support/v7/app/AppCompatViewInflater;->sOnClickAttrs:[I
+    sput-object v1, Landroid/support/v7/app/AppCompatViewInflater;->sOnClickAttrs:[I
+
+    const/4 v1, 0x3
 
     .line 66
-    const-string v0, "android.view."
-
-    const-string v1, "android.webkit."
+    new-array v1, v1, [Ljava/lang/String;
 
     const-string v2, "android.widget."
 
-    filled-new-array {v2, v0, v1}, [Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    move-result-object v0
+    const-string v2, "android.view."
 
-    sput-object v0, Landroid/support/v7/app/AppCompatViewInflater;->sClassPrefixList:[Ljava/lang/String;
+    aput-object v2, v1, v4
+
+    const-string v2, "android.webkit."
+
+    aput-object v2, v1, v0
+
+    sput-object v1, Landroid/support/v7/app/AppCompatViewInflater;->sClassPrefixList:[Ljava/lang/String;
 
     .line 74
     new-instance v0, Landroid/support/v4/util/ArrayMap;
@@ -206,9 +212,13 @@
 
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p3
 
@@ -310,7 +320,7 @@
 
     if-ne v3, p3, :cond_3
 
-    const/4 p3, 0x0
+    move p3, v2
 
     .line 264
     :goto_0
@@ -427,7 +437,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, v1
 
     :goto_0
     if-eqz p3, :cond_1
@@ -509,17 +519,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " asked to inflate view for <"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p2, ">, but returned null"
+    move-result-object v0
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
+
+    const-string v0, ">, but returned null"
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 

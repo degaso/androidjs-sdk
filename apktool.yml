@@ -5,16 +5,17 @@ usesFramework:
   ids:
   - 1
 sdkInfo:
-  minSdkVersion: 19
+  minSdkVersion: 25
   targetSdkVersion: 33
 packageInfo:
   forcedPackageId: 127
 versionInfo:
   versionCode: 1
-  versionName: 3.2.0
+  versionName: 4.0.1
 doNotCompress:
 - arsc
 - png
+- so
 - META-INF/android.arch.core_runtime.version
 - META-INF/android.arch.lifecycle_livedata-core.version
 - META-INF/android.arch.lifecycle_livedata.version

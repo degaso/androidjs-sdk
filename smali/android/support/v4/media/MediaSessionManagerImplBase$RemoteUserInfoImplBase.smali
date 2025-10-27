@@ -95,7 +95,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -129,7 +129,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .locals 3
 
     .line 162
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;
@@ -146,23 +146,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x3
+    filled-new-array {v0, v1, v2}, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move-result-object v0
 
-    const/4 v4, 0x0
-
-    aput-object v0, v3, v4
-
-    const/4 v0, 0x1
-
-    aput-object v1, v3, v0
-
-    const/4 v0, 0x2
-
-    aput-object v2, v3, v0
-
-    invoke-static {v3}, Landroid/support/v4/util/ObjectsCompat;->hash([Ljava/lang/Object;)I
+    invoke-static {v0}, Landroid/support/v4/util/ObjectsCompat;->hash([Ljava/lang/Object;)I
 
     move-result v0
 

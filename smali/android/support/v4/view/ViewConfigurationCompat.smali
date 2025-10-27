@@ -28,6 +28,8 @@
 
     const/4 v2, 0x0
 
+    new-array v2, v2, [Ljava/lang/Class;
+
     .line 42
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
@@ -65,12 +67,6 @@
     .locals 3
 
     .line 106
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x19
-
-    if-lt v0, v1, :cond_0
-
     sget-object v0, Landroid/support/v4/view/ViewConfigurationCompat;->sGetScaledScrollFactorMethod:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_0
@@ -79,6 +75,8 @@
 
     .line 108
     :try_start_0
+    new-array v1, v1, [Ljava/lang/Object;
+
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -156,7 +154,7 @@
     if-lt v0, v1, :cond_0
 
     .line 82
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewConfiguration;)F
+    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledHorizontalScrollFactor()F
 
     move-result p0
 
@@ -182,7 +180,7 @@
     if-lt v0, v1, :cond_0
 
     .line 129
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewConfiguration;)I
+    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledHoverSlop()I
 
     move-result p0
 
@@ -223,7 +221,7 @@
     if-lt v0, v1, :cond_0
 
     .line 99
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/ViewConfiguration;)F
+    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledVerticalScrollFactor()F
 
     move-result p0
 
@@ -262,7 +260,7 @@
     if-lt v0, v1, :cond_0
 
     .line 142
-    invoke-static {p0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/ViewConfiguration;)Z
+    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->shouldShowMenuShortcutsWhenKeyboardPresent()Z
 
     move-result p0
 

@@ -571,15 +571,10 @@
 
     move-result v2
 
+    :cond_0
     move v10, v2
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v10, 0x0
-
     .line 236
-    :goto_0
     new-instance v1, Landroid/support/v4/app/NotificationCompat$Action;
 
     const-string v2, "icon"
@@ -1100,7 +1095,7 @@
 
     move-object v6, v5
 
-    const/4 v7, 0x0
+    move v7, v1
 
     .line 134
     :goto_0

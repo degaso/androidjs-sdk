@@ -452,15 +452,15 @@
 
     if-eqz v8, :cond_1
 
-    const/4 v8, 0x1
+    move v8, v5
 
     goto :goto_0
 
     :cond_1
-    const/4 v8, 0x0
+    move v8, v10
 
     :goto_0
-    const/4 v9, 0x0
+    move v9, v10
 
     :goto_1
     if-gt v9, v7, :cond_e
@@ -501,7 +501,7 @@
 
     add-int/2addr v13, v5
 
-    const/4 v14, 0x1
+    move v14, v5
 
     goto :goto_4
 
@@ -514,7 +514,7 @@
     .line 223
     aget v13, v1, v13
 
-    const/4 v14, 0x0
+    move v14, v10
 
     :goto_4
     sub-int v15, v13, v12
@@ -613,14 +613,14 @@
 
     add-int/lit8 v12, v12, 0x2
 
-    const/4 v5, 0x1
+    move v10, v15
 
-    const/4 v10, 0x0
+    const/4 v5, 0x1
 
     goto :goto_2
 
     :cond_6
-    const/4 v15, 0x0
+    move v15, v10
 
     move v5, v11
 
@@ -667,7 +667,7 @@
 
     sub-int/2addr v12, v14
 
-    const/4 v13, 0x1
+    move v13, v14
 
     goto :goto_8
 
@@ -682,7 +682,7 @@
     .line 257
     aget v12, v2, v12
 
-    const/4 v13, 0x0
+    move v13, v15
 
     :goto_8
     sub-int v16, v12, v10
@@ -795,9 +795,9 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    move/from16 v3, v18
+    move v5, v3
 
-    const/4 v5, 0x1
+    move/from16 v3, v18
 
     const/4 v10, 0x0
 

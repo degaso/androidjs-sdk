@@ -37,15 +37,11 @@
     .locals 0
 
     .line 36
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
+    check-cast p3, Landroid/media/browse/MediaBrowser$SubscriptionCallback;
 
-    invoke-static {p3}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$SubscriptionCallback;
-
-    move-result-object p3
-
-    invoke-static {p0, p1, p2, p3}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/browse/MediaBrowser;Ljava/lang/String;Landroid/os/Bundle;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
+    invoke-virtual {p0, p1, p2, p3}, Landroid/media/browse/MediaBrowser;->subscribe(Ljava/lang/String;Landroid/os/Bundle;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
 
     return-void
 .end method
@@ -54,15 +50,11 @@
     .locals 0
 
     .line 42
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser;
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    move-result-object p0
+    check-cast p2, Landroid/media/browse/MediaBrowser$SubscriptionCallback;
 
-    invoke-static {p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$SubscriptionCallback;
-
-    move-result-object p2
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/browse/MediaBrowser;Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/browse/MediaBrowser;->unsubscribe(Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
 
     return-void
 .end method

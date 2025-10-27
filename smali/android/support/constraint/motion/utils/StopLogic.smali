@@ -54,26 +54,26 @@
     .line 112
     iget v0, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
 
-    const/high16 v1, 0x40000000    # 2.0f
+    cmpg-float v1, p1, v0
 
-    cmpg-float v2, p1, v0
+    const/high16 v2, 0x40000000    # 2.0f
 
-    if-gtz v2, :cond_0
+    if-gtz v1, :cond_0
 
     .line 113
-    iget v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
+    iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
 
-    mul-float v3, v2, p1
+    mul-float v3, v1, p1
 
     iget v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Velocity:F
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v4, v1
 
-    mul-float v4, v4, p1
+    mul-float/2addr v4, p1
 
-    mul-float v4, v4, p1
+    mul-float/2addr v4, p1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v2
 
     div-float/2addr v4, v0
 
@@ -83,11 +83,11 @@
 
     .line 115
     :cond_0
-    iget v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v3, :cond_1
 
     .line 116
     iget p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
@@ -105,34 +105,34 @@
     if-gez v3, :cond_2
 
     .line 121
-    iget v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
+    iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
 
     iget v3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Velocity:F
 
     mul-float v4, v3, p1
 
-    add-float/2addr v2, v4
+    add-float/2addr v1, v4
 
     iget v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Velocity:F
 
     sub-float/2addr v4, v3
 
-    mul-float v4, v4, p1
+    mul-float/2addr v4, p1
 
-    mul-float v4, v4, p1
+    mul-float/2addr v4, p1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v2
 
     div-float/2addr v4, v0
 
-    add-float/2addr v2, v4
+    add-float/2addr v1, v4
 
-    return v2
+    return v1
 
     :cond_2
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_3
+    if-ne v1, v3, :cond_3
 
     .line 124
     iget p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2EndPosition:F
@@ -145,30 +145,30 @@
     .line 127
     iget v0, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Duration:F
 
-    cmpg-float v2, p1, v0
+    cmpg-float v1, p1, v0
 
-    if-gez v2, :cond_4
+    if-gez v1, :cond_4
 
     .line 129
-    iget v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2EndPosition:F
+    iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2EndPosition:F
 
     iget v3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Velocity:F
 
     mul-float v4, v3, p1
 
-    add-float/2addr v2, v4
+    add-float/2addr v1, v4
 
-    mul-float v3, v3, p1
+    mul-float/2addr v3, p1
 
-    mul-float v3, v3, p1
+    mul-float/2addr v3, p1
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v2
 
     div-float/2addr v3, v0
 
-    sub-float/2addr v2, v3
+    sub-float/2addr v1, v3
 
-    return v2
+    return v1
 
     .line 131
     :cond_4
@@ -200,25 +200,25 @@
 
     div-float/2addr v2, v3
 
-    const/4 v4, 0x3
+    cmpg-float v4, p1, v0
 
-    const/4 v5, 0x2
+    const/4 v5, 0x3
 
-    cmpg-float v6, p1, v0
+    const/4 v6, 0x2
 
-    if-gez v6, :cond_2
+    if-gez v4, :cond_2
 
     neg-float p5, p1
 
     div-float/2addr p5, p3
 
-    mul-float p5, p5, p1
+    mul-float/2addr p5, p1
 
     div-float/2addr p5, v3
 
     sub-float p5, p2, p5
 
-    mul-float p5, p5, p3
+    mul-float/2addr p5, p3
 
     float-to-double v1, p5
 
@@ -239,7 +239,7 @@
     iput-object p4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     .line 174
-    iput v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iput v6, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     .line 175
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
@@ -264,7 +264,7 @@
 
     add-float/2addr p1, p5
 
-    mul-float p1, p1, p4
+    mul-float/2addr p1, p4
 
     div-float/2addr p1, v3
 
@@ -286,7 +286,7 @@
     iput-object p5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     .line 186
-    iput v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iput v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     .line 187
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
@@ -311,11 +311,11 @@
 
     add-float/2addr p1, p4
 
-    mul-float p1, p1, p5
+    mul-float/2addr p1, p5
 
     div-float/2addr p1, v3
 
-    mul-float p3, p3, p4
+    mul-float/2addr p3, p4
 
     div-float/2addr p3, v3
 
@@ -342,16 +342,16 @@
     return-void
 
     :cond_2
-    cmpl-float v6, v2, p2
+    cmpl-float v4, v2, p2
 
-    if-ltz v6, :cond_3
+    if-ltz v4, :cond_3
 
     .line 204
     const-string p3, "hard stop"
 
     iput-object p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
-    mul-float v3, v3, p2
+    mul-float/2addr v3, p2
 
     div-float/2addr v3, p1
 
@@ -377,9 +377,9 @@
     :cond_3
     sub-float v2, p2, v2
 
-    div-float v6, v2, p1
+    div-float v4, v2, p1
 
-    add-float v7, v6, v1
+    add-float v7, v4, v1
 
     cmpg-float p5, v7, p5
 
@@ -391,7 +391,7 @@
     iput-object p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     .line 218
-    iput v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iput v6, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     .line 219
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
@@ -409,7 +409,7 @@
     iput p2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2EndPosition:F
 
     .line 224
-    iput v6, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
+    iput v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
 
     .line 225
     iput v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Duration:F
@@ -446,9 +446,9 @@
     .line 231
     iput v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Duration:F
 
-    cmpg-float v6, p5, p4
+    cmpg-float v4, p5, p4
 
-    if-gez v6, :cond_5
+    if-gez v4, :cond_5
 
     .line 233
     const-string p3, "accelerate decelerate"
@@ -456,7 +456,7 @@
     iput-object p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     .line 234
-    iput v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iput v6, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     .line 235
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
@@ -475,7 +475,7 @@
 
     add-float/2addr p1, p5
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     div-float/2addr p1, v3
 
@@ -494,7 +494,7 @@
     iput-object p5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     .line 247
-    iput v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
+    iput v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     .line 248
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
@@ -519,11 +519,11 @@
 
     add-float/2addr p1, p4
 
-    mul-float p1, p1, p5
+    mul-float/2addr p1, p5
 
     div-float/2addr p1, v3
 
-    mul-float p3, p3, p4
+    mul-float/2addr p3, p4
 
     div-float/2addr p3, v3
 
@@ -622,13 +622,19 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " ===== "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mType:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -642,6 +648,8 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mBackwards:Z
 
@@ -657,19 +665,29 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " time = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, "  stages "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mNumberOfStages:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -684,29 +702,43 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " dur "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v2, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v2, " vel "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Velocity:F
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v3, " pos "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v4, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -728,23 +760,37 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Duration:F
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2Velocity:F
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v5, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage2EndPosition:F
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -767,23 +813,37 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Duration:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Velocity:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3EndPosition:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -806,11 +866,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "stage 0"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, "stage 0"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -831,11 +895,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "end stage 0"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, "end stage 0"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -860,11 +928,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, " stage 1"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, " stage 1"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -882,11 +954,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "end stage 1"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, "end stage 1"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -911,11 +987,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, " stage 2"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, " stage 2"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -931,11 +1011,15 @@
 
     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, " end stage 2"
+    move-result-object p2
 
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p3, " end stage 2"
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1021,7 +1105,7 @@
 
     sub-float/2addr v2, v1
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     div-float/2addr v2, v0
 
@@ -1058,7 +1142,7 @@
 
     sub-float/2addr v2, v1
 
-    mul-float v2, v2, p1
+    mul-float/2addr v2, p1
 
     div-float/2addr v2, v0
 
@@ -1089,7 +1173,7 @@
     .line 106
     iget v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Velocity:F
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     div-float/2addr p1, v0
 

@@ -60,19 +60,19 @@
     .line 192
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mD:D
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     iget-wide v2, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mC:D
 
     add-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     iget-wide v2, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mB:D
 
     add-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     iget-wide p1, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mA:D
 
@@ -89,19 +89,19 @@
 
     const-wide v2, 0x3fd5555555555555L    # 0.3333333333333333
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     iget-wide v2, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mC:D
 
     const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
 
-    mul-double v2, v2, v4
+    mul-double/2addr v2, v4
 
     add-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
     iget-wide p1, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mB:D
 

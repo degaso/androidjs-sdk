@@ -739,12 +739,12 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 374
     :goto_0
@@ -896,7 +896,7 @@
 .end method
 
 .method updateAppearance()V
-    .locals 6
+    .locals 4
 
     .line 539
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView;->mAdapter:Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -974,43 +974,43 @@
     .line 550
     invoke-virtual {p0}, Landroid/support/v7/widget/ActivityChooserView;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 551
-    iget-object v4, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActivityButtonImage:Landroid/widget/ImageView;
+    iget-object v2, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActivityButtonImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v3}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 552
-    iget v4, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
+    iget v2, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
 
-    if-eqz v4, :cond_3
+    if-eqz v2, :cond_3
 
     .line 553
-    invoke-virtual {v0, v3}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     .line 554
     invoke-virtual {p0}, Landroid/support/v7/widget/ActivityChooserView;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget v4, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
+    iget v2, p0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
 
-    new-array v2, v2, [Ljava/lang/Object;
+    filled-new-array {v0}, [Ljava/lang/Object;
 
-    aput-object v0, v2, v1
+    move-result-object v0
 
-    invoke-virtual {v3, v4, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

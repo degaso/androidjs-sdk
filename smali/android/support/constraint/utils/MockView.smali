@@ -501,7 +501,7 @@
 
     div-float/2addr p2, v0
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     invoke-static {p1}, Ljava/lang/Math;->round(F)I
 

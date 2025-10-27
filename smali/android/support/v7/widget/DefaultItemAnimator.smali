@@ -379,7 +379,7 @@
     .line 423
     iput-object v2, p1, Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;->oldHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    const/4 v3, 0x1
+    move v3, v1
 
     .line 428
     :goto_0

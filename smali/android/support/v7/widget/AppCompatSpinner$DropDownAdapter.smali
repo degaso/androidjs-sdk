@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/SpinnerAdapter;Landroid/content/res/Resources$Theme;)V
-    .locals 2
+    .locals 1
 
     .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,32 +50,22 @@
     if-eqz p2, :cond_2
 
     .line 612
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_1
-
-    invoke-static {p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Ljava/lang/Object;)Z
-
-    move-result v0
+    instance-of v0, p1, Landroid/widget/ThemedSpinnerAdapter;
 
     if-eqz v0, :cond_1
 
     .line 614
-    invoke-static {p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Ljava/lang/Object;)Landroid/widget/ThemedSpinnerAdapter;
-
-    move-result-object p1
+    check-cast p1, Landroid/widget/ThemedSpinnerAdapter;
 
     .line 616
-    invoke-static {p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/ThemedSpinnerAdapter;)Landroid/content/res/Resources$Theme;
+    invoke-interface {p1}, Landroid/widget/ThemedSpinnerAdapter;->getDropDownViewTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
 
     if-eq v0, p2, :cond_2
 
     .line 617
-    invoke-static {p1, p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/ThemedSpinnerAdapter;Landroid/content/res/Resources$Theme;)V
+    invoke-interface {p1, p2}, Landroid/widget/ThemedSpinnerAdapter;->setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
 
     goto :goto_0
 

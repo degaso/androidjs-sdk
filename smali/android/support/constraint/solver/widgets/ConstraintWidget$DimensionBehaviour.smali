@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 6
 
     .line 334
     new-instance v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -51,48 +51,40 @@
 
     new-instance v1, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    const-string v3, "WRAP_CONTENT"
+    const-string v2, "WRAP_CONTENT"
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    invoke-direct {v1, v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
+    new-instance v2, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    const-string v3, "MATCH_CONSTRAINT"
+
+    const/4 v4, 0x2
+
+    invoke-direct {v2, v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
     new-instance v3, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    const-string v5, "MATCH_CONSTRAINT"
+    const-string v4, "MATCH_PARENT"
 
-    const/4 v6, 0x2
+    const/4 v5, 0x3
 
-    invoke-direct {v3, v5, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v4, v5}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    new-instance v5, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    const-string v7, "MATCH_PARENT"
-
-    const/4 v8, 0x3
-
-    invoke-direct {v5, v7, v8}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;-><init>(Ljava/lang/String;I)V
-
-    sput-object v5, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    const/4 v7, 0x4
+    sput-object v3, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 333
-    new-array v7, v7, [Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    filled-new-array {v0, v1, v2, v3}, [Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aput-object v0, v7, v2
+    move-result-object v0
 
-    aput-object v1, v7, v4
-
-    aput-object v3, v7, v6
-
-    aput-object v5, v7, v8
-
-    sput-object v7, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    sput-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     return-void
 .end method

@@ -59,7 +59,7 @@
     if-lt v0, v1, :cond_0
 
     .line 455
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$2(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getAutoSizeMaxTextSize()I
 
     move-result p0
 
@@ -97,7 +97,7 @@
     if-lt v0, v1, :cond_0
 
     .line 438
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getAutoSizeMinTextSize()I
 
     move-result p0
 
@@ -135,7 +135,7 @@
     if-lt v0, v1, :cond_0
 
     .line 421
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$1(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getAutoSizeStepGranularity()I
 
     move-result p0
 
@@ -173,7 +173,7 @@
     if-lt v0, v1, :cond_0
 
     .line 472
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;)[I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getAutoSizeTextAvailableSizes()[I
 
     move-result-object p0
 
@@ -214,7 +214,7 @@
     if-lt v0, v1, :cond_0
 
     .line 405
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$5(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getAutoSizeTextType()I
 
     move-result p0
 
@@ -449,12 +449,12 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Ljava/util/Locale;)Landroid/icu/text/DecimalFormatSymbols;
+    invoke-static {p0}, Landroid/icu/text/DecimalFormatSymbols;->getInstance(Ljava/util/Locale;)Landroid/icu/text/DecimalFormatSymbols;
 
     move-result-object p0
 
     .line 918
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/icu/text/DecimalFormatSymbols;)[Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/icu/text/DecimalFormatSymbols;->getDigitStrings()[Ljava/lang/String;
 
     move-result-object p0
 
@@ -499,7 +499,7 @@
 
     if-ne v0, v3, :cond_4
 
-    const/4 v2, 0x1
+    move v2, v3
 
     .line 936
     :cond_4
@@ -583,7 +583,7 @@
     .line 814
     new-instance v0, Landroid/support/v4/text/PrecomputedTextCompat$Params;
 
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;)Landroid/text/PrecomputedText$Params;
+    invoke-virtual {p0}, Landroid/widget/TextView;->getTextMetricsParams()Landroid/text/PrecomputedText$Params;
 
     move-result-object p0
 
@@ -606,29 +606,21 @@
 
     invoke-direct {v0, v1}, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;-><init>(Landroid/text/TextPaint;)V
 
-    .line 818
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v1, v2, :cond_1
-
     .line 819
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$3(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getBreakStrategy()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->setBreakStrategy(I)Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;
 
     .line 820
-    invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$4(Landroid/widget/TextView;)I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getHyphenationFrequency()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->setHyphenationFrequency(I)Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;
 
     .line 823
-    :cond_1
     invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat;->getTextDirectionHeuristic(Landroid/widget/TextView;)Landroid/text/TextDirectionHeuristic;
 
     move-result-object p0
@@ -675,11 +667,15 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " field."
+    move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " field."
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -718,11 +714,15 @@
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " field."
+    move-result-object p0
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, " field."
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -751,7 +751,7 @@
     if-lt v0, v1, :cond_0
 
     .line 360
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;IIII)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
     goto :goto_0
 
@@ -787,7 +787,7 @@
     if-lt v0, v1, :cond_0
 
     .line 386
-    invoke-static {p0, p1, p2}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;[II)V
+    invoke-virtual {p0, p1, p2}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
     goto :goto_0
 
@@ -818,7 +818,7 @@
     if-lt v0, v1, :cond_0
 
     .line 325
-    invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$1(Landroid/widget/TextView;I)V
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setAutoSizeTextTypeWithDefaults(I)V
 
     goto :goto_0
 
@@ -893,7 +893,7 @@
     if-lt v0, v1, :cond_0
 
     .line 693
-    invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/TextView;I)V
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setFirstBaselineToTopHeight(I)V
 
     return-void
 
@@ -1104,29 +1104,11 @@
 .end method
 
 .method public static setTextAppearance(Landroid/widget/TextView;I)V
-    .locals 2
-
-    .line 281
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 282
-    invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$2(Landroid/widget/TextView;I)V
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    goto :goto_0
-
-    .line 284
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    :goto_0
     return-void
 .end method
 
@@ -1144,61 +1126,7 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextDirection(I)V
 
-    .line 844
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-ge v0, v1, :cond_1
-
-    .line 845
-    invoke-virtual {p1}, Landroid/support/v4/text/PrecomputedTextCompat$Params;->getTextPaint()Landroid/text/TextPaint;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/text/TextPaint;->getTextScaleX()F
-
-    move-result v0
-
-    .line 848
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/support/v4/text/PrecomputedTextCompat$Params;->getTextPaint()Landroid/text/TextPaint;
-
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
-
-    .line 851
-    invoke-virtual {p0}, Landroid/widget/TextView;->getTextScaleX()F
-
-    move-result p1
-
-    cmpl-float p1, v0, p1
-
-    if-nez p1, :cond_0
-
-    const/high16 p1, 0x40000000    # 2.0f
-
-    div-float p1, v0, p1
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    add-float/2addr p1, v1
-
-    .line 854
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextScaleX(F)V
-
-    .line 856
-    :cond_0
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextScaleX(F)V
-
-    goto :goto_0
-
     .line 860
-    :cond_1
     invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v0
@@ -1214,16 +1142,15 @@
 
     move-result v0
 
-    invoke-static {p0, v0}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$3(Landroid/widget/TextView;I)V
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setBreakStrategy(I)V
 
     .line 865
     invoke-virtual {p1}, Landroid/support/v4/text/PrecomputedTextCompat$Params;->getHyphenationFrequency()I
 
     move-result p1
 
-    invoke-static {p0, p1}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/widget/TextView;I)V
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setHyphenationFrequency(I)V
 
-    :goto_0
     return-void
 .end method
 

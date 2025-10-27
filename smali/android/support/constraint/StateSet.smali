@@ -115,7 +115,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_1
@@ -218,7 +218,7 @@
 
     if-eqz v4, :cond_4
 
-    const/4 v4, 0x3
+    move v4, v5
 
     goto :goto_3
 
@@ -229,7 +229,7 @@
 
     if-eqz v4, :cond_4
 
-    const/4 v4, 0x1
+    move v4, v3
 
     goto :goto_3
 
@@ -242,7 +242,7 @@
 
     if-eqz v4, :cond_4
 
-    const/4 v4, 0x0
+    move v4, v2
 
     goto :goto_3
 
@@ -255,7 +255,7 @@
 
     if-eqz v4, :cond_4
 
-    const/4 v4, 0x2
+    move v4, v6
 
     goto :goto_3
 
@@ -283,9 +283,13 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

@@ -122,44 +122,28 @@
 .end method
 
 .method public setEnterTransition(Ljava/lang/Object;)V
-    .locals 2
-
-    .line 81
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 82
     iget-object v0, p0, Landroid/support/v7/widget/MenuPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     check-cast p1, Landroid/transition/Transition;
 
-    invoke-static {v0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
+    invoke-virtual {v0, p1}, Landroid/widget/PopupWindow;->setEnterTransition(Landroid/transition/Transition;)V
 
-    :cond_0
     return-void
 .end method
 
 .method public setExitTransition(Ljava/lang/Object;)V
-    .locals 2
-
-    .line 87
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 88
     iget-object v0, p0, Landroid/support/v7/widget/MenuPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     check-cast p1, Landroid/transition/Transition;
 
-    invoke-static {v0, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m$1(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
+    invoke-virtual {v0, p1}, Landroid/widget/PopupWindow;->setExitTransition(Landroid/transition/Transition;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -173,7 +157,7 @@
 .end method
 
 .method public setTouchModal(Z)V
-    .locals 4
+    .locals 2
 
     .line 101
     sget-object v0, Landroid/support/v7/widget/MenuPopupWindow;->sSetTouchModalMethod:Ljava/lang/reflect/Method;
@@ -188,15 +172,11 @@
 
     move-result-object p1
 
-    const/4 v2, 0x1
+    filled-new-array {p1}, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result-object p1
 
-    const/4 v3, 0x0
-
-    aput-object p1, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

@@ -38,25 +38,11 @@
 .end method
 
 .method public static finishAfterTransition(Landroid/app/Activity;)V
-    .locals 2
-
-    .line 304
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 305
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Activity;)V
+    invoke-virtual {p0}, Landroid/app/Activity;->finishAfterTransition()V
 
-    goto :goto_0
-
-    .line 307
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    :goto_0
     return-void
 .end method
 
@@ -70,60 +56,12 @@
 .end method
 
 .method public static getReferrer(Landroid/app/Activity;)Landroid/net/Uri;
-    .locals 2
-
-    .line 329
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x16
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 330
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;)Landroid/net/Uri;
+    invoke-virtual {p0}, Landroid/app/Activity;->getReferrer()Landroid/net/Uri;
 
     move-result-object p0
-
-    return-object p0
-
-    .line 332
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object p0
-
-    .line 333
-    const-string v0, "android.intent.extra.REFERRER"
-
-    invoke-virtual {p0, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/Uri;
-
-    if-eqz v0, :cond_1
-
-    return-object v0
-
-    .line 337
-    :cond_1
-    const-string v0, "android.intent.extra.REFERRER_NAME"
-
-    invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_2
-
-    .line 339
-    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2
-    const/4 p0, 0x0
 
     return-object p0
 .end method
@@ -142,19 +80,11 @@
 .end method
 
 .method public static postponeEnterTransition(Landroid/app/Activity;)V
-    .locals 2
-
-    .line 411
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 412
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;)V
+    invoke-virtual {p0}, Landroid/app/Activity;->postponeEnterTransition()V
 
-    :cond_0
     return-void
 .end method
 
@@ -170,7 +100,7 @@
 .end method
 
 .method public static requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
-    .locals 2
+    .locals 1
 
     .line 491
     sget-object v0, Landroid/support/v4/app/ActivityCompat;->sDelegate:Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
@@ -186,15 +116,8 @@
 
     return-void
 
-    .line 497
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_2
-
     .line 498
+    :cond_0
     instance-of v0, p0, Landroid/support/v4/app/ActivityCompat$RequestPermissionsRequestCodeValidator;
 
     if-eqz v0, :cond_1
@@ -209,34 +132,8 @@
 
     .line 502
     :cond_1
-    invoke-static {p0, p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;[Ljava/lang/String;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->requestPermissions([Ljava/lang/String;I)V
 
-    goto :goto_0
-
-    .line 503
-    :cond_2
-    instance-of v0, p0, Landroid/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback;
-
-    if-eqz v0, :cond_3
-
-    .line 504
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    .line 505
-    new-instance v1, Landroid/support/v4/app/ActivityCompat$1;
-
-    invoke-direct {v1, p1, p0, p2}, Landroid/support/v4/app/ActivityCompat$1;-><init>([Ljava/lang/String;Landroid/app/Activity;I)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_3
-    :goto_0
     return-void
 .end method
 
@@ -260,7 +157,7 @@
     if-lt v0, v1, :cond_0
 
     .line 363
-    invoke-static {p0, p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
     move-result-object p0
 
@@ -288,14 +185,7 @@
 .end method
 
 .method public static setEnterSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
-    .locals 2
-
-    .line 383
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
+    .locals 1
 
     if-eqz p1, :cond_0
 
@@ -311,21 +201,13 @@
 
     .line 387
     :goto_0
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/app/Activity;Landroid/app/SharedElementCallback;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setEnterSharedElementCallback(Landroid/app/SharedElementCallback;)V
 
-    :cond_1
     return-void
 .end method
 
 .method public static setExitSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
-    .locals 2
-
-    .line 402
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
+    .locals 1
 
     if-eqz p1, :cond_0
 
@@ -341,9 +223,8 @@
 
     .line 406
     :goto_0
-    invoke-static {p0, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;Landroid/app/SharedElementCallback;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setExitSharedElementCallback(Landroid/app/SharedElementCallback;)V
 
-    :cond_1
     return-void
 .end method
 
@@ -357,24 +238,12 @@
 .end method
 
 .method public static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
-    .locals 2
-
-    .line 548
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 549
-    invoke-static {p0, p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Activity;Ljava/lang/String;)Z
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->shouldShowRequestPermissionRationale(Ljava/lang/String;)Z
 
     move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
 
     return p0
 .end method
@@ -403,18 +272,10 @@
 .end method
 
 .method public static startPostponedEnterTransition(Landroid/app/Activity;)V
-    .locals 2
-
-    .line 417
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 418
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/app/Activity;)V
+    invoke-virtual {p0}, Landroid/app/Activity;->startPostponedEnterTransition()V
 
-    :cond_0
     return-void
 .end method

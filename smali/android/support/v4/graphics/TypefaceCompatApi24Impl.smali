@@ -23,20 +23,22 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
-
-    const/4 v0, 0x0
+    .locals 8
 
     .line 69
     :try_start_0
-    const-string v1, "android.graphics.FontFamily"
+    const-string v0, "android.graphics.FontFamily"
 
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 70
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v2, v1, [Ljava/lang/Class;
+
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
 
@@ -49,92 +51,88 @@
 
     const-class v5, Ljava/nio/ByteBuffer;
 
-    const/4 v6, 0x0
-
-    aput-object v5, v4, v6
+    aput-object v5, v4, v1
 
     sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    const-class v5, Ljava/util/List;
+
+    const/4 v7, 0x2
 
     aput-object v5, v4, v7
 
-    const-class v8, Ljava/util/List;
+    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v9, 0x2
+    const/4 v7, 0x3
 
-    aput-object v8, v4, v9
-
-    const/4 v8, 0x3
-
-    aput-object v5, v4, v8
+    aput-object v5, v4, v7
 
     sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    const/4 v8, 0x4
+    const/4 v7, 0x4
 
-    aput-object v5, v4, v8
+    aput-object v5, v4, v7
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
     .line 73
-    invoke-static {v1, v7}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {v0, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
     move-result-object v4
 
     .line 74
     const-class v5, Landroid/graphics/Typeface;
 
-    const-string v8, "createFromFamiliesWithDefault"
+    const-string v7, "createFromFamiliesWithDefault"
+
+    new-array v6, v6, [Ljava/lang/Class;
 
     .line 76
     invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
 
-    new-array v7, v7, [Ljava/lang/Class;
-
-    aput-object v4, v7, v6
+    aput-object v4, v6, v1
 
     .line 75
-    invoke-virtual {v5, v8, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v5, v7, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v10, v2
-
-    move-object v2, v0
-
-    move-object v0, v10
-
     goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     goto :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception v0
 
     .line 78
     :goto_0
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, "TypefaceCompatApi24Impl"
+    const-string v2, "TypefaceCompatApi24Impl"
 
-    invoke-static {v3, v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v0, 0x0
 
     move-object v1, v0
 
@@ -144,16 +142,16 @@
 
     .line 84
     :goto_1
-    sput-object v0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sFontFamilyCtor:Ljava/lang/reflect/Constructor;
+    sput-object v2, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sFontFamilyCtor:Ljava/lang/reflect/Constructor;
 
     .line 85
-    sput-object v1, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sFontFamily:Ljava/lang/Class;
+    sput-object v0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sFontFamily:Ljava/lang/Class;
 
     .line 86
     sput-object v3, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sAddFontWeightStyle:Ljava/lang/reflect/Method;
 
     .line 87
-    sput-object v2, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sCreateFromFamiliesWithDefault:Ljava/lang/reflect/Method;
+    sput-object v1, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sCreateFromFamiliesWithDefault:Ljava/lang/reflect/Method;
 
     return-void
 .end method
@@ -168,7 +166,7 @@
 .end method
 
 .method private static addFontWeightStyle(Ljava/lang/Object;Ljava/nio/ByteBuffer;IIZ)Z
-    .locals 3
+    .locals 2
 
     .line 112
     :try_start_0
@@ -187,34 +185,14 @@
 
     move-result-object p4
 
-    const/4 v1, 0x5
+    const/4 v1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {p1, p2, v1, p3, p4}, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 p1, 0x1
-
-    aput-object p2, v1, p1
-
-    const/4 p1, 0x2
-
-    const/4 p2, 0x0
-
-    aput-object p2, v1, p1
-
-    const/4 p1, 0x3
-
-    aput-object p3, v1, p1
-
-    const/4 p1, 0x4
-
-    aput-object p4, v1, p1
+    move-result-object p1
 
     .line 112
-    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -248,7 +226,7 @@
 .end method
 
 .method private static createFromFamiliesWithDefault(Ljava/lang/Object;)Landroid/graphics/Typeface;
-    .locals 3
+    .locals 2
 
     .line 122
     :try_start_0
@@ -260,21 +238,21 @@
 
     move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     .line 123
-    invoke-static {v0, v2, p0}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p0}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
     .line 124
     sget-object p0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sCreateFromFamiliesWithDefault:Ljava/lang/reflect/Method;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    filled-new-array {v0}, [Ljava/lang/Object;
 
-    aput-object v0, v1, v2
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -339,6 +317,8 @@
     sget-object v0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sFontFamilyCtor:Ljava/lang/reflect/Constructor;
 
     const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 

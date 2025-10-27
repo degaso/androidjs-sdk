@@ -113,12 +113,6 @@
 
     if-nez v0, :cond_1
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     .line 424
     new-instance v0, Landroid/media/AudioAttributes$Builder;
 
@@ -127,21 +121,21 @@
     iget v1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mContentType:I
 
     .line 426
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
     iget v1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mFlags:I
 
     .line 427
-    invoke-static {v0, v1}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setFlags(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
     iget v1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
     .line 428
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object v0
 
@@ -153,13 +147,13 @@
     if-eq v1, v2, :cond_0
 
     .line 431
-    invoke-static {v0, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/media/AudioAttributes$Builder;I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setLegacyStreamType(I)Landroid/media/AudioAttributes$Builder;
 
     .line 433
     :cond_0
     new-instance v1, Landroid/support/v4/media/AudioAttributesImplApi21;
 
-    invoke-static {v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/AudioAttributes$Builder;)Landroid/media/AudioAttributes;
+    invoke-virtual {v0}, Landroid/media/AudioAttributes$Builder;->build()Landroid/media/AudioAttributes;
 
     move-result-object v0
 
@@ -261,9 +255,13 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " for AudioAttributesCompat"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -380,21 +378,14 @@
 .end method
 
 .method public setLegacyStreamType(I)Landroid/support/v4/media/AudioAttributesCompat$Builder;
-    .locals 2
+    .locals 1
 
     const/16 v0, 0xa
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_0
 
     .line 551
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mLegacyStream:I
-
-    .line 552
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
 
     .line 553
     invoke-virtual {p0, p1}, Landroid/support/v4/media/AudioAttributesCompat$Builder;->setInternalLegacyStreamType(I)Landroid/support/v4/media/AudioAttributesCompat$Builder;
@@ -403,11 +394,8 @@
 
     return-object p1
 
-    :cond_0
-    return-object p0
-
     .line 547
-    :cond_1
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback"

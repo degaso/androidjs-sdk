@@ -92,7 +92,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
@@ -119,15 +119,15 @@
 
     int-to-float v2, v2
 
-    mul-float v3, v3, v2
+    mul-float/2addr v3, v2
 
     iget v4, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mPosition:F
 
-    mul-float v3, v3, v4
+    mul-float/2addr v3, v4
 
     int-to-float v1, v1
 
-    mul-float v3, v3, v1
+    mul-float/2addr v3, v1
 
     const/4 v1, 0x0
 

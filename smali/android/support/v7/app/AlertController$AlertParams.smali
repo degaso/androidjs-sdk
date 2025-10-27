@@ -157,7 +157,7 @@
 .end method
 
 .method private createListView(Landroid/support/v7/app/AlertController;)V
-    .locals 9
+    .locals 10
 
     .line 988
     iget-object v0, p0, Landroid/support/v7/app/AlertController$AlertParams;->mInflater:Landroid/view/LayoutInflater;
@@ -176,6 +176,8 @@
     .line 992
     iget-boolean v1, p0, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
 
+    const/4 v8, 0x1
+
     if-eqz v1, :cond_1
 
     .line 993
@@ -184,7 +186,7 @@
     if-nez v1, :cond_0
 
     .line 994
-    new-instance v8, Landroid/support/v7/app/AlertController$AlertParams$1;
+    new-instance v9, Landroid/support/v7/app/AlertController$AlertParams$1;
 
     iget-object v3, p0, Landroid/support/v7/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
@@ -194,7 +196,7 @@
 
     iget-object v6, p0, Landroid/support/v7/app/AlertController$AlertParams;->mItems:[Ljava/lang/CharSequence;
 
-    move-object v1, v8
+    move-object v1, v9
 
     move-object v2, p0
 
@@ -206,7 +208,7 @@
 
     .line 1009
     :cond_0
-    new-instance v8, Landroid/support/v7/app/AlertController$AlertParams$2;
+    new-instance v9, Landroid/support/v7/app/AlertController$AlertParams$2;
 
     iget-object v3, p0, Landroid/support/v7/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
@@ -214,7 +216,7 @@
 
     const/4 v5, 0x0
 
-    move-object v1, v8
+    move-object v1, v9
 
     move-object v2, p0
 
@@ -252,23 +254,25 @@
     if-eqz v1, :cond_3
 
     .line 1045
-    new-instance v8, Landroid/widget/SimpleCursorAdapter;
+    new-instance v9, Landroid/widget/SimpleCursorAdapter;
 
     iget-object v3, p0, Landroid/support/v7/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
     iget-object v5, p0, Landroid/support/v7/app/AlertController$AlertParams;->mCursor:Landroid/database/Cursor;
 
-    iget-object v1, p0, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+    new-array v6, v8, [Ljava/lang/String;
 
-    filled-new-array {v1}, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    move-result-object v6
+    iget-object v7, p0, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+
+    aput-object v7, v6, v1
 
     filled-new-array {v2}, [I
 
     move-result-object v7
 
-    move-object v2, v8
+    move-object v2, v9
 
     invoke-direct/range {v2 .. v7}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
 
@@ -276,21 +280,21 @@
 
     .line 1047
     :cond_3
-    iget-object v8, p0, Landroid/support/v7/app/AlertController$AlertParams;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v9, p0, Landroid/support/v7/app/AlertController$AlertParams;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v8, :cond_4
+    if-eqz v9, :cond_4
 
     goto :goto_1
 
     .line 1050
     :cond_4
-    new-instance v8, Landroid/support/v7/app/AlertController$CheckedItemAdapter;
+    new-instance v9, Landroid/support/v7/app/AlertController$CheckedItemAdapter;
 
     iget-object v1, p0, Landroid/support/v7/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Landroid/support/v7/app/AlertController$AlertParams;->mItems:[Ljava/lang/CharSequence;
 
-    invoke-direct {v8, v1, v4, v2, v3}, Landroid/support/v7/app/AlertController$CheckedItemAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/CharSequence;)V
+    invoke-direct {v9, v1, v4, v2, v3}, Landroid/support/v7/app/AlertController$CheckedItemAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/CharSequence;)V
 
     .line 1054
     :goto_1
@@ -303,7 +307,7 @@
 
     .line 1061
     :cond_5
-    iput-object v8, p1, Landroid/support/v7/app/AlertController;->mAdapter:Landroid/widget/ListAdapter;
+    iput-object v9, p1, Landroid/support/v7/app/AlertController;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 1062
     iget v1, p0, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
@@ -353,10 +357,8 @@
 
     if-eqz v1, :cond_9
 
-    const/4 v1, 0x1
-
     .line 1093
-    invoke-virtual {v0, v1}, Landroid/support/v7/app/AlertController$RecycleListView;->setChoiceMode(I)V
+    invoke-virtual {v0, v8}, Landroid/support/v7/app/AlertController$RecycleListView;->setChoiceMode(I)V
 
     goto :goto_3
 

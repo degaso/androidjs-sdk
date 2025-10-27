@@ -28,11 +28,9 @@
     .locals 0
 
     .line 82
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState$CustomAction;
+    check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/media/session/PlaybackState$CustomAction;->getAction()Ljava/lang/String;
 
     move-result-object p0
 
@@ -43,11 +41,9 @@
     .locals 0
 
     .line 93
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState$CustomAction;
+    check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction;)Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/media/session/PlaybackState$CustomAction;->getExtras()Landroid/os/Bundle;
 
     move-result-object p0
 
@@ -58,11 +54,9 @@
     .locals 0
 
     .line 90
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState$CustomAction;
+    check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction;)I
+    invoke-virtual {p0}, Landroid/media/session/PlaybackState$CustomAction;->getIcon()I
 
     move-result p0
 
@@ -73,11 +67,9 @@
     .locals 0
 
     .line 86
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/session/PlaybackState$CustomAction;
+    check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
 
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/session/PlaybackState$CustomAction;->getName()Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -93,10 +85,10 @@
     invoke-direct {v0, p0, p1, p2}, Landroid/media/session/PlaybackState$CustomAction$Builder;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
 
     .line 100
-    invoke-static {v0, p3}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction$Builder;Landroid/os/Bundle;)Landroid/media/session/PlaybackState$CustomAction$Builder;
+    invoke-virtual {v0, p3}, Landroid/media/session/PlaybackState$CustomAction$Builder;->setExtras(Landroid/os/Bundle;)Landroid/media/session/PlaybackState$CustomAction$Builder;
 
     .line 101
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/media/session/PlaybackState$CustomAction$Builder;)Landroid/media/session/PlaybackState$CustomAction;
+    invoke-virtual {v0}, Landroid/media/session/PlaybackState$CustomAction$Builder;->build()Landroid/media/session/PlaybackState$CustomAction;
 
     move-result-object p0
 

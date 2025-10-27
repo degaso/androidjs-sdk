@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 1
 
     const/16 v0, 0xa
 
@@ -33,22 +33,10 @@
     sput-object v0, Landroid/support/v4/app/FragmentTransition;->INVERSE_OPS:[I
 
     .line 57
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroid/support/v4/app/FragmentTransitionCompat21;
 
     invoke-direct {v0}, Landroid/support/v4/app/FragmentTransitionCompat21;-><init>()V
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     sput-object v0, Landroid/support/v4/app/FragmentTransition;->PLATFORM_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
 
     .line 61
@@ -222,14 +210,13 @@
 
     if-eq v1, v6, :cond_a
 
-    const/4 v1, 0x0
+    move v1, v4
 
-    :goto_1
-    const/4 v12, 0x0
+    move v12, v1
 
-    const/4 v13, 0x0
+    move v13, v12
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :cond_3
     if-eqz p4, :cond_4
@@ -247,13 +234,13 @@
 
     if-eqz v1, :cond_c
 
-    goto :goto_5
+    goto :goto_4
 
     .line 1141
     :cond_4
     iget-boolean v1, v10, Landroid/support/v4/app/Fragment;->mHidden:Z
 
-    goto :goto_6
+    goto/16 :goto_5
 
     :cond_5
     if-eqz p4, :cond_6
@@ -271,8 +258,8 @@
 
     if-eqz v1, :cond_8
 
-    :goto_2
-    goto :goto_3
+    :goto_1
+    goto :goto_2
 
     .line 1158
     :cond_6
@@ -284,7 +271,7 @@
 
     if-nez v1, :cond_8
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
     if-eqz p4, :cond_9
@@ -315,15 +302,15 @@
 
     if-ltz v1, :cond_8
 
-    :goto_3
-    const/4 v1, 0x1
+    :goto_2
+    move v1, v5
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_8
-    const/4 v1, 0x0
+    move v1, v4
 
-    goto :goto_4
+    goto :goto_3
 
     .line 1169
     :cond_9
@@ -335,16 +322,16 @@
 
     if-nez v1, :cond_8
 
-    goto :goto_3
+    goto :goto_2
 
-    :goto_4
+    :goto_3
     move v13, v1
 
-    const/4 v1, 0x0
+    move v1, v4
 
-    const/4 v12, 0x1
+    move v12, v5
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_a
     if-eqz p4, :cond_b
@@ -352,7 +339,7 @@
     .line 1148
     iget-boolean v1, v10, Landroid/support/v4/app/Fragment;->mIsNewlyAdded:Z
 
-    goto :goto_6
+    goto :goto_5
 
     .line 1150
     :cond_b
@@ -364,23 +351,25 @@
 
     if-nez v1, :cond_c
 
-    :goto_5
-    const/4 v1, 0x1
+    :goto_4
+    move v1, v5
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_c
-    const/4 v1, 0x0
+    move v1, v4
 
-    :goto_6
+    :goto_5
+    move v12, v4
+
+    move v13, v12
+
     move v4, v1
 
-    const/4 v1, 0x1
-
-    goto :goto_1
+    move v1, v5
 
     .line 1174
-    :goto_7
+    :goto_6
     invoke-virtual {v2, v11}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -520,7 +509,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_0
@@ -796,7 +785,7 @@
 
     if-nez p3, :cond_1
 
-    const/4 v1, 0x0
+    move v1, v0
 
     goto :goto_1
 
@@ -865,7 +854,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -2752,34 +2741,40 @@
 .end method
 
 .method private static resolveSupportImpl()Landroid/support/v4/app/FragmentTransitionImpl;
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 3
 
     .line 66
     :try_start_0
-    const-string v1, "android.support.transition.FragmentTransitionSupport"
+    const-string v0, "android.support.transition.FragmentTransitionSupport"
 
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 68
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v2, v1, [Ljava/lang/Class;
 
-    move-result-object v1
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    invoke-virtual {v1, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    check-cast v1, Landroid/support/v4/app/FragmentTransitionImpl;
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v4/app/FragmentTransitionImpl;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
     :catch_0
+    const/4 v0, 0x0
+
     return-object v0
 .end method
 

@@ -1226,9 +1226,9 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x20
 
@@ -1308,9 +1308,9 @@
 
     and-long/2addr p1, v4
 
-    cmp-long v1, p1, v2
+    cmp-long p1, p1, v2
 
-    if-eqz v1, :cond_7
+    if-eqz p1, :cond_7
 
     or-int/lit8 v0, v0, 0x8
 
@@ -2242,7 +2242,7 @@
     .line 2461
     iput-boolean v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mIsRccRegistered:Z
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_1
 

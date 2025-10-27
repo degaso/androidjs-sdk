@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Notification;)V
-    .locals 3
+    .locals 2
 
     .line 4651
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,29 +85,19 @@
     .line 4638
     iput v0, p0, Landroid/support/v4/app/NotificationCompat$CarExtender;->mColor:I
 
-    .line 4652
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-ge v1, v2, :cond_0
-
-    return-void
-
     .line 4656
-    :cond_0
     invoke-static {p1}, Landroid/support/v4/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     const/4 p1, 0x0
 
     goto :goto_0
 
     .line 4657
-    :cond_1
+    :cond_0
     invoke-static {p1}, Landroid/support/v4/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
     move-result-object p1
@@ -119,7 +109,7 @@
     move-result-object p1
 
     :goto_0
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     .line 4659
     const-string v1, "large_icon"
@@ -155,7 +145,7 @@
 
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -267,7 +257,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setLabel(Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
 
     move-result-object v2
 
@@ -276,7 +266,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;[Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setChoices([Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
 
     move-result-object v2
 
@@ -285,7 +275,7 @@
 
     move-result v3
 
-    invoke-static {v2, v3}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Z)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setAllowFreeFormInput(Z)Landroid/app/RemoteInput$Builder;
 
     move-result-object v2
 
@@ -294,12 +284,12 @@
 
     move-result-object v1
 
-    invoke-static {v2, v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
+    invoke-virtual {v2, v1}, Landroid/app/RemoteInput$Builder;->addExtras(Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
 
     move-result-object v1
 
     .line 4741
-    invoke-static {v1}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput$Builder;)Landroid/app/RemoteInput;
+    invoke-virtual {v1}, Landroid/app/RemoteInput$Builder;->build()Landroid/app/RemoteInput;
 
     move-result-object v1
 
@@ -448,9 +438,7 @@
 
     move-result-object v2
 
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/app/RemoteInput;
-
-    move-result-object v2
+    check-cast v2, Landroid/app/RemoteInput;
 
     .line 4700
     const-string v3, "participants"
@@ -477,27 +465,27 @@
     new-instance v1, Landroid/support/v4/app/RemoteInput;
 
     .line 4706
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;)Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
 
     move-result-object v13
 
     .line 4707
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;)Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v14
 
     .line 4708
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;)[Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
 
     move-result-object v15
 
     .line 4709
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;)Z
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
 
     move-result v16
 
     .line 4710
-    invoke-static {v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/RemoteInput;)Landroid/os/Bundle;
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getExtras()Landroid/os/Bundle;
 
     move-result-object v17
 
@@ -534,17 +522,7 @@
 .method public extend(Landroid/support/v4/app/NotificationCompat$Builder;)Landroid/support/v4/app/NotificationCompat$Builder;
     .locals 3
 
-    .line 4758
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    return-object p1
-
     .line 4762
-    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -552,7 +530,7 @@
     .line 4764
     iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     .line 4765
     const-string v2, "large_icon"
@@ -560,10 +538,10 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 4767
-    :cond_1
+    :cond_0
     iget v1, p0, Landroid/support/v4/app/NotificationCompat$CarExtender;->mColor:I
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     .line 4768
     const-string v2, "app_color"
@@ -571,10 +549,10 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 4771
-    :cond_2
+    :cond_1
     iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     .line 4772
     invoke-static {v1}, Landroid/support/v4/app/NotificationCompat$CarExtender;->getBundleForUnreadConversation(Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;)Landroid/os/Bundle;
@@ -587,7 +565,7 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 4776
-    :cond_3
+    :cond_2
     invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1

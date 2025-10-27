@@ -62,7 +62,7 @@
 
     move-result v0
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     const/high16 v0, 0x40000000    # 2.0f
 
@@ -75,7 +75,7 @@
     move-object v0, p2
 
     .line 284
-    invoke-static/range {v0 .. v5}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Outline;IIIIF)V
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
 
     return-void
 .end method

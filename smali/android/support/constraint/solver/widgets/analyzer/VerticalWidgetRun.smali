@@ -1615,6 +1615,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1737,7 +1739,7 @@
 
     if-eq p1, v3, :cond_4
 
-    const/4 p1, 0x0
+    move p1, v4
 
     goto :goto_3
 
@@ -1779,7 +1781,7 @@
 
     move-result v1
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     goto :goto_2
 
@@ -1850,7 +1852,7 @@
 
     int-to-float p1, p1
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     add-float/2addr p1, v0
 
@@ -2181,7 +2183,7 @@
     .line 187
     iget v3, v1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->value:I
 
-    const/high16 v4, 0x3f000000    # 0.5f
+    move v4, v0
 
     :cond_f
     sub-int/2addr v3, v2
@@ -2202,7 +2204,7 @@
 
     int-to-float v0, v3
 
-    mul-float v0, v0, v4
+    mul-float/2addr v0, v4
 
     add-float/2addr v1, v0
 

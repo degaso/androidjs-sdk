@@ -157,7 +157,7 @@
 
     iget v2, v2, Landroid/support/v7/widget/ActivityChooserModel$HistoricalRecord;->weight:F
 
-    mul-float v2, v2, v1
+    mul-float/2addr v2, v1
 
     add-float/2addr v4, v2
 
@@ -165,7 +165,7 @@
 
     const v2, 0x3f733333    # 0.95f
 
-    mul-float v1, v1, v2
+    mul-float/2addr v1, v2
 
     :cond_1
     add-int/lit8 v0, v0, -0x1

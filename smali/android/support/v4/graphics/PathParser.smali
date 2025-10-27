@@ -69,7 +69,7 @@
     return v0
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 145
     :goto_0
@@ -190,9 +190,9 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x1
+    move v3, v1
 
-    const/4 v4, 0x0
+    move v4, v2
 
     .line 99
     :goto_0
@@ -321,7 +321,9 @@
 
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -385,11 +387,11 @@
 
     move v1, p1
 
-    const/4 v2, 0x0
+    move v2, v0
 
-    const/4 v3, 0x0
+    move v3, v2
 
-    const/4 v4, 0x0
+    move v4, v3
 
     .line 262
     :goto_0
@@ -425,9 +427,9 @@
     :pswitch_0
     if-nez v3, :cond_0
 
-    const/4 v2, 0x0
+    move v2, v0
 
-    const/4 v3, 0x1
+    move v3, v7
 
     goto :goto_3
 
@@ -449,21 +451,21 @@
 
     :cond_1
     :goto_1
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_3
 
     :cond_2
-    const/4 v2, 0x1
+    move v2, v7
 
     goto :goto_3
 
     :cond_3
     :goto_2
     :pswitch_2
-    const/4 v2, 0x0
+    move v2, v0
 
-    const/4 v4, 0x1
+    move v4, v7
 
     :goto_3
     if-eqz v4, :cond_4
@@ -535,7 +537,7 @@
 
     const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    move v5, v0
 
     :goto_0
     if-ge v4, v3, :cond_3
@@ -603,11 +605,15 @@
 
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, "\""
+    move-result-object p0
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "\""
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -643,7 +649,7 @@
 
     add-int/lit8 v2, v0, -0x5a
 
-    mul-int v1, v1, v2
+    mul-int/2addr v1, v2
 
     if-lez v1, :cond_0
 
@@ -651,7 +657,7 @@
 
     add-int/lit8 v2, v0, -0x7a
 
-    mul-int v1, v1, v2
+    mul-int/2addr v1, v2
 
     if-gtz v1, :cond_1
 
@@ -680,7 +686,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 162
     :goto_0
@@ -697,7 +703,7 @@
 
     iput-char v3, v2, Landroid/support/v4/graphics/PathParser$PathDataNode;->mType:C
 
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 164
     :goto_1

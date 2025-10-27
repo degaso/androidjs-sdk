@@ -152,7 +152,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     .line 903
     new-instance v0, Ljava/lang/StringBuilder;
@@ -175,15 +175,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move-result-object v1
 
-    iget v2, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
+    new-instance v2, Ljava/math/BigDecimal;
 
-    float-to-double v2, v2
+    iget v3, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
-    invoke-direct {v1, v2, v3}, Ljava/math/BigDecimal;-><init>(D)V
+    float-to-double v3, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3, v4}, Ljava/math/BigDecimal;-><init>(D)V
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 907
     const-string v1, "]"

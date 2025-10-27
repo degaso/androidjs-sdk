@@ -124,7 +124,7 @@
 
     if-nez p2, :cond_0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     goto :goto_0
 
@@ -135,7 +135,7 @@
     array-length v1, v1
 
     :goto_0
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_1
     const/4 v3, -0x1
@@ -161,19 +161,19 @@
     goto :goto_1
 
     :cond_2
-    const/4 v2, -0x1
+    move v2, v3
 
     :goto_2
     const/4 v4, 0x1
 
     if-ne v2, v3, :cond_3
 
-    const/4 v5, 0x1
+    move v5, v4
 
     goto :goto_3
 
     :cond_3
-    const/4 v5, 0x0
+    move v5, v0
 
     :goto_3
     add-int/2addr v5, v1
@@ -192,7 +192,7 @@
 
     if-ne v2, v3, :cond_4
 
-    const/4 p1, 0x0
+    move p1, v0
 
     :goto_4
     if-ge p1, v1, :cond_6
@@ -217,7 +217,7 @@
     goto :goto_4
 
     :cond_4
-    const/4 p1, 0x0
+    move p1, v0
 
     :goto_5
     if-ge p1, v2, :cond_5
@@ -317,13 +317,7 @@
 
     invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_9
-
-    :goto_8
     throw p1
-
-    :goto_9
-    goto :goto_8
 .end method
 
 .method varargs constructor <init>([Ljava/util/Locale;)V
@@ -435,9 +429,13 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "] is a repetition"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -457,9 +455,13 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "] is null"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -575,7 +577,7 @@
     goto :goto_0
 
     :cond_3
-    const p2, 0x7fffffff
+    move p2, v0
 
     .line 371
     :goto_0
@@ -850,19 +852,10 @@
 .end method
 
 .method private static getLikelyScript(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 3
-
-    .line 286
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    const-string v2, ""
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 287
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/util/Locale;->getScript()Ljava/lang/String;
 
     move-result-object p0
 
@@ -875,8 +868,11 @@
 
     return-object p0
 
+    .line 291
     :cond_0
-    return-object v2
+    const-string p0, ""
+
+    return-object p0
 .end method
 
 .method private static isPseudoLocale(Ljava/lang/String;)Z
@@ -974,7 +970,7 @@
     :cond_1
     array-length v1, p0
 
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_0
     if-ge v2, v1, :cond_3
@@ -1093,7 +1089,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v2
 
     :cond_4
     :goto_0
@@ -1254,7 +1250,7 @@
     return v2
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v2
 
     .line 119
     :goto_0

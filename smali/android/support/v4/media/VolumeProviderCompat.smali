@@ -88,12 +88,6 @@
 
     if-nez v0, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     .line 169
     iget v0, p0, Landroid/support/v4/media/VolumeProviderCompat;->mControlType:I
 
@@ -140,7 +134,7 @@
 .end method
 
 .method public final setCurrentVolume(I)V
-    .locals 3
+    .locals 1
 
     .line 123
     iput p1, p0, Landroid/support/v4/media/VolumeProviderCompat;->mCurrentVolume:I
@@ -151,13 +145,6 @@
     move-result-object v0
 
     if-eqz v0, :cond_0
-
-    .line 125
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
 
     .line 126
     invoke-static {v0, p1}, Landroid/support/v4/media/VolumeProviderCompatApi21;->setCurrentVolume(Ljava/lang/Object;I)V

@@ -89,7 +89,7 @@
 
     const/4 v1, 0x2
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/2addr v0, v1
 
     .line 85
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirst:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -103,7 +103,7 @@
 
     move-object v5, v2
 
-    const/4 v6, 0x0
+    move v6, v4
 
     :goto_0
     if-nez v6, :cond_15
@@ -512,7 +512,7 @@
     :cond_14
     move-object v9, v2
 
-    const/4 v6, 0x1
+    move v6, v3
 
     :goto_4
     move-object v5, v2
@@ -602,7 +602,7 @@
     goto :goto_6
 
     :cond_19
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_6
     iput-boolean v3, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mHasComplexMatchWeights:Z

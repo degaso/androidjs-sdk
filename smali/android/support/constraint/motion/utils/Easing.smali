@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 3
 
     .line 29
     new-instance v0, Landroid/support/constraint/motion/utils/Easing;
@@ -48,18 +48,34 @@
 
     sput-object v0, Landroid/support/constraint/motion/utils/Easing;->sDefault:Landroid/support/constraint/motion/utils/Easing;
 
-    .line 40
-    const-string v0, "decelerate"
+    const/4 v0, 0x4
 
-    const-string v1, "linear"
+    .line 40
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     const-string v2, "standard"
 
-    const-string v3, "accelerate"
+    aput-object v2, v0, v1
 
-    filled-new-array {v2, v3, v0, v1}, [Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    const-string v2, "accelerate"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string v2, "decelerate"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    const-string v2, "linear"
+
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/support/constraint/motion/utils/Easing;->NAMED_EASING:[Ljava/lang/String;
 
@@ -201,6 +217,8 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -254,6 +272,8 @@
     invoke-direct {p0, v0}, Landroid/support/constraint/motion/utils/Easing$CubicEasing;-><init>(Ljava/lang/String;)V
 
     return-object p0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

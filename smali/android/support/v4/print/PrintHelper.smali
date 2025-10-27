@@ -51,48 +51,15 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 1
 
-    .line 70
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x14
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x17
-
-    const/4 v4, 0x1
-
-    if-lt v0, v1, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-le v0, v3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
     const/4 v0, 0x1
 
-    :goto_1
+    .line 70
     sput-boolean v0, Landroid/support/v4/print/PrintHelper;->PRINT_ACTIVITY_RESPECTS_ORIENTATION:Z
 
     .line 78
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-eq v0, v3, :cond_2
-
-    const/4 v2, 0x1
-
-    :cond_2
-    sput-boolean v2, Landroid/support/v4/print/PrintHelper;->IS_MIN_MARGINS_HANDLING_CORRECT:Z
+    sput-boolean v0, Landroid/support/v4/print/PrintHelper;->IS_MIN_MARGINS_HANDLING_CORRECT:Z
 
     return-void
 .end method
@@ -199,7 +166,7 @@
 .end method
 
 .method private static copyAttributes(Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes$Builder;
-    .locals 3
+    .locals 2
 
     .line 558
     new-instance v0, Landroid/print/PrintAttributes$Builder;
@@ -247,27 +214,20 @@
 
     invoke-virtual {v0, v1}, Landroid/print/PrintAttributes$Builder;->setColorMode(I)Landroid/print/PrintAttributes$Builder;
 
-    .line 567
-    :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v1, v2, :cond_1
-
     .line 568
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/print/PrintAttributes;)I
+    :cond_0
+    invoke-virtual {p0}, Landroid/print/PrintAttributes;->getDuplexMode()I
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 569
-    invoke-static {p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/print/PrintAttributes;)I
+    invoke-virtual {p0}, Landroid/print/PrintAttributes;->getDuplexMode()I
 
     move-result p0
 
-    invoke-static {v0, p0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/print/PrintAttributes$Builder;I)Landroid/print/PrintAttributes$Builder;
+    invoke-virtual {v0, p0}, Landroid/print/PrintAttributes$Builder;->setDuplexMode(I)Landroid/print/PrintAttributes$Builder;
 
     :cond_1
     return-object v0
@@ -332,7 +292,7 @@
 
     move-result v1
 
-    mul-float p0, p0, p3
+    mul-float/2addr p0, p3
 
     sub-float/2addr v1, p0
 
@@ -347,7 +307,7 @@
 
     int-to-float p1, p1
 
-    mul-float p1, p1, p3
+    mul-float/2addr p1, p3
 
     sub-float/2addr p2, p1
 
@@ -578,7 +538,7 @@
 
     move-result v4
 
-    const/4 v5, 0x1
+    move v5, v1
 
     :goto_0
     const/16 v6, 0xdac
@@ -718,13 +678,7 @@
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p1
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public printBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;)V

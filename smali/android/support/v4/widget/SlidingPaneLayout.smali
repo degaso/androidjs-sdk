@@ -149,7 +149,7 @@
 
     const/high16 p3, 0x42000000    # 32.0f
 
-    mul-float p3, p3, p1
+    mul-float/2addr p3, p1
 
     const/high16 v0, 0x3f000000    # 0.5f
 
@@ -188,7 +188,7 @@
 
     const/high16 p3, 0x43c80000    # 400.0f
 
-    mul-float p1, p1, p3
+    mul-float/2addr p1, p3
 
     .line 260
     invoke-virtual {p2, p1}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
@@ -255,7 +255,7 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     float-to-int p2, v1
 
@@ -424,7 +424,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v3
 
     .line 1213
     :goto_1
@@ -459,7 +459,7 @@
 
     int-to-float v8, v7
 
-    mul-float v5, v5, v8
+    mul-float/2addr v5, v8
 
     float-to-int v5, v5
 
@@ -470,7 +470,7 @@
 
     int-to-float v7, v7
 
-    mul-float v8, v8, v7
+    mul-float/2addr v8, v7
 
     float-to-int v7, v8
 
@@ -1466,13 +1466,13 @@
 
     if-eqz v0, :cond_5
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_1
 
     :cond_5
     :goto_0
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 807
     :goto_1
@@ -1489,7 +1489,7 @@
     goto :goto_2
 
     :cond_6
-    const/4 v2, 0x0
+    move v2, v3
 
     :cond_7
     :goto_2
@@ -1721,7 +1721,7 @@
     .line 688
     iget v9, v0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideOffset:F
 
-    mul-float v8, v8, v9
+    mul-float/2addr v8, v9
 
     float-to-int v8, v8
 
@@ -1765,7 +1765,7 @@
 
     int-to-float v2, v2
 
-    mul-float v8, v8, v2
+    mul-float/2addr v8, v2
 
     float-to-int v2, v8
 
@@ -1951,7 +1951,7 @@
     :cond_0
     if-nez v1, :cond_4
 
-    const/16 v2, 0x12c
+    move v2, v5
 
     goto :goto_0
 
@@ -1977,9 +1977,9 @@
 
     if-nez v3, :cond_4
 
-    const/high16 v3, -0x80000000
+    move v4, v5
 
-    const/16 v4, 0x12c
+    move v3, v6
 
     goto :goto_0
 
@@ -2001,11 +2001,12 @@
 
     if-eq v3, v7, :cond_5
 
-    const/4 v4, 0x0
+    move v4, v1
 
-    const/4 v5, 0x0
+    :goto_1
+    move v5, v4
 
-    goto :goto_1
+    goto :goto_2
 
     .line 476
     :cond_5
@@ -2020,8 +2021,6 @@
     move-result v5
 
     sub-int/2addr v4, v5
-
-    move v5, v4
 
     goto :goto_1
 
@@ -2041,10 +2040,10 @@
 
     move v5, v4
 
-    const/4 v4, 0x0
+    move v4, v1
 
     .line 485
-    :goto_1
+    :goto_2
     invoke-virtual/range {p0 .. p0}, Landroid/support/v4/widget/SlidingPaneLayout;->getPaddingLeft()I
 
     move-result v8
@@ -2079,15 +2078,15 @@
     .line 494
     iput-object v10, v0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
 
+    move v11, v1
+
+    move v12, v11
+
     move v14, v8
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
 
     const/4 v13, 0x0
 
-    :goto_2
+    :goto_3
     const/16 v15, 0x8
 
     const/16 v16, 0x1
@@ -2118,7 +2117,7 @@
     .line 503
     iput-boolean v1, v7, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->dimWhenOffset:Z
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     .line 507
     :cond_8
@@ -2140,7 +2139,7 @@
 
     if-nez v10, :cond_9
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     .line 516
     :cond_9
@@ -2168,7 +2167,7 @@
 
     const/high16 v10, 0x40000000    # 2.0f
 
-    goto :goto_3
+    goto :goto_4
 
     .line 520
     :cond_a
@@ -2187,7 +2186,7 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_b
     const/high16 v10, 0x40000000    # 2.0f
@@ -2200,7 +2199,7 @@
     move-result v1
 
     .line 528
-    :goto_3
+    :goto_4
     iget v15, v7, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->height:I
 
     const/4 v10, -0x2
@@ -2214,7 +2213,7 @@
 
     move-result v15
 
-    goto :goto_4
+    goto :goto_5
 
     .line 530
     :cond_c
@@ -2231,7 +2230,7 @@
 
     move-result v15
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_d
     const/high16 v10, 0x40000000    # 2.0f
@@ -2244,7 +2243,7 @@
     move-result v15
 
     .line 536
-    :goto_4
+    :goto_5
     invoke-virtual {v6, v1, v15}, Landroid/view/View;->measure(II)V
 
     .line 537
@@ -2273,15 +2272,15 @@
 
     if-gez v14, :cond_f
 
-    const/4 v1, 0x1
+    move/from16 v1, v16
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_f
     const/4 v1, 0x0
 
     .line 545
-    :goto_5
+    :goto_6
     iput-boolean v1, v7, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->slideable:Z
 
     or-int/2addr v12, v1
@@ -2295,7 +2294,7 @@
     iput-object v6, v0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
 
     :cond_10
-    :goto_6
+    :goto_7
     add-int/lit8 v11, v11, 0x1
 
     const/4 v1, 0x0
@@ -2304,7 +2303,7 @@
 
     const/high16 v7, 0x40000000    # 2.0f
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :cond_11
     if-nez v12, :cond_12
@@ -2323,7 +2322,7 @@
 
     const/4 v3, 0x0
 
-    :goto_7
+    :goto_8
     if-ge v3, v9, :cond_22
 
     .line 556
@@ -2339,16 +2338,16 @@
     if-ne v7, v15, :cond_15
 
     :cond_13
-    :goto_8
+    :goto_9
     move/from16 v19, v1
 
     :cond_14
-    :goto_9
+    :goto_a
     const/4 v1, 0x0
 
     const/high16 v7, 0x40000000    # 2.0f
 
-    goto/16 :goto_e
+    goto/16 :goto_f
 
     .line 562
     :cond_15
@@ -2365,7 +2364,7 @@
 
     if-ne v10, v15, :cond_16
 
-    goto :goto_8
+    goto :goto_9
 
     .line 568
     :cond_16
@@ -2381,19 +2380,19 @@
 
     if-lez v10, :cond_17
 
-    const/4 v10, 0x1
+    move/from16 v10, v16
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_17
     const/4 v10, 0x0
 
-    :goto_a
+    :goto_b
     if-eqz v10, :cond_18
 
     const/4 v11, 0x0
 
-    goto :goto_b
+    goto :goto_c
 
     .line 569
     :cond_18
@@ -2401,7 +2400,7 @@
 
     move-result v11
 
-    :goto_b
+    :goto_c
     if-eqz v12, :cond_1d
 
     .line 570
@@ -2443,7 +2442,7 @@
 
     const/high16 v10, 0x40000000    # 2.0f
 
-    goto :goto_c
+    goto :goto_d
 
     .line 581
     :cond_1a
@@ -2460,7 +2459,7 @@
 
     move-result v7
 
-    goto :goto_c
+    goto :goto_d
 
     :cond_1b
     const/high16 v10, 0x40000000    # 2.0f
@@ -2472,7 +2471,7 @@
 
     move-result v7
 
-    goto :goto_c
+    goto :goto_d
 
     :cond_1c
     const/high16 v10, 0x40000000    # 2.0f
@@ -2488,7 +2487,7 @@
     move-result v7
 
     .line 592
-    :goto_c
+    :goto_d
     invoke-static {v1, v10}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v11
@@ -2496,7 +2495,7 @@
     .line 594
     invoke-virtual {v6, v11, v7}, Landroid/view/View;->measure(II)V
 
-    goto :goto_8
+    goto :goto_9
 
     .line 596
     :cond_1d
@@ -2531,7 +2530,7 @@
 
     const/high16 v10, 0x40000000    # 2.0f
 
-    goto :goto_d
+    goto :goto_e
 
     .line 603
     :cond_1e
@@ -2550,7 +2549,7 @@
 
     move/from16 v15, v19
 
-    goto :goto_d
+    goto :goto_e
 
     :cond_1f
     const/high16 v10, 0x40000000    # 2.0f
@@ -2562,7 +2561,7 @@
 
     move-result v15
 
-    goto :goto_d
+    goto :goto_e
 
     :cond_20
     const/high16 v10, 0x40000000    # 2.0f
@@ -2577,7 +2576,7 @@
 
     move-result v15
 
-    :goto_d
+    :goto_e
     if-eqz v12, :cond_21
 
     .line 617
@@ -2603,7 +2602,7 @@
     .line 622
     invoke-virtual {v6, v1, v15}, Landroid/view/View;->measure(II)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_21
     move/from16 v19, v1
@@ -2620,7 +2619,7 @@
 
     int-to-float v10, v10
 
-    mul-float v7, v7, v10
+    mul-float/2addr v7, v10
 
     div-float/2addr v7, v13
 
@@ -2638,14 +2637,14 @@
     .line 630
     invoke-virtual {v6, v10, v15}, Landroid/view/View;->measure(II)V
 
-    :goto_e
+    :goto_f
     add-int/lit8 v3, v3, 0x1
 
     move/from16 v1, v19
 
     const/16 v15, 0x8
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
     .line 637
     :cond_22
@@ -2979,13 +2978,13 @@
 
     move-result v4
 
-    mul-float v2, v2, v2
+    mul-float/2addr v2, v2
 
-    mul-float v3, v3, v3
+    mul-float/2addr v3, v3
 
     add-float/2addr v2, v3
 
-    mul-int v4, v4, v4
+    mul-int/2addr v4, v4
 
     int-to-float v3, v4
 
@@ -3101,7 +3100,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -3333,7 +3332,7 @@
 
     int-to-float v3, v3
 
-    mul-float p1, p1, v3
+    mul-float/2addr p1, v3
 
     add-float/2addr p2, p1
 
@@ -3364,7 +3363,7 @@
 
     int-to-float v1, v1
 
-    mul-float p1, p1, v1
+    mul-float/2addr p1, v1
 
     add-float/2addr p2, p1
 

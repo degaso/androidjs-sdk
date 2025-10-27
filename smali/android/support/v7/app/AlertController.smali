@@ -347,12 +347,12 @@
 
     if-eqz v2, :cond_0
 
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x4
+    move v2, v1
 
     .line 749
     :goto_0
@@ -373,7 +373,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 v0, 0x4
+    move v0, v1
 
     .line 753
     :goto_1
@@ -475,7 +475,7 @@
 .end method
 
 .method private setScrollIndicators(Landroid/view/ViewGroup;Landroid/view/View;II)V
-    .locals 4
+    .locals 3
 
     .line 560
     iget-object v0, p0, Landroid/support/v7/app/AlertController;->mWindow:Landroid/view/Window;
@@ -495,13 +495,6 @@
 
     move-result-object v1
 
-    .line 563
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x17
-
-    if-lt v2, v3, :cond_1
-
     .line 565
     invoke-static {p2, p3, p4}, Landroid/support/v4/view/ViewCompat;->setScrollIndicators(Landroid/view/View;II)V
 
@@ -511,108 +504,12 @@
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     :cond_0
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_1
 
     .line 571
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    goto :goto_0
-
     :cond_1
-    const/4 p2, 0x0
-
-    if-eqz v0, :cond_2
-
-    and-int/lit8 p4, p3, 0x1
-
-    if-nez p4, :cond_2
-
-    .line 576
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    move-object v0, p2
-
-    :cond_2
-    if-eqz v1, :cond_3
-
-    and-int/lit8 p3, p3, 0x2
-
-    if-nez p3, :cond_3
-
-    .line 580
-    invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    move-object v1, p2
-
-    :cond_3
-    if-nez v0, :cond_4
-
-    if-eqz v1, :cond_8
-
-    .line 588
-    :cond_4
-    iget-object p2, p0, Landroid/support/v7/app/AlertController;->mMessage:Ljava/lang/CharSequence;
-
-    if-eqz p2, :cond_5
-
-    .line 590
-    iget-object p1, p0, Landroid/support/v7/app/AlertController;->mScrollView:Landroid/support/v4/widget/NestedScrollView;
-
-    new-instance p2, Landroid/support/v7/app/AlertController$2;
-
-    invoke-direct {p2, p0, v0, v1}, Landroid/support/v7/app/AlertController$2;-><init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-
-    invoke-virtual {p1, p2}, Landroid/support/v4/widget/NestedScrollView;->setOnScrollChangeListener(Landroid/support/v4/widget/NestedScrollView$OnScrollChangeListener;)V
-
-    .line 600
-    iget-object p1, p0, Landroid/support/v7/app/AlertController;->mScrollView:Landroid/support/v4/widget/NestedScrollView;
-
-    new-instance p2, Landroid/support/v7/app/AlertController$3;
-
-    invoke-direct {p2, p0, v0, v1}, Landroid/support/v7/app/AlertController$3;-><init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-
-    invoke-virtual {p1, p2}, Landroid/support/v4/widget/NestedScrollView;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_0
-
-    .line 606
-    :cond_5
-    iget-object p2, p0, Landroid/support/v7/app/AlertController;->mListView:Landroid/widget/ListView;
-
-    if-eqz p2, :cond_6
-
-    .line 608
-    new-instance p1, Landroid/support/v7/app/AlertController$4;
-
-    invoke-direct {p1, p0, v0, v1}, Landroid/support/v7/app/AlertController$4;-><init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-
-    invoke-virtual {p2, p1}, Landroid/widget/ListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
-
-    .line 619
-    iget-object p1, p0, Landroid/support/v7/app/AlertController;->mListView:Landroid/widget/ListView;
-
-    new-instance p2, Landroid/support/v7/app/AlertController$5;
-
-    invoke-direct {p2, p0, v0, v1}, Landroid/support/v7/app/AlertController$5;-><init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-
-    invoke-virtual {p1, p2}, Landroid/widget/ListView;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_0
-
-    :cond_6
-    if-eqz v0, :cond_7
-
-    .line 628
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    :cond_7
-    if-eqz v1, :cond_8
-
-    .line 631
-    invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    :cond_8
-    :goto_0
     return-void
 .end method
 
@@ -661,7 +558,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    const/4 v0, 0x0
+    move v0, v4
 
     goto :goto_0
 
@@ -696,7 +593,7 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    const/4 v0, 0x1
+    move v0, v3
 
     :goto_0
     const v5, 0x102001a
@@ -1416,12 +1313,12 @@
 
     if-eq v0, v4, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v5
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v6
 
     :goto_0
     if-eqz v1, :cond_1
@@ -1433,12 +1330,12 @@
 
     if-eq v7, v4, :cond_1
 
-    const/4 v7, 0x1
+    move v7, v5
 
     goto :goto_1
 
     :cond_1
-    const/4 v7, 0x0
+    move v7, v6
 
     :goto_1
     if-eqz v3, :cond_2
@@ -1450,12 +1347,12 @@
 
     if-eq v3, v4, :cond_2
 
-    const/4 v3, 0x1
+    move v3, v5
 
     goto :goto_2
 
     :cond_2
-    const/4 v3, 0x0
+    move v3, v6
 
     :goto_2
     if-nez v3, :cond_3

@@ -42,7 +42,7 @@
     check-cast p1, Landroid/support/v4/widget/DrawerLayout;
 
     .line 347
-    invoke-static {p2}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m$5(Landroid/view/WindowInsets;)I
+    invoke-virtual {p2}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v0
 
@@ -59,7 +59,7 @@
     invoke-virtual {p1, p2, v0}, Landroid/support/v4/widget/DrawerLayout;->setChildInsets(Ljava/lang/Object;Z)V
 
     .line 348
-    invoke-static {p2}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    invoke-virtual {p2}, Landroid/view/WindowInsets;->consumeSystemWindowInsets()Landroid/view/WindowInsets;
 
     move-result-object p1
 

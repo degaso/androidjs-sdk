@@ -89,12 +89,12 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     iput-boolean v0, p0, Landroid/support/v4/app/FragmentState;->mFromLayout:Z
@@ -127,12 +127,12 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_1
     iput-boolean v0, p0, Landroid/support/v4/app/FragmentState;->mRetainInstance:Z
@@ -144,12 +144,12 @@
 
     if-eqz v0, :cond_2
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_2
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_2
     iput-boolean v0, p0, Landroid/support/v4/app/FragmentState;->mDetached:Z
@@ -171,7 +171,7 @@
     goto :goto_3
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_3
     iput-boolean v1, p0, Landroid/support/v4/app/FragmentState;->mHidden:Z
@@ -420,6 +420,8 @@
     iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

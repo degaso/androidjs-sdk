@@ -214,44 +214,28 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroid/support/v4/media/AudioAttributesCompat;
-    .locals 2
-
-    .line 360
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 361
     invoke-static {p0}, Landroid/support/v4/media/AudioAttributesImplApi21;->fromBundle(Landroid/os/Bundle;)Landroid/support/v4/media/AudioAttributesImpl;
 
     move-result-object p0
 
-    goto :goto_0
-
-    .line 363
-    :cond_0
-    invoke-static {p0}, Landroid/support/v4/media/AudioAttributesImplBase;->fromBundle(Landroid/os/Bundle;)Landroid/support/v4/media/AudioAttributesImpl;
-
-    move-result-object p0
-
-    :goto_0
-    if-nez p0, :cond_1
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 365
-    :cond_1
+    :cond_0
     new-instance v0, Landroid/support/v4/media/AudioAttributesCompat;
 
     invoke-direct {v0, p0}, Landroid/support/v4/media/AudioAttributesCompat;-><init>(Landroid/support/v4/media/AudioAttributesImpl;)V
 
     move-object p0, v0
 
-    :goto_1
+    :goto_0
     return-object p0
 .end method
 
@@ -368,9 +352,13 @@
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string p2, " in audio attributes"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -507,7 +495,9 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -609,6 +599,8 @@
 
     return-object p0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_10
@@ -632,15 +624,9 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroid/support/v4/media/AudioAttributesCompat;
-    .locals 2
+    .locals 1
 
     .line 307
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     sget-boolean v0, Landroid/support/v4/media/AudioAttributesCompat;->sForceLegacyBehavior:Z
 
     if-nez v0, :cond_0
@@ -648,9 +634,7 @@
     .line 308
     new-instance v0, Landroid/support/v4/media/AudioAttributesImplApi21;
 
-    invoke-static {p0}, Landroid/support/v4/graphics/PathUtils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/media/AudioAttributes;
-
-    move-result-object p0
+    check-cast p0, Landroid/media/AudioAttributes;
 
     invoke-direct {v0, p0}, Landroid/support/v4/media/AudioAttributesImplApi21;-><init>(Landroid/media/AudioAttributes;)V
 

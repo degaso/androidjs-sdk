@@ -237,7 +237,7 @@
 
     sub-float/2addr p1, p0
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     add-float/2addr p0, p1
 
@@ -292,17 +292,17 @@
 
     :cond_1
     :goto_0
-    const/4 v4, 0x1
+    move v4, v5
 
     .line 349
     :cond_2
     iget v3, v0, Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;->mArrowHeadLength:F
 
-    mul-float v3, v3, v3
+    mul-float/2addr v3, v3
 
     const/high16 v6, 0x40000000    # 2.0f
 
-    mul-float v3, v3, v6
+    mul-float/2addr v3, v6
 
     float-to-double v7, v3
 
@@ -360,7 +360,7 @@
 
     if-eqz v4, :cond_3
 
-    const/4 v11, 0x0
+    move v11, v10
 
     goto :goto_1
 
@@ -372,12 +372,12 @@
 
     if-eqz v4, :cond_4
 
-    const/high16 v13, 0x43340000    # 180.0f
+    move v13, v12
 
     goto :goto_2
 
     :cond_4
-    const/4 v13, 0x0
+    move v13, v10
 
     .line 358
     :goto_2
@@ -398,8 +398,6 @@
 
     move-result-wide v16
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
-
     mul-double v16, v16, v13
 
     move v9, v4
@@ -415,9 +413,7 @@
 
     move-result-wide v10
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v13, v13, v10
+    mul-double/2addr v13, v10
 
     invoke-static {v13, v14}, Ljava/lang/Math;->round(D)J
 
@@ -467,7 +463,7 @@
     .line 371
     iget-object v13, v0, Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;->mPath:Landroid/graphics/Path;
 
-    mul-float v8, v8, v6
+    mul-float/2addr v8, v6
 
     sub-float/2addr v7, v8
 
@@ -521,13 +517,13 @@
 
     const/high16 v5, 0x40400000    # 3.0f
 
-    mul-float v5, v5, v3
+    mul-float/2addr v5, v3
 
     sub-float/2addr v4, v5
 
     iget v5, v0, Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;->mBarGap:F
 
-    mul-float v6, v6, v5
+    mul-float/2addr v6, v5
 
     sub-float/2addr v4, v6
 
@@ -542,7 +538,7 @@
 
     const/high16 v6, 0x3fc00000    # 1.5f
 
-    mul-float v3, v3, v6
+    mul-float/2addr v3, v6
 
     add-float/2addr v3, v5
 
@@ -848,9 +844,7 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
     double-to-float p1, v0
 

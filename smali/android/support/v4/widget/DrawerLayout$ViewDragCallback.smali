@@ -390,11 +390,9 @@
 
     if-eqz v1, :cond_2
 
-    cmpl-float v1, p2, v3
-
-    if-gtz v1, :cond_1
-
     cmpl-float p2, p2, v3
+
+    if-gtz p2, :cond_1
 
     if-nez p2, :cond_0
 
@@ -480,12 +478,12 @@
 
     if-ne v1, v4, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v3
 
     :goto_0
     if-eqz v1, :cond_2

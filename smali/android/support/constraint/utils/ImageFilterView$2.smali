@@ -62,7 +62,7 @@
 
     move-object v0, p2
 
-    invoke-static/range {v0 .. v5}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/graphics/Outline;IIIIF)V
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
 
     return-void
 .end method

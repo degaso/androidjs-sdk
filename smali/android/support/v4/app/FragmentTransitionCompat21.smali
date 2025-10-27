@@ -28,7 +28,7 @@
     if-eqz v0, :cond_1
 
     .line 120
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/Transition;)Ljava/util/List;
+    invoke-virtual {p0}, Landroid/transition/Transition;->getTargetNames()Ljava/util/List;
 
     move-result-object v0
 
@@ -39,7 +39,7 @@
     if-eqz v0, :cond_1
 
     .line 121
-    invoke-static {p0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/transition/Transition;)Ljava/util/List;
+    invoke-virtual {p0}, Landroid/transition/Transition;->getTargetTypes()Ljava/util/List;
 
     move-result-object p0
 
@@ -112,7 +112,7 @@
     check-cast p1, Landroid/transition/TransitionSet;
 
     .line 98
-    invoke-static {p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/TransitionSet;)I
+    invoke-virtual {p1}, Landroid/transition/TransitionSet;->getTransitionCount()I
 
     move-result v0
 
@@ -120,7 +120,7 @@
     if-ge v1, v0, :cond_2
 
     .line 100
-    invoke-static {p1, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/TransitionSet;I)Landroid/transition/Transition;
+    invoke-virtual {p1, v1}, Landroid/transition/TransitionSet;->getTransitionAt(I)Landroid/transition/Transition;
 
     move-result-object v2
 
@@ -374,7 +374,7 @@
     check-cast p1, Landroid/transition/TransitionSet;
 
     .line 264
-    invoke-static {p1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/TransitionSet;)I
+    invoke-virtual {p1}, Landroid/transition/TransitionSet;->getTransitionCount()I
 
     move-result v0
 
@@ -382,7 +382,7 @@
     if-ge v1, v0, :cond_3
 
     .line 266
-    invoke-static {p1, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/TransitionSet;I)Landroid/transition/Transition;
+    invoke-virtual {p1, v1}, Landroid/transition/TransitionSet;->getTransitionAt(I)Landroid/transition/Transition;
 
     move-result-object v2
 
@@ -428,7 +428,7 @@
 
     if-nez p3, :cond_1
 
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_1
 
@@ -573,7 +573,7 @@
 
     invoke-direct {v0, p0, p2}, Landroid/support/v4/app/FragmentTransitionCompat21$4;-><init>(Landroid/support/v4/app/FragmentTransitionCompat21;Landroid/graphics/Rect;)V
 
-    invoke-static {p1, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/Transition;Landroid/transition/Transition$EpicenterCallback;)V
+    invoke-virtual {p1, v0}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
 
     :cond_0
     return-void
@@ -600,7 +600,7 @@
 
     invoke-direct {p2, p0, v0}, Landroid/support/v4/app/FragmentTransitionCompat21$1;-><init>(Landroid/support/v4/app/FragmentTransitionCompat21;Landroid/graphics/Rect;)V
 
-    invoke-static {p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/transition/Transition;Landroid/transition/Transition$EpicenterCallback;)V
+    invoke-virtual {p1, p2}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
 
     :cond_0
     return-void

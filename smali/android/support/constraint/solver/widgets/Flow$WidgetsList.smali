@@ -181,7 +181,7 @@
     .line 727
     iget v1, p0, Landroid/support/constraint/solver/widgets/Flow$WidgetsList;->mCount:I
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_0
     if-ge v2, v1, :cond_7
@@ -241,7 +241,7 @@
 
     if-ne v7, v5, :cond_1
 
-    const/4 v6, 0x0
+    move v6, v0
 
     .line 739
     :cond_1
@@ -316,7 +316,7 @@
 
     if-ne v8, v5, :cond_4
 
-    const/4 v7, 0x0
+    move v7, v0
 
     .line 753
     :cond_4
@@ -397,7 +397,7 @@
 
     iput v0, p0, Landroid/support/constraint/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 417
     :cond_0
@@ -494,7 +494,7 @@
 
     iput v3, p0, Landroid/support/constraint/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 435
     :cond_4
@@ -598,7 +598,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_2
@@ -663,16 +663,16 @@
     goto :goto_2
 
     :cond_4
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_2
     const/4 v5, -0x1
 
-    const/4 v6, 0x0
+    move v6, v2
 
-    const/4 v7, -0x1
+    move v7, v5
 
-    const/4 v8, -0x1
+    move v8, v7
 
     :goto_3
     if-ge v6, v1, :cond_9
@@ -824,7 +824,7 @@
 
     if-nez v10, :cond_10
 
-    const/4 v10, 0x0
+    move v10, v2
 
     :goto_6
     if-ge v10, v1, :cond_10
@@ -889,7 +889,7 @@
     move-object v12, v6
 
     :goto_9
-    const/4 v10, 0x0
+    move v10, v2
 
     :goto_a
     if-ge v10, v1, :cond_35
@@ -1204,9 +1204,9 @@
     :goto_d
     add-int/lit8 v10, v10, 0x1
 
-    move-object v9, v14
+    move v11, v9
 
-    const/4 v11, 0x3
+    move-object v9, v14
 
     goto/16 :goto_a
 
@@ -1311,7 +1311,7 @@
 
     :cond_24
     :goto_e
-    const/4 v6, 0x0
+    move v6, v2
 
     :goto_f
     if-ge v6, v1, :cond_35

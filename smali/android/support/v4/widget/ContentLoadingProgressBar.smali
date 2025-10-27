@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public declared-synchronized hide()V
-    .locals 10
+    .locals 9
 
     monitor-enter p0
 
@@ -130,9 +130,9 @@
 
     const-wide/16 v7, -0x1
 
-    cmp-long v9, v3, v7
+    cmp-long v3, v3, v7
 
-    if-nez v9, :cond_0
+    if-nez v3, :cond_0
 
     goto :goto_0
 

@@ -120,7 +120,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_0
 
@@ -159,11 +159,9 @@
     .line 100
     iget-object v0, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DisplayCutout;
+    check-cast v0, Landroid/view/DisplayCutout;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/DisplayCutout;)Ljava/util/List;
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRects()Ljava/util/List;
 
     move-result-object v0
 
@@ -188,11 +186,9 @@
     .line 65
     iget-object v0, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DisplayCutout;
+    check-cast v0, Landroid/view/DisplayCutout;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$3(Landroid/view/DisplayCutout;)I
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getSafeInsetBottom()I
 
     move-result v0
 
@@ -217,11 +213,9 @@
     .line 74
     iget-object v0, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DisplayCutout;
+    check-cast v0, Landroid/view/DisplayCutout;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/DisplayCutout;)I
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getSafeInsetLeft()I
 
     move-result v0
 
@@ -246,11 +240,9 @@
     .line 83
     iget-object v0, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DisplayCutout;
+    check-cast v0, Landroid/view/DisplayCutout;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/view/DisplayCutout;)I
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getSafeInsetRight()I
 
     move-result v0
 
@@ -275,11 +267,9 @@
     .line 56
     iget-object v0, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/view/DisplayCutout;
+    check-cast v0, Landroid/view/DisplayCutout;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/view/MenuCompat$$ExternalSyntheticApiModelOutline0;->m$2(Landroid/view/DisplayCutout;)I
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getSafeInsetTop()I
 
     move-result v0
 
@@ -326,9 +316,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

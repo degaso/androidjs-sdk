@@ -123,7 +123,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v0, 0x0
+    move v0, v5
 
     :goto_0
     if-ge v0, v2, :cond_1
@@ -139,7 +139,7 @@
 
     aget v8, v8, v0
 
-    mul-float v8, v8, p2
+    mul-float/2addr v8, p2
 
     add-float/2addr v7, v8
 
@@ -171,7 +171,7 @@
     goto :goto_1
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v5
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -204,7 +204,7 @@
 
     if-eqz v6, :cond_5
 
-    mul-float v0, v0, p2
+    mul-float/2addr v0, p2
 
     .line 67
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
@@ -215,7 +215,7 @@
 
     if-gez v6, :cond_4
 
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 70
     :cond_4
@@ -319,7 +319,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const/16 v2, 0x9
@@ -434,19 +434,25 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->variable:Landroid/support/constraint/solver/SolverVariable;
+    move-result-object v1
 
-    iget-object v1, v1, Landroid/support/constraint/solver/SolverVariable;->goalStrengthVector:[F
+    iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->variable:Landroid/support/constraint/solver/SolverVariable;
 
-    aget v1, v1, v0
+    iget-object v2, v2, Landroid/support/constraint/solver/SolverVariable;->goalStrengthVector:[F
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    aget v2, v2, v0
 
-    const-string v1, " "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -462,13 +468,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "] "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->variable:Landroid/support/constraint/solver/SolverVariable;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

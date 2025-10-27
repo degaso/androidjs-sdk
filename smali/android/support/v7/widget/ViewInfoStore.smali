@@ -101,7 +101,7 @@
     .line 105
     iget v0, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
-    xor-int/lit8 v2, p2, -0x1
+    not-int v2, p2
 
     and-int/2addr v0, v2
 

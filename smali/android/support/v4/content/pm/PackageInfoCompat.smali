@@ -24,7 +24,7 @@
     if-lt v0, v1, :cond_0
 
     .line 35
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/pm/PackageInfo;)J
+    invoke-virtual {p0}, Landroid/content/pm/PackageInfo;->getLongVersionCode()J
 
     move-result-wide v0
 

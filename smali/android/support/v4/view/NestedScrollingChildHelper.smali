@@ -231,9 +231,9 @@
     goto :goto_1
 
     :cond_3
-    const/4 v8, 0x0
+    move v8, v1
 
-    const/4 v9, 0x0
+    move v9, v8
 
     :goto_1
     if-nez p3, :cond_5
@@ -306,7 +306,7 @@
     if-eqz p1, :cond_8
 
     :cond_7
-    const/4 v1, 0x1
+    move v1, v0
 
     :cond_8
     :goto_2
@@ -411,9 +411,9 @@
     goto :goto_1
 
     :cond_3
-    const/4 v12, 0x0
+    move v12, v3
 
-    const/4 v13, 0x0
+    move v13, v12
 
     .line 235
     :goto_1

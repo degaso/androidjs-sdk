@@ -74,12 +74,12 @@
 
     check-cast v9, [[D
 
-    const/4 v10, 0x0
+    move v10, v4
 
     :goto_0
     if-ge v10, v5, :cond_2
 
-    const/4 v11, 0x0
+    move v11, v4
 
     :goto_1
     if-ge v11, v6, :cond_1
@@ -159,12 +159,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_3
     if-ge v3, v6, :cond_6
 
-    const/4 v7, 0x0
+    move v7, v4
 
     :goto_4
     if-ge v7, v5, :cond_5
@@ -218,9 +218,9 @@
 
     const-wide/high16 v17, 0x4022000000000000L    # 9.0
 
-    cmpl-double v19, v15, v17
+    cmpl-double v17, v15, v17
 
-    if-lez v19, :cond_4
+    if-lez v17, :cond_4
 
     const-wide/high16 v17, 0x4008000000000000L    # 3.0
 
@@ -281,7 +281,7 @@
 
     const-wide/high16 v2, -0x3fe8000000000000L    # -6.0
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
     mul-double v2, v2, p6
 
@@ -293,49 +293,49 @@
 
     add-double/2addr v2, v8
 
-    mul-double v4, v4, v0
+    mul-double/2addr v4, v0
 
-    mul-double v4, v4, p4
+    mul-double/2addr v4, p4
 
     add-double/2addr v2, v4
 
-    mul-double v6, v6, p4
+    mul-double/2addr v6, p4
 
     sub-double/2addr v2, v6
 
     const-wide/high16 v4, 0x4008000000000000L    # 3.0
 
-    mul-double v4, v4, p0
+    mul-double/2addr v4, p0
 
     mul-double v6, v4, p10
 
-    mul-double v6, v6, v0
+    mul-double/2addr v6, v0
 
     add-double/2addr v2, v6
 
     mul-double v4, v4, p8
 
-    mul-double v4, v4, v0
+    mul-double/2addr v4, v0
 
     add-double/2addr v2, v4
 
     const-wide/high16 v0, 0x4000000000000000L    # 2.0
 
-    mul-double v0, v0, p0
+    mul-double/2addr v0, p0
 
     mul-double v0, v0, p10
 
-    mul-double v0, v0, p2
+    mul-double/2addr v0, p2
 
     sub-double/2addr v2, v0
 
     const-wide/high16 v0, 0x4010000000000000L    # 4.0
 
-    mul-double v0, v0, p0
+    mul-double/2addr v0, p0
 
     mul-double v0, v0, p8
 
-    mul-double v0, v0, p2
+    mul-double/2addr v0, p2
 
     sub-double/2addr v2, v0
 
@@ -355,13 +355,13 @@
 
     const-wide/high16 v4, -0x4000000000000000L    # -2.0
 
-    mul-double v4, v4, v2
+    mul-double/2addr v4, v2
 
     mul-double v4, v4, p6
 
     const-wide/high16 v6, 0x4008000000000000L    # 3.0
 
-    mul-double v6, v6, v0
+    mul-double/2addr v6, v0
 
     mul-double v8, v6, p6
 
@@ -389,11 +389,11 @@
 
     mul-double v10, p0, p8
 
-    mul-double v2, v2, v10
+    mul-double/2addr v2, v10
 
     add-double/2addr v4, v2
 
-    mul-double v6, v6, v0
+    mul-double/2addr v6, v0
 
     sub-double/2addr v4, v6
 
@@ -401,11 +401,11 @@
 
     mul-double v2, v2, p8
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
     sub-double/2addr v4, v2
 
-    mul-double v10, v10, p2
+    mul-double/2addr v10, p2
 
     add-double/2addr v4, v10
 
@@ -429,9 +429,9 @@
     .line 148
     aget-wide v4, v1, v3
 
-    cmpg-double v6, p1, v4
+    cmpg-double v4, p1, v4
 
-    if-gtz v6, :cond_0
+    if-gtz v4, :cond_0
 
     .line 149
     iget-object v1, v0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;->mY:[[D
@@ -563,11 +563,11 @@
     .line 73
     aget-wide v5, v1, v4
 
-    cmpg-double v7, p1, v5
+    cmpg-double v5, p1, v5
 
-    if-gtz v7, :cond_1
+    if-gtz v5, :cond_1
 
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_0
     if-ge v1, v3, :cond_0
@@ -618,7 +618,7 @@
     return-void
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_2
     if-ge v1, v2, :cond_7
@@ -632,7 +632,7 @@
 
     if-nez v5, :cond_4
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_3
     if-ge v5, v3, :cond_4
@@ -747,11 +747,11 @@
     .line 111
     aget-wide v5, v1, v4
 
-    cmpg-double v7, p1, v5
+    cmpg-double v5, p1, v5
 
-    if-gtz v7, :cond_1
+    if-gtz v5, :cond_1
 
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_0
     if-ge v1, v3, :cond_0
@@ -806,7 +806,7 @@
     return-void
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_2
     if-ge v1, v2, :cond_7
@@ -820,7 +820,7 @@
 
     if-nez v5, :cond_4
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_3
     if-ge v5, v3, :cond_4
@@ -1068,7 +1068,7 @@
     move-wide/from16 v5, p1
 
     :goto_0
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_1
     add-int/lit8 v7, v2, -0x1

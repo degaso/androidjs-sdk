@@ -743,7 +743,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -826,11 +826,15 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "<"
+    move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "<"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -841,9 +845,13 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -854,11 +862,15 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "> "
+    move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "> "
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -966,7 +978,7 @@
     goto :goto_1
 
     :cond_2
-    const/4 v5, -0x1
+    move v5, v6
 
     :cond_3
     add-int/lit8 v8, v4, -0x1
@@ -1071,7 +1083,7 @@
 
     if-eq v7, v10, :cond_8
 
-    const/4 v7, 0x1
+    move v7, v12
 
     goto :goto_5
 
@@ -1142,7 +1154,7 @@
     if-eqz v10, :cond_c
 
     :goto_6
-    const/4 v7, 0x1
+    move v7, v12
 
     :cond_c
     if-nez v7, :cond_d
@@ -1350,7 +1362,7 @@
 
     aget v9, v11, v9
 
-    mul-float v9, v9, v10
+    mul-float/2addr v9, v10
 
     div-float v9, v9, v17
 
@@ -1686,17 +1698,17 @@
     goto :goto_17
 
     :cond_2b
-    const/4 v3, 0x0
+    move v3, v7
 
     :goto_17
     if-lez v15, :cond_2c
 
-    const/4 v3, 0x0
+    move v3, v7
 
     :cond_2c
-    move/from16 v7, v21
+    move v2, v7
 
-    const/4 v2, 0x0
+    move/from16 v7, v21
 
     :goto_18
     if-ge v2, v4, :cond_57
@@ -1902,12 +1914,12 @@
 
     if-lez v15, :cond_3a
 
-    const/4 v3, 0x0
+    move v3, v7
 
     :cond_3a
-    move/from16 v7, v21
+    move v2, v7
 
-    const/4 v2, 0x0
+    move/from16 v7, v21
 
     :goto_20
     if-ge v2, v4, :cond_57
@@ -2133,7 +2145,7 @@
 
     int-to-float v3, v3
 
-    mul-float v3, v3, v2
+    mul-float/2addr v3, v2
 
     const/high16 v2, 0x3f000000    # 0.5f
 
@@ -2146,7 +2158,7 @@
     if-lez v15, :cond_4a
 
     :cond_49
-    const/4 v2, 0x0
+    move v2, v7
 
     :cond_4a
     if-eqz v1, :cond_4b
@@ -2161,7 +2173,7 @@
     :goto_29
     move v3, v2
 
-    const/4 v2, 0x0
+    move v2, v7
 
     :goto_2a
     if-ge v2, v4, :cond_57

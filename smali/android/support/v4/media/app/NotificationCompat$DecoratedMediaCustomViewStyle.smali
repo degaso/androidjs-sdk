@@ -75,14 +75,7 @@
 
 # virtual methods
 .method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
-    .locals 2
-
-    .line 388
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 389
     invoke-interface {p1}, Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;->getBuilder()Landroid/app/Notification$Builder;
@@ -101,13 +94,6 @@
     .line 389
     invoke-virtual {p1, v0}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
 
-    goto :goto_0
-
-    .line 392
-    :cond_0
-    invoke-super {p0, p1}, Landroid/support/v4/media/app/NotificationCompat$MediaStyle;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
-
-    :goto_0
     return-void
 .end method
 
@@ -157,236 +143,25 @@
 .end method
 
 .method public makeBigContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
-    .locals 2
+    .locals 0
 
-    .line 444
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 p1, 0x0
 
-    const/16 v0, 0x18
-
-    const/4 v1, 0x0
-
-    if-lt p1, v0, :cond_0
-
-    return-object v1
-
-    .line 448
-    :cond_0
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getBigContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 449
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getBigContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 450
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    :goto_0
-    if-nez p1, :cond_2
-
-    return-object v1
-
-    .line 455
-    :cond_2
-    invoke-virtual {p0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->generateBigContentView()Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    .line 456
-    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->buildIntoRemoteViews(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
-
-    .line 457
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt p1, v1, :cond_3
-
-    .line 458
-    invoke-direct {p0, v0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->setBackgroundColor(Landroid/widget/RemoteViews;)V
-
-    :cond_3
-    return-object v0
+    return-object p1
 .end method
 
 .method public makeContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
-    .locals 3
+    .locals 0
 
-    .line 402
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x18
-
-    const/4 v1, 0x0
-
-    if-lt p1, v0, :cond_0
-
-    return-object v1
-
-    .line 406
-    :cond_0
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_1
-
-    const/4 p1, 0x1
-
-    goto :goto_0
-
-    :cond_1
     const/4 p1, 0x0
 
-    .line 407
-    :goto_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_4
-
-    if-nez p1, :cond_2
-
-    .line 411
-    iget-object v0, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 412
-    invoke-virtual {v0}, Landroid/support/v4/app/NotificationCompat$Builder;->getBigContentView()Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_5
-
-    .line 414
-    :cond_2
-    invoke-virtual {p0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->generateContentView()Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    if-eqz p1, :cond_3
-
-    .line 416
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->buildIntoRemoteViews(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
-
-    .line 418
-    :cond_3
-    invoke-direct {p0, v0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->setBackgroundColor(Landroid/widget/RemoteViews;)V
-
-    return-object v0
-
-    .line 422
-    :cond_4
-    invoke-virtual {p0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->generateContentView()Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    if-eqz p1, :cond_5
-
-    .line 424
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->buildIntoRemoteViews(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
-
-    return-object v0
-
-    :cond_5
-    return-object v1
+    return-object p1
 .end method
 
 .method public makeHeadsUpContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
-    .locals 2
+    .locals 0
 
-    .line 476
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 p1, 0x0
 
-    const/16 v0, 0x18
-
-    const/4 v1, 0x0
-
-    if-lt p1, v0, :cond_0
-
-    return-object v1
-
-    .line 480
-    :cond_0
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getHeadsUpContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 481
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getHeadsUpContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 482
-    invoke-virtual {p1}, Landroid/support/v4/app/NotificationCompat$Builder;->getContentView()Landroid/widget/RemoteViews;
-
-    move-result-object p1
-
-    :goto_0
-    if-nez p1, :cond_2
-
-    return-object v1
-
-    .line 487
-    :cond_2
-    invoke-virtual {p0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->generateBigContentView()Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    .line 488
-    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->buildIntoRemoteViews(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
-
-    .line 489
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt p1, v1, :cond_3
-
-    .line 490
-    invoke-direct {p0, v0}, Landroid/support/v4/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;->setBackgroundColor(Landroid/widget/RemoteViews;)V
-
-    :cond_3
-    return-object v0
+    return-object p1
 .end method

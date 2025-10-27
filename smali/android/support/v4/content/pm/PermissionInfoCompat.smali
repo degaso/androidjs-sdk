@@ -33,7 +33,7 @@
     if-lt v0, v1, :cond_0
 
     .line 74
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/content/pm/PermissionInfo;)I
+    invoke-virtual {p0}, Landroid/content/pm/PermissionInfo;->getProtection()I
 
     move-result p0
 
@@ -59,7 +59,7 @@
     if-lt v0, v1, :cond_0
 
     .line 88
-    invoke-static {p0}, Landroid/support/v4/app/Person$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/pm/PermissionInfo;)I
+    invoke-virtual {p0}, Landroid/content/pm/PermissionInfo;->getProtectionFlags()I
 
     move-result p0
 

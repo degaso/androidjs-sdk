@@ -123,7 +123,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -182,11 +182,11 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    cmpl-float v3, v1, v2
 
-    cmpl-float v4, v1, v3
+    const/4 v4, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
@@ -195,7 +195,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_0
     add-int/2addr v0, v1
@@ -216,16 +216,16 @@
     .line 86
     iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
 
-    cmpl-float v3, v1, v3
+    cmpl-float v2, v1, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    move-result v2
+    move-result v4
 
     :cond_1
-    add-int/2addr v0, v2
+    add-int/2addr v0, v4
 
     return v0
 .end method
@@ -244,33 +244,49 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", startFraction="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", end="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", endFraction="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

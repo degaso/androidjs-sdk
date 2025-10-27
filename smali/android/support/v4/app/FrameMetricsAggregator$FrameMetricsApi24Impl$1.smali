@@ -61,7 +61,7 @@
     aget-object v2, v2, v0
 
     .line 358
-    invoke-static {p2, v1}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v1}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v3
 
@@ -88,7 +88,7 @@
     aget-object v3, v3, p3
 
     .line 362
-    invoke-static {p2, p3}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, p3}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v4
 
@@ -117,7 +117,7 @@
     aget-object v4, v4, v2
 
     .line 367
-    invoke-static {p2, v3}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v3}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v5
 
@@ -142,7 +142,7 @@
     aget-object v3, v4, v3
 
     .line 372
-    invoke-static {p2, p3}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, p3}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v4
 
@@ -169,7 +169,7 @@
     aget-object p3, v4, p3
 
     .line 376
-    invoke-static {p2, v3}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v3}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v4
 
@@ -198,7 +198,7 @@
     aget-object v5, v5, v4
 
     .line 380
-    invoke-static {p2, p3}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, p3}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v6
 
@@ -223,7 +223,7 @@
     aget-object v3, v5, v3
 
     .line 385
-    invoke-static {p2, v4}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v4}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v4
 
@@ -248,7 +248,7 @@
     aget-object p3, v3, p3
 
     .line 390
-    invoke-static {p2, v0}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v0}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v3
 
@@ -273,7 +273,7 @@
     aget-object p3, p3, v1
 
     .line 395
-    invoke-static {p2, v2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/FrameMetrics;I)J
+    invoke-virtual {p2, v2}, Landroid/view/FrameMetrics;->getMetric(I)J
 
     move-result-wide v0
 

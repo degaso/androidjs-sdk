@@ -445,9 +445,9 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     if-ge v4, v1, :cond_8
@@ -479,12 +479,12 @@
 
     if-ge v8, p3, :cond_0
 
-    const/4 v10, 0x1
+    move v10, v9
 
     goto :goto_1
 
     :cond_0
-    const/4 v10, 0x0
+    move v10, v3
 
     :goto_1
     if-nez v2, :cond_1
@@ -516,12 +516,12 @@
     if-le v8, v7, :cond_4
 
     :cond_3
-    const/4 v7, 0x1
+    move v7, v9
 
     goto :goto_2
 
     :cond_4
-    const/4 v7, 0x0
+    move v7, v3
 
     :goto_2
     if-eqz v5, :cond_5
@@ -537,7 +537,7 @@
 
     move-object v2, v6
 
-    const/4 v5, 0x1
+    move v5, v9
 
     goto :goto_4
 
@@ -1058,12 +1058,12 @@
 
     if-ne p1, v2, :cond_0
 
-    const/4 v2, 0x1
+    move v2, v4
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v3
 
     .line 1261
     :goto_0
@@ -1096,7 +1096,7 @@
     :goto_1
     invoke-direct {p0, p2}, Landroid/support/v4/widget/NestedScrollView;->doScrollY(I)V
 
-    const/4 v3, 0x1
+    move v3, v4
 
     .line 1273
     :goto_2
@@ -1160,7 +1160,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     if-eqz v1, :cond_2
@@ -2165,7 +2165,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 10
+    .locals 9
 
     .line 1888
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
@@ -2173,7 +2173,7 @@
     .line 1889
     iget-object v0, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     .line 1890
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getScrollY()I
@@ -2189,9 +2189,7 @@
 
     const/4 v2, 0x0
 
-    const/16 v3, 0x15
-
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     .line 1892
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -2201,44 +2199,62 @@
     .line 1893
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getWidth()I
 
-    move-result v4
+    move-result v3
 
     .line 1894
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getHeight()I
 
-    move-result v5
+    move-result v4
 
     .line 1896
     invoke-static {v2, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v6
+    move-result v5
 
     .line 1897
-    sget v7, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getClipToPadding()Z
 
-    if-lt v7, v3, :cond_1
+    move-result v6
 
-    invoke-static {p0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v4/widget/NestedScrollView;)Z
+    if-eqz v6, :cond_0
+
+    .line 1898
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
+
+    move-result v6
+
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingRight()I
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    add-int/2addr v6, v7
+
+    sub-int/2addr v3, v6
+
+    .line 1899
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
+
+    move-result v6
 
     goto :goto_0
 
     :cond_0
-    const/4 v7, 0x0
+    move v6, v2
 
-    goto :goto_1
-
-    .line 1898
-    :cond_1
+    .line 1901
     :goto_0
-    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getClipToPadding()Z
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingRight()I
+    if-eqz v7, :cond_1
+
+    .line 1902
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingTop()I
+
+    move-result v7
+
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingBottom()I
 
     move-result v8
 
@@ -2246,81 +2262,51 @@
 
     sub-int/2addr v4, v7
 
-    .line 1899
-    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
-
-    move-result v7
-
-    .line 1901
-    :goto_1
-    sget v8, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v8, v3, :cond_2
-
-    invoke-static {p0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v4/widget/NestedScrollView;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    .line 1902
-    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingTop()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingBottom()I
-
-    move-result v9
-
-    add-int/2addr v8, v9
-
-    sub-int/2addr v5, v8
-
     .line 1903
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingTop()I
 
-    move-result v8
+    move-result v7
 
-    add-int/2addr v6, v8
+    add-int/2addr v5, v7
 
-    :cond_2
-    int-to-float v7, v7
-
+    :cond_1
     int-to-float v6, v6
 
+    int-to-float v5, v5
+
     .line 1905
-    invoke-virtual {p1, v7, v6}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v6, v5}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 1906
-    iget-object v6, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+    iget-object v5, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v6, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
+    invoke-virtual {v5, v3, v4}, Landroid/widget/EdgeEffect;->setSize(II)V
 
     .line 1907
-    iget-object v4, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+    iget-object v3, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v4, p1}, Landroid/widget/EdgeEffect;->draw(Landroid/graphics/Canvas;)Z
+    invoke-virtual {v3, p1}, Landroid/widget/EdgeEffect;->draw(Landroid/graphics/Canvas;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_2
 
     .line 1908
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     .line 1910
-    :cond_3
+    :cond_2
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 1912
-    :cond_4
+    :cond_3
     iget-object v1, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v1}, Landroid/widget/EdgeEffect;->isFinished()Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_7
 
     .line 1913
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -2330,48 +2316,43 @@
     .line 1914
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getWidth()I
 
-    move-result v4
+    move-result v3
 
     .line 1915
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getHeight()I
 
-    move-result v5
+    move-result v4
 
     .line 1917
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getScrollRange()I
 
-    move-result v6
+    move-result v5
 
-    invoke-static {v6, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v5, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    add-int/2addr v0, v5
+    add-int/2addr v0, v4
 
     .line 1918
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getClipToPadding()Z
 
-    if-lt v6, v3, :cond_5
+    move-result v5
 
-    invoke-static {p0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v4/widget/NestedScrollView;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_4
 
     .line 1919
-    :cond_5
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
 
     move-result v2
 
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingRight()I
 
-    move-result v6
+    move-result v5
 
-    add-int/2addr v2, v6
+    add-int/2addr v2, v5
 
-    sub-int/2addr v4, v2
+    sub-int/2addr v3, v2
 
     .line 1920
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingLeft()I
@@ -2379,39 +2360,35 @@
     move-result v2
 
     .line 1922
-    :cond_6
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    :cond_4
+    invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getClipToPadding()Z
 
-    if-lt v6, v3, :cond_7
+    move-result v5
 
-    invoke-static {p0}, Landroid/support/v4/widget/DrawerLayout$$ExternalSyntheticApiModelOutline0;->m(Landroid/support/v4/widget/NestedScrollView;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7
+    if-eqz v5, :cond_5
 
     .line 1923
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingTop()I
 
-    move-result v3
+    move-result v5
 
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingBottom()I
 
     move-result v6
 
-    add-int/2addr v3, v6
+    add-int/2addr v5, v6
 
-    sub-int/2addr v5, v3
+    sub-int/2addr v4, v5
 
     .line 1924
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getPaddingBottom()I
 
-    move-result v3
+    move-result v5
 
-    sub-int/2addr v0, v3
+    sub-int/2addr v0, v5
 
-    :cond_7
-    sub-int/2addr v2, v4
+    :cond_5
+    sub-int/2addr v2, v3
 
     int-to-float v2, v2
 
@@ -2420,19 +2397,19 @@
     .line 1926
     invoke-virtual {p1, v2, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
-    int-to-float v0, v4
+    int-to-float v0, v3
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x43340000    # 180.0f
+    const/high16 v5, 0x43340000    # 180.0f
 
     .line 1927
-    invoke-virtual {p1, v3, v0, v2}, Landroid/graphics/Canvas;->rotate(FFF)V
+    invoke-virtual {p1, v5, v0, v2}, Landroid/graphics/Canvas;->rotate(FFF)V
 
     .line 1928
     iget-object v0, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v0, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
+    invoke-virtual {v0, v3, v4}, Landroid/widget/EdgeEffect;->setSize(II)V
 
     .line 1929
     iget-object v0, p0, Landroid/support/v4/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -2441,16 +2418,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
     .line 1930
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     .line 1932
-    :cond_8
+    :cond_6
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    :cond_9
+    :cond_7
     return-void
 .end method
 
@@ -2560,7 +2537,7 @@
 
     if-eqz p1, :cond_4
 
-    const/16 v2, 0x21
+    move v2, v4
 
     :cond_4
     invoke-virtual {p0, v2}, Landroid/support/v4/widget/NestedScrollView;->pageScroll(I)Z
@@ -2687,12 +2664,12 @@
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 1223
     :goto_0
@@ -2868,7 +2845,7 @@
 
     const/high16 v1, 0x3f000000    # 0.5f
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
@@ -3211,7 +3188,7 @@
 
     move-result v0
 
-    mul-float p1, p1, v0
+    mul-float/2addr p1, v0
 
     float-to-int p1, p1
 
@@ -3229,7 +3206,7 @@
 
     if-gez p1, :cond_1
 
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_0
 
@@ -3335,9 +3312,13 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     const-string v0, " in onInterceptTouchEvent"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -4409,9 +4390,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " in onTouchEvent"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -4567,13 +4552,13 @@
     goto :goto_1
 
     :cond_b
-    const/16 v17, 0x0
+    move/from16 v17, v13
 
     goto :goto_2
 
     :cond_c
     :goto_1
-    const/16 v17, 0x1
+    move/from16 v17, v15
 
     .line 875
     :goto_2
@@ -5019,12 +5004,12 @@
 
     if-le v2, v3, :cond_0
 
-    const/4 v2, 0x1
+    move v2, v5
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v4
 
     .line 1029
     :goto_0
@@ -5038,12 +5023,12 @@
 
     if-le v3, v6, :cond_1
 
-    const/4 v3, 0x1
+    move v3, v5
 
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_1
     if-eqz v1, :cond_3
@@ -5055,13 +5040,13 @@
     goto :goto_2
 
     :cond_2
-    const/4 v2, 0x0
+    move v2, v4
 
     goto :goto_3
 
     :cond_3
     :goto_2
-    const/4 v2, 0x1
+    move v2, v5
 
     :goto_3
     if-eqz v1, :cond_5
@@ -5073,20 +5058,20 @@
     goto :goto_4
 
     :cond_4
-    const/4 v1, 0x0
+    move v1, v4
 
     goto :goto_5
 
     :cond_5
     :goto_4
-    const/4 v1, 0x1
+    move v1, v5
 
     :goto_5
     add-int v3, p3, p1
 
     if-nez v2, :cond_6
 
-    const/4 v2, 0x0
+    move v2, v4
 
     goto :goto_6
 
@@ -5098,7 +5083,7 @@
 
     if-nez v1, :cond_7
 
-    const/4 v1, 0x0
+    move v1, v4
 
     goto :goto_7
 
@@ -5118,42 +5103,44 @@
 
     move v3, v2
 
-    :goto_8
-    const/4 v2, 0x1
+    move v2, v5
 
-    goto :goto_9
+    goto :goto_8
 
     :cond_8
     if-ge v3, v7, :cond_9
+
+    move v2, v5
 
     move v3, v7
 
     goto :goto_8
 
     :cond_9
-    const/4 v2, 0x0
+    move v2, v4
 
-    :goto_9
+    :goto_8
     if-le v6, v1, :cond_a
 
     move v6, v1
 
-    :goto_a
-    const/4 v1, 0x1
+    move v1, v5
 
-    goto :goto_b
+    goto :goto_9
 
     :cond_a
     if-ge v6, v8, :cond_b
 
+    move v1, v5
+
     move v6, v8
 
-    goto :goto_a
+    goto :goto_9
 
     :cond_b
-    const/4 v1, 0x0
+    move v1, v4
 
-    :goto_b
+    :goto_9
     if-eqz v1, :cond_c
 
     .line 1069
@@ -5201,7 +5188,7 @@
     if-eqz v1, :cond_e
 
     :cond_d
-    const/4 v4, 0x1
+    move v4, v5
 
     :cond_e
     return v4
@@ -5218,12 +5205,12 @@
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 1185
     :goto_0
@@ -5609,7 +5596,7 @@
 .end method
 
 .method public final smoothScrollBy(II)V
-    .locals 5
+    .locals 4
 
     .line 1377
     invoke-virtual {p0}, Landroid/support/v4/widget/NestedScrollView;->getChildCount()I
@@ -5632,9 +5619,9 @@
 
     const-wide/16 v2, 0xfa
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v0, :cond_1
 
     const/4 p1, 0x0
 

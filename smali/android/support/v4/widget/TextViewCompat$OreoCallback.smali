@@ -269,7 +269,7 @@
     iget-object p1, p1, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
 
     .line 651
-    invoke-static {p2, p1}, Landroid/support/v4/widget/TextViewCompat$$ExternalSyntheticApiModelOutline1;->m(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-virtual {p2, p1}, Landroid/content/Context;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result p1
 
@@ -278,7 +278,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v2
 
     :cond_3
     :goto_0
@@ -442,11 +442,11 @@
 
     move-result-object v6
 
-    new-array v7, v5, [Ljava/lang/Object;
+    filled-new-array {v6}, [Ljava/lang/Object;
 
-    aput-object v6, v7, v4
+    move-result-object v6
 
-    invoke-virtual {v2, p1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
@@ -463,7 +463,7 @@
 
     move-result-object v0
 
-    const/4 v2, 0x0
+    move v2, v4
 
     .line 616
     :goto_3

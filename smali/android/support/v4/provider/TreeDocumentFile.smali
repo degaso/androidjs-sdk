@@ -60,7 +60,7 @@
 
     move-result-object p0
 
-    invoke-static {p0, p1, p2, p3}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0, p1, p2, p3}, Landroid/provider/DocumentsContract;->createDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p0
     :try_end_0
@@ -343,7 +343,7 @@
     move-result-object v2
 
     .line 137
-    invoke-static {v0, v2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v0, v2}, Landroid/provider/DocumentsContract;->buildChildDocumentsUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v2
 
@@ -352,17 +352,19 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    const/4 v3, 0x1
+
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
     .line 143
     :try_start_0
-    const-string v3, "document_id"
+    new-array v3, v3, [Ljava/lang/String;
 
-    filled-new-array {v3}, [Ljava/lang/String;
+    const-string v4, "document_id"
 
-    move-result-object v3
+    aput-object v4, v3, v7
 
     const/4 v5, 0x0
 
@@ -390,7 +392,7 @@
     .line 147
     iget-object v2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
 
-    invoke-static {v2, v1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v2, v1}, Landroid/provider/DocumentsContract;->buildDocumentUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
@@ -429,9 +431,13 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -488,13 +494,7 @@
     :goto_4
     invoke-static {v8}, Landroid/support/v4/provider/TreeDocumentFile;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    goto :goto_6
-
-    :goto_5
     throw v0
-
-    :goto_6
-    goto :goto_5
 .end method
 
 .method public renameTo(Ljava/lang/String;)Z
@@ -514,7 +514,7 @@
     iget-object v2, p0, Landroid/support/v4/provider/TreeDocumentFile;->mUri:Landroid/net/Uri;
 
     .line 179
-    invoke-static {v1, v2, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v1, v2, p1}, Landroid/provider/DocumentsContract;->renameDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p1
 

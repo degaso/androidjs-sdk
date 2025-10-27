@@ -213,7 +213,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_0
     if-ge v3, v1, :cond_0
@@ -228,7 +228,7 @@
 
     move-result v5
 
-    const/4 v6, 0x0
+    move v6, v0
 
     :goto_1
     if-ge v6, v5, :cond_3
@@ -275,13 +275,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_3
-
-    :goto_2
     throw v1
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)V
@@ -382,13 +376,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_2
-
-    :goto_1
     throw p1
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public sendBroadcast(Landroid/content/Intent;)Z
@@ -454,12 +442,12 @@
 
     if-eqz v5, :cond_0
 
-    const/16 v17, 0x1
+    move/from16 v17, v10
 
     goto :goto_0
 
     :cond_0
-    const/16 v17, 0x0
+    move/from16 v17, v11
 
     :goto_0
     if-eqz v17, :cond_1
@@ -473,19 +461,29 @@
 
     invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " scheme "
+    move-result-object v3
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, " scheme "
 
-    invoke-virtual {v6, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " of intent "
+    move-result-object v3
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v6, " of intent "
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -505,7 +503,7 @@
 
     check-cast v3, Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_12
 
     if-eqz v17, :cond_2
 
@@ -518,7 +516,9 @@
 
     invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -527,7 +527,7 @@
     :cond_2
     const/4 v2, 0x0
 
-    const/4 v9, 0x0
+    move v9, v11
 
     .line 232
     :goto_1
@@ -559,9 +559,13 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v6
+
     iget-object v7, v8, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->filter:Landroid/content/IntentFilter;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -591,7 +595,7 @@
 
     move-object/from16 v21, v12
 
-    const/4 v12, 0x1
+    move v12, v10
 
     goto/16 :goto_3
 
@@ -617,7 +621,7 @@
 
     move-object/from16 v21, v12
 
-    const/4 v12, 0x1
+    move v12, v10
 
     move-object/from16 v10, v16
 
@@ -642,6 +646,8 @@
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v7
+
     .line 247
     invoke-static {v5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -649,7 +655,9 @@
 
     invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -731,9 +739,13 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v6
+
     invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -743,18 +755,18 @@
     :goto_3
     add-int/lit8 v9, v20, 0x1
 
+    move v10, v12
+
     move-object/from16 v3, v19
 
     move-object/from16 v12, v21
-
-    const/4 v10, 0x1
 
     const/4 v11, 0x0
 
     goto/16 :goto_1
 
     :cond_e
-    const/4 v12, 0x1
+    move v12, v10
 
     if-eqz v2, :cond_11
 
@@ -816,7 +828,13 @@
     :cond_11
     const/4 v5, 0x0
 
+    goto :goto_5
+
+    :cond_12
+    move v5, v11
+
     .line 279
+    :goto_5
     monitor-exit v4
 
     return v5
@@ -828,13 +846,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_6
-
-    :goto_5
     throw v0
-
-    :goto_6
-    goto :goto_5
 .end method
 
 .method public sendBroadcastSync(Landroid/content/Intent;)V
@@ -1001,11 +1013,5 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_4
-
-    :goto_3
     throw p1
-
-    :goto_4
-    goto :goto_3
 .end method

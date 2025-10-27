@@ -29,13 +29,6 @@
 .method public setProperty(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
     .locals 6
 
-    .line 308
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     move-object v0, p0
 
     move v1, p2
@@ -51,10 +44,9 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Landroid/support/v4/app/ActivityCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;F)V
+    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationZ(F)V
 
     .line 311
-    :cond_0
     iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationZset;->mContinue:Z
 
     return p1

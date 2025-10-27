@@ -98,7 +98,7 @@
 .end method
 
 .method public static create(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;)Landroid/support/v4/text/PrecomputedTextCompat;
-    .locals 11
+    .locals 5
 
     .line 419
     invoke-static {p0}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -129,7 +129,7 @@
     iget-object v1, p1, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mWrapped:Landroid/text/PrecomputedText$Params;
 
     .line 427
-    invoke-static {p0, v1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/CharSequence;Landroid/text/PrecomputedText$Params;)Landroid/text/PrecomputedText;
+    invoke-static {p0, v1}, Landroid/text/PrecomputedText;->create(Ljava/lang/CharSequence;Landroid/text/PrecomputedText$Params;)Landroid/text/PrecomputedText;
 
     move-result-object p0
 
@@ -156,7 +156,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_2
@@ -195,7 +195,7 @@
 
     new-array v1, v1, [I
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 447
     :goto_2
@@ -222,15 +222,8 @@
 
     goto :goto_2
 
-    .line 454
-    :cond_3
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x17
-
-    if-lt v0, v3, :cond_4
-
     .line 455
+    :cond_3
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -241,7 +234,7 @@
 
     const v4, 0x7fffffff
 
-    invoke-static {p0, v2, v0, v3, v4}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
+    invoke-static {p0, v2, v0, v3, v4}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
 
     move-result-object v0
 
@@ -250,7 +243,7 @@
 
     move-result v2
 
-    invoke-static {v0, v2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {v0, v2}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
 
     move-result-object v0
 
@@ -259,7 +252,7 @@
 
     move-result v2
 
-    invoke-static {v0, v2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/text/StaticLayout$Builder;I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {v0, v2}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
 
     move-result-object v0
 
@@ -268,47 +261,14 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {v0, v2}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
 
     move-result-object v0
 
     .line 460
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/StaticLayout$Builder;)Landroid/text/StaticLayout;
-
-    goto :goto_3
-
-    .line 461
-    :cond_4
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_5
-
-    .line 462
-    new-instance v3, Landroid/text/StaticLayout;
-
-    invoke-virtual {p1}, Landroid/support/v4/text/PrecomputedTextCompat$Params;->getTextPaint()Landroid/text/TextPaint;
-
-    move-result-object v5
-
-    sget-object v7, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const v6, 0x7fffffff
-
-    const/high16 v8, 0x3f800000    # 1.0f
-
-    move-object v4, p0
-
-    invoke-direct/range {v3 .. v10}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
+    invoke-virtual {v0}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
 
     .line 469
-    :cond_5
-    :goto_3
     new-instance v0, Landroid/support/v4/text/PrecomputedTextCompat;
 
     invoke-direct {v0, p0, p1, v1}, Landroid/support/v4/text/PrecomputedTextCompat;-><init>(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;[I)V
@@ -325,13 +285,7 @@
 
     invoke-static {}, Landroid/support/v4/os/TraceCompat;->endSection()V
 
-    goto :goto_5
-
-    :goto_4
     throw p0
-
-    :goto_5
-    goto :goto_4
 .end method
 
 .method private findParaIndex(I)I
@@ -379,25 +333,25 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, ", gave "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw v0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public static getTextFuture(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Future;
@@ -496,7 +450,7 @@
     .line 518
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/PrecomputedText;)I
+    invoke-virtual {v0}, Landroid/text/PrecomputedText;->getParagraphCount()I
 
     move-result v0
 
@@ -535,7 +489,7 @@
     .line 542
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/PrecomputedText;I)I
+    invoke-virtual {v0, p1}, Landroid/text/PrecomputedText;->getParagraphEnd(I)I
 
     move-result p1
 
@@ -574,7 +528,7 @@
     .line 530
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$1(Landroid/text/PrecomputedText;I)I
+    invoke-virtual {v0, p1}, Landroid/text/PrecomputedText;->getParagraphStart(I)I
 
     move-result p1
 
@@ -607,23 +561,17 @@
 .end method
 
 .method public getPrecomputedText()Landroid/text/PrecomputedText;
-    .locals 1
+    .locals 2
 
     .line 499
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m$2(Ljava/lang/Object;)Z
+    instance-of v1, v0, Landroid/text/PrecomputedText;
 
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     .line 500
-    iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
-
-    invoke-static {v0}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Landroid/text/PrecomputedText;
-
-    move-result-object v0
+    check-cast v0, Landroid/text/PrecomputedText;
 
     return-object v0
 
@@ -694,7 +642,7 @@
     .line 708
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0, p1, p2, p3}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/PrecomputedText;IILjava/lang/Class;)[Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2, p3}, Landroid/text/PrecomputedText;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
     move-result-object p1
 
@@ -755,7 +703,7 @@
     .line 694
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0, p1}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/PrecomputedText;Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroid/text/PrecomputedText;->removeSpan(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -797,7 +745,7 @@
     .line 678
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
-    invoke-static {v0, p1, p2, p3, p4}, Landroid/support/v4/text/HtmlCompat$$ExternalSyntheticApiModelOutline0;->m(Landroid/text/PrecomputedText;Ljava/lang/Object;III)V
+    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/text/PrecomputedText;->setSpan(Ljava/lang/Object;III)V
 
     goto :goto_0
 

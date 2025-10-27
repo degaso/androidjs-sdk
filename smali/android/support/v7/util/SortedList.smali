@@ -386,15 +386,21 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " because size is "
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " because size is "
 
-    iget p1, p0, Landroid/support/v7/util/SortedList;->mSize:I
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -518,7 +524,7 @@
     goto :goto_2
 
     :cond_6
-    const/4 p3, -0x1
+    move p3, v0
 
     :goto_2
     return p3
@@ -1323,9 +1329,9 @@
 
     const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    move v2, v1
 
-    const/4 v2, 0x0
+    move v1, v0
 
     .line 365
     :goto_0
@@ -1540,24 +1546,26 @@
     .line 519
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
-    instance-of v1, v0, Landroid/support/v7/util/SortedList$BatchedCallback;
+    instance-of v0, v0, Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     return-void
 
     .line 522
     :cond_0
-    iget-object v1, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
+    iget-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 523
-    new-instance v1, Landroid/support/v7/util/SortedList$BatchedCallback;
+    new-instance v0, Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    invoke-direct {v1, v0}, Landroid/support/v7/util/SortedList$BatchedCallback;-><init>(Landroid/support/v7/util/SortedList$Callback;)V
+    iget-object v1, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
-    iput-object v1, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
+    invoke-direct {v0, v1}, Landroid/support/v7/util/SortedList$BatchedCallback;-><init>(Landroid/support/v7/util/SortedList$Callback;)V
+
+    iput-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
     .line 525
     :cond_1
@@ -1699,15 +1707,21 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " but size is "
+    move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " but size is "
 
-    iget p1, p0, Landroid/support/v7/util/SortedList;->mSize:I
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v1, p0, Landroid/support/v7/util/SortedList;->mSize:I
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -2010,13 +2024,13 @@
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    move v3, v1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v3, 0x1
+    move v3, v2
 
     :goto_1
     if-eq v0, p2, :cond_3

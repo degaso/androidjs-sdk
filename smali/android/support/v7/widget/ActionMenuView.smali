@@ -89,7 +89,7 @@
 
     const/high16 v1, 0x42600000    # 56.0f
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     float-to-int v1, v1
 
@@ -98,7 +98,7 @@
 
     const/high16 v1, 0x40800000    # 4.0f
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     float-to-int v0, v0
 
@@ -169,12 +169,12 @@
 
     if-eqz p4, :cond_1
 
-    const/4 p4, 0x1
+    move p4, v1
 
     goto :goto_1
 
     :cond_1
-    const/4 p4, 0x0
+    move p4, v2
 
     :goto_1
     if-lez p2, :cond_5
@@ -186,7 +186,7 @@
     if-lt p2, v3, :cond_5
 
     :cond_2
-    mul-int p2, p2, p1
+    mul-int/2addr p2, p1
 
     const/high16 v4, -0x80000000
 
@@ -226,7 +226,7 @@
     goto :goto_2
 
     :cond_5
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 427
     :goto_2
@@ -239,7 +239,7 @@
     goto :goto_3
 
     :cond_6
-    const/4 v1, 0x0
+    move v1, v2
 
     .line 428
     :goto_3
@@ -248,7 +248,7 @@
     .line 430
     iput v3, v0, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->cellsUsed:I
 
-    mul-int p1, p1, v3
+    mul-int/2addr p1, v3
 
     const/high16 p2, 0x40000000    # 2.0f
 
@@ -343,17 +343,17 @@
 
     move-result v8
 
-    const/4 v10, 0x0
+    move v10, v9
 
-    const/4 v12, 0x0
+    move v12, v10
 
-    const/4 v13, 0x0
+    move v13, v12
 
-    const/4 v14, 0x0
+    move v14, v13
 
-    const/4 v15, 0x0
+    move v15, v14
 
-    const/16 v16, 0x0
+    move/from16 v16, v15
 
     const-wide/16 v17, 0x0
 
@@ -560,11 +560,11 @@
 
     const v20, 0x7fffffff
 
+    move/from16 v12, v20
+
     const/4 v3, 0x0
 
     const/4 v11, 0x0
-
-    const v12, 0x7fffffff
 
     const-wide/16 v20, 0x0
 
@@ -692,9 +692,9 @@
 
     const-wide/16 v27, 0x0
 
-    cmp-long v25, v22, v27
+    cmp-long v22, v22, v27
 
-    if-nez v25, :cond_10
+    if-nez v22, :cond_10
 
     .line 293
     iget v9, v10, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->cellsUsed:I
@@ -787,7 +787,7 @@
 
     if-ne v14, v1, :cond_14
 
-    const/4 v2, 0x1
+    move v2, v1
 
     goto :goto_e
 
@@ -825,15 +825,15 @@
 
     and-long v2, v17, v2
 
-    const/high16 v5, 0x3f000000    # 0.5f
-
     const-wide/16 v9, 0x0
 
-    cmp-long v12, v2, v9
+    cmp-long v2, v2, v9
+
+    const/high16 v3, 0x3f000000    # 0.5f
 
     const/4 v14, 0x0
 
-    if-eqz v12, :cond_16
+    if-eqz v2, :cond_16
 
     .line 320
     invoke-virtual {v0, v14}, Landroid/support/v7/widget/ActionMenuView;->getChildAt(I)Landroid/view/View;
@@ -851,14 +851,14 @@
 
     if-nez v2, :cond_16
 
-    sub-float/2addr v1, v5
+    sub-float/2addr v1, v3
 
     :cond_16
     add-int/lit8 v2, v8, -0x1
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    shl-int v9, v3, v2
+    shl-int v9, v5, v2
 
     int-to-long v9, v9
 
@@ -866,9 +866,9 @@
 
     const-wide/16 v12, 0x0
 
-    cmp-long v3, v9, v12
+    cmp-long v5, v9, v12
 
-    if-eqz v3, :cond_18
+    if-eqz v5, :cond_18
 
     .line 324
     invoke-virtual {v0, v2}, Landroid/support/v7/widget/ActionMenuView;->getChildAt(I)Landroid/view/View;
@@ -886,7 +886,7 @@
 
     if-nez v2, :cond_18
 
-    sub-float/2addr v1, v5
+    sub-float/2addr v1, v3
 
     goto :goto_f
 
@@ -901,7 +901,7 @@
 
     if-lez v2, :cond_19
 
-    mul-int v7, v7, v4
+    mul-int/2addr v7, v4
 
     int-to-float v2, v7
 
@@ -912,12 +912,12 @@
     goto :goto_10
 
     :cond_19
-    const/4 v1, 0x0
+    move v1, v14
 
     :goto_10
-    move/from16 v9, v25
+    move v2, v14
 
-    const/4 v2, 0x0
+    move/from16 v9, v25
 
     :goto_11
     if-ge v2, v8, :cond_21
@@ -940,7 +940,7 @@
 
     const/4 v7, 0x2
 
-    goto :goto_14
+    goto :goto_13
 
     .line 335
     :cond_1a
@@ -992,6 +992,8 @@
     :goto_12
     const/4 v3, 0x1
 
+    const/4 v9, 0x1
+
     goto :goto_13
 
     :cond_1c
@@ -1017,10 +1019,9 @@
 
     iput v9, v5, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->rightMargin:I
 
-    :goto_13
-    const/4 v9, 0x1
+    move v9, v3
 
-    goto :goto_14
+    goto :goto_13
 
     :cond_1d
     const/4 v3, 0x1
@@ -1043,7 +1044,7 @@
     iput v10, v5, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->rightMargin:I
 
     :cond_1f
-    :goto_14
+    :goto_13
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_11
@@ -1058,9 +1059,9 @@
 
     if-eqz v9, :cond_23
 
-    const/4 v9, 0x0
+    move v9, v14
 
-    :goto_15
+    :goto_14
     if-ge v9, v8, :cond_23
 
     .line 371
@@ -1080,13 +1081,13 @@
 
     if-nez v5, :cond_22
 
-    goto :goto_16
+    goto :goto_15
 
     .line 376
     :cond_22
     iget v5, v3, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->cellsUsed:I
 
-    mul-int v5, v5, v4
+    mul-int/2addr v5, v4
 
     iget v3, v3, Landroid/support/v7/widget/ActionMenuView$LayoutParams;->extraPixels:I
 
@@ -1099,22 +1100,22 @@
 
     invoke-virtual {v2, v3, v6}, Landroid/view/View;->measure(II)V
 
-    :goto_16
+    :goto_15
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_15
+    goto :goto_14
 
     :cond_23
     if-eq v11, v1, :cond_24
 
     move/from16 v3, v24
 
-    goto :goto_17
+    goto :goto_16
 
     :cond_24
     move/from16 v3, v19
 
-    :goto_17
+    :goto_16
     move/from16 v2, v26
 
     .line 386
@@ -1817,7 +1818,7 @@
 
     sub-int/2addr v5, v9
 
-    const/4 v9, 0x1
+    move v9, v12
 
     goto :goto_2
 
@@ -1926,7 +1927,7 @@
 
     sub-int/2addr v5, v6
 
-    const/4 v7, 0x0
+    move v7, v4
 
     :goto_4
     if-ge v7, v1, :cond_d
@@ -2005,7 +2006,7 @@
 
     move-result v5
 
-    const/4 v7, 0x0
+    move v7, v4
 
     :goto_6
     if-ge v7, v1, :cond_d
@@ -2101,12 +2102,12 @@
 
     if-ne v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_0
     iput-boolean v1, p0, Landroid/support/v7/widget/ActionMenuView;->mFormatItems:Z
@@ -2160,7 +2161,7 @@
     goto :goto_2
 
     :cond_3
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_1
     if-ge v1, v0, :cond_4

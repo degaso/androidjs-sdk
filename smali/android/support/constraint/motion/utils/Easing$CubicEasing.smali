@@ -171,34 +171,34 @@
 
     mul-double v6, v2, v4
 
-    mul-double v6, v6, v2
+    mul-double/2addr v6, v2
 
     .line 131
     iget-wide v8, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->x1:D
 
-    mul-double v6, v6, v8
+    mul-double/2addr v6, v8
 
     const-wide/high16 v10, 0x4018000000000000L    # 6.0
 
-    mul-double v2, v2, v10
+    mul-double/2addr v2, v10
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     iget-wide v10, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->x2:D
 
     sub-double v8, v10, v8
 
-    mul-double v2, v2, v8
+    mul-double/2addr v2, v8
 
     add-double/2addr v6, v2
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     sub-double/2addr v0, v10
 
-    mul-double v4, v4, v0
+    mul-double/2addr v4, v0
 
     add-double/2addr v6, v4
 
@@ -216,34 +216,34 @@
 
     mul-double v6, v2, v4
 
-    mul-double v6, v6, v2
+    mul-double/2addr v6, v2
 
     .line 136
     iget-wide v8, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->y1:D
 
-    mul-double v6, v6, v8
+    mul-double/2addr v6, v8
 
     const-wide/high16 v10, 0x4018000000000000L    # 6.0
 
-    mul-double v2, v2, v10
+    mul-double/2addr v2, v10
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     iget-wide v10, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->y2:D
 
     sub-double v8, v10, v8
 
-    mul-double v2, v2, v8
+    mul-double/2addr v2, v8
 
     add-double/2addr v6, v2
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     sub-double/2addr v0, v10
 
-    mul-double v4, v4, v0
+    mul-double/2addr v4, v0
 
     add-double/2addr v6, v4
 
@@ -259,28 +259,28 @@
 
     const-wide/high16 v2, 0x4008000000000000L    # 3.0
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     mul-double v4, p1, p1
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     .line 117
     iget-wide p1, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->x1:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->x2:D
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
     add-double/2addr p1, v0
 
@@ -298,28 +298,28 @@
 
     const-wide/high16 v2, 0x4008000000000000L    # 3.0
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
-    mul-double v0, v0, p1
+    mul-double/2addr v0, p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
-    mul-double v2, v2, p1
+    mul-double/2addr v2, p1
 
     mul-double v4, p1, p1
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     .line 126
     iget-wide p1, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->y1:D
 
-    mul-double p1, p1, v0
+    mul-double/2addr p1, v0
 
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->y2:D
 
-    mul-double v0, v0, v2
+    mul-double/2addr v0, v2
 
     add-double/2addr p1, v0
 
@@ -331,7 +331,7 @@
 
 # virtual methods
 .method public get(D)D
-    .locals 9
+    .locals 8
 
     const-wide/16 v0, 0x0
 
@@ -361,20 +361,20 @@
     :goto_0
     sget-wide v6, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->error:D
 
-    cmpl-double v8, v2, v6
+    cmpl-double v6, v2, v6
 
-    if-lez v8, :cond_3
+    if-lez v6, :cond_3
 
     .line 178
     invoke-direct {p0, v4, v5}, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->getX(D)D
 
     move-result-wide v6
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
-    cmpg-double v8, v6, p1
+    cmpg-double v6, v6, p1
 
-    if-gez v8, :cond_2
+    if-gez v6, :cond_2
 
     add-double/2addr v4, v2
 
@@ -414,7 +414,7 @@
 
     sub-double/2addr p1, v6
 
-    mul-double v4, v4, p1
+    mul-double/2addr v4, p1
 
     sub-double/2addr v2, v6
 
@@ -426,7 +426,7 @@
 .end method
 
 .method public getDiff(D)D
-    .locals 9
+    .locals 8
 
     const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
 
@@ -438,20 +438,20 @@
     :goto_0
     sget-wide v6, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->d_error:D
 
-    cmpl-double v8, v2, v6
+    cmpl-double v6, v2, v6
 
-    if-lez v8, :cond_1
+    if-lez v6, :cond_1
 
     .line 147
     invoke-direct {p0, v4, v5}, Landroid/support/constraint/motion/utils/Easing$CubicEasing;->getX(D)D
 
     move-result-wide v6
 
-    mul-double v2, v2, v0
+    mul-double/2addr v2, v0
 
-    cmpg-double v8, v6, p1
+    cmpg-double v6, v6, p1
 
-    if-gez v8, :cond_0
+    if-gez v6, :cond_0
 
     add-double/2addr v4, v2
 
