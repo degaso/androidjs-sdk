@@ -330,7 +330,9 @@
 
     if-ne v0, p1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v1
@@ -1388,14 +1390,13 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->hashCode()I
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -1590,13 +1591,12 @@
 
     if-eqz v0, :cond_2
 
-    goto :goto_0
+    return v1
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public isImportantForAccessibility()Z
@@ -2106,7 +2106,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setHeading(Z)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v0, 0x2
@@ -2114,7 +2114,6 @@
     .line 3349
     invoke-direct {p0, v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBooleanProperty(IZ)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2133,7 +2132,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setHintText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 2602
     :cond_0
@@ -2147,7 +2146,6 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2298,7 +2296,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setPaneTitle(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 3226
     :cond_0
@@ -2312,7 +2310,6 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2399,7 +2396,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScreenReaderFocusable(Z)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v0, 0x1
@@ -2407,7 +2404,6 @@
     .line 3278
     invoke-direct {p0, v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBooleanProperty(IZ)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2448,7 +2444,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setShowingHintText(Z)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v0, 0x4
@@ -2456,7 +2452,6 @@
     .line 3313
     invoke-direct {p0, v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBooleanProperty(IZ)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2519,7 +2514,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setTooltipText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 3206
     :cond_0
@@ -2533,7 +2528,6 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method
 

@@ -424,12 +424,11 @@
     .line 664
     iget-object v0, v0, Landroid/support/v4/app/FragmentActivity$NonConfigurationInstances;->custom:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -596,7 +595,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    return-void
 
     :cond_1
     const v0, 0xffff
@@ -606,7 +605,6 @@
     .line 160
     invoke-virtual {v2, p1, p2, p3}, Landroid/support/v4/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    :goto_0
     return-void
 
     .line 166
@@ -663,23 +661,29 @@
 
     if-gt v2, v3, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     .line 190
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->popBackStackImmediate()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    return-void
 
     .line 191
-    :cond_1
+    :cond_2
+    :goto_1
     invoke-super {p0}, Landroid/support/v4/app/SupportActivity;->onBackPressed()V
 
-    :cond_2
     return-void
 .end method
 
@@ -1272,7 +1276,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    return-void
 
     :cond_1
     and-int/2addr p1, v1
@@ -1281,7 +1285,6 @@
     invoke-virtual {v3, p1, p2, p3}, Landroid/support/v4/app/Fragment;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -1813,27 +1816,23 @@
 .end method
 
 .method public startIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 11
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
         }
     .end annotation
 
-    move-object v9, p0
-
-    move v0, p3
-
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     .line 899
-    iput-boolean v1, v9, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
 
     const/4 v2, -0x1
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    if-ne v0, v2, :cond_0
+    if-ne p3, v2, :cond_0
 
     move-object v1, p0
 
@@ -1843,7 +1842,7 @@
 
     move-object v4, p4
 
-    move/from16 v5, p5
+    move v5, p5
 
     move/from16 v6, p6
 
@@ -1858,7 +1857,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 912
-    iput-boolean v10, v9, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
+    iput-boolean v9, p0, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
 
     return-void
 
@@ -1868,19 +1867,19 @@
     invoke-static {p3}, Landroid/support/v4/app/FragmentActivity;->checkForValidRequestCode(I)V
 
     .line 907
-    invoke-direct {p0, p1}, Landroid/support/v4/app/FragmentActivity;->allocateRequestIndex(Landroid/support/v4/app/Fragment;)I
+    invoke-direct/range {p0 .. p1}, Landroid/support/v4/app/FragmentActivity;->allocateRequestIndex(Landroid/support/v4/app/Fragment;)I
 
     move-result v2
 
-    add-int/2addr v2, v1
+    add-int/2addr v2, v0
 
-    shl-int/lit8 v1, v2, 0x10
+    shl-int/lit8 v0, v2, 0x10
 
     const v2, 0xffff
 
-    and-int/2addr v0, v2
+    and-int/2addr v2, p3
 
-    add-int v3, v1, v0
+    add-int v3, v0, v2
 
     move-object v1, p0
 
@@ -1888,7 +1887,7 @@
 
     move-object v4, p4
 
-    move/from16 v5, p5
+    move v5, p5
 
     move/from16 v6, p6
 
@@ -1902,14 +1901,14 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 912
-    iput-boolean v10, v9, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
+    iput-boolean v9, p0, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
 
     return-void
 
     :catchall_0
     move-exception v0
 
-    iput-boolean v10, v9, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
+    iput-boolean v9, p0, Landroid/support/v4/app/FragmentActivity;->mStartedIntentSenderFromFragment:Z
 
     throw v0
 .end method

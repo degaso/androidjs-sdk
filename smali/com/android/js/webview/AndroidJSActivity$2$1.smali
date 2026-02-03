@@ -24,7 +24,7 @@
 .method constructor <init>(Lcom/android/js/webview/AndroidJSActivity$2;Landroid/webkit/WebView;)V
     .locals 0
 
-    .line 175
+    .line 176
     iput-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
     iput-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
@@ -39,10 +39,10 @@
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
     .locals 0
 
-    .line 194
+    .line 195
     invoke-super {p0, p1, p2}, Landroid/webkit/WebViewClient;->onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
 
-    .line 197
+    .line 198
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
 
     invoke-virtual {p1}, Landroid/webkit/WebView;->destroy()V
@@ -57,7 +57,7 @@
 
     if-eqz p2, :cond_1
 
-    .line 181
+    .line 182
     invoke-interface {p2}, Landroid/webkit/WebResourceRequest;->getUrl()Landroid/net/Uri;
 
     move-result-object v0
@@ -66,7 +66,7 @@
 
     goto :goto_0
 
-    .line 184
+    .line 185
     :cond_0
     iget-object v0, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->this$1:Lcom/android/js/webview/AndroidJSActivity$2;
 
@@ -82,7 +82,7 @@
 
     invoke-static {v0, p2}, Lcom/android/js/webview/AndroidJSActivity;->access$000(Lcom/android/js/webview/AndroidJSActivity;Ljava/lang/String;)V
 
-    .line 187
+    .line 188
     iget-object p2, p0, Lcom/android/js/webview/AndroidJSActivity$2$1;->val$newWebView:Landroid/webkit/WebView;
 
     invoke-virtual {p2}, Landroid/webkit/WebView;->destroy()V

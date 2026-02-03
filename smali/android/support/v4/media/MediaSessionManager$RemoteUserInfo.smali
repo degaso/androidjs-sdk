@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    goto :goto_0
+    return-void
 
     .line 146
     :cond_0
@@ -69,7 +69,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    :goto_0
     return-void
 .end method
 

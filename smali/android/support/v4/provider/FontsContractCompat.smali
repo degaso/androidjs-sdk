@@ -344,7 +344,7 @@
 .end method
 
 .method static getFontFromProvider(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Ljava/lang/String;Landroid/os/CancellationSignal;)[Landroid/support/v4/provider/FontsContractCompat$FontInfo;
-    .locals 24
+    .locals 18
 
     move-object/from16 v0, p2
 
@@ -384,26 +384,26 @@
     .line 819
     invoke-virtual {v8}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object v8
+    move-result-object v11
 
     .line 820
-    new-instance v10, Landroid/net/Uri$Builder;
+    new-instance v8, Landroid/net/Uri$Builder;
 
-    invoke-direct {v10}, Landroid/net/Uri$Builder;-><init>()V
+    invoke-direct {v8}, Landroid/net/Uri$Builder;-><init>()V
 
-    invoke-virtual {v10, v9}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v8, v9}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v9
+    move-result-object v8
 
     .line 821
-    invoke-virtual {v9, v0}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v8, v0}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    const-string v9, "file"
+    const-string v8, "file"
 
     .line 822
-    invoke-virtual {v0, v9}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v8}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
@@ -418,62 +418,60 @@
 
     move-result-object v10
 
-    const/4 v11, 0x7
+    const/4 v9, 0x7
 
-    new-array v12, v11, [Ljava/lang/String;
+    new-array v12, v9, [Ljava/lang/String;
 
-    const/4 v15, 0x0
+    const/4 v9, 0x0
 
-    aput-object v6, v12, v15
+    aput-object v6, v12, v9
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
-    aput-object v5, v12, v14
+    aput-object v5, v12, v13
 
-    const/4 v11, 0x2
+    const/4 v14, 0x2
 
-    aput-object v4, v12, v11
+    aput-object v4, v12, v14
 
-    const-string v11, "font_variation_settings"
+    const-string v14, "font_variation_settings"
 
-    const/4 v13, 0x3
+    const/4 v15, 0x3
 
-    aput-object v11, v12, v13
+    aput-object v14, v12, v15
 
-    const/4 v11, 0x4
+    const/4 v14, 0x4
 
-    aput-object v3, v12, v11
+    aput-object v3, v12, v14
 
-    const/4 v11, 0x5
+    const/4 v14, 0x5
 
-    aput-object v2, v12, v11
+    aput-object v2, v12, v14
 
-    const/4 v11, 0x6
+    const/4 v14, 0x6
 
-    aput-object v1, v12, v11
+    aput-object v1, v12, v14
 
-    const-string v13, "query = ?"
+    const-string v14, "query = ?"
 
-    new-array v11, v14, [Ljava/lang/String;
+    move-object v15, v14
+
+    new-array v14, v13, [Ljava/lang/String;
 
     .line 831
     invoke-virtual/range {p1 .. p1}, Landroid/support/v4/provider/FontRequest;->getQuery()Ljava/lang/String;
 
     move-result-object v16
 
-    aput-object v16, v11, v15
+    aput-object v16, v14, v9
 
-    const/16 v16, 0x0
+    move/from16 v16, v13
 
-    move-object/from16 v17, v11
+    move-object v13, v15
 
-    move-object v11, v8
+    const/4 v15, 0x0
 
-    move v9, v14
-
-    move-object/from16 v14, v17
-
-    move-object/from16 v15, v16
+    move/from16 v8, v16
 
     move-object/from16 v16, p3
 
@@ -484,15 +482,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     .line 840
     :try_start_1
     invoke-interface {v10}, Landroid/database/Cursor;->getCount()I
 
-    move-result v11
+    move-result v12
 
-    if-lez v11, :cond_5
+    if-lez v12, :cond_6
 
     .line 841
     invoke-interface {v10, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -533,53 +531,53 @@
     :goto_0
     invoke-interface {v10}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_5
+    if-eqz v12, :cond_6
 
-    const/4 v11, -0x1
+    const/4 v12, -0x1
 
-    if-eq v1, v11, :cond_0
+    if-eq v1, v12, :cond_0
 
     .line 850
     invoke-interface {v10, v1}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v15
+    move-result v13
 
-    move/from16 v23, v15
+    move/from16 v17, v13
 
     goto :goto_1
 
     :cond_0
-    const/16 v23, 0x0
+    move/from16 v17, v9
 
     :goto_1
-    if-eq v4, v11, :cond_1
+    if-eq v4, v12, :cond_1
 
     .line 852
     invoke-interface {v10, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v15
+    move-result v13
 
-    move/from16 v20, v15
+    move v14, v13
 
     goto :goto_2
 
     :cond_1
-    const/16 v20, 0x0
+    move v14, v9
 
     :goto_2
-    if-ne v5, v11, :cond_2
+    if-ne v5, v12, :cond_2
 
     .line 855
     invoke-interface {v10, v6}, Landroid/database/Cursor;->getLong(I)J
 
-    move-result-wide v12
+    move-result-wide v8
 
     .line 856
-    invoke-static {v8, v12, v13}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+    invoke-static {v11, v8, v9}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
-    move-result-object v12
+    move-result-object v8
 
     goto :goto_3
 
@@ -587,75 +585,82 @@
     :cond_2
     invoke-interface {v10, v5}, Landroid/database/Cursor;->getLong(I)J
 
-    move-result-wide v12
+    move-result-wide v8
 
     .line 859
-    invoke-static {v0, v12, v13}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+    invoke-static {v0, v8, v9}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
-    move-result-object v12
+    move-result-object v8
 
     :goto_3
-    move-object/from16 v19, v12
+    move-object v13, v8
 
-    if-eq v3, v11, :cond_3
+    if-eq v3, v12, :cond_3
 
     .line 862
     invoke-interface {v10, v3}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v12
+    move-result v8
 
     goto :goto_4
 
     :cond_3
-    const/16 v12, 0x190
+    const/16 v8, 0x190
 
     :goto_4
-    move/from16 v21, v12
+    move v15, v8
 
-    if-eq v2, v11, :cond_4
+    if-eq v2, v12, :cond_4
 
     .line 863
     invoke-interface {v10, v2}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v11
+    move-result v8
 
-    if-ne v11, v9, :cond_4
+    const/4 v9, 0x1
 
-    move/from16 v22, v9
+    if-ne v8, v9, :cond_5
+
+    move/from16 v16, v9
 
     goto :goto_5
 
     :cond_4
-    const/16 v22, 0x0
+    const/4 v9, 0x1
+
+    :cond_5
+    const/16 v16, 0x0
 
     .line 865
     :goto_5
-    new-instance v11, Landroid/support/v4/provider/FontsContractCompat$FontInfo;
+    new-instance v12, Landroid/support/v4/provider/FontsContractCompat$FontInfo;
 
-    move-object/from16 v18, v11
+    invoke-direct/range {v12 .. v17}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;-><init>(Landroid/net/Uri;IIZI)V
 
-    invoke-direct/range {v18 .. v23}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;-><init>(Landroid/net/Uri;IIZI)V
-
-    invoke-virtual {v7, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move v8, v9
+
+    const/4 v9, 0x0
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    move-object v9, v10
+    move-object v8, v10
 
     goto :goto_6
 
-    :cond_5
-    if-eqz v10, :cond_6
+    :cond_6
+    if-eqz v10, :cond_7
 
     .line 870
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
-    :cond_6
+    :cond_7
     const/4 v0, 0x0
 
     .line 873
@@ -672,15 +677,15 @@
     :catchall_1
     move-exception v0
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
     :goto_6
-    if-eqz v9, :cond_7
+    if-eqz v8, :cond_8
 
     .line 870
-    invoke-interface {v9}, Landroid/database/Cursor;->close()V
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_7
+    :cond_8
     throw v0
 .end method
 

@@ -89,11 +89,11 @@
     .line 171
     iget v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->matchConstraintsType:I
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_8
 
     const/4 p2, 0x2
 
@@ -145,7 +145,7 @@
 
     if-ne v0, p2, :cond_1
 
-    goto/16 :goto_4
+    goto :goto_4
 
     .line 205
     :cond_1
@@ -166,7 +166,7 @@
 
     iget-boolean v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     .line 207
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -212,7 +212,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolve(I)V
 
-    goto :goto_4
+    return-void
 
     .line 177
     :cond_4
@@ -222,7 +222,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_7
 
     if-nez p1, :cond_5
 
@@ -240,7 +240,7 @@
 
     iget-boolean v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     .line 183
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -277,10 +277,12 @@
 
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolve(I)V
 
-    goto :goto_4
+    :cond_7
+    :goto_4
+    return-void
 
     .line 194
-    :cond_7
+    :cond_8
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->wrapValue:I
@@ -298,10 +300,10 @@
 
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolve(I)V
 
-    goto :goto_4
+    return-void
 
     .line 173
-    :cond_8
+    :cond_9
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
 
     invoke-virtual {p0, p2, p1}, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->getLimitedDimension(II)I
@@ -310,8 +312,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolve(I)V
 
-    :cond_9
-    :goto_4
     return-void
 .end method
 
@@ -409,7 +409,7 @@
     :cond_0
     if-eq v0, p1, :cond_3
 
-    goto :goto_0
+    return v0
 
     .line 244
     :cond_1
@@ -437,8 +437,7 @@
     :cond_2
     if-eq v0, p1, :cond_3
 
-    :goto_0
-    move p1, v0
+    return v0
 
     :cond_3
     return p1
@@ -496,53 +495,52 @@
 
     if-eq p1, v2, :cond_1
 
-    goto :goto_0
+    return-object v1
 
     .line 119
     :cond_1
     iget-object p1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalRun:Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;
 
     .line 120
-    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    goto :goto_0
+    return-object p1
 
     .line 115
     :cond_2
     iget-object p1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalRun:Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;
 
     .line 116
-    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->baseline:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->baseline:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    goto :goto_0
+    return-object p1
 
     .line 111
     :cond_3
     iget-object p1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalRun:Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;
 
     .line 112
-    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    goto :goto_0
+    return-object p1
 
     .line 107
     :cond_4
     iget-object p1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalRun:Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;
 
     .line 108
-    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    goto :goto_0
+    return-object p1
 
     .line 103
     :cond_5
     iget-object p1, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalRun:Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;
 
     .line 104
-    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method protected final getTarget(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
@@ -604,20 +602,19 @@
 
     if-eq p1, v0, :cond_2
 
-    goto :goto_1
+    return-object v1
 
     .line 273
     :cond_2
-    iget-object v1, p2, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p2, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->end:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    goto :goto_1
+    return-object p1
 
     .line 269
     :cond_3
-    iget-object v1, p2, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+    iget-object p1, p2, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    :goto_1
-    return-object v1
+    return-object p1
 .end method
 
 .method public getWrapDimension()J
@@ -732,7 +729,9 @@
 
     if-lt v3, v0, :cond_4
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_4
     return v1
@@ -839,7 +838,7 @@
 
     if-nez v2, :cond_2
 
-    return-void
+    goto :goto_1
 
     .line 147
     :cond_2
@@ -986,12 +985,11 @@
 
     sub-int/2addr p1, v2
 
-    :goto_0
     int-to-long v2, p1
 
     add-long/2addr v0, v2
 
-    goto :goto_1
+    return-wide v0
 
     :cond_0
     if-nez p1, :cond_1
@@ -1001,7 +999,11 @@
 
     iget p1, p1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->margin:I
 
-    goto :goto_0
+    int-to-long v2, p1
+
+    add-long/2addr v0, v2
+
+    return-wide v0
 
     .line 86
     :cond_1
@@ -1013,7 +1015,6 @@
 
     sub-long/2addr v0, v2
 
-    :goto_1
     return-wide v0
 
     :cond_2

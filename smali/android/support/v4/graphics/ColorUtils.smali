@@ -332,12 +332,12 @@
 .end method
 
 .method public static LABToColor(DDD)I
-    .locals 8
+    .locals 7
 
     .line 570
     invoke-static {}, Landroid/support/v4/graphics/ColorUtils;->getTempDouble3Array()[D
 
-    move-result-object v7
+    move-result-object v6
 
     move-wide v0, p0
 
@@ -345,23 +345,21 @@
 
     move-wide v4, p4
 
-    move-object v6, v7
-
     .line 571
     invoke-static/range {v0 .. v6}, Landroid/support/v4/graphics/ColorUtils;->LABToXYZ(DDD[D)V
 
     const/4 p0, 0x0
 
     .line 572
-    aget-wide v0, v7, p0
+    aget-wide v0, v6, p0
 
     const/4 p0, 0x1
 
-    aget-wide v2, v7, p0
+    aget-wide v2, v6, p0
 
     const/4 p0, 0x2
 
-    aget-wide v4, v7, p0
+    aget-wide v4, v6, p0
 
     invoke-static/range {v0 .. v5}, Landroid/support/v4/graphics/ColorUtils;->XYZToColor(DDD)I
 
@@ -665,7 +663,7 @@
 .end method
 
 .method public static RGBToXYZ(III[D)V
-    .locals 16
+    .locals 20
 
     move-object/from16 v0, p3
 
@@ -715,125 +713,123 @@
     :goto_0
     move/from16 v7, p1
 
-    int-to-double v10, v7
+    move-wide/from16 v16, v3
 
-    div-double/2addr v10, v3
+    int-to-double v3, v7
 
-    cmpg-double v7, v10, v5
+    div-double v3, v3, v16
+
+    cmpg-double v7, v3, v5
 
     if-gez v7, :cond_1
 
-    div-double/2addr v10, v8
+    div-double/2addr v3, v8
 
     goto :goto_1
 
     :cond_1
-    add-double/2addr v10, v14
+    add-double/2addr v3, v14
 
-    div-double/2addr v10, v12
-
-    const-wide v12, 0x4003333333333333L    # 2.4
+    div-double/2addr v3, v12
 
     .line 451
-    invoke-static {v10, v11, v12, v13}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v3, v4, v10, v11}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v10
+    move-result-wide v3
 
     :goto_1
     move/from16 v7, p2
 
-    int-to-double v12, v7
+    move-wide/from16 v18, v5
 
-    div-double/2addr v12, v3
+    int-to-double v5, v7
 
-    cmpg-double v3, v12, v5
+    div-double v5, v5, v16
 
-    if-gez v3, :cond_2
+    cmpg-double v7, v5, v18
 
-    div-double/2addr v12, v8
+    if-gez v7, :cond_2
+
+    div-double/2addr v5, v8
 
     goto :goto_2
 
     :cond_2
-    add-double/2addr v12, v14
+    add-double/2addr v5, v14
 
-    const-wide v3, 0x3ff0e147ae147ae1L    # 1.055
-
-    div-double/2addr v12, v3
-
-    const-wide v3, 0x4003333333333333L    # 2.4
+    div-double/2addr v5, v12
 
     .line 453
-    invoke-static {v12, v13, v3, v4}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v5, v6, v10, v11}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v12
+    move-result-wide v5
 
     :goto_2
-    const-wide v3, 0x3fda64c2f837b4a2L    # 0.4124
+    const-wide v7, 0x3fda64c2f837b4a2L    # 0.4124
 
-    mul-double/2addr v3, v1
+    mul-double/2addr v7, v1
 
-    const-wide v5, 0x3fd6e2eb1c432ca5L    # 0.3576
+    const-wide v9, 0x3fd6e2eb1c432ca5L    # 0.3576
 
-    mul-double/2addr v5, v10
+    mul-double/2addr v9, v3
 
-    add-double/2addr v3, v5
+    add-double/2addr v7, v9
 
-    const-wide v5, 0x3fc71a9fbe76c8b4L    # 0.1805
+    const-wide v9, 0x3fc71a9fbe76c8b4L    # 0.1805
 
-    mul-double/2addr v5, v12
+    mul-double/2addr v9, v5
 
-    add-double/2addr v3, v5
+    add-double/2addr v7, v9
 
-    const-wide/high16 v5, 0x4059000000000000L    # 100.0
+    const-wide/high16 v9, 0x4059000000000000L    # 100.0
 
-    mul-double/2addr v3, v5
+    mul-double/2addr v7, v9
 
-    const/4 v7, 0x0
+    const/4 v11, 0x0
 
     .line 455
-    aput-wide v3, v0, v7
+    aput-wide v7, v0, v11
 
-    const-wide v3, 0x3fcb367a0f9096bcL    # 0.2126
+    const-wide v7, 0x3fcb367a0f9096bcL    # 0.2126
 
-    mul-double/2addr v3, v1
+    mul-double/2addr v7, v1
 
-    const-wide v7, 0x3fe6e2eb1c432ca5L    # 0.7152
+    const-wide v11, 0x3fe6e2eb1c432ca5L    # 0.7152
 
-    mul-double/2addr v7, v10
+    mul-double/2addr v11, v3
 
-    add-double/2addr v3, v7
+    add-double/2addr v7, v11
 
-    const-wide v7, 0x3fb27bb2fec56d5dL    # 0.0722
+    const-wide v11, 0x3fb27bb2fec56d5dL    # 0.0722
 
-    mul-double/2addr v7, v12
+    mul-double/2addr v11, v5
 
-    add-double/2addr v3, v7
+    add-double/2addr v7, v11
 
-    mul-double/2addr v3, v5
+    mul-double/2addr v7, v9
 
-    const/4 v7, 0x1
+    const/4 v11, 0x1
 
     .line 456
-    aput-wide v3, v0, v7
+    aput-wide v7, v0, v11
 
-    const-wide v3, 0x3f93c36113404ea5L    # 0.0193
+    const-wide v7, 0x3f93c36113404ea5L    # 0.0193
 
-    mul-double/2addr v1, v3
+    mul-double/2addr v1, v7
 
-    const-wide v3, 0x3fbe83e425aee632L    # 0.1192
+    const-wide v7, 0x3fbe83e425aee632L    # 0.1192
 
-    mul-double/2addr v10, v3
+    mul-double/2addr v3, v7
 
-    add-double/2addr v1, v10
+    add-double/2addr v1, v3
 
     const-wide v3, 0x3fee6a7ef9db22d1L    # 0.9505
 
-    mul-double/2addr v12, v3
+    mul-double/2addr v5, v3
 
-    add-double/2addr v1, v12
+    add-double/2addr v1, v5
 
-    mul-double/2addr v1, v5
+    mul-double/2addr v1, v9
 
     const/4 v3, 0x2
 
@@ -1987,19 +1983,16 @@
 
     if-gez v0, :cond_0
 
-    move p0, p1
-
-    goto :goto_0
+    return p1
 
     :cond_0
     cmpl-float p1, p0, p2
 
     if-lez p1, :cond_1
 
-    move p0, p2
+    return p2
 
     :cond_1
-    :goto_0
     return p0
 .end method
 
@@ -2008,17 +2001,14 @@
 
     if-ge p0, p1, :cond_0
 
-    move p0, p1
-
-    goto :goto_0
+    return p1
 
     :cond_0
     if-le p0, p2, :cond_1
 
-    move p0, p2
+    return p2
 
     :cond_1
-    :goto_0
     return p0
 .end method
 
@@ -2120,7 +2110,7 @@
 
     move-result-wide p0
 
-    goto :goto_0
+    return-wide p0
 
     :cond_0
     const-wide v0, 0x408c3a6666666666L    # 903.3
@@ -2135,7 +2125,6 @@
 
     div-double/2addr p0, v0
 
-    :goto_0
     return-wide p0
 .end method
 

@@ -145,7 +145,7 @@
 
     if-ne v0, p2, :cond_0
 
-    goto :goto_0
+    return-object p1
 
     .line 468
     :cond_0
@@ -189,10 +189,7 @@
 
     invoke-virtual {p2, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object p1, v0
-
-    :goto_0
-    return-object p1
+    return-object v0
 .end method
 
 
@@ -554,7 +551,7 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mCurveFit:Landroid/support/constraint/motion/utils/CurveFit;
 
-    goto :goto_2
+    return-void
 
     :cond_4
     const/4 p1, 0x0
@@ -562,6 +559,5 @@
     .line 516
     iput-object p1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mCurveFit:Landroid/support/constraint/motion/utils/CurveFit;
 
-    :goto_2
     return-void
 .end method

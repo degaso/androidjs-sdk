@@ -814,7 +814,7 @@
 
     invoke-interface {p1, p2, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;->setCallback(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/os/Handler;)V
 
-    goto :goto_1
+    return-void
 
     .line 550
     :cond_0
@@ -832,7 +832,6 @@
     :goto_0
     invoke-interface {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;->setCallback(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/os/Handler;)V
 
-    :goto_1
     return-void
 .end method
 

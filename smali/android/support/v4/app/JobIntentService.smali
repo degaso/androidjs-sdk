@@ -111,7 +111,7 @@
     .line 418
     iput-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
-    goto :goto_0
+    return-void
 
     .line 420
     :cond_0
@@ -121,7 +121,6 @@
 
     iput-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
-    :goto_0
     return-void
 .end method
 
@@ -233,11 +232,11 @@
 
     invoke-direct {p2, p0, p1}, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
 
-    :goto_0
-    move-object v1, p2
-
     .line 539
-    invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :goto_0
+    invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-object p2
 
     :cond_2
     return-object v1
@@ -291,13 +290,13 @@
 
     return-object v1
 
-    .line 646
     :cond_1
+    const/4 v1, 0x0
+
+    .line 646
     monitor-exit v0
 
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object v1
 
     :catchall_0
     move-exception v1
@@ -433,7 +432,7 @@
     .line 430
     iput-object v2, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
 
-    goto :goto_0
+    return-void
 
     .line 432
     :cond_0
@@ -457,7 +456,6 @@
 
     iput-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
 
-    :goto_0
     return-void
 .end method
 
@@ -489,7 +487,7 @@
     .line 481
     monitor-exit v0
 
-    goto :goto_0
+    return-void
 
     :catchall_0
     move-exception v1
@@ -501,7 +499,6 @@
     throw v1
 
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -632,7 +629,7 @@
     :goto_0
     monitor-exit v0
 
-    goto :goto_1
+    return-void
 
     :catchall_0
     move-exception v1
@@ -644,7 +641,6 @@
     throw v1
 
     :cond_2
-    :goto_1
     return-void
 .end method
 

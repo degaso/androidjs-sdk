@@ -322,7 +322,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    goto :goto_1
+    return-object v1
 
     .line 328
     :cond_1
@@ -332,7 +332,6 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    :goto_1
     return-object v1
 .end method
 
@@ -504,7 +503,7 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
-    goto :goto_2
+    return-object v0
 
     .line 272
     :cond_3
@@ -517,7 +516,6 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    :goto_2
     return-object v0
 .end method
 
@@ -531,12 +529,11 @@
     .line 334
     sget p1, Landroid/support/mediacompat/R$layout;->notification_template_big_media_narrow:I
 
-    goto :goto_0
+    return p1
 
     :cond_0
     sget p1, Landroid/support/mediacompat/R$layout;->notification_template_big_media:I
 
-    :goto_0
     return p1
 .end method
 

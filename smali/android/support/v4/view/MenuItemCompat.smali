@@ -427,7 +427,7 @@
 
     invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 465
     :cond_0
@@ -441,7 +441,6 @@
     invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -458,7 +457,7 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 324
     :cond_0
@@ -472,7 +471,6 @@
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -489,7 +487,7 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 505
     :cond_0
@@ -503,7 +501,6 @@
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -520,7 +517,7 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 536
     :cond_0
@@ -534,7 +531,6 @@
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -551,7 +547,7 @@
 
     invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 420
     :cond_0
@@ -565,7 +561,6 @@
     invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -599,7 +594,7 @@
 
     invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/internal/view/SupportMenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 400
     :cond_0
@@ -613,7 +608,6 @@
     invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/MenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -641,7 +635,7 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
-    goto :goto_0
+    return-void
 
     .line 353
     :cond_0
@@ -655,6 +649,5 @@
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     :cond_1
-    :goto_0
     return-void
 .end method

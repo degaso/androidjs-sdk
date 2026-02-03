@@ -68,7 +68,7 @@
 
     if-ne v0, v3, :cond_0
 
-    move v2, v3
+    return v3
 
     :cond_0
     return v2

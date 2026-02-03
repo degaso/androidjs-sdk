@@ -140,7 +140,7 @@
 
     if-nez v1, :cond_0
 
-    return-object v0
+    goto :goto_1
 
     .line 634
     :cond_0
@@ -186,6 +186,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return-object v0
 .end method
 
@@ -213,12 +214,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -278,7 +278,7 @@
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    return v2
 
     :cond_3
     :goto_0

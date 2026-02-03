@@ -67,7 +67,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->sendResult(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 498
     :cond_0
@@ -85,7 +85,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->sendResult(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 .end method
 

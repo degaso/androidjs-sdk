@@ -102,7 +102,7 @@
     .line 77
     invoke-interface {v0, p2}, Landroid/support/v4/graphics/drawable/WrappedDrawable;->setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto/16 :goto_4
+    return-object p1
 
     .line 79
     :cond_0
@@ -265,13 +265,12 @@
 
     invoke-direct {p1, v2, p2, v1}, Landroid/graphics/drawable/ClipDrawable;-><init>(Landroid/graphics/drawable/Drawable;II)V
 
-    move-object v2, p1
+    return-object p1
 
     :cond_7
     return-object v2
 
     :cond_8
-    :goto_4
     return-object p1
 .end method
 
@@ -339,7 +338,7 @@
     :cond_0
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/AnimationDrawable;->setLevel(I)Z
 
-    move-object p1, v1
+    return-object v1
 
     :cond_1
     return-object p1

@@ -56,7 +56,7 @@
 
     const/4 v0, 0x1
 
-    .line 221
+    .line 222
     :try_start_0
     invoke-static {p1, v0}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -64,7 +64,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 226
+    .line 227
     invoke-virtual {p0, v1}, Lcom/android/js/webview/AndroidJSActivity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -74,7 +74,7 @@
     :catch_0
     move-exception v1
 
-    .line 230
+    .line 231
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v3, "Could not resolve intent url \""
@@ -103,7 +103,7 @@
 
     invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 232
+    .line 233
     :cond_0
     sget p1, Lcom/android/js/R$string;->intent_url_failed:I
 
@@ -119,7 +119,7 @@
 .method private handleUrl(Ljava/lang/String;)V
     .locals 2
 
-    .line 211
+    .line 212
     const-string v0, "intent://"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -128,12 +128,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 212
+    .line 213
     invoke-direct {p0, p1}, Lcom/android/js/webview/AndroidJSActivity;->handleIntentUrl(Ljava/lang/String;)V
 
-    goto :goto_0
+    return-void
 
-    .line 214
+    .line 215
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -145,10 +145,9 @@
 
     invoke-direct {v0, v1, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 215
+    .line 216
     invoke-virtual {p0, v0}, Lcom/android/js/webview/AndroidJSActivity;->startActivity(Landroid/content/Intent;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -251,14 +250,25 @@
 
     invoke-virtual {p1, v0}, Landroid/webkit/WebSettings;->setSupportMultipleWindows(Z)V
 
-    .line 100
+    .line 99
+    iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/webkit/WebSettings;->setMediaPlaybackRequiresUserGesture(Z)V
+
+    .line 101
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
     const-string v0, "file:///android_asset/myapp/views/index.html"
 
     invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 104
+    .line 105
     iget-object p1, p0, Lcom/android/js/webview/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
 
     new-instance v0, Lcom/android/js/webview/AndroidJSActivity$2;
@@ -287,13 +297,12 @@
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
 
-    goto :goto_0
+    return-void
 
     .line 50
     :cond_0
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->onBackPressed()V
 
-    :goto_0
     return-void
 .end method
 

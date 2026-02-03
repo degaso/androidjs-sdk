@@ -76,7 +76,7 @@
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources$Theme;->setTo(Landroid/content/res/Resources$Theme;)V
 
-    goto :goto_0
+    return-void
 
     .line 101
     :cond_0
@@ -95,15 +95,16 @@
     .line 102
     iput-object p1, p0, Landroid/support/v7/widget/TintContextWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
-    :goto_0
     return-void
 .end method
 
 .method private static shouldWrap(Landroid/content/Context;)Z
-    .locals 1
+    .locals 2
 
     .line 78
     instance-of v0, p0, Landroid/support/v7/widget/TintContextWrapper;
+
+    const/4 v1, 0x0
 
     if-nez v0, :cond_1
 
@@ -133,13 +134,15 @@
 
     move-result p0
 
+    if-eqz p0, :cond_1
+
+    const/4 p0, 0x1
+
     return p0
 
     :cond_1
     :goto_0
-    const/4 p0, 0x0
-
-    return p0
+    return v1
 .end method
 
 .method public static wrap(Landroid/content/Context;)Landroid/content/Context;
@@ -354,7 +357,7 @@
     .line 114
     invoke-super {p0, p1}, Landroid/content/ContextWrapper;->setTheme(I)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v1, 0x1
@@ -362,6 +365,5 @@
     .line 116
     invoke-virtual {v0, p1, v1}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
-    :goto_0
     return-void
 .end method

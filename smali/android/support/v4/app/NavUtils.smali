@@ -62,7 +62,7 @@
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_2
     new-instance p0, Landroid/content/Intent;
@@ -76,7 +76,6 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
     return-object p0
 
     .line 148
@@ -150,7 +149,7 @@
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_1
     new-instance p0, Landroid/content/Intent;
@@ -162,7 +161,6 @@
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 .end method
 
@@ -217,7 +215,7 @@
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_1
     new-instance p0, Landroid/content/Intent;
@@ -229,7 +227,6 @@
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 .end method
 
@@ -343,7 +340,9 @@
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
+
+    return-object p0
 
     :cond_3
     return-object p1

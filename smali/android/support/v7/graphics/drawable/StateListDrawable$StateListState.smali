@@ -32,7 +32,7 @@
 
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
 
-    goto :goto_0
+    return-void
 
     .line 335
     :cond_0
@@ -44,7 +44,6 @@
 
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
 
-    :goto_0
     return-void
 .end method
 

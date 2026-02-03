@@ -270,53 +270,47 @@
 .end method
 
 .method public onStartIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
         }
     .end annotation
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    move v3, p3
-
-    if-ne v3, v0, :cond_0
-
-    move-object v0, p0
+    if-ne p3, p1, :cond_0
 
     .line 143
-    iget-object v1, v0, Landroid/support/v4/app/FragmentHostCallback;->mActivity:Landroid/app/Activity;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mActivity:Landroid/app/Activity;
 
-    move-object v2, p2
+    move-object v1, p2
 
-    move v3, p3
+    move v2, p3
 
-    move-object v4, p4
+    move-object v3, p4
 
-    move v5, p5
+    move v4, p5
 
-    move v6, p6
+    move v5, p6
 
-    move/from16 v7, p7
+    move v6, p7
 
-    move-object/from16 v8, p8
+    move-object/from16 v7, p8
 
-    invoke-static/range {v1 .. v8}, Landroid/support/v4/app/ActivityCompat;->startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
+    invoke-static/range {v0 .. v7}, Landroid/support/v4/app/ActivityCompat;->startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
 
     return-void
 
-    :cond_0
-    move-object v0, p0
-
     .line 140
-    new-instance v1, Ljava/lang/IllegalStateException;
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Starting intent sender with a requestCode requires a FragmentActivity host"
+    const-string p2, "Starting intent sender with a requestCode requires a FragmentActivity host"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public onSupportInvalidateOptionsMenu()V

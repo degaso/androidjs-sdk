@@ -246,7 +246,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 240
     :cond_0
@@ -254,7 +254,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_1
 
     .line 244
     :cond_1
@@ -306,6 +306,7 @@
     goto :goto_0
 
     :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -317,7 +318,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto/16 :goto_2
 
     .line 306
     :cond_0
@@ -500,6 +501,7 @@
     goto :goto_1
 
     :cond_4
+    :goto_2
     return-void
 .end method
 
@@ -513,7 +515,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 257
     :cond_0
@@ -538,6 +540,7 @@
 
     if-nez v0, :cond_1
 
+    :goto_0
     return-void
 
     .line 262
@@ -558,7 +561,7 @@
 
     if-eqz v0, :cond_2
 
-    goto :goto_0
+    goto :goto_1
 
     .line 296
     :cond_2
@@ -571,11 +574,11 @@
 
     iput v0, p0, Landroid/support/constraint/helper/Layer;->mComputedCenterX:F
 
-    goto/16 :goto_3
+    return-void
 
     .line 263
     :cond_3
-    :goto_0
+    :goto_1
     iget-object v0, p0, Landroid/support/constraint/helper/Layer;->mContainer:Landroid/support/constraint/ConstraintLayout;
 
     invoke-virtual {p0, v0}, Landroid/support/constraint/helper/Layer;->getViews(Landroid/support/constraint/ConstraintLayout;)[Landroid/view/View;
@@ -613,7 +616,7 @@
     move-result v5
 
     .line 270
-    :goto_1
+    :goto_2
     iget v6, p0, Landroid/support/constraint/helper/Layer;->mCount:I
 
     if-ge v1, v6, :cond_4
@@ -659,7 +662,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     int-to-float v0, v4
@@ -700,7 +703,7 @@
 
     iput v0, p0, Landroid/support/constraint/helper/Layer;->mComputedCenterX:F
 
-    goto :goto_2
+    goto :goto_3
 
     .line 286
     :cond_5
@@ -709,7 +712,7 @@
     iput v0, p0, Landroid/support/constraint/helper/Layer;->mComputedCenterX:F
 
     .line 288
-    :goto_2
+    :goto_3
     iget v0, p0, Landroid/support/constraint/helper/Layer;->mRotationCenterY:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
@@ -727,7 +730,7 @@
 
     iput v0, p0, Landroid/support/constraint/helper/Layer;->mComputedCenterY:F
 
-    goto :goto_3
+    return-void
 
     .line 292
     :cond_6
@@ -735,7 +738,6 @@
 
     iput v0, p0, Landroid/support/constraint/helper/Layer;->mComputedCenterY:F
 
-    :goto_3
     return-void
 .end method
 
@@ -1119,7 +1121,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 113
     iget v0, p0, Landroid/support/constraint/helper/Layer;->mGroupRotateAngle:F
@@ -1128,18 +1130,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     .line 114
     iput p1, p0, Landroid/support/constraint/helper/Layer;->mGroupRotateAngle:F
 
-    goto :goto_0
+    :cond_0
+    return-void
 
     .line 117
-    :cond_0
+    :cond_1
     iput p1, p0, Landroid/support/constraint/helper/Layer;->mGroupRotateAngle:F
 
-    :cond_1
-    :goto_0
     return-void
 .end method

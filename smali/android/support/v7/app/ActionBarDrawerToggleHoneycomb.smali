@@ -102,7 +102,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object p0
 
     :catch_0
     move-exception p1
@@ -115,7 +115,6 @@
     invoke-static {p2, v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_1
-    :goto_0
     return-object p0
 .end method
 
@@ -164,7 +163,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object p0
 
     :catch_0
     move-exception p1
@@ -174,7 +173,7 @@
 
     invoke-static {v1, p2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    return-object p0
 
     .line 62
     :cond_0
@@ -187,7 +186,7 @@
 
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    return-object p0
 
     .line 65
     :cond_1
@@ -195,6 +194,5 @@
 
     invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
     return-object p0
 .end method

@@ -54,7 +54,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->dismiss()V
 
-    goto :goto_0
+    return-void
 
     .line 824
     :cond_0
@@ -67,6 +67,5 @@
 
     invoke-static {v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->access$001(Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;)V
 
-    :goto_0
     return-void
 .end method

@@ -339,7 +339,7 @@
 
     invoke-virtual {p2, p1, p3, v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHorizontalMatchStyle(IIIF)V
 
-    goto/16 :goto_2
+    return-void
 
     .line 191
     :cond_2
@@ -372,7 +372,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    goto/16 :goto_2
+    return-void
 
     .line 199
     :cond_5
@@ -385,7 +385,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    goto :goto_2
+    return-void
 
     :cond_6
     if-nez p1, :cond_f
@@ -400,7 +400,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setWidth(I)V
 
-    goto :goto_2
+    return-void
 
     .line 207
     :cond_7
@@ -445,7 +445,7 @@
 
     invoke-virtual {p2, p1, p3, v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVerticalMatchStyle(IIIF)V
 
-    goto :goto_2
+    return-void
 
     .line 217
     :cond_a
@@ -478,7 +478,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    goto :goto_2
+    return-void
 
     .line 225
     :cond_d
@@ -491,7 +491,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    goto :goto_2
+    return-void
 
     :cond_e
     if-nez p1, :cond_f
@@ -507,7 +507,6 @@
     invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHeight(I)V
 
     :cond_f
-    :goto_2
     return-void
 .end method
 

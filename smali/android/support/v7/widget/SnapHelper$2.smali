@@ -57,7 +57,7 @@
 
     if-nez p2, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 234
     :cond_0
@@ -108,5 +108,6 @@
     invoke-virtual {p3, p2, p1, v0, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->update(IIILandroid/view/animation/Interpolator;)V
 
     :cond_1
+    :goto_0
     return-void
 .end method

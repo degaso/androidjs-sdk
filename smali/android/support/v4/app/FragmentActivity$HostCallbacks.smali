@@ -129,7 +129,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 
     .line 1027
     :cond_0
@@ -139,7 +139,6 @@
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    :goto_0
     return v0
 .end method
 
@@ -164,12 +163,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -187,12 +185,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -258,35 +255,33 @@
 .end method
 
 .method public onStartIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
         }
     .end annotation
 
-    move-object v0, p0
-
     .line 1002
-    iget-object v1, v0, Landroid/support/v4/app/FragmentActivity$HostCallbacks;->this$0:Landroid/support/v4/app/FragmentActivity;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentActivity$HostCallbacks;->this$0:Landroid/support/v4/app/FragmentActivity;
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move-object v3, p2
+    move-object v2, p2
 
-    move v4, p3
+    move v3, p3
 
-    move-object v5, p4
+    move-object v4, p4
 
-    move v6, p5
+    move v5, p5
 
-    move/from16 v7, p6
+    move v6, p6
 
-    move/from16 v8, p7
+    move/from16 v7, p7
 
-    move-object/from16 v9, p8
+    move-object/from16 v8, p8
 
-    invoke-virtual/range {v1 .. v9}, Landroid/support/v4/app/FragmentActivity;->startIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
+    invoke-virtual/range {v0 .. v8}, Landroid/support/v4/app/FragmentActivity;->startIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
 
     return-void
 .end method

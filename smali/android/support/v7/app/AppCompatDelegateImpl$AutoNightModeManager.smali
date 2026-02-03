@@ -119,12 +119,11 @@
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x1
 
-    :goto_0
     return v0
 .end method
 

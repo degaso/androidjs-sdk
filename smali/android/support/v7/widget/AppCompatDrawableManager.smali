@@ -316,7 +316,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -403,7 +406,7 @@
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x1
@@ -427,6 +430,7 @@
 
     if-eqz p1, :cond_1
 
+    :goto_0
     return-void
 
     :cond_1
@@ -882,7 +886,10 @@
     :catchall_0
     move-exception v1
 
+    :try_start_1
     monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -964,7 +971,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_3
     monitor-exit p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw p1
 .end method
@@ -1005,7 +1015,10 @@
     :catchall_0
     move-exception p0
 
+    :try_start_1
     monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p0
 .end method
@@ -1034,9 +1047,9 @@
 
     move-result-object p1
 
-    move-object v1, p1
+    check-cast p1, Landroid/content/res/ColorStateList;
 
-    check-cast v1, Landroid/content/res/ColorStateList;
+    return-object p1
 
     :cond_0
     return-object v1
@@ -1053,12 +1066,11 @@
     .line 514
     sget-object p0, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return-object p0
 .end method
 
@@ -1098,13 +1110,12 @@
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
+    return p0
 
     :cond_1
     :goto_0
     const/4 p0, 0x1
 
-    :goto_1
     return p0
 .end method
 
@@ -1402,7 +1413,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     .line 266
     invoke-static {p4}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
@@ -1420,25 +1431,26 @@
     :cond_0
     invoke-static {p4}, Landroid/support/v4/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p4
+    move-result-object p1
 
     .line 270
-    invoke-static {p4, v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
+    invoke-static {p1, v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 273
     invoke-static {p2}, Landroid/support/v7/widget/AppCompatDrawableManager;->getTintMode(I)Landroid/graphics/PorterDuff$Mode;
 
-    move-result-object p1
+    move-result-object p2
 
-    if-eqz p1, :cond_5
+    if-eqz p2, :cond_1
 
     .line 275
-    invoke-static {p4, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
+    invoke-static {p1, p2}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
-    goto/16 :goto_1
+    :cond_1
+    return-object p1
 
     .line 277
-    :cond_1
+    :cond_2
     sget v0, Landroid/support/v7/appcompat/R$drawable;->abc_seekbar_track_material:I
 
     const v1, 0x102000d
@@ -1447,7 +1459,7 @@
 
     const/high16 v3, 0x1020000
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_3
 
     .line 278
     move-object p2, p4
@@ -1501,26 +1513,26 @@
     .line 283
     invoke-static {p2, p1, v3}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_1
+    return-object p4
 
     .line 285
-    :cond_2
+    :cond_3
     sget v0, Landroid/support/v7/appcompat/R$drawable;->abc_ratingbar_material:I
 
-    if-eq p2, v0, :cond_4
+    if-eq p2, v0, :cond_6
 
     sget v0, Landroid/support/v7/appcompat/R$drawable;->abc_ratingbar_indicator_material:I
 
-    if-eq p2, v0, :cond_4
+    if-eq p2, v0, :cond_6
 
     sget v0, Landroid/support/v7/appcompat/R$drawable;->abc_ratingbar_small_material:I
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_4
 
     goto :goto_0
 
     .line 297
-    :cond_3
+    :cond_4
     invoke-static {p1, p2, p4}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawableUsingColorFilter(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z
 
     move-result p1
@@ -1529,12 +1541,15 @@
 
     if-eqz p3, :cond_5
 
-    const/4 p4, 0x0
+    const/4 p1, 0x0
 
-    goto :goto_1
+    return-object p1
+
+    :cond_5
+    return-object p4
 
     .line 288
-    :cond_4
+    :cond_6
     :goto_0
     move-object p2, p4
 
@@ -1587,8 +1602,6 @@
     .line 294
     invoke-static {p2, p1, v3}, Landroid/support/v7/widget/AppCompatDrawableManager;->setPorterDuffColorFilter(Landroid/graphics/drawable/Drawable;ILandroid/graphics/PorterDuff$Mode;)V
 
-    :cond_5
-    :goto_1
     return-object p4
 .end method
 
@@ -1674,7 +1687,7 @@
 .end method
 
 .method static tintDrawableUsingColorFilter(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z
-    .locals 7
+    .locals 6
 
     .line 442
     sget-object v0, Landroid/support/v7/widget/AppCompatDrawableManager;->DEFAULT_MODE:Landroid/graphics/PorterDuff$Mode;
@@ -1705,7 +1718,7 @@
     :goto_1
     move v0, v4
 
-    goto :goto_3
+    goto :goto_4
 
     .line 450
     :cond_0
@@ -1744,9 +1757,10 @@
 
     move p1, v5
 
+    :goto_3
     move v5, v2
 
-    goto :goto_3
+    goto :goto_4
 
     .line 457
     :cond_2
@@ -1763,15 +1777,13 @@
 
     const v1, 0x1010030
 
-    move v5, v2
-
-    move-object v6, v0
+    move-object v5, v0
 
     move v0, p1
 
     move p1, v1
 
-    move-object v1, v6
+    move-object v1, v5
 
     goto :goto_3
 
@@ -1792,7 +1804,7 @@
 
     goto :goto_1
 
-    :goto_3
+    :goto_4
     if-eqz v5, :cond_7
 
     .line 467
@@ -1856,7 +1868,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -1915,7 +1930,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -2125,7 +2143,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -2161,7 +2182,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -2211,7 +2235,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method

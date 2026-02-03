@@ -407,12 +407,12 @@
 
     cmpg-double v4, p1, v4
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_0
 
     move p1, v3
 
     :goto_0
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_4
 
     .line 105
     iget-object p2, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -428,9 +428,6 @@
     goto :goto_0
 
     :cond_0
-    return-void
-
-    :cond_1
     add-int/lit8 v1, v1, -0x1
 
     .line 109
@@ -438,10 +435,10 @@
 
     cmpl-double v0, p1, v4
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_1
 
     :goto_1
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_4
 
     .line 111
     iget-object p1, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -456,14 +453,11 @@
 
     goto :goto_1
 
-    :cond_2
-    return-void
-
-    :cond_3
+    :cond_1
     move v0, v3
 
     :goto_2
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_4
 
     .line 117
     iget-object v4, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mT:[D
@@ -472,12 +466,12 @@
 
     cmpl-double v4, p1, v5
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_2
 
     move v4, v3
 
     :goto_3
-    if-ge v4, v2, :cond_4
+    if-ge v4, v2, :cond_2
 
     .line 119
     iget-object v5, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -493,7 +487,7 @@
     goto :goto_3
 
     .line 122
-    :cond_4
+    :cond_2
     iget-object v4, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mT:[D
 
     add-int/lit8 v5, v0, 0x1
@@ -502,7 +496,7 @@
 
     cmpg-double v8, p1, v6
 
-    if-gez v8, :cond_6
+    if-gez v8, :cond_3
 
     .line 123
     aget-wide v8, v4, v0
@@ -514,7 +508,7 @@
     div-double/2addr p1, v6
 
     :goto_4
-    if-ge v3, v2, :cond_5
+    if-ge v3, v2, :cond_4
 
     .line 126
     iget-object v1, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -545,15 +539,12 @@
 
     goto :goto_4
 
-    :cond_5
-    return-void
-
-    :cond_6
+    :cond_3
     move v0, v5
 
     goto :goto_2
 
-    :cond_7
+    :cond_4
     return-void
 .end method
 
@@ -579,12 +570,12 @@
 
     cmpg-double v4, p1, v4
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_0
 
     move p1, v3
 
     :goto_0
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_4
 
     .line 141
     iget-object p2, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -602,9 +593,6 @@
     goto :goto_0
 
     :cond_0
-    return-void
-
-    :cond_1
     add-int/lit8 v1, v1, -0x1
 
     .line 145
@@ -612,10 +600,10 @@
 
     cmpl-double v0, p1, v4
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_1
 
     :goto_1
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_4
 
     .line 147
     iget-object p1, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -632,14 +620,11 @@
 
     goto :goto_1
 
-    :cond_2
-    return-void
-
-    :cond_3
+    :cond_1
     move v0, v3
 
     :goto_2
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_4
 
     .line 153
     iget-object v4, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mT:[D
@@ -648,12 +633,12 @@
 
     cmpl-double v4, p1, v5
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_2
 
     move v4, v3
 
     :goto_3
-    if-ge v4, v2, :cond_4
+    if-ge v4, v2, :cond_2
 
     .line 155
     iget-object v5, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -671,7 +656,7 @@
     goto :goto_3
 
     .line 158
-    :cond_4
+    :cond_2
     iget-object v4, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mT:[D
 
     add-int/lit8 v5, v0, 0x1
@@ -680,7 +665,7 @@
 
     cmpg-double v8, p1, v6
 
-    if-gez v8, :cond_6
+    if-gez v8, :cond_3
 
     .line 159
     aget-wide v8, v4, v0
@@ -692,7 +677,7 @@
     div-double/2addr p1, v6
 
     :goto_4
-    if-ge v3, v2, :cond_5
+    if-ge v3, v2, :cond_4
 
     .line 162
     iget-object v1, p0, Landroid/support/constraint/motion/utils/LinearCurveFit;->mY:[[D
@@ -725,15 +710,12 @@
 
     goto :goto_4
 
-    :cond_5
-    return-void
-
-    :cond_6
+    :cond_3
     move v0, v5
 
     goto :goto_2
 
-    :cond_7
+    :cond_4
     return-void
 .end method
 

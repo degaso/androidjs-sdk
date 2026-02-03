@@ -282,13 +282,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method static resolveDensity(Landroid/content/res/Resources;I)I
@@ -309,7 +308,9 @@
     :goto_0
     if-nez p1, :cond_1
 
-    const/16 p1, 0xa0
+    const/16 p0, 0xa0
+
+    return p0
 
     :cond_1
     return p1
@@ -652,13 +653,12 @@
     .line 300
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    goto :goto_0
+    return-void
 
     .line 302
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->getHotspotBounds(Landroid/graphics/Rect;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -693,12 +693,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, -0x1
 
-    :goto_0
     return v0
 .end method
 
@@ -733,12 +732,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, -0x1
 
-    :goto_0
     return v0
 .end method
 
@@ -773,12 +771,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -813,12 +810,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -846,13 +842,12 @@
 
     move-result v0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, -0x2
 
-    :goto_1
     return v0
 .end method
 
@@ -1077,29 +1072,28 @@
     .line 266
     iput-wide v4, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mExitAnimationEnd:J
 
-    goto :goto_1
-
-    :cond_2
-    move v1, v0
+    move v0, v1
 
     .line 269
-    :goto_1
+    :cond_2
     iget-wide v2, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mEnterAnimationEnd:J
 
-    cmp-long v0, v2, v4
+    cmp-long v2, v2, v4
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
     .line 270
     iput-wide v4, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mEnterAnimationEnd:J
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
+    move v1, v0
+
+    :goto_1
     if-eqz v1, :cond_4
 
     .line 274
-    :goto_2
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/DrawableContainer;->invalidateSelf()V
 
     :cond_4
@@ -1503,7 +1497,7 @@
     .line 147
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    goto :goto_0
+    return-void
 
     :cond_1
     const/4 p1, 0x0
@@ -1512,7 +1506,6 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/graphics/drawable/DrawableContainer;->animate(Z)V
 
     :cond_2
-    :goto_0
     return-void
 .end method
 

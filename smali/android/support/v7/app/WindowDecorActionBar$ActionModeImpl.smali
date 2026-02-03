@@ -225,12 +225,11 @@
 
     check-cast v0, Landroid/view/View;
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 

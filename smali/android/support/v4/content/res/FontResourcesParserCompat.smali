@@ -640,13 +640,11 @@
 
     .line 313
     :cond_6
-    new-instance p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-
-    move-object v2, p0
+    new-instance v2, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
     invoke-direct/range {v2 .. v8}, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;-><init>(Ljava/lang/String;IZLjava/lang/String;II)V
 
-    return-object p0
+    return-object v2
 .end method
 
 .method private static skip(Lorg/xmlpull/v1/XmlPullParser;)V

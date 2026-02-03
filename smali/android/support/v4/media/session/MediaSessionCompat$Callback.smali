@@ -77,7 +77,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
@@ -103,6 +103,7 @@
 
     if-nez v1, :cond_1
 
+    :goto_0
     return-void
 
     .line 1082
@@ -117,7 +118,7 @@
 
     move-wide v6, v4
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1083
     :cond_2
@@ -125,7 +126,7 @@
 
     move-result-wide v6
 
-    :goto_0
+    :goto_1
     if-eqz v3, :cond_3
 
     .line 1085
@@ -139,12 +140,12 @@
 
     move v3, v2
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     move v3, v0
 
-    :goto_1
+    :goto_2
     const-wide/16 v8, 0x204
 
     and-long/2addr v8, v6
@@ -155,12 +156,12 @@
 
     move v8, v2
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     move v8, v0
 
-    :goto_2
+    :goto_3
     const-wide/16 v9, 0x202
 
     and-long/2addr v6, v9
@@ -182,7 +183,7 @@
     .line 1092
     invoke-virtual {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPause()V
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_6
     if-nez v3, :cond_7
@@ -193,7 +194,7 @@
     invoke-virtual {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPlay()V
 
     :cond_7
-    :goto_3
+    :goto_4
     const/4 p1, 0x0
 
     .line 1096

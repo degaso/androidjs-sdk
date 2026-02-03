@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 13
+    .locals 11
 
     .line 2086
     const-string v0, "MediaBrowserCompat"
@@ -104,38 +104,40 @@
 
     move-result-object v4
 
-    check-cast v4, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;
+    move-object v5, v4
+
+    check-cast v5, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;
 
     .line 2093
-    iget-object v5, p0, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->mCallbacksMessengerRef:Ljava/lang/ref/WeakReference;
+    iget-object v4, p0, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->mCallbacksMessengerRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    move-object v11, v5
+    move-object v6, v4
 
-    check-cast v11, Landroid/os/Messenger;
+    check-cast v6, Landroid/os/Messenger;
 
-    const/4 v12, 0x1
+    const/4 v4, 0x1
 
     .line 2095
     :try_start_0
-    iget v5, p1, Landroid/os/Message;->what:I
+    iget v7, p1, Landroid/os/Message;->what:I
     :try_end_0
     .catch Landroid/os/BadParcelableException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string v6, "data_media_item_id"
+    const-string v8, "data_media_item_id"
 
-    if-eq v5, v12, :cond_3
+    if-eq v7, v4, :cond_3
 
-    const/4 v7, 0x2
+    const/4 v9, 0x2
 
-    if-eq v5, v7, :cond_2
+    if-eq v7, v9, :cond_2
 
-    const/4 v7, 0x3
+    const/4 v9, 0x3
 
-    if-eq v5, v7, :cond_1
+    if-eq v7, v9, :cond_1
 
     .line 2126
     :try_start_1
@@ -163,7 +165,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    return-void
 
     .line 2111
     :cond_1
@@ -188,7 +190,7 @@
     invoke-static {v10}, Landroid/support/v4/media/session/MediaSessionCompat;->ensureClassLoader(Landroid/os/Bundle;)V
 
     .line 2119
-    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v8}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -199,20 +201,16 @@
 
     move-result-object v8
 
-    move-object v5, v4
-
-    move-object v6, v11
-
     .line 2118
     invoke-interface/range {v5 .. v10}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onLoadChildren(Landroid/os/Messenger;Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 2108
     :cond_2
-    invoke-interface {v4, v11}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onConnectionFailed(Landroid/os/Messenger;)V
+    invoke-interface {v5, v6}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onConnectionFailed(Landroid/os/Messenger;)V
 
-    goto :goto_0
+    return-void
 
     .line 2097
     :cond_3
@@ -226,25 +224,25 @@
     invoke-static {v1}, Landroid/support/v4/media/session/MediaSessionCompat;->ensureClassLoader(Landroid/os/Bundle;)V
 
     .line 2101
-    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v8}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v5, "data_media_session_token"
+    const-string v7, "data_media_session_token"
 
     .line 2102
-    invoke-virtual {v3, v5}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v3, v7}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v3
 
     check-cast v3, Landroid/support/v4/media/session/MediaSessionCompat$Token;
 
     .line 2100
-    invoke-interface {v4, v11, v2, v3, v1}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onServiceConnected(Landroid/os/Messenger;Ljava/lang/String;Landroid/support/v4/media/session/MediaSessionCompat$Token;Landroid/os/Bundle;)V
+    invoke-interface {v5, v6, v2, v3, v1}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onServiceConnected(Landroid/os/Messenger;Ljava/lang/String;Landroid/support/v4/media/session/MediaSessionCompat$Token;Landroid/os/Bundle;)V
     :try_end_1
     .catch Landroid/os/BadParcelableException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 2132
     :catch_0
@@ -255,10 +253,10 @@
     .line 2134
     iget p1, p1, Landroid/os/Message;->what:I
 
-    if-ne p1, v12, :cond_4
+    if-ne p1, v4, :cond_4
 
     .line 2135
-    invoke-interface {v4, v11}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onConnectionFailed(Landroid/os/Messenger;)V
+    invoke-interface {v5, v6}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl;->onConnectionFailed(Landroid/os/Messenger;)V
 
     :cond_4
     :goto_0

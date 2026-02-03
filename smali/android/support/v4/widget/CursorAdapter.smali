@@ -126,14 +126,13 @@
     .line 387
     const-string p1, ""
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    :goto_0
     return-object p1
 .end method
 
@@ -656,7 +655,7 @@
     .line 366
     invoke-virtual {p0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetChanged()V
 
-    goto :goto_0
+    return-object v0
 
     :cond_5
     const/4 p1, -0x1
@@ -672,6 +671,5 @@
     .line 371
     invoke-virtual {p0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetInvalidated()V
 
-    :goto_0
     return-object v0
 .end method

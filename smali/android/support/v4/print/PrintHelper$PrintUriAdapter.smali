@@ -231,17 +231,15 @@
 
     .line 424
     :cond_1
-    new-instance p5, Landroid/support/v4/print/PrintHelper$PrintUriAdapter$1;
-
-    move-object v0, p5
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintUriAdapter$1;
 
     move-object v1, p0
 
-    move-object v2, p3
+    move-object v4, p1
 
     move-object v3, p2
 
-    move-object v4, p1
+    move-object v2, p3
 
     move-object v5, p4
 
@@ -252,24 +250,34 @@
     new-array p1, p1, [Landroid/net/Uri;
 
     .line 497
-    invoke-virtual {p5, p1}, Landroid/support/v4/print/PrintHelper$PrintUriAdapter$1;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintUriAdapter$1;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     move-result-object p1
 
-    iput-object p1, p0, Landroid/support/v4/print/PrintHelper$PrintUriAdapter;->mLoadBitmap:Landroid/os/AsyncTask;
+    iput-object p1, v1, Landroid/support/v4/print/PrintHelper$PrintUriAdapter;->mLoadBitmap:Landroid/os/AsyncTask;
 
     return-void
 
     :catchall_0
-    move-exception p1
+    move-exception v0
+
+    move-object v1, p0
+
+    :goto_0
+    move-object p1, v0
 
     .line 406
     :try_start_1
     monitor-exit p0
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     throw p1
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public onWrite([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V

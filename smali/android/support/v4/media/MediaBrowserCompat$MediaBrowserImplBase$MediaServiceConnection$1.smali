@@ -105,7 +105,7 @@
 
     if-nez v1, :cond_1
 
-    return-void
+    goto/16 :goto_0
 
     .line 1518
     :cond_1
@@ -208,7 +208,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 1540
     :catch_0

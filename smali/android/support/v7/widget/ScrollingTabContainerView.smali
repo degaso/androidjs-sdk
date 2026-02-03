@@ -210,12 +210,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -561,7 +560,7 @@
     .line 248
     invoke-virtual {v2}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    goto :goto_0
+    return-void
 
     .line 250
     :cond_2
@@ -593,7 +592,6 @@
     .line 255
     invoke-virtual {v2}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    :goto_0
     return-void
 .end method
 
@@ -627,7 +625,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 p1, 0x1
@@ -653,7 +651,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :goto_0
     return-object v0
 .end method
 

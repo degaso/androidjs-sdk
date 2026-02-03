@@ -544,13 +544,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method private static parseTintModeCompat(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
@@ -1979,13 +1978,12 @@
     :cond_1
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_2
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -2132,13 +2130,10 @@
     .line 543
     invoke-virtual {p0}, Landroid/support/graphics/drawable/VectorDrawableCompat;->invalidateSelf()V
 
-    goto :goto_1
+    return v2
 
     :cond_2
-    move v2, v1
-
-    :goto_1
-    return v2
+    return v1
 .end method
 
 .method public scheduleSelf(Ljava/lang/Runnable;J)V

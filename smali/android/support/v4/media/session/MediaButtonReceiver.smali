@@ -388,13 +388,12 @@
     .line 299
     invoke-virtual {p0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    goto :goto_0
+    return-void
 
     .line 301
     :cond_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :goto_0
     return-void
 .end method
 

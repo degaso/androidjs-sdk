@@ -589,7 +589,7 @@
 
     if-eqz v2, :cond_1
 
-    goto :goto_1
+    return-object p1
 
     :cond_1
     add-int/lit8 v1, v1, 0x1
@@ -597,7 +597,6 @@
     goto :goto_0
 
     :cond_2
-    :goto_1
     return-object p1
 .end method
 
@@ -914,7 +913,7 @@
 .end method
 
 .method private layoutChild(Landroid/view/View;I)V
-    .locals 9
+    .locals 7
 
     .line 1163
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -926,7 +925,7 @@
     .line 1164
     invoke-static {}, Landroid/support/design/widget/CoordinatorLayout;->acquireTempRect()Landroid/graphics/Rect;
 
-    move-result-object v7
+    move-result-object v4
 
     .line 1165
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingLeft()I
@@ -953,31 +952,31 @@
 
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingRight()I
 
-    move-result v4
+    move-result v5
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v3, v5
 
-    iget v4, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
+    iget v5, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v3, v5
 
     .line 1168
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
 
-    move-result v4
+    move-result v5
 
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingBottom()I
 
-    move-result v5
+    move-result v6
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v5, v6
 
-    iget v5, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
+    iget v6, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v5, v6
 
     .line 1165
-    invoke-virtual {v7, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v4, v1, v2, v3, v5}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 1170
     iget-object v1, p0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
@@ -998,7 +997,7 @@
     if-nez v1, :cond_0
 
     .line 1174
-    iget v1, v7, Landroid/graphics/Rect;->left:I
+    iget v1, v4, Landroid/graphics/Rect;->left:I
 
     iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
@@ -1008,10 +1007,10 @@
 
     add-int/2addr v1, v2
 
-    iput v1, v7, Landroid/graphics/Rect;->left:I
+    iput v1, v4, Landroid/graphics/Rect;->left:I
 
     .line 1175
-    iget v1, v7, Landroid/graphics/Rect;->top:I
+    iget v1, v4, Landroid/graphics/Rect;->top:I
 
     iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
@@ -1021,10 +1020,10 @@
 
     add-int/2addr v1, v2
 
-    iput v1, v7, Landroid/graphics/Rect;->top:I
+    iput v1, v4, Landroid/graphics/Rect;->top:I
 
     .line 1176
-    iget v1, v7, Landroid/graphics/Rect;->right:I
+    iget v1, v4, Landroid/graphics/Rect;->right:I
 
     iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
@@ -1034,10 +1033,10 @@
 
     sub-int/2addr v1, v2
 
-    iput v1, v7, Landroid/graphics/Rect;->right:I
+    iput v1, v4, Landroid/graphics/Rect;->right:I
 
     .line 1177
-    iget v1, v7, Landroid/graphics/Rect;->bottom:I
+    iget v1, v4, Landroid/graphics/Rect;->bottom:I
 
     iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
@@ -1047,13 +1046,13 @@
 
     sub-int/2addr v1, v2
 
-    iput v1, v7, Landroid/graphics/Rect;->bottom:I
+    iput v1, v4, Landroid/graphics/Rect;->bottom:I
 
     .line 1180
     :cond_0
     invoke-static {}, Landroid/support/design/widget/CoordinatorLayout;->acquireTempRect()Landroid/graphics/Rect;
 
-    move-result-object v8
+    move-result-object v5
 
     .line 1181
     iget v0, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->gravity:I
@@ -1071,31 +1070,27 @@
 
     move-result v3
 
-    move-object v4, v7
-
-    move-object v5, v8
-
     move v6, p2
 
     .line 1181
     invoke-static/range {v1 .. v6}, Landroid/support/v4/view/GravityCompat;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
     .line 1183
-    iget p2, v8, Landroid/graphics/Rect;->left:I
+    iget p2, v5, Landroid/graphics/Rect;->left:I
 
-    iget v0, v8, Landroid/graphics/Rect;->top:I
+    iget v0, v5, Landroid/graphics/Rect;->top:I
 
-    iget v1, v8, Landroid/graphics/Rect;->right:I
+    iget v1, v5, Landroid/graphics/Rect;->right:I
 
-    iget v2, v8, Landroid/graphics/Rect;->bottom:I
+    iget v2, v5, Landroid/graphics/Rect;->bottom:I
 
     invoke-virtual {p1, p2, v0, v1, v2}, Landroid/view/View;->layout(IIII)V
 
     .line 1185
-    invoke-static {v7}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+    invoke-static {v4}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
 
     .line 1186
-    invoke-static {v8}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+    invoke-static {v5}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
 
     return-void
 .end method
@@ -1340,7 +1335,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto/16 :goto_4
 
     .line 1385
     :cond_0
@@ -1356,7 +1351,7 @@
 
     if-gtz v0, :cond_1
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     .line 1390
     :cond_1
@@ -1490,38 +1485,38 @@
 
     and-int/lit8 v1, p3, 0x30
 
-    const/4 v3, 0x1
+    const/16 v3, 0x30
 
-    const/16 v4, 0x30
+    const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    if-ne v1, v4, :cond_5
+    if-ne v1, v3, :cond_5
 
     .line 1421
     iget v1, v2, Landroid/graphics/Rect;->top:I
 
-    iget v4, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->topMargin:I
+    iget v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->topMargin:I
 
-    sub-int/2addr v1, v4
+    sub-int/2addr v1, v3
 
-    iget v4, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetY:I
+    iget v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetY:I
 
-    sub-int/2addr v1, v4
+    sub-int/2addr v1, v3
 
     .line 1422
-    iget v4, p2, Landroid/graphics/Rect;->top:I
+    iget v3, p2, Landroid/graphics/Rect;->top:I
 
-    if-ge v1, v4, :cond_5
+    if-ge v1, v3, :cond_5
 
     .line 1423
-    iget v4, p2, Landroid/graphics/Rect;->top:I
+    iget v3, p2, Landroid/graphics/Rect;->top:I
 
-    sub-int/2addr v4, v1
+    sub-int/2addr v3, v1
 
-    invoke-direct {p0, p1, v4}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetY(Landroid/view/View;I)V
+    invoke-direct {p0, p1, v3}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetY(Landroid/view/View;I)V
 
-    move v1, v3
+    move v1, v4
 
     goto :goto_1
 
@@ -1529,42 +1524,42 @@
     move v1, v5
 
     :goto_1
-    and-int/lit8 v4, p3, 0x50
+    and-int/lit8 v3, p3, 0x50
 
     const/16 v6, 0x50
 
-    if-ne v4, v6, :cond_6
+    if-ne v3, v6, :cond_6
 
     .line 1428
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
 
-    move-result v4
+    move-result v3
 
     iget v6, v2, Landroid/graphics/Rect;->bottom:I
 
-    sub-int/2addr v4, v6
+    sub-int/2addr v3, v6
 
     iget v6, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
 
-    sub-int/2addr v4, v6
+    sub-int/2addr v3, v6
 
     iget v6, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetY:I
 
-    add-int/2addr v4, v6
+    add-int/2addr v3, v6
 
     .line 1429
     iget v6, p2, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v4, v6, :cond_6
+    if-ge v3, v6, :cond_6
 
     .line 1430
     iget v1, p2, Landroid/graphics/Rect;->bottom:I
 
-    sub-int/2addr v4, v1
+    sub-int/2addr v3, v1
 
-    invoke-direct {p0, p1, v4}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetY(Landroid/view/View;I)V
+    invoke-direct {p0, p1, v3}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetY(Landroid/view/View;I)V
 
-    goto :goto_2
+    move v1, v4
 
     :cond_6
     if-nez v1, :cond_7
@@ -1573,60 +1568,61 @@
     invoke-direct {p0, p1, v5}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetY(Landroid/view/View;I)V
 
     :cond_7
-    :goto_2
     and-int/lit8 v1, p3, 0x3
 
-    const/4 v4, 0x3
+    const/4 v3, 0x3
 
-    if-ne v1, v4, :cond_8
+    if-ne v1, v3, :cond_8
 
     .line 1440
     iget v1, v2, Landroid/graphics/Rect;->left:I
 
-    iget v4, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
+    iget v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
 
-    sub-int/2addr v1, v4
+    sub-int/2addr v1, v3
 
-    iget v4, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetX:I
+    iget v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetX:I
 
-    sub-int/2addr v1, v4
+    sub-int/2addr v1, v3
 
     .line 1441
-    iget v4, p2, Landroid/graphics/Rect;->left:I
+    iget v3, p2, Landroid/graphics/Rect;->left:I
 
-    if-ge v1, v4, :cond_8
+    if-ge v1, v3, :cond_8
 
     .line 1442
-    iget v4, p2, Landroid/graphics/Rect;->left:I
+    iget v3, p2, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr v4, v1
+    sub-int/2addr v3, v1
 
-    invoke-direct {p0, p1, v4}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetX(Landroid/view/View;I)V
+    invoke-direct {p0, p1, v3}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetX(Landroid/view/View;I)V
 
-    goto :goto_3
+    move v1, v4
+
+    goto :goto_2
 
     :cond_8
-    move v3, v5
+    move v1, v5
 
-    :goto_3
-    const/4 v1, 0x5
+    :goto_2
+    const/4 v3, 0x5
 
-    and-int/2addr p3, v1
+    and-int/2addr p3, v3
 
-    if-ne p3, v1, :cond_9
+    if-ne p3, v3, :cond_9
 
     .line 1447
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getWidth()I
 
     move-result p3
 
-    iget v1, v2, Landroid/graphics/Rect;->right:I
+    iget v3, v2, Landroid/graphics/Rect;->right:I
 
-    sub-int/2addr p3, v1
+    sub-int/2addr p3, v3
 
-    iget v1, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
+    iget v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
 
-    sub-int/2addr p3, v1
+    sub-int/2addr p3, v3
 
     iget v0, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mInsetOffsetX:I
 
@@ -1644,21 +1640,23 @@
 
     invoke-direct {p0, p1, p3}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetX(Landroid/view/View;I)V
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_9
-    if-nez v3, :cond_a
+    move v4, v1
+
+    :goto_3
+    if-nez v4, :cond_a
 
     .line 1454
     invoke-direct {p0, p1, v5}, Landroid/support/design/widget/CoordinatorLayout;->setInsetOffsetX(Landroid/view/View;I)V
 
     .line 1457
     :cond_a
-    :goto_4
     invoke-static {v2}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
 
     :cond_b
-    :goto_5
+    :goto_4
     return-void
 .end method
 
@@ -1859,7 +1857,7 @@
     move/from16 v2, p2
 
     .line 437
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v3
 
@@ -1922,7 +1920,7 @@
     .line 454
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v17
+    move-result-wide v15
 
     const/16 v21, 0x0
 
@@ -1932,7 +1930,7 @@
 
     const/16 v20, 0x0
 
-    move-wide/from16 v15, v17
+    move-wide/from16 v17, v15
 
     .line 455
     invoke-static/range {v15 .. v22}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -2199,7 +2197,7 @@
     .line 390
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v7
+    move-result-wide v5
 
     const/4 v11, 0x0
 
@@ -2209,7 +2207,7 @@
 
     const/4 v10, 0x0
 
-    move-wide v5, v7
+    move-wide v7, v5
 
     .line 391
     invoke-static/range {v5 .. v12}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -2410,7 +2408,7 @@
     .line 3228
     invoke-virtual {p0, v0}, Landroid/support/design/widget/CoordinatorLayout;->setSystemUiVisibility(I)V
 
-    goto :goto_0
+    return-void
 
     :cond_1
     const/4 v0, 0x0
@@ -2418,7 +2416,6 @@
     .line 3231
     invoke-static {p0, v0}, Landroid/support/v4/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroid/support/v4/view/OnApplyWindowInsetsListener;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2480,12 +2477,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -2670,179 +2666,190 @@
 .end method
 
 .method protected drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
-    .locals 8
+    .locals 16
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
 
     .line 1222
-    invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v2, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
     .line 1223
-    iget-object v1, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    iget-object v3, v2, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    if-eqz v1, :cond_2
+    if-eqz v3, :cond_2
 
     .line 1224
-    iget-object v1, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    iget-object v3, v2, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    invoke-virtual {v1, p0, p2}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->getScrimOpacity(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)F
+    invoke-virtual {v3, v0, v1}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->getScrimOpacity(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)F
 
-    move-result v1
+    move-result v3
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    cmpl-float v2, v1, v2
+    cmpl-float v4, v3, v4
 
-    if-lez v2, :cond_2
+    if-lez v4, :cond_2
 
     .line 1226
-    iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
+    iget-object v4, v0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
 
-    if-nez v2, :cond_0
+    if-nez v4, :cond_0
 
     .line 1227
-    new-instance v2, Landroid/graphics/Paint;
+    new-instance v4, Landroid/graphics/Paint;
 
-    invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v4}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
+    iput-object v4, v0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
 
     .line 1229
     :cond_0
-    iget-object v2, p0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
+    iget-object v4, v0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
 
-    iget-object v0, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    iget-object v2, v2, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    invoke-virtual {v0, p0, p2}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->getScrimColor(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)I
+    invoke-virtual {v2, v0, v1}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->getScrimColor(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v4, v2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1230
-    iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
+    iget-object v2, v0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
 
-    const/high16 v2, 0x437f0000    # 255.0f
+    const/high16 v4, 0x437f0000    # 255.0f
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v3, v4
 
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+    invoke-static {v3}, Ljava/lang/Math;->round(F)I
 
-    move-result v1
+    move-result v3
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/16 v3, 0xff
+    const/16 v5, 0xff
 
-    invoke-static {v1, v2, v3}, Landroid/support/design/widget/CoordinatorLayout;->clamp(III)I
+    invoke-static {v3, v4, v5}, Landroid/support/design/widget/CoordinatorLayout;->clamp(III)I
 
-    move-result v1
+    move-result v3
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 1232
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    move-result v0
+    move-result v2
 
     .line 1233
-    invoke-virtual {p2}, Landroid/view/View;->isOpaque()Z
+    invoke-virtual {v1}, Landroid/view/View;->isOpaque()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     .line 1236
-    invoke-virtual {p2}, Landroid/view/View;->getLeft()I
+    invoke-virtual {v1}, Landroid/view/View;->getLeft()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v3, v1
+    int-to-float v5, v3
 
-    invoke-virtual {p2}, Landroid/view/View;->getTop()I
+    invoke-virtual {v1}, Landroid/view/View;->getTop()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v4, v1
+    int-to-float v6, v3
 
-    invoke-virtual {p2}, Landroid/view/View;->getRight()I
+    invoke-virtual {v1}, Landroid/view/View;->getRight()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v5, v1
+    int-to-float v7, v3
 
     .line 1237
-    invoke-virtual {p2}, Landroid/view/View;->getBottom()I
+    invoke-virtual {v1}, Landroid/view/View;->getBottom()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v6, v1
+    int-to-float v8, v3
 
-    sget-object v7, Landroid/graphics/Region$Op;->DIFFERENCE:Landroid/graphics/Region$Op;
+    sget-object v9, Landroid/graphics/Region$Op;->DIFFERENCE:Landroid/graphics/Region$Op;
 
-    move-object v2, p1
+    move-object/from16 v4, p1
 
     .line 1236
-    invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->clipRect(FFFFLandroid/graphics/Region$Op;)Z
+    invoke-virtual/range {v4 .. v9}, Landroid/graphics/Canvas;->clipRect(FFFFLandroid/graphics/Region$Op;)Z
 
     .line 1240
     :cond_1
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingLeft()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingLeft()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v3, v1
+    int-to-float v11, v3
 
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingTop()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingTop()I
 
-    move-result v1
+    move-result v3
 
-    int-to-float v4, v1
+    int-to-float v12, v3
 
     .line 1241
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getWidth()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getWidth()I
 
-    move-result v1
+    move-result v3
 
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingRight()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingRight()I
 
-    move-result v2
+    move-result v4
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v3, v4
 
-    int-to-float v5, v1
+    int-to-float v13, v3
 
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
 
-    move-result v1
+    move-result v3
 
-    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingBottom()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingBottom()I
 
-    move-result v2
+    move-result v4
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v3, v4
 
-    int-to-float v6, v1
+    int-to-float v14, v3
 
-    iget-object v7, p0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Landroid/support/design/widget/CoordinatorLayout;->mScrimPaint:Landroid/graphics/Paint;
 
-    move-object v2, p1
+    move-object/from16 v10, p1
 
     .line 1240
-    invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+    invoke-virtual/range {v10 .. v15}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+
+    move-object v4, v10
 
     .line 1243
-    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
+    invoke-virtual {v4, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
+
+    goto :goto_0
+
+    :cond_2
+    move-object/from16 v4, p1
 
     .line 1246
-    :cond_2
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
+    :goto_0
+    invoke-super/range {p0 .. p4}, Landroid/view/ViewGroup;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    move-result p1
+    move-result v1
 
-    return p1
+    return v1
 .end method
 
 .method protected drawableStateChanged()V
@@ -2873,12 +2880,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_1
 
     .line 316
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->invalidate()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -2930,14 +2943,13 @@
     .line 1561
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->addPreDrawListener()V
 
-    goto :goto_2
+    return-void
 
     .line 1563
     :cond_2
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->removePreDrawListener()V
 
     :cond_3
-    :goto_2
     return-void
 .end method
 
@@ -3061,7 +3073,7 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     if-eqz p2, :cond_1
@@ -3069,7 +3081,7 @@
     .line 954
     invoke-virtual {p0, p1, p3}, Landroid/support/design/widget/CoordinatorLayout;->getDescendantRect(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    goto :goto_0
+    return-void
 
     .line 956
     :cond_1
@@ -3091,12 +3103,11 @@
 
     invoke-virtual {p3, p2, v0, v1, p1}, Landroid/graphics/Rect;->set(IIII)V
 
-    :goto_0
     return-void
 
     .line 950
     :cond_2
-    :goto_1
+    :goto_0
     invoke-virtual {p3}, Landroid/graphics/Rect;->setEmpty()V
 
     return-void
@@ -3214,24 +3225,26 @@
 .end method
 
 .method getDesiredAnchoredChildRect(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 11
+    .locals 9
 
     .line 1060
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    check-cast v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    move-object v6, v0
+
+    check-cast v6, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
     .line 1061
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
-    move-result v9
+    move-result v7
 
     .line 1062
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v10
+    move-result v8
 
     move-object v1, p0
 
@@ -3243,17 +3256,11 @@
 
     move-object v5, p4
 
-    move-object v6, v0
-
-    move v7, v9
-
-    move v8, v10
-
     .line 1063
     invoke-direct/range {v1 .. v8}, Landroid/support/design/widget/CoordinatorLayout;->getDesiredAnchoredChildRectWithoutConstraints(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/support/design/widget/CoordinatorLayout$LayoutParams;II)V
 
     .line 1065
-    invoke-direct {p0, v0, p4, v9, v10}, Landroid/support/design/widget/CoordinatorLayout;->constrainChildRect(Landroid/support/design/widget/CoordinatorLayout$LayoutParams;Landroid/graphics/Rect;II)V
+    invoke-direct {p0, v6, v5, v7, v8}, Landroid/support/design/widget/CoordinatorLayout;->constrainChildRect(Landroid/support/design/widget/CoordinatorLayout$LayoutParams;Landroid/graphics/Rect;II)V
 
     return-void
 .end method
@@ -3345,7 +3352,7 @@
     .line 635
     iput-boolean v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehaviorResolved:Z
 
-    goto :goto_2
+    return-object v0
 
     .line 638
     :cond_1
@@ -3449,7 +3456,6 @@
     iput-boolean v3, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehaviorResolved:Z
 
     :cond_4
-    :goto_2
     return-object v0
 .end method
 
@@ -3545,153 +3551,141 @@
 .end method
 
 .method offsetChildToAnchor(Landroid/view/View;I)V
-    .locals 16
-
-    move-object/from16 v8, p0
-
-    move-object/from16 v9, p1
+    .locals 10
 
     .line 1617
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    move-object v10, v0
+    move-object v6, v0
 
-    check-cast v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v6, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
     .line 1618
-    iget-object v0, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
+    iget-object v0, v6, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
 
     if-eqz v0, :cond_5
 
     .line 1619
     invoke-static {}, Landroid/support/design/widget/CoordinatorLayout;->acquireTempRect()Landroid/graphics/Rect;
 
-    move-result-object v11
+    move-result-object v4
 
     .line 1620
     invoke-static {}, Landroid/support/design/widget/CoordinatorLayout;->acquireTempRect()Landroid/graphics/Rect;
 
-    move-result-object v12
+    move-result-object v0
 
     .line 1621
     invoke-static {}, Landroid/support/design/widget/CoordinatorLayout;->acquireTempRect()Landroid/graphics/Rect;
 
-    move-result-object v13
+    move-result-object v5
 
     .line 1623
-    iget-object v0, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
+    iget-object v1, v6, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
 
-    invoke-virtual {v8, v0, v11}, Landroid/support/design/widget/CoordinatorLayout;->getDescendantRect(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v1, v4}, Landroid/support/design/widget/CoordinatorLayout;->getDescendantRect(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    const/4 v14, 0x0
+    const/4 v9, 0x0
 
     .line 1624
-    invoke-virtual {v8, v9, v14, v12}, Landroid/support/design/widget/CoordinatorLayout;->getChildRect(Landroid/view/View;ZLandroid/graphics/Rect;)V
+    invoke-virtual {p0, p1, v9, v0}, Landroid/support/design/widget/CoordinatorLayout;->getChildRect(Landroid/view/View;ZLandroid/graphics/Rect;)V
 
     .line 1626
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v15
-
-    .line 1627
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v7
 
-    move-object/from16 v0, p0
+    .line 1627
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-object/from16 v1, p1
+    move-result v8
 
-    move/from16 v2, p2
+    move-object v1, p0
 
-    move-object v3, v11
+    move-object v2, p1
 
-    move-object v4, v13
-
-    move-object v5, v10
-
-    move v6, v15
-
-    move/from16 p2, v7
+    move v3, p2
 
     .line 1628
-    invoke-direct/range {v0 .. v7}, Landroid/support/design/widget/CoordinatorLayout;->getDesiredAnchoredChildRectWithoutConstraints(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/support/design/widget/CoordinatorLayout$LayoutParams;II)V
+    invoke-direct/range {v1 .. v8}, Landroid/support/design/widget/CoordinatorLayout;->getDesiredAnchoredChildRectWithoutConstraints(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/support/design/widget/CoordinatorLayout$LayoutParams;II)V
 
     .line 1630
-    iget v0, v13, Landroid/graphics/Rect;->left:I
+    iget p1, v5, Landroid/graphics/Rect;->left:I
 
-    iget v1, v12, Landroid/graphics/Rect;->left:I
+    iget p2, v0, Landroid/graphics/Rect;->left:I
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
-    iget v0, v13, Landroid/graphics/Rect;->top:I
+    iget p1, v5, Landroid/graphics/Rect;->top:I
 
-    iget v1, v12, Landroid/graphics/Rect;->top:I
+    iget p2, v0, Landroid/graphics/Rect;->top:I
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, p2, :cond_1
 
     :cond_0
-    const/4 v14, 0x1
-
-    :cond_1
-    move/from16 v0, p2
+    const/4 v9, 0x1
 
     .line 1632
-    invoke-direct {v8, v10, v13, v15, v0}, Landroid/support/design/widget/CoordinatorLayout;->constrainChildRect(Landroid/support/design/widget/CoordinatorLayout$LayoutParams;Landroid/graphics/Rect;II)V
+    :cond_1
+    invoke-direct {p0, v6, v5, v7, v8}, Landroid/support/design/widget/CoordinatorLayout;->constrainChildRect(Landroid/support/design/widget/CoordinatorLayout$LayoutParams;Landroid/graphics/Rect;II)V
 
     .line 1634
-    iget v0, v13, Landroid/graphics/Rect;->left:I
+    iget p1, v5, Landroid/graphics/Rect;->left:I
 
-    iget v1, v12, Landroid/graphics/Rect;->left:I
+    iget p2, v0, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, p2
 
     .line 1635
-    iget v1, v13, Landroid/graphics/Rect;->top:I
+    iget p2, v5, Landroid/graphics/Rect;->top:I
 
-    iget v2, v12, Landroid/graphics/Rect;->top:I
+    iget v3, v0, Landroid/graphics/Rect;->top:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr p2, v3
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 1638
-    invoke-static {v9, v0}, Landroid/support/v4/view/ViewCompat;->offsetLeftAndRight(Landroid/view/View;I)V
+    invoke-static {v2, p1}, Landroid/support/v4/view/ViewCompat;->offsetLeftAndRight(Landroid/view/View;I)V
 
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz p2, :cond_3
 
     .line 1641
-    invoke-static {v9, v1}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
+    invoke-static {v2, p2}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
     :cond_3
-    if-eqz v14, :cond_4
+    if-eqz v9, :cond_4
 
     .line 1646
-    invoke-virtual {v10}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    invoke-virtual {v6}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     .line 1648
-    iget-object v1, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
+    iget-object p2, v6, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
 
-    invoke-virtual {v0, v8, v9, v1}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onDependentViewChanged(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
+    invoke-virtual {p1, p0, v2, p2}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onDependentViewChanged(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
 
     .line 1652
     :cond_4
-    invoke-static {v11}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+    invoke-static {v4}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
 
     .line 1653
-    invoke-static {v12}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+    invoke-static {v0}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
 
     .line 1654
-    invoke-static {v13}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+    invoke-static {v5}, Landroid/support/design/widget/CoordinatorLayout;->releaseTempRect(Landroid/graphics/Rect;)V
+
+    return-void
 
     :cond_5
+    move-object v1, p0
+
     return-void
 .end method
 
@@ -3766,7 +3760,7 @@
     move/from16 v1, p1
 
     .line 1275
-    invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v2
 
@@ -3896,7 +3890,7 @@
     :cond_3
     iget v13, v4, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
 
     move-result v14
 
@@ -3941,7 +3935,7 @@
     :cond_5
     iget v12, v4, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getWidth()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getWidth()I
 
     move-result v13
 
@@ -4224,17 +4218,22 @@
 
     move-result p1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2
 
     const/4 v2, 0x3
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    return p1
 
     .line 513
-    :cond_1
+    :cond_2
+    :goto_0
     invoke-direct {p0, v1}, Landroid/support/design/widget/CoordinatorLayout;->resetTouchBehaviors(Z)V
 
-    :cond_2
     return p1
 .end method
 
@@ -4341,7 +4340,7 @@
 
     invoke-direct {p0, p1, v0, p2}, Landroid/support/design/widget/CoordinatorLayout;->layoutChildWithAnchor(Landroid/view/View;Landroid/view/View;I)V
 
-    goto :goto_0
+    return-void
 
     .line 867
     :cond_0
@@ -4354,13 +4353,12 @@
 
     invoke-direct {p0, p1, v0, p2}, Landroid/support/design/widget/CoordinatorLayout;->layoutChildWithKeyline(Landroid/view/View;II)V
 
-    goto :goto_0
+    return-void
 
     .line 870
     :cond_1
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/CoordinatorLayout;->layoutChild(Landroid/view/View;I)V
 
-    :goto_0
     return-void
 
     .line 862
@@ -4375,247 +4373,254 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 30
+    .locals 26
 
-    move-object/from16 v7, p0
+    move-object/from16 v0, p0
 
     .line 739
-    invoke-direct/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->prepareChildren()V
+    invoke-direct {v0}, Landroid/support/design/widget/CoordinatorLayout;->prepareChildren()V
 
     .line 740
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->ensurePreDrawListener()V
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->ensurePreDrawListener()V
 
     .line 742
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingLeft()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingLeft()I
 
-    move-result v8
+    move-result v7
 
     .line 743
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingTop()I
-
-    move-result v0
-
-    .line 744
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingRight()I
-
-    move-result v9
-
-    .line 745
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingBottom()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingTop()I
 
     move-result v1
 
+    .line 744
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingRight()I
+
+    move-result v8
+
+    .line 745
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getPaddingBottom()I
+
+    move-result v2
+
     .line 746
-    invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
-    move-result v10
+    move-result v9
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-ne v10, v2, :cond_0
+    if-ne v9, v3, :cond_0
 
-    move v12, v2
+    move v11, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     .line 748
     :goto_0
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v13
+    move-result v12
 
     .line 749
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v14
+    move-result v13
 
     .line 750
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v15
+    move-result v14
 
     .line 751
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v16
+    move-result v15
 
-    add-int v17, v8, v9
+    add-int v16, v7, v8
 
-    add-int v18, v0, v1
+    add-int v17, v1, v2
 
     .line 755
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getSuggestedMinimumWidth()I
-
-    move-result v0
-
-    .line 756
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getSuggestedMinimumHeight()I
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getSuggestedMinimumWidth()I
 
     move-result v1
 
+    .line 756
+    invoke-virtual {v0}, Landroid/support/design/widget/CoordinatorLayout;->getSuggestedMinimumHeight()I
+
+    move-result v2
+
     .line 759
-    iget-object v3, v7, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
+    iget-object v4, v0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    move/from16 v19, v2
+    move/from16 v18, v3
 
     goto :goto_1
 
     :cond_1
-    const/16 v19, 0x0
+    const/16 v18, 0x0
 
     .line 761
     :goto_1
-    iget-object v2, v7, Landroid/support/design/widget/CoordinatorLayout;->mDependencySortedChildren:Ljava/util/List;
+    iget-object v3, v0, Landroid/support/design/widget/CoordinatorLayout;->mDependencySortedChildren:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v3
 
-    move v5, v0
+    const/4 v4, 0x0
 
-    move v4, v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     :goto_2
-    if-ge v3, v6, :cond_d
+    if-ge v4, v3, :cond_d
 
     .line 763
-    iget-object v0, v7, Landroid/support/design/widget/CoordinatorLayout;->mDependencySortedChildren:Ljava/util/List;
+    iget-object v6, v0, Landroid/support/design/widget/CoordinatorLayout;->mDependencySortedChildren:Ljava/util/List;
 
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v6
 
-    move-object/from16 v20, v0
-
-    check-cast v20, Landroid/view/View;
+    check-cast v6, Landroid/view/View;
 
     .line 764
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
-    move-result v0
+    move-result v10
+
+    move/from16 v20, v1
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_2
+    if-ne v10, v1, :cond_2
 
-    move/from16 v22, v3
+    move/from16 v23, v3
 
-    move/from16 v29, v6
+    move/from16 v21, v4
 
-    move/from16 v28, v8
+    move/from16 v19, v7
 
-    goto/16 :goto_6
+    move/from16 v22, v9
+
+    move/from16 v1, v20
+
+    const/16 v24, 0x0
+
+    move/from16 v20, v8
+
+    goto/16 :goto_8
 
     .line 769
     :cond_2
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
+    move-result-object v1
 
-    move-object v1, v0
+    move-object v10, v1
 
-    check-cast v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
     .line 772
-    iget v0, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->keyline:I
+    iget v1, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->keyline:I
 
-    if-ltz v0, :cond_8
+    if-ltz v1, :cond_8
 
-    if-eqz v13, :cond_8
+    if-eqz v12, :cond_8
 
     .line 773
-    iget v0, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->keyline:I
+    iget v1, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->keyline:I
 
-    invoke-direct {v7, v0}, Landroid/support/design/widget/CoordinatorLayout;->getKeyline(I)I
+    invoke-direct {v0, v1}, Landroid/support/design/widget/CoordinatorLayout;->getKeyline(I)I
 
-    move-result v0
+    move-result v1
+
+    move/from16 v21, v1
 
     .line 774
-    iget v11, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->gravity:I
+    iget v1, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->gravity:I
 
     .line 775
-    invoke-static {v11}, Landroid/support/design/widget/CoordinatorLayout;->resolveKeylineGravity(I)I
+    invoke-static {v1}, Landroid/support/design/widget/CoordinatorLayout;->resolveKeylineGravity(I)I
 
-    move-result v11
+    move-result v1
 
     .line 774
-    invoke-static {v11, v10}, Landroid/support/v4/view/GravityCompat;->getAbsoluteGravity(II)I
+    invoke-static {v1, v9}, Landroid/support/v4/view/GravityCompat;->getAbsoluteGravity(II)I
 
-    move-result v11
+    move-result v1
 
-    and-int/lit8 v11, v11, 0x7
+    and-int/lit8 v1, v1, 0x7
 
     move/from16 v22, v2
 
     const/4 v2, 0x3
 
-    if-ne v11, v2, :cond_3
+    if-ne v1, v2, :cond_3
 
-    if-eqz v12, :cond_4
+    if-eqz v11, :cond_4
 
     :cond_3
     const/4 v2, 0x5
 
-    if-ne v11, v2, :cond_5
+    if-ne v1, v2, :cond_5
 
-    if-eqz v12, :cond_5
+    if-eqz v11, :cond_5
 
     :cond_4
-    sub-int v2, v14, v9
+    sub-int v1, v13, v8
 
-    sub-int/2addr v2, v0
+    sub-int v1, v1, v21
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     .line 779
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v2
+    move-result v1
 
-    move v11, v0
+    :goto_3
+    move/from16 v25, v4
 
-    move/from16 v21, v2
+    move v4, v1
 
-    goto :goto_3
+    move/from16 v1, v25
+
+    goto :goto_4
 
     :cond_5
-    if-ne v11, v2, :cond_6
+    if-ne v1, v2, :cond_6
 
-    if-eqz v12, :cond_7
+    if-eqz v11, :cond_7
 
     :cond_6
     const/4 v2, 0x3
 
-    if-ne v11, v2, :cond_9
+    if-ne v1, v2, :cond_9
 
-    if-eqz v12, :cond_9
+    if-eqz v11, :cond_9
 
     :cond_7
-    sub-int/2addr v0, v8
+    sub-int v1, v21, v7
 
-    const/4 v11, 0x0
+    const/4 v2, 0x0
 
     .line 782
-    invoke-static {v11, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
-
-    move/from16 v21, v0
+    move-result v1
 
     goto :goto_3
 
@@ -4623,251 +4628,274 @@
     move/from16 v22, v2
 
     :cond_9
-    const/4 v11, 0x0
+    const/4 v2, 0x0
 
-    move/from16 v21, v11
+    move v1, v4
 
-    :goto_3
-    if-eqz v19, :cond_a
+    move v4, v2
+
+    :goto_4
+    if-eqz v18, :cond_a
 
     .line 788
-    invoke-static/range {v20 .. v20}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
+    invoke-static {v6}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v19
 
-    if-nez v0, :cond_a
+    if-nez v19, :cond_a
 
     .line 791
-    iget-object v0, v7, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
+    iget-object v2, v0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
-    invoke-virtual {v0}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetLeft()I
+    invoke-virtual {v2}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetLeft()I
 
-    move-result v0
+    move-result v2
 
-    iget-object v2, v7, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
+    move/from16 v21, v1
+
+    iget-object v1, v0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
     .line 792
-    invoke-virtual {v2}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetRight()I
+    invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetRight()I
 
-    move-result v2
+    move-result v1
 
-    add-int/2addr v0, v2
+    add-int/2addr v2, v1
 
     .line 793
-    iget-object v2, v7, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
+    iget-object v1, v0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
-    invoke-virtual {v2}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetTop()I
+    invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetTop()I
 
-    move-result v2
+    move-result v1
 
-    iget-object v11, v7, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
+    move/from16 v23, v1
+
+    iget-object v1, v0, Landroid/support/design/widget/CoordinatorLayout;->mLastInsets:Landroid/support/v4/view/WindowInsetsCompat;
 
     .line 794
-    invoke-virtual {v11}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetBottom()I
+    invoke-virtual {v1}, Landroid/support/v4/view/WindowInsetsCompat;->getSystemWindowInsetBottom()I
 
-    move-result v11
+    move-result v1
 
-    add-int/2addr v2, v11
+    add-int v1, v23, v1
 
-    sub-int v0, v14, v0
+    sub-int v2, v13, v2
 
     .line 796
-    invoke-static {v0, v13}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v0
-
-    sub-int v2, v16, v2
-
-    .line 798
-    invoke-static {v2, v15}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v2, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v2
 
-    move v11, v0
+    sub-int v1, v15, v1
 
-    move/from16 v23, v2
+    .line 798
+    invoke-static {v1, v14}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    goto :goto_4
+    move-result v1
+
+    goto :goto_5
 
     :cond_a
-    move/from16 v11, p1
+    move/from16 v21, v1
 
-    move/from16 v23, p2
+    move/from16 v2, p1
+
+    move/from16 v1, p2
 
     .line 802
-    :goto_4
-    invoke-virtual {v1}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    :goto_5
+    invoke-virtual {v10}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
     move-result-object v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
+
+    move/from16 v23, v3
+
+    move v3, v2
+
+    move-object v2, v6
+
+    const/4 v6, 0x0
+
+    move/from16 v19, v22
+
+    move/from16 v22, v9
+
+    move/from16 v9, v19
 
     const/16 v24, 0x0
 
-    move-object v2, v1
+    move/from16 v19, v7
 
-    move-object/from16 v1, p0
+    move/from16 v7, v20
 
-    move-object/from16 v26, v2
-
-    move/from16 v25, v22
-
-    move-object/from16 v2, v20
-
-    move/from16 v22, v3
-
-    move v3, v11
-
-    move/from16 v27, v4
-
-    move/from16 v4, v21
-
-    move/from16 v28, v8
+    move/from16 v20, v8
 
     move v8, v5
 
-    move/from16 v5, v23
+    move v5, v1
 
-    move/from16 v29, v6
-
-    move/from16 v6, v24
+    move-object/from16 v1, p0
 
     .line 803
     invoke-virtual/range {v0 .. v6}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onMeasureChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    move v1, v4
 
-    goto :goto_5
+    move v4, v5
+
+    if-nez v0, :cond_b
+
+    goto :goto_6
 
     :cond_b
-    move-object/from16 v26, v1
+    move-object/from16 v0, p0
 
-    move/from16 v27, v4
+    goto :goto_7
 
-    move/from16 v29, v6
+    :cond_c
+    move/from16 v19, v4
 
-    move/from16 v28, v8
+    move v4, v1
 
-    move/from16 v25, v22
+    move/from16 v1, v19
 
-    move/from16 v22, v3
+    move/from16 v19, v22
+
+    move/from16 v22, v9
+
+    move/from16 v9, v19
+
+    move/from16 v23, v3
+
+    move/from16 v19, v7
+
+    move/from16 v7, v20
+
+    const/16 v24, 0x0
+
+    move v3, v2
+
+    move-object v2, v6
+
+    move/from16 v20, v8
 
     move v8, v5
 
-    :goto_5
+    :goto_6
     const/4 v5, 0x0
 
+    move v0, v3
+
+    move v3, v1
+
+    move-object v1, v2
+
+    move v2, v0
+
     move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    move v2, v11
-
-    move/from16 v3, v21
-
-    move/from16 v4, v23
 
     .line 805
     invoke-virtual/range {v0 .. v5}, Landroid/support/design/widget/CoordinatorLayout;->onMeasureChild(Landroid/view/View;IIII)V
 
+    move-object v2, v1
+
     .line 809
-    :cond_c
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v0
-
-    add-int v0, v17, v0
-
-    move-object/from16 v1, v26
-
-    iget v2, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
-
-    add-int/2addr v0, v2
-
-    iget v2, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
-
-    add-int/2addr v0, v2
-
-    invoke-static {v8, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    .line 812
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v2
-
-    add-int v2, v18, v2
-
-    iget v3, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->topMargin:I
-
-    add-int/2addr v2, v3
-
-    iget v1, v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
-
-    add-int/2addr v2, v1
-
-    move/from16 v1, v27
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    :goto_7
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v1
 
+    add-int v1, v16, v1
+
+    iget v3, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
+
+    add-int/2addr v1, v3
+
+    iget v3, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->rightMargin:I
+
+    add-int/2addr v1, v3
+
+    invoke-static {v7, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    .line 812
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v3
+
+    add-int v3, v17, v3
+
+    iget v4, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->topMargin:I
+
+    add-int/2addr v3, v4
+
+    iget v4, v10, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->bottomMargin:I
+
+    add-int/2addr v3, v4
+
+    invoke-static {v9, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
     .line 814
-    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getMeasuredState()I
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredState()I
 
     move-result v2
 
-    move/from16 v11, v25
+    invoke-static {v8, v2}, Landroid/view/View;->combineMeasuredStates(II)I
 
-    invoke-static {v11, v2}, Landroid/view/View;->combineMeasuredStates(II)I
+    move-result v5
 
-    move-result v2
+    move v2, v3
 
-    move v5, v0
+    :goto_8
+    add-int/lit8 v4, v21, 0x1
 
-    move v4, v1
+    move/from16 v7, v19
 
-    :goto_6
-    add-int/lit8 v3, v22, 0x1
+    move/from16 v8, v20
 
-    move/from16 v8, v28
+    move/from16 v9, v22
 
-    move/from16 v6, v29
+    move/from16 v3, v23
 
     goto/16 :goto_2
 
     :cond_d
-    move v11, v2
+    move v7, v1
 
-    move v1, v4
+    move v9, v2
 
     move v8, v5
 
-    const/high16 v0, -0x1000000
+    const/high16 v1, -0x1000000
 
-    and-int/2addr v0, v11
+    and-int/2addr v1, v8
 
     move/from16 v2, p1
 
     .line 817
-    invoke-static {v8, v2, v0}, Landroid/view/View;->resolveSizeAndState(III)I
+    invoke-static {v7, v2, v1}, Landroid/view/View;->resolveSizeAndState(III)I
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v2, v11, 0x10
+    shl-int/lit8 v2, v8, 0x10
 
     move/from16 v3, p2
 
     .line 819
-    invoke-static {v1, v3, v2}, Landroid/view/View;->resolveSizeAndState(III)I
+    invoke-static {v9, v3, v2}, Landroid/view/View;->resolveSizeAndState(III)I
 
-    move-result v1
+    move-result v2
 
     .line 821
-    invoke-virtual {v7, v0, v1}, Landroid/support/design/widget/CoordinatorLayout;->setMeasuredDimension(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/support/design/widget/CoordinatorLayout;->setMeasuredDimension(II)V
 
     return-void
 .end method
@@ -4910,12 +4938,24 @@
 
     const/16 v5, 0x8
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_1
 
-    goto :goto_1
+    :cond_0
+    :goto_1
+    move-object v5, p0
+
+    move-object v7, p1
+
+    move v8, p2
+
+    move v9, p3
+
+    move v10, p4
+
+    goto :goto_2
 
     .line 1906
-    :cond_0
+    :cond_1
     invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
@@ -4927,17 +4967,17 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2
 
     goto :goto_1
 
     .line 1911
-    :cond_1
+    :cond_2
     invoke-virtual {v4}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_0
 
     move-object v5, p0
 
@@ -4952,17 +4992,26 @@
     .line 1913
     invoke-virtual/range {v4 .. v10}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FFZ)Z
 
-    move-result v4
+    move-result p1
 
-    or-int/2addr v3, v4
+    or-int/2addr v3, p1
 
-    :cond_2
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
+
+    move-object p1, v7
+
+    move p2, v8
+
+    move p3, v9
+
+    move p4, v10
 
     goto :goto_0
 
     :cond_3
+    move-object v5, p0
+
     if-eqz v3, :cond_4
 
     const/4 p1, 0x1
@@ -5003,12 +5052,20 @@
 
     const/16 v5, 0x8
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_1
 
-    goto :goto_1
+    :cond_0
+    :goto_1
+    move-object v7, p1
+
+    move v8, p2
+
+    move v9, p3
+
+    goto :goto_2
 
     .line 1935
-    :cond_0
+    :cond_1
     invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
@@ -5020,17 +5077,17 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2
 
     goto :goto_1
 
     .line 1940
-    :cond_1
+    :cond_2
     invoke-virtual {v4}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_0
 
     move-object v5, p0
 
@@ -5043,13 +5100,18 @@
     .line 1942
     invoke-virtual/range {v4 .. v9}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedPreFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z
 
-    move-result v4
+    move-result p1
 
-    or-int/2addr v3, v4
+    or-int/2addr v3, p1
 
-    :cond_2
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
+
+    move-object p1, v7
+
+    move p2, v8
+
+    move p3, v9
 
     goto :goto_0
 
@@ -5079,45 +5141,41 @@
 .end method
 
 .method public onNestedPreScroll(Landroid/view/View;II[II)V
-    .locals 16
-
-    move-object/from16 v8, p0
+    .locals 14
 
     .line 1859
-    invoke-virtual/range {p0 .. p0}, Landroid/support/design/widget/CoordinatorLayout;->getChildCount()I
+    invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getChildCount()I
 
-    move-result v9
+    move-result v8
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    move v0, v10
+    move v0, v9
 
-    move v11, v0
+    move v10, v0
+
+    move v11, v10
 
     move v12, v11
 
-    move v13, v12
-
     :goto_0
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
-    if-ge v11, v9, :cond_5
+    if-ge v10, v8, :cond_5
 
     .line 1861
-    invoke-virtual {v8, v11}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
     .line 1862
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
-    move-result v1
+    move-result v3
 
-    const/16 v3, 0x8
+    const/16 v4, 0x8
 
-    if-ne v1, v3, :cond_0
-
-    move/from16 v15, p5
+    if-ne v3, v4, :cond_0
 
     goto :goto_3
 
@@ -5125,118 +5183,116 @@
     :cond_0
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v3, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
-    move/from16 v15, p5
+    move/from16 v7, p5
 
     .line 1868
-    invoke-virtual {v1, v15}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->isNestedScrollAccepted(I)Z
+    invoke-virtual {v3, v7}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->isNestedScrollAccepted(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     goto :goto_3
 
     .line 1872
     :cond_1
-    invoke-virtual {v1}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    invoke-virtual {v3}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    move-result-object v1
+    move-result-object v3
 
-    if-eqz v1, :cond_4
+    if-eqz v3, :cond_4
 
     .line 1874
-    iget-object v6, v8, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
+    iget-object v6, p0, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
 
-    aput v10, v6, v14
+    aput v9, v6, v13
 
-    aput v10, v6, v10
+    aput v9, v6, v9
 
-    move-object v0, v1
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v3, p1
+    move-object v1, p0
 
     move/from16 v4, p2
 
     move/from16 v5, p3
 
-    move/from16 v7, p5
+    move-object v0, v3
+
+    move-object v3, p1
 
     .line 1875
     invoke-virtual/range {v0 .. v7}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedPreScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[II)V
 
     .line 1877
-    iget-object v0, v8, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
+    iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
 
     if-lez p2, :cond_2
 
-    aget v0, v0, v10
+    aget v0, v0, v9
 
-    invoke-static {v12, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v11, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
     goto :goto_1
 
     :cond_2
-    aget v0, v0, v10
+    aget v0, v0, v9
 
     .line 1878
-    invoke-static {v12, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {v11, v0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     :goto_1
-    move v12, v0
+    move v11, v0
 
     .line 1879
-    iget-object v0, v8, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
+    iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout;->mTempIntPair:[I
 
     if-lez p3, :cond_3
 
-    aget v0, v0, v14
+    aget v0, v0, v13
 
-    invoke-static {v13, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v12, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
     goto :goto_2
 
     :cond_3
-    aget v0, v0, v14
+    aget v0, v0, v13
 
     .line 1880
-    invoke-static {v13, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {v12, v0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     :goto_2
-    move v13, v0
+    move v12, v0
 
-    move v0, v14
+    move v0, v13
 
     :cond_4
     :goto_3
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
     .line 1886
     :cond_5
-    aput v12, p4, v10
+    aput v11, p4, v9
 
     .line 1887
-    aput v13, p4, v14
+    aput v12, p4, v13
 
     if-eqz v0, :cond_6
 
     .line 1890
-    invoke-virtual {v8, v14}, Landroid/support/design/widget/CoordinatorLayout;->onChildViewsChanged(I)V
+    invoke-virtual {p0, v13}, Landroid/support/design/widget/CoordinatorLayout;->onChildViewsChanged(I)V
 
     :cond_6
     return-void
@@ -5266,101 +5322,93 @@
 .end method
 
 .method public onNestedScroll(Landroid/view/View;IIIII)V
-    .locals 14
-
-    move-object v9, p0
+    .locals 13
 
     .line 1820
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getChildCount()I
 
-    move-result v10
+    move-result v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    move v11, v0
+    move v2, v1
 
     :goto_0
-    const/4 v12, 0x1
+    const/4 v3, 0x1
 
-    if-ge v11, v10, :cond_3
+    if-ge v1, v0, :cond_3
 
     .line 1824
-    invoke-virtual {p0, v11}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v6
 
     .line 1825
-    invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
-    move-result v1
+    move-result v4
 
-    const/16 v3, 0x8
+    const/16 v5, 0x8
 
-    if-ne v1, v3, :cond_0
-
-    move/from16 v13, p6
+    if-ne v4, v5, :cond_0
 
     goto :goto_1
 
     .line 1830
     :cond_0
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v4, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
-    move/from16 v13, p6
+    move/from16 v12, p6
 
     .line 1831
-    invoke-virtual {v1, v13}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->isNestedScrollAccepted(I)Z
+    invoke-virtual {v4, v12}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->isNestedScrollAccepted(I)Z
 
-    move-result v3
+    move-result v5
 
-    if-nez v3, :cond_1
+    if-nez v5, :cond_1
 
     goto :goto_1
 
     .line 1835
     :cond_1
-    invoke-virtual {v1}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    invoke-virtual {v4}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-eqz v1, :cond_2
+    if-eqz v4, :cond_2
 
-    move-object v0, v1
+    move-object v5, p0
 
-    move-object v1, p0
+    move-object v7, p1
 
-    move-object v3, p1
+    move v8, p2
 
-    move/from16 v4, p2
+    move/from16 v9, p3
 
-    move/from16 v5, p3
+    move/from16 v10, p4
 
-    move/from16 v6, p4
-
-    move/from16 v7, p5
-
-    move/from16 v8, p6
+    move/from16 v11, p5
 
     .line 1837
-    invoke-virtual/range {v0 .. v8}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII)V
+    invoke-virtual/range {v4 .. v12}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII)V
 
-    move v0, v12
+    move v2, v3
 
     :cond_2
     :goto_1
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_3
-    if-eqz v0, :cond_4
+    if-eqz v2, :cond_4
 
     .line 1844
-    invoke-virtual {p0, v12}, Landroid/support/design/widget/CoordinatorLayout;->onChildViewsChanged(I)V
+    invoke-virtual {p0, v3}, Landroid/support/design/widget/CoordinatorLayout;->onChildViewsChanged(I)V
 
     :cond_4
     return-void
@@ -5440,9 +5488,28 @@
     .line 1777
     invoke-virtual/range {v2 .. v8}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedScrollAccepted(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)V
 
+    goto :goto_2
+
     :cond_1
     :goto_1
+    move-object v5, p1
+
+    move-object v6, p2
+
+    move v7, p3
+
+    move v8, p4
+
+    :goto_2
     add-int/lit8 v1, v1, 0x1
+
+    move-object p1, v5
+
+    move-object p2, v6
+
+    move p3, v7
+
+    move p4, v8
 
     goto :goto_0
 
@@ -5625,28 +5692,24 @@
 .end method
 
 .method public onStartNestedScroll(Landroid/view/View;Landroid/view/View;II)Z
-    .locals 14
-
-    move/from16 v7, p4
+    .locals 12
 
     .line 1736
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout;->getChildCount()I
 
-    move-result v8
+    move-result v7
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
+
+    move v9, v8
 
     move v10, v9
 
-    move v11, v10
-
     :goto_0
-    if-ge v10, v8, :cond_2
-
-    move-object v12, p0
+    if-ge v9, v7, :cond_2
 
     .line 1738
-    invoke-virtual {p0, v10}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v9}, Landroid/support/design/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -5659,6 +5722,8 @@
 
     if-ne v0, v1, :cond_0
 
+    move/from16 v6, p4
+
     goto :goto_1
 
     .line 1743
@@ -5667,12 +5732,12 @@
 
     move-result-object v0
 
-    move-object v13, v0
+    move-object v11, v0
 
-    check-cast v13, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
+    check-cast v11, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
     .line 1744
-    invoke-virtual {v13}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
+    invoke-virtual {v11}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
 
     move-result-object v0
 
@@ -5682,9 +5747,9 @@
 
     move-object v3, p1
 
-    move-object/from16 v4, p2
+    move-object v4, p2
 
-    move/from16 v5, p3
+    move v5, p3
 
     move/from16 v6, p4
 
@@ -5693,26 +5758,26 @@
 
     move-result v0
 
-    or-int/2addr v11, v0
+    or-int/2addr v10, v0
 
     .line 1749
-    invoke-virtual {v13, v7, v0}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->setNestedScrollAccepted(IZ)V
+    invoke-virtual {v11, v6, v0}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->setNestedScrollAccepted(IZ)V
 
     goto :goto_1
 
-    .line 1751
     :cond_1
-    invoke-virtual {v13, v7, v9}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->setNestedScrollAccepted(IZ)V
+    move/from16 v6, p4
+
+    .line 1751
+    invoke-virtual {v11, v6, v8}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->setNestedScrollAccepted(IZ)V
 
     :goto_1
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
     :cond_2
-    move-object v12, p0
-
-    return v11
+    return v10
 .end method
 
 .method public onStopNestedScroll(Landroid/view/View;)V
@@ -5805,7 +5870,7 @@
     move-object/from16 v1, p1
 
     .line 525
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v2
 
@@ -5881,7 +5946,7 @@
     .line 542
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v11
+    move-result-wide v9
 
     const/4 v15, 0x0
 
@@ -5891,7 +5956,7 @@
 
     const/4 v14, 0x0
 
-    move-wide v9, v11
+    move-wide v11, v9
 
     .line 543
     invoke-static/range {v9 .. v16}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -5909,17 +5974,22 @@
     invoke-virtual {v8}, Landroid/view/MotionEvent;->recycle()V
 
     :cond_4
-    if-eq v2, v4, :cond_5
+    if-eq v2, v4, :cond_6
 
     const/4 v1, 0x3
 
-    if-ne v2, v1, :cond_6
+    if-ne v2, v1, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    return v6
 
     .line 558
-    :cond_5
+    :cond_6
+    :goto_3
     invoke-direct {v0, v5}, Landroid/support/design/widget/CoordinatorLayout;->resetTouchBehaviors(Z)V
 
-    :cond_6
     return v6
 .end method
 
@@ -6308,12 +6378,11 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method

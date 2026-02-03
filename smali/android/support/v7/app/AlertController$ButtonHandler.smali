@@ -71,7 +71,7 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 171
     :cond_0
@@ -81,7 +81,7 @@
 
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    goto :goto_0
+    return-void
 
     .line 167
     :cond_1
@@ -101,6 +101,5 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/DialogInterface$OnClickListener;->onClick(Landroid/content/DialogInterface;I)V
 
-    :goto_0
     return-void
 .end method

@@ -58,7 +58,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     new-instance v0, Landroid/os/Bundle;
@@ -71,7 +71,6 @@
 
     invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    :goto_0
     return-object v0
 
     .line 278

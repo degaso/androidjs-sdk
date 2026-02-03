@@ -274,7 +274,7 @@
 
     const/high16 p0, 0x10000000
 
-    goto :goto_1
+    return p0
 
     .line 792
     :cond_0
@@ -308,7 +308,7 @@
 
     const/high16 p0, 0x2a000000
 
-    goto :goto_1
+    return p0
 
     .line 800
     :cond_2
@@ -322,7 +322,7 @@
 
     const/high16 p0, 0x38000000
 
-    goto :goto_1
+    return p0
 
     .line 803
     :cond_3
@@ -336,7 +336,7 @@
 
     const/high16 p0, 0x3c000000    # 0.0078125f
 
-    goto :goto_1
+    return p0
 
     .line 808
     :cond_4
@@ -364,7 +364,6 @@
     :goto_0
     const/high16 p0, 0x2c000000
 
-    :goto_1
     return p0
 .end method
 

@@ -244,7 +244,7 @@
     .line 11042
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->addFlags(I)V
 
-    goto :goto_0
+    return-void
 
     .line 11043
     :cond_0
@@ -263,7 +263,6 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -362,12 +361,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -533,12 +531,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -563,13 +560,12 @@
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -585,13 +581,12 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method isInvalid()Z
@@ -606,12 +601,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -636,12 +630,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -657,12 +650,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -676,12 +668,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -697,12 +688,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -718,12 +708,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -739,12 +728,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1003,7 +991,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    return-void
 
     :cond_1
     if-nez p1, :cond_2
@@ -1017,7 +1005,7 @@
 
     iput p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mFlags:I
 
-    goto :goto_1
+    return-void
 
     :cond_2
     if-eqz p1, :cond_3
@@ -1032,7 +1020,6 @@
     iput p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mFlags:I
 
     :cond_3
-    :goto_1
     return-void
 .end method
 
@@ -1060,12 +1047,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1081,12 +1067,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1378,11 +1363,10 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method

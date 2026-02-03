@@ -48,13 +48,10 @@
 
     if-ne p0, v4, :cond_1
 
-    goto :goto_0
+    return v0
 
     :cond_1
-    move v0, v1
-
-    :goto_0
-    return v0
+    return v1
 
     :cond_2
     if-nez p1, :cond_4
@@ -73,13 +70,10 @@
 
     if-ne p0, v4, :cond_3
 
-    goto :goto_1
+    return v0
 
     :cond_3
-    move v0, v1
-
-    :goto_1
-    return v0
+    return v1
 
     .line 41
     :cond_4
@@ -106,13 +100,10 @@
 
     if-ne p0, p1, :cond_5
 
-    goto :goto_2
+    return v0
 
     :cond_5
-    move v0, v1
-
-    :goto_2
-    return v0
+    return v1
 .end method
 
 .method public static hasDuplicatedItems(Landroid/os/Bundle;Landroid/os/Bundle;)Z
@@ -229,11 +220,8 @@
 
     if-lt v3, v2, :cond_8
 
-    goto :goto_8
+    return v4
 
     :cond_8
-    move v4, v5
-
-    :goto_8
-    return v4
+    return v5
 .end method

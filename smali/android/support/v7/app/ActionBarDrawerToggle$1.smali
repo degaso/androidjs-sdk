@@ -50,7 +50,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/app/ActionBarDrawerToggle;->toggle()V
 
-    goto :goto_0
+    return-void
 
     .line 203
     :cond_0
@@ -68,6 +68,5 @@
     invoke-interface {v0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
     :cond_1
-    :goto_0
     return-void
 .end method

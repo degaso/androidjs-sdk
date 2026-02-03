@@ -377,7 +377,7 @@
     :cond_1
     monitor-exit v0
 
-    goto :goto_2
+    return-void
 
     :catchall_0
     move-exception p0
@@ -444,7 +444,7 @@
     :cond_4
     monitor-exit v0
 
-    goto :goto_2
+    return-void
 
     :catchall_1
     move-exception p0
@@ -456,7 +456,6 @@
     throw p0
 
     :cond_5
-    :goto_2
     return-void
 .end method
 
@@ -523,12 +522,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -544,12 +542,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -821,12 +818,11 @@
 
     aget-object p1, v0, p1
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 
@@ -907,7 +903,7 @@
 
     if-gez v1, :cond_1
 
-    return v1
+    goto :goto_0
 
     .line 103
     :cond_1
@@ -923,12 +919,13 @@
 
     if-eqz v2, :cond_2
 
+    :goto_0
     return v1
 
     :cond_2
     add-int/lit8 v2, v1, 0x1
 
-    :goto_0
+    :goto_1
     if-ge v2, v0, :cond_4
 
     .line 109
@@ -956,12 +953,12 @@
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     add-int/lit8 v1, v1, -0x1
 
-    :goto_1
+    :goto_2
     if-ltz v1, :cond_6
 
     .line 114
@@ -989,7 +986,7 @@
     :cond_5
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_6
     not-int p1, v2
@@ -1007,7 +1004,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -1018,7 +1015,6 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method
 
@@ -1046,7 +1042,7 @@
 
     if-gez v1, :cond_1
 
-    return v1
+    goto :goto_0
 
     .line 141
     :cond_1
@@ -1058,12 +1054,13 @@
 
     if-nez v2, :cond_2
 
+    :goto_0
     return v1
 
     :cond_2
     add-int/lit8 v2, v1, 0x1
 
-    :goto_0
+    :goto_1
     if-ge v2, v0, :cond_4
 
     .line 147
@@ -1087,12 +1084,12 @@
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     add-int/lit8 v1, v1, -0x1
 
-    :goto_1
+    :goto_2
     if-ltz v1, :cond_6
 
     .line 152
@@ -1116,7 +1113,7 @@
     :cond_5
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_6
     not-int v0, v2
@@ -1198,12 +1195,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1479,7 +1475,7 @@
     .line 487
     iput v0, p0, Landroid/support/v4/util/SimpleArrayMap;->mSize:I
 
-    goto :goto_1
+    return-void
 
     :cond_0
     :goto_0
@@ -1501,7 +1497,6 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return-void
 .end method
 

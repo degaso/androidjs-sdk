@@ -215,7 +215,7 @@
 
     invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    return-void
 
     .line 5326
     :cond_0
@@ -230,6 +230,5 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->requestLayout()V
 
-    :goto_0
     return-void
 .end method

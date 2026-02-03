@@ -326,7 +326,7 @@
     move-object v9, v3
 
     .line 3400
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
+    new-instance v4, Landroid/support/v4/app/NotificationCompat$Action;
 
     iget v5, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mIcon:I
 
@@ -342,11 +342,9 @@
 
     iget-boolean v13, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mShowsUserInterface:Z
 
-    move-object v4, v0
-
     invoke-direct/range {v4 .. v13}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v0
+    return-object v4
 .end method
 
 .method public extend(Landroid/support/v4/app/NotificationCompat$Action$Extender;)Landroid/support/v4/app/NotificationCompat$Action$Builder;

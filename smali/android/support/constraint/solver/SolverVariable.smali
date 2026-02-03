@@ -1014,7 +1014,7 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     .line 316
     :cond_0
@@ -1032,7 +1032,6 @@
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 

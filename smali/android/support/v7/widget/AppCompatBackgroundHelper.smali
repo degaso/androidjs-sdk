@@ -138,12 +138,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -175,7 +174,7 @@
 
     if-eqz v1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 127
     :cond_0
@@ -194,7 +193,7 @@
     .line 128
     invoke-static {v0, v1, v2}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawable(Landroid/graphics/drawable/Drawable;Landroid/support/v7/widget/TintInfo;[I)V
 
-    goto :goto_0
+    return-void
 
     .line 130
     :cond_1
@@ -228,12 +227,11 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -247,12 +245,11 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/TintInfo;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 

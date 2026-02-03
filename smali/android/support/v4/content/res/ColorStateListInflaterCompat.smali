@@ -271,7 +271,7 @@
     invoke-virtual {v7}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 138
-    invoke-interface/range {p2 .. p2}, Landroid/util/AttributeSet;->getAttributeCount()I
+    invoke-interface {v0}, Landroid/util/AttributeSet;->getAttributeCount()I
 
     move-result v7
 
@@ -433,7 +433,7 @@
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
     const/4 p0, 0x0
@@ -443,6 +443,5 @@
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 .end method

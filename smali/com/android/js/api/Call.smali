@@ -85,7 +85,7 @@
 
     invoke-static {p1, v1, v0}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
-    goto :goto_0
+    return-void
 
     .line 25
     :cond_0
@@ -95,6 +95,5 @@
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    :goto_0
     return-void
 .end method

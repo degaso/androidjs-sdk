@@ -696,14 +696,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     invoke-super {p0}, Landroid/widget/Spinner;->getPrompt()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -720,12 +719,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -742,12 +740,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1009,13 +1006,12 @@
     .line 344
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->setHorizontalOffset(I)V
 
-    goto :goto_0
+    return-void
 
     .line 346
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setDropDownHorizontalOffset(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1030,13 +1026,12 @@
     .line 325
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->setVerticalOffset(I)V
 
-    goto :goto_0
+    return-void
 
     .line 327
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setDropDownVerticalOffset(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1051,13 +1046,12 @@
     .line 369
     iput p1, p0, Landroid/support/v7/widget/AppCompatSpinner;->mDropDownWidth:I
 
-    goto :goto_0
+    return-void
 
     .line 371
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setDropDownWidth(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1072,13 +1066,12 @@
     .line 301
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    return-void
 
     .line 303
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setPopupBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1110,13 +1103,12 @@
     .line 449
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->setPromptText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 451
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setPrompt(Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method
 

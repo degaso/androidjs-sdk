@@ -327,12 +327,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -397,7 +396,7 @@
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 815
     :cond_0
@@ -425,5 +424,6 @@
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
     :cond_1
+    :goto_0
     return-void
 .end method

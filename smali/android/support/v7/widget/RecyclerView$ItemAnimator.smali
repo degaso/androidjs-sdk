@@ -137,7 +137,9 @@
 
     if-eq v0, p0, :cond_1
 
-    or-int/lit16 v1, v1, 0x800
+    or-int/lit16 p0, v1, 0x800
+
+    return p0
 
     :cond_1
     return v1
@@ -311,7 +313,7 @@
     .line 13027
     invoke-interface {p1}, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener;->onAnimationsFinished()V
 
-    goto :goto_0
+    return v0
 
     .line 13029
     :cond_0
@@ -320,7 +322,6 @@
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    :goto_0
     return v0
 .end method
 

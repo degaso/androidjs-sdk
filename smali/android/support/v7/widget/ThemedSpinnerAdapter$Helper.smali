@@ -52,12 +52,11 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mInflater:Landroid/view/LayoutInflater;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -71,7 +70,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     invoke-virtual {v0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
@@ -82,7 +81,6 @@
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -96,7 +94,7 @@
     .line 125
     iput-object p1, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_0
+    return-void
 
     .line 126
     :cond_0
@@ -113,7 +111,7 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_0
+    return-void
 
     .line 129
     :cond_1
@@ -130,6 +128,5 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    :goto_0
     return-void
 .end method

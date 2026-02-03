@@ -152,12 +152,11 @@
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
 
-    goto :goto_0
+    return-void
 
     .line 27
     :cond_0
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->onBackPressed()V
 
-    :goto_0
     return-void
 .end method

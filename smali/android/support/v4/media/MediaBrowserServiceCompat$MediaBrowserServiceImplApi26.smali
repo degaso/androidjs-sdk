@@ -56,7 +56,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     new-instance v0, Landroid/os/Bundle;
@@ -69,7 +69,6 @@
 
     invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    :goto_0
     return-object v0
 
     .line 557
@@ -93,13 +92,12 @@
 
     invoke-static {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompatApi26;->notifyChildrenChanged(Ljava/lang/Object;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 566
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;->notifyChildrenChangedForFramework(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    :goto_0
     return-void
 .end method
 

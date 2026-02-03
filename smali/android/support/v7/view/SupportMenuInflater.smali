@@ -107,7 +107,7 @@
 
     if-eqz v0, :cond_0
 
-    return-object p1
+    goto :goto_0
 
     .line 233
     :cond_0
@@ -127,6 +127,7 @@
     move-result-object p1
 
     :cond_1
+    :goto_0
     return-object p1
 .end method
 

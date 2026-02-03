@@ -102,7 +102,7 @@
 
     iput v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
-    goto :goto_0
+    return-void
 
     .line 3301
     :cond_0
@@ -118,7 +118,6 @@
 
     iput v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
-    :goto_0
     return-void
 .end method
 

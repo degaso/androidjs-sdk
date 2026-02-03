@@ -87,7 +87,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 8
 
     .line 60
     new-instance v7, Landroid/support/v4/content/ModernAsyncTask$1;
@@ -106,7 +106,7 @@
     sput-object v6, Landroid/support/v4/content/ModernAsyncTask;->sPoolWorkQueue:Ljava/util/concurrent/BlockingQueue;
 
     .line 75
-    new-instance v8, Ljava/util/concurrent/ThreadPoolExecutor;
+    new-instance v0, Ljava/util/concurrent/ThreadPoolExecutor;
 
     const-wide/16 v3, 0x1
 
@@ -116,14 +116,12 @@
 
     const/16 v2, 0x80
 
-    move-object v0, v8
-
     invoke-direct/range {v0 .. v7}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
 
-    sput-object v8, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     .line 84
-    sput-object v8, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
 
     return-void
 .end method

@@ -68,7 +68,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -81,7 +81,6 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -240,7 +239,7 @@
     .line 86
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setTint(I)V
 
-    goto :goto_0
+    return-void
 
     .line 88
     :cond_0
@@ -248,7 +247,6 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -265,7 +263,7 @@
     .line 77
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    return-void
 
     .line 79
     :cond_0
@@ -273,7 +271,6 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -290,7 +287,7 @@
     .line 95
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_0
+    return-void
 
     .line 97
     :cond_0
@@ -298,6 +295,5 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    :goto_0
     return-void
 .end method

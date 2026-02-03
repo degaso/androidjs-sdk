@@ -159,7 +159,7 @@
 
     invoke-direct {p0, v0}, Landroid/support/constraint/solver/widgets/analyzer/HelperReferences;->addDependency(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;)V
 
-    goto/16 :goto_8
+    return-void
 
     .line 87
     :cond_3
@@ -235,7 +235,7 @@
 
     invoke-direct {p0, v0}, Landroid/support/constraint/solver/widgets/analyzer/HelperReferences;->addDependency(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;)V
 
-    goto/16 :goto_8
+    return-void
 
     .line 72
     :cond_6
@@ -311,7 +311,7 @@
 
     invoke-direct {p0, v0}, Landroid/support/constraint/solver/widgets/analyzer/HelperReferences;->addDependency(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;)V
 
-    goto :goto_8
+    return-void
 
     .line 57
     :cond_9
@@ -430,7 +430,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setY(I)V
 
-    goto :goto_1
+    return-void
 
     .line 149
     :cond_1
@@ -444,7 +444,6 @@
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setX(I)V
 
     :cond_2
-    :goto_1
     return-void
 .end method
 
@@ -565,7 +564,7 @@
 
     invoke-virtual {v0, v3}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
-    goto :goto_2
+    return-void
 
     .line 137
     :cond_5
@@ -580,6 +579,5 @@
 
     invoke-virtual {v0, v4}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
-    :goto_2
     return-void
 .end method

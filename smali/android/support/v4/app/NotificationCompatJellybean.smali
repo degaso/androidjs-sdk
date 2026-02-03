@@ -305,47 +305,45 @@
 
     .line 277
     :cond_0
-    new-instance v0, Landroid/support/v4/app/RemoteInput;
+    new-instance v1, Landroid/support/v4/app/RemoteInput;
 
-    const-string v1, "resultKey"
+    const-string v0, "resultKey"
 
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v1, "label"
+    const-string v0, "label"
 
     .line 278
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const-string v1, "choices"
+    const-string v0, "choices"
 
     .line 279
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getCharSequenceArray(Ljava/lang/String;)[Ljava/lang/CharSequence;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getCharSequenceArray(Ljava/lang/String;)[Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    const-string v1, "allowFreeFormInput"
+    const-string v0, "allowFreeFormInput"
 
     .line 280
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v5
 
-    const-string v1, "extras"
+    const-string v0, "extras"
 
     .line 281
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v6
 
-    move-object v1, v0
-
     invoke-direct/range {v1 .. v7}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Ljava/util/Set;)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private static fromBundleArray([Landroid/os/Bundle;)[Landroid/support/v4/app/RemoteInput;
@@ -575,30 +573,30 @@
     move v10, v2
 
     .line 236
-    new-instance v1, Landroid/support/v4/app/NotificationCompat$Action;
+    new-instance v3, Landroid/support/v4/app/NotificationCompat$Action;
 
-    const-string v2, "icon"
+    const-string v1, "icon"
 
     .line 237
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
-    const-string v2, "title"
+    const-string v1, "title"
 
     .line 238
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
-    const-string v2, "actionIntent"
+    const-string v1, "actionIntent"
 
     .line 239
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v2
+    move-result-object v1
 
-    move-object v6, v2
+    move-object v6, v1
 
     check-cast v6, Landroid/app/PendingIntent;
 
@@ -643,11 +641,9 @@
 
     move-result v12
 
-    move-object v3, v1
-
     invoke-direct/range {v3 .. v12}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v1
+    return-object v3
 .end method
 
 .method private static getActionObjectsLocked(Landroid/app/Notification;)[Ljava/lang/Object;
@@ -1041,7 +1037,7 @@
 .end method
 
 .method public static readAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 11
+    .locals 10
 
     if-eqz p3, :cond_0
 
@@ -1082,30 +1078,26 @@
 
     move-object v6, v1
 
-    move v7, v2
-
     goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     move-object v5, v0
 
     move-object v6, v5
 
-    move v7, v1
+    :goto_0
+    move v7, v2
 
     .line 134
-    :goto_0
-    new-instance v10, Landroid/support/v4/app/NotificationCompat$Action;
+    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
 
     const/4 v8, 0x0
 
     const/4 v9, 0x1
-
-    move-object v0, v10
 
     move v1, p0
 
@@ -1117,7 +1109,7 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v10
+    return-object v0
 .end method
 
 .method private static toBundle(Landroid/support/v4/app/RemoteInput;)Landroid/os/Bundle;

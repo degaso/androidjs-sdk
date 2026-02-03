@@ -168,9 +168,9 @@
 
     move-result-object p0
 
-    move-object v0, p0
+    check-cast p0, Landroid/content/ComponentName;
 
-    check-cast v0, Landroid/content/ComponentName;
+    return-object p0
 
     :cond_0
     return-object v0
@@ -195,7 +195,9 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object v0

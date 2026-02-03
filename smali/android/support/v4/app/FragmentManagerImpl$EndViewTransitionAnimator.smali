@@ -162,7 +162,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    return-void
 
     .line 4117
     :cond_0
@@ -177,6 +177,5 @@
     .line 4118
     iput-boolean v0, p0, Landroid/support/v4/app/FragmentManagerImpl$EndViewTransitionAnimator;->mTransitionEnded:Z
 
-    :goto_0
     return-void
 .end method

@@ -118,7 +118,7 @@
     move-object/from16 v0, p1
 
     .line 90
-    invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {v0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -257,11 +257,11 @@
 
     sget v13, Landroid/support/compat/R$styleable;->GradientColor_android_gradientRadius:I
 
-    move/from16 v17, v14
+    move/from16 v17, v4
 
-    const/4 v14, 0x0
+    const/4 v4, 0x0
 
-    invoke-static {v1, v0, v8, v13, v14}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v8, v13, v4}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v8
 
@@ -287,22 +287,20 @@
     if-eq v5, v1, :cond_0
 
     .line 141
-    new-instance v1, Landroid/graphics/LinearGradient;
+    new-instance v8, Landroid/graphics/LinearGradient;
 
     iget-object v13, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
 
     iget-object v14, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
 
     .line 142
-    invoke-static {v4}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->parseTileMode(I)Landroid/graphics/Shader$TileMode;
+    invoke-static/range {v17 .. v17}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->parseTileMode(I)Landroid/graphics/Shader$TileMode;
 
     move-result-object v15
 
-    move-object v8, v1
-
     invoke-direct/range {v8 .. v15}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    return-object v1
+    return-object v8
 
     .line 137
     :cond_0
@@ -312,46 +310,38 @@
 
     iget-object v0, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
 
-    move/from16 v3, v17
-
-    invoke-direct {v1, v3, v15, v2, v0}, Landroid/graphics/SweepGradient;-><init>(FF[I[F)V
+    invoke-direct {v1, v14, v15, v2, v0}, Landroid/graphics/SweepGradient;-><init>(FF[I[F)V
 
     return-object v1
 
     :cond_1
-    move/from16 v3, v17
+    const/16 v16, 0x0
 
-    const/4 v1, 0x0
-
-    cmpg-float v1, v8, v1
+    cmpg-float v1, v8, v16
 
     if-lez v1, :cond_2
 
     .line 134
-    new-instance v1, Landroid/graphics/RadialGradient;
+    new-instance v13, Landroid/graphics/RadialGradient;
 
-    iget-object v2, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
+    iget-object v1, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
 
     iget-object v0, v0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
 
     .line 135
-    invoke-static {v4}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->parseTileMode(I)Landroid/graphics/Shader$TileMode;
+    invoke-static/range {v17 .. v17}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->parseTileMode(I)Landroid/graphics/Shader$TileMode;
 
     move-result-object v19
 
-    move-object v13, v1
+    move-object/from16 v18, v0
 
-    move v14, v3
+    move-object/from16 v17, v1
 
     move/from16 v16, v8
 
-    move-object/from16 v17, v2
-
-    move-object/from16 v18, v0
-
     invoke-direct/range {v13 .. v19}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    return-object v1
+    return-object v13
 
     .line 131
     :cond_2
@@ -372,7 +362,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 93
-    invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
+    invoke-interface {v0}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
 
     move-result-object v0
 

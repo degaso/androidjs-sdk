@@ -118,7 +118,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    goto :goto_0
+    return-void
 
     :cond_1
     const/4 p1, -0x1
@@ -133,7 +133,6 @@
     .line 393
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    :goto_0
     return-void
 .end method
 
@@ -176,12 +175,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -241,7 +239,7 @@
 
     invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    goto :goto_0
+    return-void
 
     .line 269
     :cond_1
@@ -253,7 +251,6 @@
 
     invoke-virtual {p1, v0, v1, v1, v2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -382,7 +379,9 @@
     goto :goto_0
 
     :cond_1
-    const/4 v2, -0x1
+    const/4 v0, -0x1
+
+    return v0
 
     :cond_2
     :goto_0
@@ -529,7 +528,7 @@
     .line 308
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->invalidateSelf()V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 p1, 0x0
@@ -537,7 +536,6 @@
     .line 310
     invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->setCornerRadius(F)V
 
-    :goto_0
     return-void
 .end method
 
@@ -726,7 +724,7 @@
 .end method
 
 .method updateDstRect()V
-    .locals 9
+    .locals 15
 
     .line 227
     iget-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
@@ -747,7 +745,7 @@
 
     invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
-    move-result v6
+    move-result v5
 
     .line 230
     iget v4, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
@@ -758,20 +756,20 @@
 
     iget-object v8, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    move-object v3, p0
+    move v6, v5
 
-    move v5, v6
+    move-object v3, p0
 
     invoke-virtual/range {v3 .. v8}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     .line 234
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
     move-result v0
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
@@ -782,7 +780,7 @@
     move-result v0
 
     .line 235
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
@@ -797,24 +795,24 @@
     move-result v2
 
     .line 236
-    iget-object v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v4, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v4}, Landroid/graphics/Rect;->height()I
 
-    move-result v3
+    move-result v4
 
-    sub-int/2addr v3, v0
+    sub-int/2addr v4, v0
 
-    div-int/lit8 v3, v3, 0x2
+    div-int/lit8 v4, v4, 0x2
 
-    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v4}, Ljava/lang/Math;->max(II)I
 
-    move-result v3
+    move-result v4
 
     .line 237
-    iget-object v4, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v5, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v4, v2, v3}, Landroid/graphics/Rect;->inset(II)V
+    invoke-virtual {v5, v2, v4}, Landroid/graphics/Rect;->inset(II)V
 
     const/high16 v2, 0x3f000000    # 0.5f
 
@@ -823,112 +821,118 @@
     mul-float/2addr v0, v2
 
     .line 238
-    iput v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
+    iput v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
     goto :goto_0
 
-    .line 240
     :cond_0
-    iget v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
+    move-object v3, p0
 
-    iget v4, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
+    .line 240
+    iget v10, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
 
-    iget v5, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapHeight:I
+    iget v11, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
+
+    iget v12, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapHeight:I
 
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v6
+    move-result-object v13
 
-    iget-object v7, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v14, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    move-object v2, p0
+    move-object v9, v3
 
-    invoke-virtual/range {v2 .. v7}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-virtual/range {v9 .. v14}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     .line 242
     :goto_0
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v2}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
     .line 244
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
     if-eqz v0, :cond_1
 
     .line 246
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
     iget v2, v2, Landroid/graphics/RectF;->left:F
 
-    iget-object v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
+    iget-object v4, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
-    iget v3, v3, Landroid/graphics/RectF;->top:F
+    iget v4, v4, Landroid/graphics/RectF;->top:F
 
-    invoke-virtual {v0, v2, v3}, Landroid/graphics/Matrix;->setTranslate(FF)V
+    invoke-virtual {v0, v2, v4}, Landroid/graphics/Matrix;->setTranslate(FF)V
 
     .line 247
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
     .line 248
     invoke-virtual {v2}, Landroid/graphics/RectF;->width()F
 
     move-result v2
 
-    iget-object v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v4, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    div-float/2addr v2, v3
-
-    iget-object v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
-
-    .line 249
-    invoke-virtual {v3}, Landroid/graphics/RectF;->height()F
-
-    move-result v3
-
-    iget-object v4, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
 
     int-to-float v4, v4
 
-    div-float/2addr v3, v4
+    div-float/2addr v2, v4
+
+    iget-object v4, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
+
+    .line 249
+    invoke-virtual {v4}, Landroid/graphics/RectF;->height()F
+
+    move-result v4
+
+    iget-object v5, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    div-float/2addr v4, v5
 
     .line 247
-    invoke-virtual {v0, v2, v3}, Landroid/graphics/Matrix;->preScale(FF)Z
+    invoke-virtual {v0, v2, v4}, Landroid/graphics/Matrix;->preScale(FF)Z
 
     .line 250
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v0, v2}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V
 
     .line 251
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
+    iget-object v2, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 254
     :cond_1
-    iput-boolean v1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
+    iput-boolean v1, v3, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
+
+    return-void
 
     :cond_2
+    move-object v3, p0
+
     return-void
 .end method

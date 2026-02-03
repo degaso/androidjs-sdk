@@ -57,7 +57,7 @@
 
     if-nez v0, :cond_0
 
-    goto :goto_2
+    goto :goto_1
 
     .line 2252
     :cond_0
@@ -82,7 +82,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onError(Ljava/lang/String;)V
 
-    goto :goto_1
+    return-void
 
     .line 2254
     :cond_2
@@ -93,12 +93,11 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
-    :goto_1
     return-void
 
     .line 2249
     :cond_3
-    :goto_2
+    :goto_1
     iget-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
 
     iget-object p2, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mMediaId:Ljava/lang/String;

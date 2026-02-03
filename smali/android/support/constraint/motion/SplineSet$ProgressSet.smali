@@ -56,7 +56,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
-    goto :goto_1
+    return-void
 
     .line 309
     :cond_0
@@ -64,7 +64,7 @@
 
     if-eqz v2, :cond_1
 
-    return-void
+    goto :goto_1
 
     :cond_1
     const/4 v2, 0x1

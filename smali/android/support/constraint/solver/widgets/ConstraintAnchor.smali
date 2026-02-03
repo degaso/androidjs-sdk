@@ -691,7 +691,9 @@
 
     if-lez v0, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_1
     return v1
@@ -716,12 +718,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -910,7 +911,7 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    return v2
 
     :cond_2
     :goto_0
@@ -933,7 +934,7 @@
     goto :goto_1
 
     :cond_3
-    move v1, v2
+    return v2
 
     :cond_4
     :goto_1
@@ -945,13 +946,12 @@
 
     if-eq p1, v0, :cond_5
 
-    goto :goto_2
+    return v1
 
     :cond_5
-    move v1, v2
+    return v2
 
-    :goto_2
-    return v1
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1082,18 +1082,21 @@
 
     if-eqz p1, :cond_8
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
     .line 292
     sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->CENTER_Y:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-ne v1, p1, :cond_7
+    if-ne v1, p1, :cond_6
+
+    goto :goto_2
 
     :cond_6
-    move v0, v3
+    return v0
 
     :cond_7
-    move v2, v0
+    :goto_2
+    return v3
 
     :cond_8
     return v2
@@ -1108,19 +1111,19 @@
 
     if-ne v1, v2, :cond_9
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_9
     move v2, v0
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_a
-    :goto_2
+    :goto_3
     move v2, v3
 
     .line 283
-    :goto_3
+    :goto_4
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getOwner()Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     move-result-object p1
@@ -1129,18 +1132,21 @@
 
     if-eqz p1, :cond_d
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_c
 
     .line 284
     sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->CENTER_X:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-ne v1, p1, :cond_c
+    if-ne v1, p1, :cond_b
+
+    goto :goto_5
 
     :cond_b
-    move v0, v3
+    return v0
 
     :cond_c
-    move v2, v0
+    :goto_5
+    return v3
 
     :cond_d
     return v2
@@ -1159,7 +1165,7 @@
 
     if-eq v1, p1, :cond_e
 
-    move v0, v3
+    return v3
 
     :cond_e
     return v0
@@ -1327,13 +1333,12 @@
 
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    goto :goto_0
+    return-void
 
     .line 149
     :cond_0
     invoke-virtual {p1}, Landroid/support/constraint/solver/SolverVariable;->reset()V
 
-    :goto_0
     return-void
 .end method
 

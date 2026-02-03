@@ -445,12 +445,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -592,7 +591,7 @@
 
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    return-object p0
 
     .line 526
     :cond_1
@@ -661,7 +660,6 @@
     throw p1
 
     :cond_4
-    :goto_1
     return-object p0
 .end method
 
@@ -717,7 +715,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 600
     :cond_0
@@ -832,6 +830,7 @@
     goto :goto_0
 
     :cond_3
+    :goto_1
     return-void
 .end method
 
@@ -2112,7 +2111,7 @@
     iget v8, v6, Landroid/support/v4/app/Fragment;->mContainerId:I
 
     .line 909
-    invoke-virtual/range {p1 .. p1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v12
 

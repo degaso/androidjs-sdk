@@ -35,14 +35,14 @@
 
 # direct methods
 .method public constructor <init>([I[D[[D)V
-    .locals 24
+    .locals 23
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     .line 168
-    invoke-direct/range {p0 .. p0}, Landroid/support/constraint/motion/utils/CurveFit;-><init>()V
+    invoke-direct {v0}, Landroid/support/constraint/motion/utils/CurveFit;-><init>()V
 
     .line 169
     iput-object v1, v0, Landroid/support/constraint/motion/utils/ArcCurveFit;->mTime:[D
@@ -89,6 +89,8 @@
 
     if-eq v8, v9, :cond_0
 
+    move v9, v6
+
     goto :goto_2
 
     :cond_0
@@ -103,44 +105,46 @@
     move v5, v3
 
     :goto_1
-    move v6, v5
-
-    goto :goto_2
-
-    :cond_3
-    move v6, v9
+    move v9, v5
 
     .line 188
+    :cond_3
     :goto_2
-    new-instance v22, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
+    new-instance v8, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
 
     aget-wide v10, v1, v4
 
-    add-int/lit8 v23, v4, 0x1
+    add-int/lit8 v6, v4, 0x1
 
-    aget-wide v12, v1, v23
+    aget-wide v12, v1, v6
 
-    aget-object v8, p3, v4
+    aget-object v14, p3, v4
 
-    aget-wide v14, v8, v2
+    aget-wide v15, v14, v2
 
-    aget-wide v16, v8, v3
+    aget-wide v17, v14, v3
 
-    aget-object v8, p3, v23
+    aget-object v14, p3, v6
 
-    aget-wide v18, v8, v2
+    aget-wide v19, v14, v2
 
-    aget-wide v20, v8, v3
+    aget-wide v21, v14, v3
 
-    move-object/from16 v8, v22
+    move-wide v14, v15
 
-    move v9, v6
+    move-wide/from16 v16, v17
+
+    move-wide/from16 v18, v19
+
+    move-wide/from16 v20, v21
 
     invoke-direct/range {v8 .. v21}, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;-><init>(IDDDDDD)V
 
-    aput-object v22, v7, v4
+    aput-object v8, v7, v4
 
-    move/from16 v4, v23
+    move v4, v6
+
+    move v6, v9
 
     goto :goto_0
 

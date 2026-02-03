@@ -155,7 +155,7 @@
 
     if-ne v0, p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
@@ -193,6 +193,7 @@
     invoke-virtual {p0}, Landroid/support/v7/widget/SnapHelper;->snapToTargetExistingView()V
 
     :cond_2
+    :goto_0
     return-void
 .end method
 
@@ -347,7 +348,9 @@
 
     if-eqz p1, :cond_3
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_3
     return v1
@@ -361,7 +364,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 185
     :cond_0
@@ -371,7 +374,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 189
     :cond_1
@@ -381,7 +384,7 @@
 
     if-nez v1, :cond_2
 
-    return-void
+    goto :goto_0
 
     .line 193
     :cond_2
@@ -396,20 +399,26 @@
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     aget v3, v0, v2
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    :goto_0
+    return-void
 
     .line 195
-    :cond_3
+    :cond_4
+    :goto_1
     iget-object v3, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     aget v0, v0, v2
 
     invoke-virtual {v3, v1, v0}, Landroid/support/v7/widget/RecyclerView;->smoothScrollBy(II)V
 
-    :cond_4
     return-void
 .end method

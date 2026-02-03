@@ -255,13 +255,10 @@
 
     if-eqz p1, :cond_6
 
-    goto :goto_2
+    return v0
 
     :cond_6
-    move v0, v1
-
-    :goto_2
-    return v0
+    return v1
 .end method
 
 .method public onRequestDisallowInterceptTouchEvent(Z)V
@@ -318,7 +315,7 @@
 
     if-ne p1, v0, :cond_1
 
-    return-void
+    goto/16 :goto_0
 
     .line 373
     :cond_1
@@ -350,14 +347,14 @@
 
     if-nez v2, :cond_3
 
-    return-void
+    goto :goto_0
 
     :cond_3
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
-    if-eq p1, v4, :cond_8
+    if-eq p1, v4, :cond_9
 
     const/4 v5, 0x2
 
@@ -371,7 +368,7 @@
 
     if-eq p1, v0, :cond_4
 
-    goto :goto_1
+    goto :goto_0
 
     .line 404
     :cond_4
@@ -389,7 +386,7 @@
 
     iget v1, v1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mActivePointerId:I
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_8
 
     if-nez p1, :cond_5
 
@@ -412,7 +409,7 @@
 
     invoke-virtual {v0, p2, v1, p1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->updateDxDy(Landroid/view/MotionEvent;II)V
 
-    goto :goto_1
+    return-void
 
     .line 395
     :cond_6
@@ -420,7 +417,7 @@
 
     iget-object p1, p1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     .line 396
     iget-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$2;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -429,10 +426,10 @@
 
     invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_7
-    if-ltz v1, :cond_9
+    if-ltz v1, :cond_8
 
     .line 386
     iget-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$2;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -471,11 +468,13 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->invalidate()V
 
-    goto :goto_1
-
-    .line 400
     :cond_8
     :goto_0
+    return-void
+
+    .line 400
+    :cond_9
+    :goto_1
     iget-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$2;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
     const/4 p2, 0x0
@@ -487,7 +486,5 @@
 
     iput v0, p1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mActivePointerId:I
 
-    :cond_9
-    :goto_1
     return-void
 .end method

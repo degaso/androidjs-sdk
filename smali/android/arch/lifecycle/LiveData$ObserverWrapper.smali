@@ -68,7 +68,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 406
     :cond_0
@@ -157,6 +157,7 @@
     invoke-static {p1, p0}, Landroid/arch/lifecycle/LiveData;->access$400(Landroid/arch/lifecycle/LiveData;Landroid/arch/lifecycle/LiveData$ObserverWrapper;)V
 
     :cond_5
+    :goto_2
     return-void
 .end method
 

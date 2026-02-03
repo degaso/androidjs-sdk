@@ -373,13 +373,12 @@
 
     if-eqz p1, :cond_0
 
-    goto :goto_0
+    return v0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    :goto_0
-    return v0
+    return p1
 .end method
 
 .method isInPreLayout(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
@@ -405,12 +404,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 

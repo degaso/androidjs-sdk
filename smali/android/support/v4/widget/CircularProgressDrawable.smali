@@ -442,19 +442,25 @@
     .line 535
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/CircularProgressDrawable;->applyFinishTranslation(FLandroid/support/v4/widget/CircularProgressDrawable$Ring;)V
 
-    goto :goto_1
+    return-void
 
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v1, p1, v0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 
     .line 539
-    :cond_1
+    :cond_2
+    :goto_0
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingRotation()F
 
     move-result p3
@@ -467,7 +473,7 @@
 
     const v4, 0x3f4a3d71    # 0.79f
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_3
 
     div-float v0, p1, v1
 
@@ -490,9 +496,9 @@
 
     add-float/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     sub-float v2, p1, v1
 
     div-float/2addr v2, v1
@@ -526,7 +532,7 @@
 
     move v0, v6
 
-    :goto_0
+    :goto_1
     const v2, 0x3e570a3c    # 0.20999998f
 
     mul-float/2addr v2, p1
@@ -554,8 +560,6 @@
     .line 561
     invoke-direct {p0, p1}, Landroid/support/v4/widget/CircularProgressDrawable;->setRotation(F)V
 
-    :cond_3
-    :goto_1
     return-void
 .end method
 
@@ -1048,7 +1052,7 @@
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    goto :goto_0
+    return-void
 
     .line 454
     :cond_0
@@ -1075,7 +1079,6 @@
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    :goto_0
     return-void
 .end method
 
@@ -1147,7 +1150,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
 
-    goto :goto_0
+    return-void
 
     .line 504
     :cond_0
@@ -1157,6 +1160,5 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
 
-    :goto_0
     return-void
 .end method

@@ -31,13 +31,12 @@
     .line 55
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_0
+    return-void
 
     .line 57
     :cond_0
     invoke-virtual {p0, p1}, Landroid/arch/core/executor/TaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
-    :goto_0
     return-void
 .end method
 

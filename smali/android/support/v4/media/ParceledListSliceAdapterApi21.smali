@@ -36,24 +36,17 @@
 
     sput-object v0, Landroid/support/v4/media/ParceledListSliceAdapterApi21;->sConstructor:Ljava/lang/reflect/Constructor;
     :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    return-void
 
     :catch_0
     move-exception v0
 
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
     .line 38
-    :goto_0
     invoke-virtual {v0}, Ljava/lang/ReflectiveOperationException;->printStackTrace()V
 
-    :goto_1
     return-void
 .end method
 
@@ -90,31 +83,19 @@
 
     move-result-object p0
     :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    return-object p0
 
     :catch_0
     move-exception p0
 
-    goto :goto_0
-
-    :catch_1
-    move-exception p0
-
-    goto :goto_0
-
-    :catch_2
-    move-exception p0
-
     .line 47
-    :goto_0
     invoke-virtual {p0}, Ljava/lang/ReflectiveOperationException;->printStackTrace()V
 
     const/4 p0, 0x0
 
-    :goto_1
     return-object p0
 .end method

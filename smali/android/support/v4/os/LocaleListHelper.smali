@@ -341,7 +341,7 @@
 
     iput-object p1, p0, Landroid/support/v4/os/LocaleListHelper;->mStringRepresentation:Ljava/lang/String;
 
-    goto :goto_1
+    return-void
 
     .line 177
     :cond_0
@@ -482,7 +482,6 @@
 
     iput-object p1, p0, Landroid/support/v4/os/LocaleListHelper;->mStringRepresentation:Ljava/lang/String;
 
-    :goto_1
     return-void
 .end method
 
@@ -509,7 +508,7 @@
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    return-object p1
 
     .line 393
     :cond_0
@@ -517,7 +516,6 @@
 
     aget-object p1, p2, p1
 
-    :goto_0
     return-object p1
 .end method
 
@@ -900,13 +898,12 @@
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
+    return p0
 
     :cond_1
     :goto_0
     const/4 p0, 0x1
 
-    :goto_1
     return p0
 .end method
 
@@ -935,13 +932,12 @@
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
+    return p0
 
     :cond_1
     :goto_0
     const/4 p0, 0x1
 
-    :goto_1
     return p0
 .end method
 
@@ -1089,7 +1085,7 @@
     goto :goto_0
 
     :cond_3
-    move v1, v2
+    return v2
 
     :cond_4
     :goto_0
@@ -1296,12 +1292,11 @@
 
     aget-object p1, v0, p1
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 
@@ -1473,12 +1468,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

@@ -106,76 +106,76 @@
 .end method
 
 .method public addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
-    .locals 12
+    .locals 11
 
-    move-object v0, p0
+    move-object/from16 v0, p8
 
-    move-object/from16 v1, p8
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 84
-    array-length v2, v1
+    array-length v1, v0
 
-    new-array v2, v2, [Landroid/view/MenuItem;
+    new-array v1, v1, [Landroid/view/MenuItem;
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
+
+    :goto_0
+    move-object v10, v1
 
     .line 87
-    :goto_0
-    iget-object v3, v0, Landroid/support/v7/view/menu/MenuWrapperICS;->mWrappedObject:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v7/view/menu/MenuWrapperICS;->mWrappedObject:Ljava/lang/Object;
 
-    check-cast v3, Landroid/support/v4/internal/view/SupportMenu;
+    move-object v2, v1
 
-    move v4, p1
+    check-cast v2, Landroid/support/v4/internal/view/SupportMenu;
 
-    move v5, p2
+    move v3, p1
 
-    move v6, p3
+    move v4, p2
 
-    move-object/from16 v7, p4
+    move v5, p3
 
-    move-object/from16 v8, p5
+    move-object v6, p4
 
-    move-object/from16 v9, p6
+    move-object/from16 v7, p5
 
-    move/from16 v10, p7
+    move-object/from16 v8, p6
 
-    move-object v11, v2
+    move/from16 v9, p7
 
     .line 88
-    invoke-interface/range {v3 .. v11}, Landroid/support/v4/internal/view/SupportMenu;->addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
+    invoke-interface/range {v2 .. v10}, Landroid/support/v4/internal/view/SupportMenu;->addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
 
-    move-result v3
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz v10, :cond_1
 
     .line 91
-    array-length v4, v2
+    array-length p2, v10
 
-    const/4 v5, 0x0
+    const/4 p3, 0x0
 
     :goto_1
-    if-ge v5, v4, :cond_1
+    if-ge p3, p2, :cond_1
 
     .line 92
-    aget-object v6, v2, v5
+    aget-object p4, v10, p3
 
-    invoke-virtual {p0, v6}, Landroid/support/v7/view/menu/MenuWrapperICS;->getMenuItemWrapper(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+    invoke-virtual {p0, p4}, Landroid/support/v7/view/menu/MenuWrapperICS;->getMenuItemWrapper(Landroid/view/MenuItem;)Landroid/view/MenuItem;
 
-    move-result-object v6
+    move-result-object p4
 
-    aput-object v6, v1, v5
+    aput-object p4, v0, p3
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 p3, p3, 0x1
 
     goto :goto_1
 
     :cond_1
-    return v3
+    return p1
 .end method
 
 .method public addSubMenu(I)Landroid/view/SubMenu;

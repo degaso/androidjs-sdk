@@ -146,19 +146,25 @@
     check-cast v0, Landroid/support/v7/util/DiffUtil$Snake;
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     .line 587
     iget v2, v0, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     iget v0, v0, Landroid/support/v7/util/DiffUtil$Snake;->y:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    return-void
 
     .line 588
-    :cond_1
+    :cond_2
+    :goto_1
     new-instance v0, Landroid/support/v7/util/DiffUtil$Snake;
 
     invoke-direct {v0}, Landroid/support/v7/util/DiffUtil$Snake;-><init>()V
@@ -183,7 +189,6 @@
 
     invoke-interface {v2, v1, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    :cond_2
     return-void
 .end method
 
@@ -1142,7 +1147,7 @@
 .end method
 
 .method public dispatchUpdatesTo(Landroid/support/v7/util/ListUpdateCallback;)V
-    .locals 14
+    .locals 12
 
     .line 816
     instance-of v0, p1, Landroid/support/v7/util/BatchingListUpdateCallback;
@@ -1152,6 +1157,8 @@
     .line 817
     check-cast p1, Landroid/support/v7/util/BatchingListUpdateCallback;
 
+    move-object v3, p1
+
     goto :goto_0
 
     .line 819
@@ -1160,160 +1167,153 @@
 
     invoke-direct {v0, p1}, Landroid/support/v7/util/BatchingListUpdateCallback;-><init>(Landroid/support/v7/util/ListUpdateCallback;)V
 
-    move-object p1, v0
+    move-object v3, v0
 
     .line 827
     :goto_0
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 828
-    iget v1, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mOldListSize:I
+    iget p1, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mOldListSize:I
 
     .line 829
-    iget v2, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mNewListSize:I
+    iget v0, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mNewListSize:I
 
     .line 830
-    iget-object v3, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mSnakes:Ljava/util/List;
+    iget-object v1, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mSnakes:Ljava/util/List;
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
     const/4 v7, 0x1
 
-    sub-int/2addr v3, v7
+    sub-int/2addr v1, v7
 
-    move v8, v2
-
-    move v9, v3
+    move v8, v1
 
     :goto_1
-    if-ltz v9, :cond_5
+    if-ltz v8, :cond_5
 
     .line 831
-    iget-object v2, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mSnakes:Ljava/util/List;
+    iget-object v1, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mSnakes:Ljava/util/List;
 
-    invoke-interface {v2, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    move-object v10, v2
+    move-object v9, v1
 
-    check-cast v10, Landroid/support/v7/util/DiffUtil$Snake;
+    check-cast v9, Landroid/support/v7/util/DiffUtil$Snake;
 
     .line 832
-    iget v11, v10, Landroid/support/v7/util/DiffUtil$Snake;->size:I
+    iget v10, v9, Landroid/support/v7/util/DiffUtil$Snake;->size:I
 
     .line 833
-    iget v2, v10, Landroid/support/v7/util/DiffUtil$Snake;->x:I
+    iget v1, v9, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
-    add-int v12, v2, v11
+    add-int v4, v1, v10
 
     .line 834
-    iget v2, v10, Landroid/support/v7/util/DiffUtil$Snake;->y:I
+    iget v1, v9, Landroid/support/v7/util/DiffUtil$Snake;->y:I
 
-    add-int v13, v2, v11
+    add-int v11, v1, v10
 
-    if-ge v12, v1, :cond_1
+    if-ge v4, p1, :cond_1
 
-    sub-int v5, v1, v12
+    sub-int v5, p1, v4
+
+    move v6, v4
 
     move-object v1, p0
-
-    move-object v2, v0
-
-    move-object v3, p1
-
-    move v4, v12
-
-    move v6, v12
 
     .line 836
     invoke-direct/range {v1 .. v6}, Landroid/support/v7/util/DiffUtil$DiffResult;->dispatchRemovals(Ljava/util/List;Landroid/support/v7/util/ListUpdateCallback;III)V
 
     :cond_1
-    if-ge v13, v8, :cond_2
+    if-ge v11, v0, :cond_2
 
-    sub-int v5, v8, v13
+    sub-int v5, v0, v11
 
     move-object v1, p0
 
-    move-object v2, v0
-
-    move-object v3, p1
-
-    move v4, v12
-
-    move v6, v13
+    move v6, v11
 
     .line 840
     invoke-direct/range {v1 .. v6}, Landroid/support/v7/util/DiffUtil$DiffResult;->dispatchAdditions(Ljava/util/List;Landroid/support/v7/util/ListUpdateCallback;III)V
 
+    goto :goto_2
+
     :cond_2
-    add-int/lit8 v11, v11, -0x1
+    move-object v1, p0
 
     :goto_2
-    if-ltz v11, :cond_4
+    add-int/lit8 v10, v10, -0x1
+
+    :goto_3
+    if-ltz v10, :cond_4
 
     .line 844
-    iget-object v1, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mOldItemStatuses:[I
+    iget-object p1, v1, Landroid/support/v7/util/DiffUtil$DiffResult;->mOldItemStatuses:[I
 
-    iget v2, v10, Landroid/support/v7/util/DiffUtil$Snake;->x:I
+    iget v0, v9, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
-    add-int/2addr v2, v11
+    add-int/2addr v0, v10
 
-    aget v1, v1, v2
+    aget p1, p1, v0
 
-    and-int/lit8 v1, v1, 0x1f
+    and-int/lit8 p1, p1, 0x1f
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    if-ne v1, v2, :cond_3
+    if-ne p1, v0, :cond_3
 
     .line 845
-    iget v1, v10, Landroid/support/v7/util/DiffUtil$Snake;->x:I
+    iget p1, v9, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
-    add-int/2addr v1, v11
+    add-int/2addr p1, v10
 
-    iget-object v2, p0, Landroid/support/v7/util/DiffUtil$DiffResult;->mCallback:Landroid/support/v7/util/DiffUtil$Callback;
+    iget-object v0, v1, Landroid/support/v7/util/DiffUtil$DiffResult;->mCallback:Landroid/support/v7/util/DiffUtil$Callback;
 
-    iget v3, v10, Landroid/support/v7/util/DiffUtil$Snake;->x:I
+    iget v4, v9, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
-    add-int/2addr v3, v11
+    add-int/2addr v4, v10
 
-    iget v4, v10, Landroid/support/v7/util/DiffUtil$Snake;->y:I
+    iget v5, v9, Landroid/support/v7/util/DiffUtil$Snake;->y:I
 
-    add-int/2addr v4, v11
+    add-int/2addr v5, v10
 
     .line 846
-    invoke-virtual {v2, v3, v4}, Landroid/support/v7/util/DiffUtil$Callback;->getChangePayload(II)Ljava/lang/Object;
+    invoke-virtual {v0, v4, v5}, Landroid/support/v7/util/DiffUtil$Callback;->getChangePayload(II)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 845
-    invoke-virtual {p1, v1, v7, v2}, Landroid/support/v7/util/BatchingListUpdateCallback;->onChanged(IILjava/lang/Object;)V
+    invoke-virtual {v3, p1, v7, v0}, Landroid/support/v7/util/BatchingListUpdateCallback;->onChanged(IILjava/lang/Object;)V
 
     :cond_3
-    add-int/lit8 v11, v11, -0x1
+    add-int/lit8 v10, v10, -0x1
 
-    goto :goto_2
+    goto :goto_3
 
     .line 849
     :cond_4
-    iget v1, v10, Landroid/support/v7/util/DiffUtil$Snake;->x:I
+    iget p1, v9, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
     .line 850
-    iget v8, v10, Landroid/support/v7/util/DiffUtil$Snake;->y:I
+    iget v0, v9, Landroid/support/v7/util/DiffUtil$Snake;->y:I
 
-    add-int/lit8 v9, v9, -0x1
+    add-int/lit8 v8, v8, -0x1
 
     goto :goto_1
 
-    .line 852
     :cond_5
-    invoke-virtual {p1}, Landroid/support/v7/util/BatchingListUpdateCallback;->dispatchLastEvent()V
+    move-object v1, p0
+
+    .line 852
+    invoke-virtual {v3}, Landroid/support/v7/util/BatchingListUpdateCallback;->dispatchLastEvent()V
 
     return-void
 .end method

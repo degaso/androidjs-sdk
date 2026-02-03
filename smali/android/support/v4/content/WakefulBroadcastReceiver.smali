@@ -172,10 +172,10 @@
 
     if-nez p1, :cond_1
 
+    const/4 p0, 0x0
+
     .line 104
     monitor-exit v1
-
-    const/4 p0, 0x0
 
     return-object p0
 

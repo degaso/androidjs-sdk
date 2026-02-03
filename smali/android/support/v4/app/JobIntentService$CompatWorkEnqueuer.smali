@@ -178,7 +178,7 @@
     :cond_0
     monitor-exit p0
 
-    goto :goto_0
+    return-void
 
     :catchall_0
     move-exception p1
@@ -190,7 +190,6 @@
     throw p1
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

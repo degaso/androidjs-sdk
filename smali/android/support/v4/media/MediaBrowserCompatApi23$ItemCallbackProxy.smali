@@ -76,7 +76,7 @@
 
     invoke-interface {p1, v0}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
 
-    goto :goto_0
+    return-void
 
     .line 53
     :cond_0
@@ -94,6 +94,5 @@
 
     invoke-interface {p1, v0}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
 
-    :goto_0
     return-void
 .end method

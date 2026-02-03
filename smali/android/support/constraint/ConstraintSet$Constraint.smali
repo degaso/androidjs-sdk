@@ -716,7 +716,7 @@
 
     if-ne v0, p2, :cond_0
 
-    goto :goto_0
+    return-object p1
 
     .line 1270
     :cond_0
@@ -760,10 +760,7 @@
 
     invoke-virtual {p2, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object p1, v0
-
-    :goto_0
-    return-object p1
+    return-object v0
 .end method
 
 .method private setColorValue(Ljava/lang/String;I)V

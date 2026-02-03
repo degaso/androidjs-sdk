@@ -243,7 +243,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 100
     :cond_0
@@ -268,6 +268,7 @@
 
     if-lt v0, v1, :cond_2
 
+    :goto_0
     return-void
 
     .line 107
@@ -419,12 +420,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -442,12 +442,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -475,7 +474,7 @@
 
     if-ne v0, v1, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 170
     :cond_0
@@ -517,6 +516,7 @@
     :goto_0
     if-eqz p2, :cond_3
 
+    :goto_1
     return-void
 
     .line 179

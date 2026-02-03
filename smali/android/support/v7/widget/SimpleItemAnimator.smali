@@ -71,9 +71,11 @@
 
     return p1
 
-    .line 126
     :cond_1
-    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->animateAdd(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+    move-object v3, p1
+
+    .line 126
+    invoke-virtual {p0, v3}, Landroid/support/v7/widget/SimpleItemAnimator;->animateAdd(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result p1
 
@@ -219,9 +221,11 @@
 
     return p1
 
-    .line 107
     :cond_3
-    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->animateRemove(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+    move-object v1, p1
+
+    .line 107
+    invoke-virtual {p0, v1}, Landroid/support/v7/widget/SimpleItemAnimator;->animateRemove(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result p1
 
@@ -301,13 +305,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 

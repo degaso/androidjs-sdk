@@ -94,7 +94,7 @@
     .line 111
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-object v1
 
     .line 113
     :cond_0
@@ -111,6 +111,5 @@
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
-    :goto_0
     return-object v1
 .end method

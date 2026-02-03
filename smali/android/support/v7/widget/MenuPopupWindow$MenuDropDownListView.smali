@@ -60,7 +60,7 @@
     .line 145
     iput v1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mRetreatKey:I
 
-    goto :goto_0
+    return-void
 
     .line 147
     :cond_0
@@ -69,7 +69,6 @@
     .line 148
     iput v0, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mRetreatKey:I
 
-    :goto_0
     return-void
 .end method
 

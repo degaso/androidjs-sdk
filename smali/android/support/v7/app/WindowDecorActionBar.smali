@@ -1081,7 +1081,7 @@
     .line 777
     invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar;->doShow(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 780
     :cond_0
@@ -1098,7 +1098,6 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar;->doHide(Z)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1274,7 +1273,7 @@
     .line 900
     invoke-virtual {v1}, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->start()V
 
-    goto :goto_2
+    return-void
 
     :cond_2
     if-eqz p1, :cond_3
@@ -1289,7 +1288,7 @@
 
     invoke-virtual {p1, v3}, Landroid/support/v7/widget/ActionBarContextView;->setVisibility(I)V
 
-    goto :goto_2
+    return-void
 
     .line 906
     :cond_3
@@ -1302,7 +1301,6 @@
 
     invoke-virtual {p1, v2}, Landroid/support/v7/widget/ActionBarContextView;->setVisibility(I)V
 
-    :goto_2
     return-void
 .end method
 
@@ -1368,7 +1366,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 354
     :cond_0
@@ -1402,6 +1400,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-void
 .end method
 
@@ -1542,7 +1541,7 @@
     .line 861
     invoke-virtual {v0}, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->start()V
 
-    goto :goto_0
+    return-void
 
     .line 863
     :cond_4
@@ -1552,7 +1551,6 @@
 
     invoke-interface {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->onAnimationEnd(Landroid/view/View;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1911,7 +1909,9 @@
 
     invoke-virtual {v0}, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->getPosition()I
 
-    move-result v2
+    move-result v0
+
+    return v0
 
     :cond_1
     return v2
@@ -2152,12 +2152,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2177,12 +2176,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2358,7 +2356,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_3
 
     .line 607
     :cond_0
@@ -2463,6 +2461,7 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar;->selectTab(Landroid/support/v7/app/ActionBar$Tab;)V
 
     :cond_5
+    :goto_3
     return-void
 .end method
 
@@ -3246,7 +3245,7 @@
 
     invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar;->selectTab(Landroid/support/v7/app/ActionBar$Tab;)V
 
-    goto :goto_0
+    return-void
 
     .line 418
     :cond_0
@@ -3264,7 +3263,6 @@
 
     invoke-interface {v0, p1}, Landroid/support/v7/widget/DecorToolbar;->setDropdownSelectedPosition(I)V
 
-    :goto_0
     return-void
 .end method
 

@@ -75,12 +75,11 @@
 
     iget v0, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mLeft:I
 
-    goto :goto_0
+    return v0
 
     :cond_0
     iget v0, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    :goto_0
     return v0
 .end method
 
@@ -112,12 +111,11 @@
 
     iget v0, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_0
+    return v0
 
     :cond_0
     iget v0, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mLeft:I
 
-    :goto_0
     return v0
 .end method
 
@@ -199,7 +197,7 @@
     :goto_1
     iput p1, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_4
+    return-void
 
     .line 83
     :cond_3
@@ -228,7 +226,7 @@
     :goto_3
     iput p1, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_4
+    return-void
 
     .line 87
     :cond_6
@@ -241,7 +239,6 @@
 
     iput p1, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    :goto_4
     return-void
 .end method
 
@@ -277,7 +274,7 @@
     .line 60
     iput p1, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_0
+    return-void
 
     :cond_1
     if-eq p1, v1, :cond_2
@@ -292,6 +289,5 @@
     iput p2, p0, Landroid/support/v7/widget/RtlSpacingHelper;->mRight:I
 
     :cond_3
-    :goto_0
     return-void
 .end method

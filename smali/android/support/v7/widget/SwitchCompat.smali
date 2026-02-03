@@ -724,19 +724,16 @@
 
     if-gez v0, :cond_0
 
-    move p0, p1
-
-    goto :goto_0
+    return p1
 
     :cond_0
     cmpl-float p1, p0, p2
 
     if-lez p1, :cond_1
 
-    move p0, p2
+    return p2
 
     :cond_1
-    :goto_0
     return p0
 .end method
 
@@ -754,12 +751,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -956,7 +952,9 @@
 
     if-gez p1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v1
@@ -979,7 +977,7 @@
     move-object v1, p1
 
     .line 878
-    new-instance p1, Landroid/text/StaticLayout;
+    new-instance v0, Landroid/text/StaticLayout;
 
     iget-object v2, p0, Landroid/support/v7/widget/SwitchCompat;->mTextPaint:Landroid/text/TextPaint;
 
@@ -988,23 +986,23 @@
     .line 880
     invoke-static {v1, v2}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F
 
-    move-result v0
+    move-result p1
 
-    float-to-double v3, v0
+    float-to-double v3, p1
 
     invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v3
 
-    double-to-int v0, v3
+    double-to-int p1, v3
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    move v3, v0
+    move v3, p1
 
     sget-object v4, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
@@ -1014,11 +1012,9 @@
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    move-object v0, p1
-
     invoke-direct/range {v0 .. v7}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method private setSwitchTypefaceByIndex(II)V
@@ -2031,7 +2027,7 @@
     .line 1403
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    return-void
 
     .line 1405
     :cond_1
@@ -2056,98 +2052,99 @@
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setText(Ljava/lang/CharSequence;)V
 
     :cond_2
-    :goto_1
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .locals 1
 
     .line 1077
     invoke-super/range {p0 .. p5}, Landroid/widget/CompoundButton;->onLayout(ZIIII)V
 
+    move-object p1, p0
+
     .line 1081
-    iget-object p1, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p1, Landroid/support/v7/widget/SwitchCompat;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
-    const/4 p2, 0x0
+    const/4 p3, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
     .line 1082
-    iget-object p1, p0, Landroid/support/v7/widget/SwitchCompat;->mTempRect:Landroid/graphics/Rect;
+    iget-object p2, p1, Landroid/support/v7/widget/SwitchCompat;->mTempRect:Landroid/graphics/Rect;
 
     .line 1083
-    iget-object p3, p0, Landroid/support/v7/widget/SwitchCompat;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p4, p1, Landroid/support/v7/widget/SwitchCompat;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz p3, :cond_0
+    if-eqz p4, :cond_0
 
     .line 1084
-    invoke-virtual {p3, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
+    invoke-virtual {p4, p2}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
     goto :goto_0
 
     .line 1086
     :cond_0
-    invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 1089
     :goto_0
-    iget-object p3, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p4, p1, Landroid/support/v7/widget/SwitchCompat;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-static {p3}, Landroid/support/v7/widget/DrawableUtils;->getOpticalBounds(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Rect;
+    invoke-static {p4}, Landroid/support/v7/widget/DrawableUtils;->getOpticalBounds(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Rect;
 
-    move-result-object p3
+    move-result-object p4
 
     .line 1090
-    iget p4, p3, Landroid/graphics/Rect;->left:I
+    iget p5, p4, Landroid/graphics/Rect;->left:I
 
-    iget p5, p1, Landroid/graphics/Rect;->left:I
+    iget v0, p2, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr p4, p5
+    sub-int/2addr p5, v0
 
-    invoke-static {p2, p4}, Ljava/lang/Math;->max(II)I
+    invoke-static {p3, p5}, Ljava/lang/Math;->max(II)I
 
-    move-result p4
+    move-result p5
 
     .line 1091
-    iget p3, p3, Landroid/graphics/Rect;->right:I
+    iget p4, p4, Landroid/graphics/Rect;->right:I
 
-    iget p1, p1, Landroid/graphics/Rect;->right:I
+    iget p2, p2, Landroid/graphics/Rect;->right:I
 
-    sub-int/2addr p3, p1
+    sub-int/2addr p4, p2
 
-    invoke-static {p2, p3}, Ljava/lang/Math;->max(II)I
+    invoke-static {p3, p4}, Ljava/lang/Math;->max(II)I
 
-    move-result p2
+    move-result p3
 
     goto :goto_1
 
     :cond_1
-    move p4, p2
+    move p5, p3
 
     .line 1096
     :goto_1
     invoke-static {p0}, Landroid/support/v7/widget/ViewUtils;->isLayoutRtl(Landroid/view/View;)Z
 
-    move-result p1
+    move-result p2
 
-    if-eqz p1, :cond_2
+    if-eqz p2, :cond_2
 
     .line 1097
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingLeft()I
 
-    move-result p1
+    move-result p2
 
-    add-int/2addr p1, p4
+    add-int/2addr p2, p5
 
     .line 1098
-    iget p3, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchWidth:I
+    iget p4, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchWidth:I
 
-    add-int/2addr p3, p1
+    add-int/2addr p4, p2
 
-    sub-int/2addr p3, p4
+    sub-int/2addr p4, p5
 
-    sub-int/2addr p3, p2
+    sub-int/2addr p4, p3
 
     goto :goto_2
 
@@ -2155,48 +2152,48 @@
     :cond_2
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getWidth()I
 
-    move-result p1
+    move-result p2
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingRight()I
 
-    move-result p3
+    move-result p4
 
-    sub-int/2addr p1, p3
+    sub-int/2addr p2, p4
 
-    sub-int p3, p1, p2
+    sub-int p4, p2, p3
 
     .line 1101
-    iget p1, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchWidth:I
+    iget p2, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchWidth:I
 
-    sub-int p1, p3, p1
+    sub-int p2, p4, p2
 
-    add-int/2addr p1, p4
+    add-int/2addr p2, p5
 
-    add-int/2addr p1, p2
+    add-int/2addr p2, p3
 
     .line 1106
     :goto_2
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getGravity()I
 
-    move-result p2
+    move-result p3
 
-    and-int/lit8 p2, p2, 0x70
+    and-int/lit8 p3, p3, 0x70
 
-    const/16 p4, 0x10
+    const/16 p5, 0x10
 
-    if-eq p2, p4, :cond_4
+    if-eq p3, p5, :cond_4
 
-    const/16 p4, 0x50
+    const/16 p5, 0x50
 
-    if-eq p2, p4, :cond_3
+    if-eq p3, p5, :cond_3
 
     .line 1109
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingTop()I
 
-    move-result p2
+    move-result p3
 
     .line 1110
-    iget p4, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
+    iget p5, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
 
     goto :goto_3
 
@@ -2204,18 +2201,18 @@
     :cond_3
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getHeight()I
 
-    move-result p2
+    move-result p3
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingBottom()I
 
-    move-result p4
+    move-result p5
 
-    sub-int p4, p2, p4
+    sub-int p5, p3, p5
 
     .line 1121
-    iget p2, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
+    iget p3, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
 
-    sub-int p2, p4, p2
+    sub-int p3, p5, p3
 
     goto :goto_4
 
@@ -2223,43 +2220,43 @@
     :cond_4
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingTop()I
 
-    move-result p2
+    move-result p3
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getHeight()I
 
-    move-result p4
+    move-result p5
 
-    add-int/2addr p2, p4
+    add-int/2addr p3, p5
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getPaddingBottom()I
 
-    move-result p4
+    move-result p5
 
-    sub-int/2addr p2, p4
+    sub-int/2addr p3, p5
 
-    div-int/lit8 p2, p2, 0x2
+    div-int/lit8 p3, p3, 0x2
 
-    iget p4, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
+    iget p5, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchHeight:I
 
-    div-int/lit8 p5, p4, 0x2
+    div-int/lit8 v0, p5, 0x2
 
-    sub-int/2addr p2, p5
+    sub-int/2addr p3, v0
 
     :goto_3
-    add-int/2addr p4, p2
+    add-int/2addr p5, p3
 
     .line 1125
     :goto_4
-    iput p1, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchLeft:I
+    iput p2, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchLeft:I
 
     .line 1126
-    iput p2, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchTop:I
+    iput p3, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchTop:I
 
     .line 1127
-    iput p4, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchBottom:I
+    iput p5, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchBottom:I
 
     .line 1128
-    iput p3, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchRight:I
+    iput p4, p1, Landroid/support/v7/widget/SwitchCompat;->mSwitchRight:I
 
     return-void
 .end method
@@ -2798,7 +2795,7 @@
     .line 1067
     invoke-direct {p0, p1}, Landroid/support/v7/widget/SwitchCompat;->animateThumbToCheckedState(Z)V
 
-    goto :goto_1
+    return-void
 
     .line 1070
     :cond_0
@@ -2817,7 +2814,6 @@
     :goto_0
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
 
-    :goto_1
     return-void
 .end method
 
@@ -3130,7 +3126,7 @@
     :cond_3
     invoke-virtual {p2, v0}, Landroid/text/TextPaint;->setTextSkewX(F)V
 
-    goto :goto_2
+    return-void
 
     .line 378
     :cond_4
@@ -3146,7 +3142,6 @@
     .line 380
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SwitchCompat;->setSwitchTypeface(Landroid/graphics/Typeface;)V
 
-    :goto_2
     return-void
 .end method
 
@@ -3396,12 +3391,11 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method

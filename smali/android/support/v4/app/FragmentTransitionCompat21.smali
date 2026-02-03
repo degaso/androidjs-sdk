@@ -54,13 +54,12 @@
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
+    return p0
 
     :cond_1
     :goto_0
     const/4 p0, 0x1
 
-    :goto_1
     return p0
 .end method
 
@@ -98,7 +97,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 96
     :cond_0
@@ -173,6 +172,7 @@
     goto :goto_1
 
     :cond_2
+    :goto_2
     return-void
 .end method
 
@@ -208,12 +208,11 @@
 
     move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 
@@ -509,7 +508,7 @@
 .end method
 
 .method public scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 10
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -530,32 +529,28 @@
     .end annotation
 
     .line 214
-    move-object v0, p1
-
-    check-cast v0, Landroid/transition/Transition;
+    check-cast p1, Landroid/transition/Transition;
 
     .line 215
-    new-instance v9, Landroid/support/v4/app/FragmentTransitionCompat21$3;
+    new-instance v0, Landroid/support/v4/app/FragmentTransitionCompat21$3;
 
-    move-object v1, v9
+    move-object v1, p0
 
-    move-object v2, p0
+    move-object v2, p2
 
-    move-object v3, p2
+    move-object v3, p3
 
-    move-object v4, p3
+    move-object v4, p4
 
-    move-object v5, p4
+    move-object v5, p5
 
-    move-object v6, p5
+    move-object v6, p6
 
-    move-object/from16 v7, p6
+    move-object v7, p7
 
-    move-object/from16 v8, p7
+    invoke-direct/range {v0 .. v7}, Landroid/support/v4/app/FragmentTransitionCompat21$3;-><init>(Landroid/support/v4/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
 
-    invoke-direct/range {v1 .. v8}, Landroid/support/v4/app/FragmentTransitionCompat21$3;-><init>(Landroid/support/v4/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-
-    invoke-virtual {v0, v9}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-virtual {p1, v0}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-void
 .end method

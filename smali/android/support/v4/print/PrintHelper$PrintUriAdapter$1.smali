@@ -215,7 +215,9 @@
     goto :goto_0
 
     :catchall_0
-    move-exception p1
+    move-exception v0
+
+    move-object p1, v0
 
     .line 460
     :try_start_1
@@ -225,8 +227,12 @@
 
     throw p1
 
-    .line 474
     :cond_1
+    move-object v2, p1
+
+    move-object p1, v2
+
+    .line 474
     :goto_0
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintUriAdapter$1;->this$1:Landroid/support/v4/print/PrintHelper$PrintUriAdapter;
 

@@ -96,7 +96,7 @@
 
     if-eqz p0, :cond_0
 
-    move v0, v2
+    return v2
 
     :cond_0
     return v0

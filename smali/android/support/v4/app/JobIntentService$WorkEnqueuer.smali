@@ -56,7 +56,7 @@
     .line 125
     iput p1, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mJobId:I
 
-    goto :goto_0
+    return-void
 
     .line 126
     :cond_0
@@ -64,7 +64,6 @@
 
     if-ne v0, p1, :cond_1
 
-    :goto_0
     return-void
 
     .line 127

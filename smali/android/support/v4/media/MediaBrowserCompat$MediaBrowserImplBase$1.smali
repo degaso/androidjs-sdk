@@ -47,7 +47,7 @@
 
     if-nez v1, :cond_0
 
-    return-void
+    goto/16 :goto_2
 
     .line 1037
     :cond_0
@@ -156,8 +156,6 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-nez v1, :cond_3
-
     goto :goto_1
 
     .line 1063
@@ -182,8 +180,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1068
+    const/4 v1, 0x0
+
     :goto_1
+    if-nez v1, :cond_3
+
+    .line 1068
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     invoke-virtual {v1}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->forceCloseConnection()V
@@ -212,6 +214,7 @@
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->dump()V
 
     :cond_4
+    :goto_2
     return-void
 
     .line 1050

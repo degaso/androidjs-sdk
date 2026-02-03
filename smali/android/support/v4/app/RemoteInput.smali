@@ -113,7 +113,7 @@
 
     invoke-static {p0, p1, p2}, Landroid/app/RemoteInput;->addDataResultToIntent(Landroid/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
 
-    goto :goto_1
+    return-void
 
     .line 400
     :cond_0
@@ -217,7 +217,6 @@
 
     invoke-virtual {p1, p0}, Landroid/content/Intent;->setClipData(Landroid/content/ClipData;)V
 
-    :goto_1
     return-void
 .end method
 
@@ -238,7 +237,7 @@
 
     invoke-static {p0, p1, p2}, Landroid/app/RemoteInput;->addResultsToIntent([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    goto :goto_2
+    return-void
 
     .line 345
     :cond_0
@@ -301,7 +300,6 @@
     goto :goto_1
 
     :cond_3
-    :goto_2
     return-void
 .end method
 
@@ -543,13 +541,15 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_2
-
-    const/16 v4, 0x27
+    if-eqz v5, :cond_2
 
     .line 283
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v4
+
     invoke-virtual {v3, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v4
@@ -603,13 +603,10 @@
 
     if-eqz p0, :cond_6
 
-    goto :goto_1
+    return-object v0
 
     :cond_6
-    move-object v0, v1
-
-    :goto_1
-    return-object v0
+    return-object v1
 .end method
 
 .method private static getExtraResultsKeyForData(Ljava/lang/String;)Ljava/lang/String;
@@ -754,11 +751,10 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method

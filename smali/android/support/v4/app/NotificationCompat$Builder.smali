@@ -230,7 +230,7 @@
 
     if-nez p0, :cond_0
 
-    return-object p0
+    goto :goto_0
 
     .line 1590
     :cond_0
@@ -250,6 +250,7 @@
     move-result-object p0
 
     :cond_1
+    :goto_0
     return-object p0
 .end method
 
@@ -304,7 +305,7 @@
 
     if-gt v2, v0, :cond_1
 
-    return-object p1
+    goto :goto_0
 
     :cond_1
     int-to-double v1, v1
@@ -398,7 +399,7 @@
 
     iput p1, p2, Landroid/app/Notification;->flags:I
 
-    goto :goto_0
+    return-void
 
     .line 1188
     :cond_0
@@ -412,7 +413,6 @@
 
     iput p1, p2, Landroid/app/Notification;->flags:I
 
-    :goto_0
     return-void
 .end method
 
@@ -461,14 +461,13 @@
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mExtras:Landroid/os/Bundle;
 
-    goto :goto_0
+    return-object p0
 
     .line 1298
     :cond_0
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     :cond_1
-    :goto_0
     return-object p0
 .end method
 
@@ -625,12 +624,11 @@
 
     iget-wide v0, v0, Landroid/app/Notification;->when:J
 
-    goto :goto_0
+    return-wide v0
 
     :cond_0
     const-wide/16 v0, 0x0
 
-    :goto_0
     return-wide v0
 .end method
 

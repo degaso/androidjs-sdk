@@ -269,14 +269,20 @@
     :cond_1
     iget-boolean p2, p0, Landroid/support/v4/content/Loader;->mAbandoned:Z
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_3
 
     iget-boolean p2, p0, Landroid/support/v4/content/Loader;->mReset:Z
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 
     .line 563
-    :cond_2
+    :cond_3
+    :goto_0
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string p1, "mAbandoned="
@@ -296,7 +302,6 @@
 
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_3
     return-void
 .end method
 
@@ -379,7 +384,7 @@
     .line 512
     invoke-virtual {p0}, Landroid/support/v4/content/Loader;->forceLoad()V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v0, 0x1
@@ -387,7 +392,6 @@
     .line 517
     iput-boolean v0, p0, Landroid/support/v4/content/Loader;->mContentChanged:Z
 
-    :goto_0
     return-void
 .end method
 

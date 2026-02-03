@@ -495,7 +495,9 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_0
     return v1
@@ -987,7 +989,7 @@
     .line 357
     invoke-direct {p0, p1}, Landroid/support/v7/view/menu/CascadingMenuPopup;->showMenu(Landroid/support/v7/view/menu/MenuBuilder;)V
 
-    goto :goto_0
+    return-void
 
     .line 359
     :cond_0
@@ -995,7 +997,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_0
     return-void
 .end method
 
@@ -1084,7 +1085,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/List;
@@ -1106,7 +1107,6 @@
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1140,7 +1140,9 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     return v1
@@ -1156,7 +1158,7 @@
 
     if-gez v0, :cond_0
 
-    return-void
+    goto/16 :goto_1
 
     :cond_0
     add-int/lit8 v1, v0, 0x1
@@ -1311,7 +1313,7 @@
 
     invoke-interface {p1}, Landroid/widget/PopupWindow$OnDismissListener;->onDismiss()V
 
-    goto :goto_1
+    return-void
 
     :cond_7
     if-eqz p2, :cond_8
@@ -1634,7 +1636,7 @@
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 264
     :cond_0
@@ -1711,6 +1713,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     :cond_4
+    :goto_2
     return-void
 .end method
 

@@ -31,23 +31,23 @@
 
     move-object v0, p0
 
+    move-object v4, p1
+
     move v1, p2
 
     move-wide v2, p3
-
-    move-object v4, p1
 
     move-object v5, p5
 
     .line 300
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;->get(FJLandroid/view/View;Landroid/support/constraint/motion/KeyCache;)F
 
-    move-result p2
+    move-result p1
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v4, p1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 301
-    iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;->mContinue:Z
+    iget-boolean p1, v0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;->mContinue:Z
 
     return p1
 .end method

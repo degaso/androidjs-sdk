@@ -96,67 +96,63 @@
 .end method
 
 .method public fling(IIIIIIII)V
-    .locals 10
+    .locals 9
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    move-object v0, p0
-
     .line 210
-    iget-object v1, v0, Landroid/support/v4/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
+    iget-object v0, p0, Landroid/support/v4/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
 
-    move v2, p1
+    move v1, p1
 
-    move v3, p2
+    move v2, p2
 
-    move v4, p3
+    move v3, p3
 
-    move v5, p4
+    move v4, p4
 
-    move v6, p5
+    move v5, p5
 
-    move/from16 v7, p6
+    move v6, p6
 
-    move/from16 v8, p7
+    move/from16 v7, p7
 
-    move/from16 v9, p8
+    move/from16 v8, p8
 
-    invoke-virtual/range {v1 .. v9}, Landroid/widget/OverScroller;->fling(IIIIIIII)V
+    invoke-virtual/range {v0 .. v8}, Landroid/widget/OverScroller;->fling(IIIIIIII)V
 
     return-void
 .end method
 
 .method public fling(IIIIIIIIII)V
-    .locals 12
+    .locals 11
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    move-object v0, p0
-
     .line 242
-    iget-object v1, v0, Landroid/support/v4/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
+    iget-object v0, p0, Landroid/support/v4/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
 
-    move v2, p1
+    move v1, p1
 
-    move v3, p2
+    move v2, p2
 
-    move v4, p3
+    move v3, p3
 
-    move/from16 v5, p4
+    move v4, p4
 
-    move/from16 v6, p5
+    move/from16 v5, p5
 
-    move/from16 v7, p6
+    move/from16 v6, p6
 
-    move/from16 v8, p7
+    move/from16 v7, p7
 
-    move/from16 v9, p8
+    move/from16 v8, p8
 
-    move/from16 v10, p9
+    move/from16 v9, p9
 
-    move/from16 v11, p10
+    move/from16 v10, p10
 
-    invoke-virtual/range {v1 .. v11}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
+    invoke-virtual/range {v0 .. v10}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
 
     return-void
 .end method

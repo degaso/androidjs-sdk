@@ -1037,7 +1037,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_3
+    return-void
 
     .line 565
     :cond_4
@@ -1047,6 +1047,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_3
     return-void
 .end method

@@ -48,7 +48,7 @@
 
     iput-object p2, p1, Landroid/view/inputmethod/EditorInfo;->hintText:Ljava/lang/CharSequence;
 
-    goto :goto_1
+    return-object p0
 
     .line 37
     :cond_0
@@ -59,6 +59,5 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return-object p0
 .end method

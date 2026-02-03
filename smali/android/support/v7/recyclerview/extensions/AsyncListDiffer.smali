@@ -114,7 +114,7 @@
 
     iput-object p1, p0, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    return-void
 
     .line 167
     :cond_0
@@ -122,7 +122,6 @@
 
     iput-object p1, p0, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
 
-    :goto_0
     return-void
 .end method
 

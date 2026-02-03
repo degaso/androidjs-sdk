@@ -1064,7 +1064,7 @@
 
     if-nez p1, :cond_1
 
-    move v0, v2
+    return v2
 
     :cond_1
     return v0
@@ -1077,7 +1077,7 @@
 
     if-ne v1, p1, :cond_2
 
-    move v0, v2
+    return v2
 
     :cond_2
     return v0
@@ -1090,7 +1090,7 @@
 
     if-ne v1, p1, :cond_3
 
-    move v0, v2
+    return v2
 
     :cond_3
     return v0
@@ -1105,7 +1105,7 @@
 
     if-nez p1, :cond_4
 
-    move v0, v2
+    return v2
 
     :cond_4
     return v0
@@ -1118,7 +1118,7 @@
 
     if-ne v1, p1, :cond_5
 
-    move v0, v2
+    return v2
 
     :cond_5
     return v0
@@ -1131,7 +1131,7 @@
 
     if-ne v1, p1, :cond_6
 
-    move v0, v2
+    return v2
 
     :cond_6
     :goto_0
@@ -1194,12 +1194,11 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 
     .line 112
@@ -1268,7 +1267,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_1
+    return-void
 
     .line 149
     :pswitch_0
@@ -1276,7 +1275,7 @@
 
     aput v0, p1, v1
 
-    goto :goto_1
+    return-void
 
     .line 146
     :pswitch_1
@@ -1294,7 +1293,7 @@
     :goto_0
     aput v0, p1, v1
 
-    goto :goto_1
+    return-void
 
     .line 144
     :pswitch_2
@@ -1312,7 +1311,7 @@
 
     aput v0, p1, v1
 
-    goto :goto_1
+    return-void
 
     .line 124
     :pswitch_4
@@ -1322,7 +1321,7 @@
 
     aput v0, p1, v1
 
-    goto :goto_1
+    return-void
 
     .line 131
     :pswitch_5
@@ -1407,7 +1406,6 @@
     .line 141
     aput v0, p1, v1
 
-    :goto_1
     return-void
 
     nop
@@ -1482,7 +1480,7 @@
 .end method
 
 .method public setInterpolatedValue(Landroid/view/View;[F)V
-    .locals 16
+    .locals 17
 
     move-object/from16 v1, p0
 
@@ -1499,7 +1497,7 @@
     const-string v0, "unable to interpolate strings "
 
     .line 340
-    invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
 
@@ -1569,7 +1567,7 @@
 
     invoke-virtual {v0, v2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    return-void
 
     .line 379
     :pswitch_1
@@ -1608,7 +1606,7 @@
 
     invoke-virtual {v0, v2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    return-void
 
     .line 376
     :pswitch_2
@@ -1657,7 +1655,7 @@
 
     invoke-virtual {v0, v2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    return-void
 
     .line 347
     :pswitch_4
@@ -1686,7 +1684,7 @@
 
     invoke-virtual {v0, v2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    return-void
 
     .line 355
     :pswitch_5
@@ -1702,6 +1700,10 @@
 
     .line 356
     aget v6, p2, v15
+
+    const/4 v8, 0x3
+
+    const/16 v16, 0x2
 
     float-to-double v9, v6
 
@@ -1738,10 +1740,8 @@
 
     move-result v9
 
-    const/4 v10, 0x2
-
     .line 358
-    aget v10, p2, v10
+    aget v10, p2, v16
 
     float-to-double v14, v10
 
@@ -1758,8 +1758,6 @@
     invoke-static {v10}, Landroid/support/constraint/ConstraintAttribute;->clamp(I)I
 
     move-result v10
-
-    const/4 v8, 0x3
 
     .line 359
     aget v8, p2, v8
@@ -1799,10 +1797,14 @@
 
     invoke-virtual {v0, v2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    return-void
+
+    :pswitch_6
+    const/4 v8, 0x3
+
+    const/16 v16, 0x2
 
     .line 367
-    :pswitch_6
     new-array v0, v14, [Ljava/lang/Class;
 
     sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -1851,10 +1853,8 @@
 
     move-result v9
 
-    const/4 v10, 0x2
-
     .line 370
-    aget v10, p2, v10
+    aget v10, p2, v16
 
     float-to-double v14, v10
 
@@ -1871,8 +1871,6 @@
     invoke-static {v10}, Landroid/support/constraint/ConstraintAttribute;->clamp(I)I
 
     move-result v10
-
-    const/4 v8, 0x3
 
     .line 371
     aget v8, p2, v8
@@ -1912,7 +1910,7 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    return-void
 
     :catch_0
     move-exception v0
@@ -1940,7 +1938,7 @@
 
     move-result-object v4
 
-    invoke-static/range {p1 .. p1}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1981,7 +1979,7 @@
 
     move-result-object v4
 
-    invoke-static/range {p1 .. p1}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -2004,8 +2002,6 @@
 
     :goto_1
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -2044,7 +2040,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_0
+    return-void
 
     .line 243
     :pswitch_0
@@ -2056,7 +2052,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
-    goto :goto_0
+    return-void
 
     .line 240
     :pswitch_1
@@ -2068,7 +2064,7 @@
 
     iput-boolean p1, p0, Landroid/support/constraint/ConstraintAttribute;->mBooleanValue:Z
 
-    goto :goto_0
+    return-void
 
     .line 237
     :pswitch_2
@@ -2076,7 +2072,7 @@
 
     iput-object p1, p0, Landroid/support/constraint/ConstraintAttribute;->mStringValue:Ljava/lang/String;
 
-    goto :goto_0
+    return-void
 
     .line 230
     :pswitch_3
@@ -2088,7 +2084,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
-    goto :goto_0
+    return-void
 
     .line 227
     :pswitch_4
@@ -2100,7 +2096,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mIntegerValue:I
 
-    goto :goto_0
+    return-void
 
     .line 234
     :pswitch_5
@@ -2112,7 +2108,6 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mColorValue:I
 
-    :goto_0
     return-void
 
     :pswitch_data_0
@@ -2145,7 +2140,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_0
+    return-void
 
     .line 173
     :pswitch_0
@@ -2153,7 +2148,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
-    goto :goto_0
+    return-void
 
     .line 170
     :pswitch_1
@@ -2172,7 +2167,7 @@
     :cond_0
     iput-boolean v1, p0, Landroid/support/constraint/ConstraintAttribute;->mBooleanValue:Z
 
-    goto :goto_0
+    return-void
 
     .line 168
     :pswitch_2
@@ -2190,7 +2185,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
-    goto :goto_0
+    return-void
 
     .line 157
     :pswitch_4
@@ -2200,7 +2195,7 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mIntegerValue:I
 
-    goto :goto_0
+    return-void
 
     .line 164
     :pswitch_5
@@ -2235,7 +2230,6 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintAttribute;->mColorValue:I
 
-    :goto_0
     return-void
 
     nop

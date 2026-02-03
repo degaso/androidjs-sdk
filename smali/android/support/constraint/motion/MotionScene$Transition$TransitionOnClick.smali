@@ -316,13 +316,10 @@
 
     if-eq p2, p1, :cond_1
 
-    goto :goto_0
+    return v1
 
     :cond_1
-    move v1, v3
-
-    :goto_0
-    return v1
+    return v3
 
     .line 708
     :cond_2
@@ -334,13 +331,13 @@
 
     if-ne p2, p1, :cond_3
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_3
-    move v1, v3
+    return v3
 
     :cond_4
-    :goto_1
+    :goto_0
     return v1
 .end method
 
@@ -365,7 +362,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto/16 :goto_5
 
     .line 718
     :cond_0
@@ -564,7 +561,7 @@
     .line 748
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToEnd()V
 
-    goto :goto_5
+    return-void
 
     :cond_b
     if-eqz v1, :cond_c
@@ -584,7 +581,7 @@
     .line 751
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToStart()V
 
-    goto :goto_5
+    return-void
 
     :cond_c
     if-eqz v3, :cond_d
@@ -606,7 +603,7 @@
     .line 754
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
-    goto :goto_5
+    return-void
 
     :cond_d
     if-eqz v1, :cond_e

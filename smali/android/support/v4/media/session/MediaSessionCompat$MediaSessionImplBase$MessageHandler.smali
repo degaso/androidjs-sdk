@@ -168,7 +168,7 @@
     .line 3192
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onFastForward()V
 
-    goto :goto_1
+    return-void
 
     :pswitch_1
     const-wide/16 v5, 0x8
@@ -182,7 +182,7 @@
     .line 3197
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onRewind()V
 
-    goto :goto_1
+    return-void
 
     :pswitch_2
     const-wide/16 v5, 0x10
@@ -196,7 +196,7 @@
     .line 3182
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSkipToPrevious()V
 
-    goto :goto_1
+    return-void
 
     :pswitch_3
     const-wide/16 v5, 0x20
@@ -210,7 +210,7 @@
     .line 3177
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSkipToNext()V
 
-    goto :goto_1
+    return-void
 
     :pswitch_4
     const-wide/16 v5, 0x1
@@ -224,7 +224,7 @@
     .line 3187
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onStop()V
 
-    goto :goto_1
+    return-void
 
     :cond_2
     const-wide/16 v5, 0x2
@@ -238,7 +238,7 @@
     .line 3172
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPause()V
 
-    goto :goto_1
+    return-void
 
     :cond_3
     const-wide/16 v5, 0x4
@@ -252,7 +252,7 @@
     .line 3166
     invoke-virtual {p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPlay()V
 
-    goto :goto_1
+    return-void
 
     .line 3202
     :cond_4

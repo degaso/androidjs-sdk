@@ -479,13 +479,12 @@
 
     aput p1, v0, v3
 
-    goto :goto_1
+    return-object v0
 
     .line 58
     :cond_1
     aput v2, v0, v3
 
-    :goto_1
     return-object v0
 .end method
 
@@ -692,11 +691,8 @@
     :goto_2
     if-lt v7, v0, :cond_c
 
-    goto :goto_3
+    return v4
 
     :cond_c
-    move v4, v7
-
-    :goto_3
-    return v4
+    return v7
 .end method

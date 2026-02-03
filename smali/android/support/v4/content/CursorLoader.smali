@@ -132,18 +132,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     .line 101
     invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    :cond_0
     return-void
 
     .line 105
-    :cond_1
+    :cond_0
     iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;
 
     .line 106
@@ -154,27 +153,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     .line 109
     invoke-super {p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;->deliverResult(Ljava/lang/Object;)V
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_1
+    if-eqz v0, :cond_2
 
-    if-eq v0, p1, :cond_3
+    if-eq v0, p1, :cond_2
 
     .line 112
     invoke-interface {v0}, Landroid/database/Cursor;->isClosed()Z
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_2
 
     .line 113
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    :cond_3
+    :cond_2
     return-void
 .end method
 
@@ -358,15 +357,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 63
     :try_start_1
     invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -384,20 +383,20 @@
 
     invoke-static/range {v2 .. v8}, Landroid/support/v4/content/ContentResolverCompat;->query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/CancellationSignal;)Landroid/database/Cursor;
 
-    move-result-object v1
+    move-result-object v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     .line 69
     :try_start_2
-    invoke-interface {v1}, Landroid/database/Cursor;->getCount()I
+    invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
 
     .line 70
-    iget-object v2, p0, Landroid/support/v4/content/CursorLoader;->mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;
+    iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;
 
-    invoke-interface {v1, v2}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V
+    invoke-interface {v2, v0}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V
     :try_end_2
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -405,14 +404,14 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
     .line 72
     :try_start_3
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
     .line 73
-    throw v2
+    throw v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -423,12 +422,12 @@
 
     .line 79
     :try_start_4
-    iput-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCancellationSignal:Landroid/support/v4/os/CancellationSignal;
+    iput-object v1, p0, Landroid/support/v4/content/CursorLoader;->mCancellationSignal:Landroid/support/v4/os/CancellationSignal;
 
     .line 80
     monitor-exit p0
 
-    return-object v1
+    return-object v2
 
     :catchall_0
     move-exception v0
@@ -440,21 +439,21 @@
     throw v0
 
     :catchall_1
-    move-exception v1
+    move-exception v0
 
     .line 78
     monitor-enter p0
 
     .line 79
     :try_start_5
-    iput-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCancellationSignal:Landroid/support/v4/os/CancellationSignal;
+    iput-object v1, p0, Landroid/support/v4/content/CursorLoader;->mCancellationSignal:Landroid/support/v4/os/CancellationSignal;
 
     .line 80
     monitor-exit p0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    throw v1
+    throw v0
 
     :catchall_2
     move-exception v0
@@ -578,17 +577,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 
     .line 158
-    :cond_1
+    :cond_2
+    :goto_0
     invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->forceLoad()V
 
-    :cond_2
     return-void
 .end method
 

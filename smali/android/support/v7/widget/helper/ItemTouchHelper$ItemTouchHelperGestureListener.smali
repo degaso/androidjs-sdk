@@ -66,7 +66,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 2337
     :cond_0
@@ -104,7 +104,7 @@
 
     if-nez v1, :cond_1
 
-    return-void
+    goto :goto_0
 
     :cond_1
     const/4 v1, 0x0
@@ -178,5 +178,6 @@
     invoke-virtual {p1, v0, v1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->select(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
 
     :cond_2
+    :goto_0
     return-void
 .end method

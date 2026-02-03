@@ -240,12 +240,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -434,7 +433,7 @@
 
     if-gez v2, :cond_0
 
-    goto :goto_2
+    goto/16 :goto_2
 
     .line 183
     :cond_0
@@ -442,7 +441,7 @@
 
     if-lt v4, v5, :cond_1
 
-    return-void
+    goto :goto_2
 
     .line 188
     :cond_1

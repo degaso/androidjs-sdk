@@ -212,13 +212,12 @@
     .line 518
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
-    goto :goto_0
+    return-object p0
 
     .line 515
     :cond_0
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mContentType:I
 
-    :goto_0
     return-object p0
 .end method
 
@@ -415,7 +414,7 @@
     .line 491
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
-    goto :goto_0
+    return-object p0
 
     .line 484
     :pswitch_0
@@ -432,7 +431,7 @@
     .line 485
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
     const/16 p1, 0xc
@@ -440,13 +439,12 @@
     .line 487
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
-    goto :goto_0
+    return-object p0
 
     .line 481
     :pswitch_1
     iput p1, p0, Landroid/support/v4/media/AudioAttributesCompat$Builder;->mUsage:I
 
-    :goto_0
     return-object p0
 
     :pswitch_data_0

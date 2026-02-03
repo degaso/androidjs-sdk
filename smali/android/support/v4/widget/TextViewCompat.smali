@@ -514,7 +514,7 @@
     .line 939
     sget-object p0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_RTL:Landroid/text/TextDirectionHeuristic;
 
-    goto :goto_1
+    return-object p0
 
     .line 952
     :pswitch_0
@@ -556,7 +556,6 @@
     :cond_5
     sget-object p0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
-    :goto_1
     return-object p0
 
     :pswitch_data_0
@@ -655,7 +654,7 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object v0
 
     .line 117
     :catch_0
@@ -683,7 +682,6 @@
 
     invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
     return-object v0
 .end method
 
@@ -753,7 +751,7 @@
     .line 360
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
-    goto :goto_0
+    return-void
 
     .line 362
     :cond_0
@@ -767,7 +765,6 @@
     invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -789,7 +786,7 @@
     .line 386
     invoke-virtual {p0, p1, p2}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
-    goto :goto_0
+    return-void
 
     .line 387
     :cond_0
@@ -803,7 +800,6 @@
     invoke-interface {p0, p1, p2}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -820,7 +816,7 @@
     .line 325
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setAutoSizeTextTypeWithDefaults(I)V
 
-    goto :goto_0
+    return-void
 
     .line 326
     :cond_0
@@ -834,7 +830,6 @@
     invoke-interface {p0, p1}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeWithDefaults(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1067,7 +1062,7 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 887
     :cond_0
@@ -1089,7 +1084,6 @@
     .line 891
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 
     .line 889

@@ -435,14 +435,13 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
 
-    goto :goto_1
+    return-void
 
     .line 11683
     :cond_6
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
 
     :cond_7
-    :goto_1
     return-void
 .end method
 

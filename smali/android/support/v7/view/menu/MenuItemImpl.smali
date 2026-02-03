@@ -585,12 +585,11 @@
 
     iget-char v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mShortcutAlphabeticChar:C
 
-    goto :goto_0
+    return v0
 
     :cond_0
     iget-char v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mShortcutNumericChar:C
 
-    :goto_0
     return v0
 .end method
 
@@ -870,7 +869,7 @@
 
     move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
     .line 448
     :cond_0
@@ -878,7 +877,6 @@
 
     move-result-object p1
 
-    :goto_0
     return-object p1
 .end method
 
@@ -925,7 +923,9 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_1
     return v1
@@ -941,12 +941,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1057,12 +1056,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1087,13 +1085,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public isChecked()Z
@@ -1110,12 +1107,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1131,12 +1127,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1152,12 +1147,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1194,13 +1188,10 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 643
     :cond_1
@@ -1210,13 +1201,10 @@
 
     if-nez v0, :cond_2
 
-    goto :goto_1
+    return v1
 
     :cond_2
-    move v1, v2
-
-    :goto_1
-    return v1
+    return v2
 .end method
 
 .method public requestsActionButton()Z
@@ -1231,13 +1219,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public requiresActionButton()Z
@@ -1254,12 +1241,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1500,13 +1486,12 @@
 
     invoke-virtual {p1, p0}, Landroid/support/v7/view/menu/MenuBuilder;->setExclusiveItemChecked(Landroid/view/MenuItem;)V
 
-    goto :goto_0
+    return-object p0
 
     .line 624
     :cond_0
     invoke-virtual {p0, p1}, Landroid/support/v7/view/menu/MenuItemImpl;->setCheckedInt(Z)V
 
-    :goto_0
     return-object p0
 .end method
 
@@ -1750,7 +1735,7 @@
 
     iput p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
 
-    goto :goto_0
+    return-void
 
     .line 717
     :cond_0
@@ -1760,7 +1745,6 @@
 
     iput p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
 
-    :goto_0
     return-void
 .end method
 
@@ -2163,7 +2147,9 @@
 
     if-eq v0, p1, :cond_1
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v2
@@ -2202,12 +2188,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2225,12 +2210,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2246,11 +2230,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method

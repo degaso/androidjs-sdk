@@ -125,7 +125,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v7/widget/helper/ItemTouchHelper$Callback;->onSwiped(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
 
-    goto :goto_0
+    return-void
 
     .line 714
     :cond_1
@@ -136,6 +136,5 @@
     invoke-virtual {v0, p0}, Landroid/support/v7/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
 
     :cond_2
-    :goto_0
     return-void
 .end method

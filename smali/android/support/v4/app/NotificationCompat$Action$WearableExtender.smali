@@ -138,7 +138,7 @@
 
     iput p1, p0, Landroid/support/v4/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    goto :goto_0
+    return-void
 
     .line 3541
     :cond_0
@@ -150,7 +150,6 @@
 
     iput p1, p0, Landroid/support/v4/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    :goto_0
     return-void
 .end method
 
@@ -303,12 +302,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -324,12 +322,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -356,13 +353,12 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public setAvailableOffline(Z)Landroid/support/v4/app/NotificationCompat$Action$WearableExtender;

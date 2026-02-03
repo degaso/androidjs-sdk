@@ -481,14 +481,20 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v4
 
-    const/4 v4, 0x7
+    const/4 v5, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
     .line 179
-    invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/2addr v2, v5
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -530,12 +536,12 @@
 
     move-result v2
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
     sparse-switch v2, :sswitch_data_0
 
     :goto_1
-    move v4, v5
+    move v5, v4
 
     goto/16 :goto_2
 
@@ -551,7 +557,7 @@
     goto :goto_1
 
     :cond_2
-    const/16 v4, 0xb
+    const/16 v5, 0xb
 
     goto/16 :goto_2
 
@@ -567,7 +573,7 @@
     goto :goto_1
 
     :cond_3
-    const/16 v4, 0xa
+    const/16 v5, 0xa
 
     goto/16 :goto_2
 
@@ -583,7 +589,7 @@
     goto :goto_1
 
     :cond_4
-    const/16 v4, 0x9
+    const/16 v5, 0x9
 
     goto/16 :goto_2
 
@@ -599,7 +605,7 @@
     goto :goto_1
 
     :cond_5
-    const/16 v4, 0x8
+    const/16 v5, 0x8
 
     goto :goto_2
 
@@ -610,28 +616,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
-
-    goto :goto_1
-
-    :sswitch_5
-    const-string v2, "scaleX"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
     if-nez v2, :cond_6
 
     goto :goto_1
 
     :cond_6
-    const/4 v4, 0x6
+    const/4 v5, 0x7
 
     goto :goto_2
 
-    :sswitch_6
-    const-string v2, "progress"
+    :sswitch_5
+    const-string v2, "scaleX"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -642,12 +637,12 @@
     goto :goto_1
 
     :cond_7
-    const/4 v4, 0x5
+    const/4 v5, 0x6
 
     goto :goto_2
 
-    :sswitch_7
-    const-string v2, "translationZ"
+    :sswitch_6
+    const-string v2, "progress"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -658,12 +653,12 @@
     goto :goto_1
 
     :cond_8
-    const/4 v4, 0x4
+    const/4 v5, 0x5
 
     goto :goto_2
 
-    :sswitch_8
-    const-string v2, "translationY"
+    :sswitch_7
+    const-string v2, "translationZ"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -674,12 +669,12 @@
     goto :goto_1
 
     :cond_9
-    const/4 v4, 0x3
+    const/4 v5, 0x4
 
     goto :goto_2
 
-    :sswitch_9
-    const-string v2, "translationX"
+    :sswitch_8
+    const-string v2, "translationY"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -690,12 +685,12 @@
     goto :goto_1
 
     :cond_a
-    const/4 v4, 0x2
+    const/4 v5, 0x3
 
     goto :goto_2
 
-    :sswitch_a
-    const-string v2, "rotationY"
+    :sswitch_9
+    const-string v2, "translationX"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -706,9 +701,20 @@
     goto :goto_1
 
     :cond_b
-    const/4 v4, 0x1
+    const/4 v5, 0x2
 
     goto :goto_2
+
+    :sswitch_a
+    const-string v2, "rotationY"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_d
+
+    goto/16 :goto_1
 
     :sswitch_b
     const-string v2, "rotationX"
@@ -722,11 +728,11 @@
     goto/16 :goto_1
 
     :cond_c
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     :cond_d
     :goto_2
-    packed-switch v4, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     .line 248
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1397,7 +1403,7 @@
 
     if-ne v0, v1, :cond_0
 
-    return-void
+    goto/16 :goto_1
 
     .line 125
     :cond_0
@@ -1711,6 +1717,7 @@
     goto :goto_0
 
     :cond_d
+    :goto_1
     return-void
 .end method
 
@@ -1955,7 +1962,7 @@
     :goto_0
     packed-switch v1, :pswitch_data_0
 
-    goto :goto_1
+    return-void
 
     .line 296
     :pswitch_0
@@ -1965,7 +1972,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationZ:F
 
-    goto :goto_1
+    return-void
 
     .line 260
     :pswitch_1
@@ -1975,7 +1982,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
-    goto :goto_1
+    return-void
 
     .line 257
     :pswitch_2
@@ -1985,7 +1992,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mAlpha:F
 
-    goto :goto_1
+    return-void
 
     .line 287
     :pswitch_3
@@ -1995,7 +2002,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionPathRotate:F
 
-    goto :goto_1
+    return-void
 
     .line 263
     :pswitch_4
@@ -2005,7 +2012,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mElevation:F
 
-    goto :goto_1
+    return-void
 
     .line 269
     :pswitch_5
@@ -2015,7 +2022,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotation:F
 
-    goto :goto_1
+    return-void
 
     .line 281
     :pswitch_6
@@ -2025,7 +2032,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleY:F
 
-    goto :goto_1
+    return-void
 
     .line 278
     :pswitch_7
@@ -2035,7 +2042,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
 
-    goto :goto_1
+    return-void
 
     .line 266
     :pswitch_8
@@ -2045,7 +2052,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mProgress:F
 
-    goto :goto_1
+    return-void
 
     .line 293
     :pswitch_9
@@ -2055,7 +2062,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationY:F
 
-    goto :goto_1
+    return-void
 
     .line 290
     :pswitch_a
@@ -2065,7 +2072,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationX:F
 
-    goto :goto_1
+    return-void
 
     .line 275
     :pswitch_b
@@ -2075,7 +2082,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationY:F
 
-    goto :goto_1
+    return-void
 
     .line 272
     :pswitch_c
@@ -2085,7 +2092,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationX:F
 
-    goto :goto_1
+    return-void
 
     .line 284
     :pswitch_d
@@ -2095,7 +2102,6 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionEasing:Ljava/lang/String;
 
-    :goto_1
     return-void
 
     :sswitch_data_0

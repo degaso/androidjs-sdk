@@ -566,12 +566,14 @@
     .line 146
     invoke-direct/range {p0 .. p5}, Landroid/support/v7/graphics/drawable/StateListDrawable;->inflateChildElements(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 
+    move-object p1, p0
+
     .line 147
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/StateListDrawable;->getState()[I
 
-    move-result-object p1
+    move-result-object p2
 
-    invoke-virtual {p0, p1}, Landroid/support/v7/graphics/drawable/StateListDrawable;->onStateChange([I)Z
+    invoke-virtual {p0, p2}, Landroid/support/v7/graphics/drawable/StateListDrawable;->onStateChange([I)Z
 
     return-void
 .end method
@@ -653,13 +655,12 @@
     :cond_1
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_2
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 

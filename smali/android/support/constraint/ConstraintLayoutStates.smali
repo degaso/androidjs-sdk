@@ -450,7 +450,7 @@
 
     invoke-virtual {p1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_3
+    return-void
 
     :cond_3
     add-int/lit8 v2, v2, 0x1
@@ -458,7 +458,6 @@
     goto :goto_0
 
     :cond_4
-    :goto_3
     return-void
 .end method
 
@@ -609,7 +608,7 @@
 
     if-eqz v0, :cond_1
 
-    return-void
+    goto/16 :goto_5
 
     .line 86
     :cond_1
@@ -622,7 +621,7 @@
 
     if-ne p3, p2, :cond_2
 
-    return-void
+    goto/16 :goto_5
 
     :cond_2
     if-ne p2, v1, :cond_3
@@ -667,7 +666,7 @@
     :goto_2
     if-nez p3, :cond_5
 
-    return-void
+    goto/16 :goto_5
 
     .line 98
     :cond_5
@@ -695,7 +694,7 @@
     .line 104
     invoke-virtual {p2, v1, p1}, Landroid/support/constraint/ConstraintsChangedListener;->postLayoutChange(II)V
 
-    goto :goto_5
+    return-void
 
     .line 108
     :cond_7

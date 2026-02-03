@@ -80,7 +80,7 @@
 
     if-ge p2, p0, :cond_3
 
-    move v2, v1
+    return v1
 
     :cond_3
     return v2
@@ -144,13 +144,10 @@
 
     if-gt p0, p1, :cond_2
 
-    goto :goto_1
+    return v1
 
     :cond_2
-    move v1, v2
-
-    :goto_1
-    return v1
+    return v2
 
     .line 329
     :cond_3
@@ -166,13 +163,10 @@
 
     if-gt p0, p1, :cond_4
 
-    goto :goto_2
+    return v1
 
     :cond_4
-    move v1, v2
-
-    :goto_2
-    return v1
+    return v2
 .end method
 
 .method public static findNextFocusInAbsoluteDirection(Ljava/lang/Object;Landroid/support/v4/widget/FocusStrategy$CollectionAdapter;Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;Ljava/lang/Object;Landroid/graphics/Rect;I)Ljava/lang/Object;
@@ -632,7 +626,7 @@
 
     if-ge p2, p0, :cond_4
 
-    move v1, v2
+    return v2
 
     :cond_4
     return v1
@@ -681,13 +675,10 @@
 
     if-ge p0, p1, :cond_1
 
-    goto :goto_0
+    return v1
 
     :cond_1
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 311
     :cond_2
@@ -720,13 +711,10 @@
 
     if-ge p0, p1, :cond_5
 
-    goto :goto_1
+    return v1
 
     :cond_5
-    move v1, v2
-
-    :goto_1
-    return v1
+    return v2
 
     .line 305
     :cond_6
@@ -749,13 +737,10 @@
 
     if-le p0, p1, :cond_8
 
-    goto :goto_2
+    return v1
 
     :cond_8
-    move v1, v2
-
-    :goto_2
-    return v1
+    return v2
 
     .line 299
     :cond_9
@@ -778,13 +763,10 @@
 
     if-le p0, p1, :cond_b
 
-    goto :goto_3
+    return v1
 
     :cond_b
-    move v1, v2
-
-    :goto_3
-    return v1
+    return v2
 .end method
 
 .method private static isToDirectionOf(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
@@ -817,13 +799,10 @@
 
     if-gt p0, p1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 353
     :cond_1
@@ -843,13 +822,10 @@
 
     if-gt p0, p1, :cond_3
 
-    goto :goto_1
+    return v1
 
     :cond_3
-    move v1, v2
-
-    :goto_1
-    return v1
+    return v2
 
     .line 349
     :cond_4
@@ -859,13 +835,10 @@
 
     if-lt p0, p1, :cond_5
 
-    goto :goto_2
+    return v1
 
     :cond_5
-    move v1, v2
-
-    :goto_2
-    return v1
+    return v2
 
     .line 345
     :cond_6
@@ -875,13 +848,10 @@
 
     if-lt p0, p1, :cond_7
 
-    goto :goto_3
+    return v1
 
     :cond_7
-    move v1, v2
-
-    :goto_3
-    return v1
+    return v2
 .end method
 
 .method private static majorAxisDistance(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I

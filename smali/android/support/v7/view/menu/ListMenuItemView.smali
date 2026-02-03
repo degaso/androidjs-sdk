@@ -179,13 +179,12 @@
     .line 146
     invoke-virtual {v0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
-    goto :goto_0
+    return-void
 
     .line 148
     :cond_0
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/view/menu/ListMenuItemView;->addView(Landroid/view/View;I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -623,7 +622,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 183
     :cond_0
@@ -707,7 +706,7 @@
     .line 206
     invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setVisibility(I)V
 
-    goto :goto_1
+    return-void
 
     .line 209
     :cond_5
@@ -855,7 +854,7 @@
 
     if-nez v2, :cond_2
 
-    return-void
+    goto :goto_4
 
     .line 264
     :cond_2
@@ -869,7 +868,7 @@
 
     if-nez v3, :cond_3
 
-    return-void
+    goto :goto_4
 
     :cond_3
     if-nez v2, :cond_4
@@ -895,7 +894,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_4
+    return-void
 
     .line 273
     :cond_6
@@ -1010,7 +1009,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    return-void
 
     .line 163
     :cond_0
@@ -1029,7 +1028,6 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

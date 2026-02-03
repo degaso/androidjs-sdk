@@ -165,7 +165,7 @@
 
     iput p2, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mDensity:I
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_b
 
     .line 692
     iget p3, p1, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mChangingConfigurations:I
@@ -377,7 +377,7 @@
     iget p1, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
 
     :goto_3
-    if-ge v0, p1, :cond_b
+    if-ge v0, p1, :cond_a
 
     .line 747
     aget-object p3, p2, v0
@@ -413,6 +413,9 @@
     goto :goto_3
 
     :cond_a
+    return-void
+
+    :cond_b
     const/16 p1, 0xa
 
     .line 757
@@ -423,7 +426,6 @@
     .line 758
     iput v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
 
-    :cond_b
     return-void
 .end method
 
@@ -799,7 +801,10 @@
     :catchall_0
     move-exception v0
 
+    :try_start_3
     monitor-exit p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 .end method

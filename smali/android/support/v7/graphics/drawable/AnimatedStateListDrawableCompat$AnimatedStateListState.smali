@@ -61,7 +61,7 @@
 
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mStateIds:Landroid/support/v4/util/SparseArrayCompat;
 
-    goto :goto_0
+    return-void
 
     .line 639
     :cond_0
@@ -78,7 +78,6 @@
 
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mStateIds:Landroid/support/v4/util/SparseArrayCompat;
 
-    :goto_0
     return-void
 .end method
 
@@ -189,7 +188,7 @@
 
     if-gez p1, :cond_0
 
-    goto :goto_0
+    return v0
 
     .line 680
     :cond_0
@@ -207,10 +206,9 @@
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    :goto_0
-    return v0
+    return p1
 .end method
 
 .method indexOfKeyframe([I)I
@@ -307,12 +305,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -403,11 +400,10 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method

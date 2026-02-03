@@ -105,7 +105,7 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -113,7 +113,6 @@
     .line 126
     invoke-virtual {p1}, Ljava/lang/NoSuchFieldException;->printStackTrace()V
 
-    :goto_0
     return-void
 .end method
 
@@ -308,7 +307,7 @@
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -317,7 +316,6 @@
     invoke-virtual {p1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -640,13 +638,12 @@
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -669,13 +666,12 @@
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -698,13 +694,12 @@
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -730,12 +725,11 @@
     :cond_1
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_2
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1008,7 +1002,7 @@
 
     if-eq p2, p4, :cond_6
 
-    move p4, v7
+    return v7
 
     :cond_6
     return p4
@@ -1188,7 +1182,7 @@
 
     invoke-virtual {p2, p0, p1}, Landroid/support/v4/widget/ListViewAutoScrollHelper;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
-    goto :goto_4
+    return v3
 
     .line 530
     :cond_9
@@ -1200,7 +1194,6 @@
     invoke-virtual {p1, v2}, Landroid/support/v4/widget/ListViewAutoScrollHelper;->setEnabled(Z)Landroid/support/v4/widget/AutoScrollHelper;
 
     :cond_a
-    :goto_4
     return v3
 .end method
 
@@ -1268,7 +1261,7 @@
     :cond_2
     invoke-virtual {p0, v3}, Landroid/support/v7/widget/DropDownListView;->setSelection(I)V
 
-    goto :goto_1
+    return v1
 
     .line 449
     :cond_3
@@ -1334,7 +1327,6 @@
     invoke-direct {p0}, Landroid/support/v7/widget/DropDownListView;->updateSelectorStateCompat()V
 
     :cond_5
-    :goto_1
     return v1
 .end method
 

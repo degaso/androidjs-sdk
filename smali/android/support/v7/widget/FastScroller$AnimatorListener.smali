@@ -97,7 +97,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/FastScroller;->setState(I)V
 
-    goto :goto_0
+    return-void
 
     .line 574
     :cond_1
@@ -112,6 +112,5 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/FastScroller;->requestRedraw()V
 
-    :goto_0
     return-void
 .end method

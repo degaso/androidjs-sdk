@@ -93,13 +93,10 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 318
     :cond_1
@@ -111,13 +108,10 @@
 
     if-eqz v0, :cond_2
 
-    goto :goto_1
+    return v1
 
     :cond_2
-    move v1, v2
-
-    :goto_1
-    return v1
+    return v2
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;

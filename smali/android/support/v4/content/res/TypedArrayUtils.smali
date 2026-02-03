@@ -74,7 +74,9 @@
     .line 240
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object p1
@@ -324,7 +326,9 @@
     .line 275
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object p1
@@ -343,7 +347,9 @@
     .line 291
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object p1
@@ -362,7 +368,9 @@
     .line 307
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object p1
@@ -382,12 +390,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 

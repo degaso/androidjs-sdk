@@ -79,13 +79,10 @@
 
     if-nez p1, :cond_2
 
-    goto :goto_2
+    return v2
 
     :cond_2
-    move v2, v4
-
-    :goto_2
-    return v2
+    return v4
 
     .line 197
     :cond_3
@@ -100,7 +97,7 @@
 
     if-eqz p1, :cond_4
 
-    move v2, v4
+    return v4
 
     :cond_4
     return v2

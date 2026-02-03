@@ -115,7 +115,7 @@
 
     if-nez p2, :cond_0
 
-    return-void
+    goto/16 :goto_3
 
     .line 219
     :cond_0
@@ -315,7 +315,7 @@
 
     invoke-virtual {p1, v0, p2, v4, v5}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto :goto_3
+    return-void
 
     .line 254
     :cond_7
@@ -354,7 +354,7 @@
     .line 260
     invoke-virtual {p1, v1, p2, v4, v5}, Landroid/support/constraint/solver/LinearSystem;->addGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;II)V
 
-    goto :goto_3
+    return-void
 
     .line 262
     :cond_8
@@ -457,7 +457,7 @@
     .line 317
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/Guideline;->inferRelativePercentPosition()V
 
-    goto :goto_0
+    return-void
 
     .line 318
     :cond_0
@@ -472,7 +472,7 @@
     .line 320
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/Guideline;->inferRelativeEndPosition()V
 
-    goto :goto_0
+    return-void
 
     .line 321
     :cond_1
@@ -484,7 +484,6 @@
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/Guideline;->inferRelativeBeginPosition()V
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -805,12 +804,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -948,7 +946,7 @@
 
     if-ne v0, p1, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 87
     :cond_0
@@ -1009,6 +1007,7 @@
     goto :goto_1
 
     :cond_2
+    :goto_2
     return-void
 .end method
 
@@ -1061,7 +1060,7 @@
     .line 281
     invoke-virtual {p0, v1}, Landroid/support/constraint/solver/widgets/Guideline;->setWidth(I)V
 
-    goto :goto_0
+    return-void
 
     .line 283
     :cond_1
@@ -1084,6 +1083,5 @@
     .line 286
     invoke-virtual {p0, v1}, Landroid/support/constraint/solver/widgets/Guideline;->setHeight(I)V
 
-    :goto_0
     return-void
 .end method

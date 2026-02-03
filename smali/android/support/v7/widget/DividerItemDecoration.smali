@@ -369,7 +369,7 @@
 
     invoke-virtual {p1, p3, p3, p3, p2}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    return-void
 
     .line 178
     :cond_1
@@ -379,7 +379,6 @@
 
     invoke-virtual {p1, p3, p3, p2, p3}, Landroid/graphics/Rect;->set(IIII)V
 
-    :goto_0
     return-void
 .end method
 
@@ -410,7 +409,7 @@
     .line 108
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/DividerItemDecoration;->drawVertical(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
 
-    goto :goto_0
+    return-void
 
     .line 110
     :cond_1

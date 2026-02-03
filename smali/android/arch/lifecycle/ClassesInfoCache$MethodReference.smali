@@ -55,7 +55,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
     .line 236
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -68,7 +68,7 @@
 
     if-eq v2, v3, :cond_1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 240
     :cond_1
@@ -99,16 +99,10 @@
 
     if-eqz p1, :cond_2
 
-    goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    :goto_0
     return v0
 
-    :cond_3
-    :goto_1
+    :cond_2
+    :goto_0
     return v1
 .end method
 
@@ -152,7 +146,7 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 221
     :cond_0
@@ -164,7 +158,7 @@
 
     invoke-virtual {v0, p3, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 218
     :cond_1
@@ -176,7 +170,7 @@
 
     invoke-virtual {p2, p3, p1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 215
     :cond_2
@@ -191,7 +185,6 @@
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
     return-void
 
     :catch_0

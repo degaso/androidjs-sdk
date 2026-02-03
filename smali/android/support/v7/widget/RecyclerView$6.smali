@@ -57,7 +57,7 @@
 
     if-eq v0, v2, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 1020
     :cond_0
@@ -73,7 +73,7 @@
 
     invoke-virtual {v0, v2, v3, p1, v1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onItemsMoved(Landroid/support/v7/widget/RecyclerView;III)V
 
-    goto :goto_0
+    return-void
 
     .line 1016
     :cond_1
@@ -91,7 +91,7 @@
 
     invoke-virtual {v0, v1, v2, v3, p1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onItemsUpdated(Landroid/support/v7/widget/RecyclerView;IILjava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 1013
     :cond_2
@@ -107,7 +107,7 @@
 
     invoke-virtual {v0, v1, v2, p1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onItemsRemoved(Landroid/support/v7/widget/RecyclerView;II)V
 
-    goto :goto_0
+    return-void
 
     .line 1010
     :cond_3
@@ -123,7 +123,6 @@
 
     invoke-virtual {v0, v1, v2, p1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onItemsAdded(Landroid/support/v7/widget/RecyclerView;II)V
 
-    :goto_0
     return-void
 .end method
 

@@ -159,7 +159,7 @@
     .line 248
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/content/AsyncTaskLoader;->dispatchOnCancelled(Landroid/support/v4/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 250
     :cond_0
@@ -172,7 +172,7 @@
     .line 252
     invoke-virtual {p0, p2}, Landroid/support/v4/content/AsyncTaskLoader;->onCanceled(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 254
     :cond_1
@@ -193,7 +193,6 @@
     .line 258
     invoke-virtual {p0, p2}, Landroid/support/v4/content/AsyncTaskLoader;->deliverResult(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -412,12 +411,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

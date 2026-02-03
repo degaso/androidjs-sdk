@@ -408,7 +408,7 @@
 .end method
 
 .method public onVolumeInfoChanged(Landroid/support/v4/media/session/ParcelableVolumeInfo;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -431,7 +431,7 @@
     if-eqz p1, :cond_0
 
     .line 1035
-    new-instance v8, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
+    new-instance v2, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
 
     iget v3, p1, Landroid/support/v4/media/session/ParcelableVolumeInfo;->volumeType:I
 
@@ -443,20 +443,18 @@
 
     iget v7, p1, Landroid/support/v4/media/session/ParcelableVolumeInfo;->currentVolume:I
 
-    move-object v2, v8
-
     invoke-direct/range {v2 .. v7}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(IIIII)V
 
     goto :goto_0
 
     :cond_0
-    move-object v8, v1
+    move-object v2, v1
 
     :goto_0
     const/4 p1, 0x4
 
     .line 1038
-    invoke-virtual {v0, p1, v8, v1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1, v2, v1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
     :cond_1
     return-void

@@ -537,7 +537,7 @@
     :cond_0
     if-nez p1, :cond_1
 
-    goto :goto_0
+    return v2
 
     .line 532
     :cond_1
@@ -545,10 +545,9 @@
 
     add-int/lit8 p1, p1, -0x1
 
-    aget v2, v0, p1
+    aget p1, v0, p1
 
-    :goto_0
-    return v2
+    return p1
 .end method
 
 .method public getParams()Landroid/support/v4/text/PrecomputedTextCompat$Params;
@@ -705,7 +704,7 @@
 
     invoke-virtual {v0, p1}, Landroid/text/PrecomputedText;->removeSpan(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 696
     :cond_0
@@ -713,7 +712,6 @@
 
     invoke-interface {v0, p1}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 
     .line 690
@@ -747,7 +745,7 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/text/PrecomputedText;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_0
+    return-void
 
     .line 680
     :cond_0
@@ -755,7 +753,6 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    :goto_0
     return-void
 
     .line 674

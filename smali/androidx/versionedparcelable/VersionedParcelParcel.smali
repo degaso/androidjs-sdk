@@ -240,12 +240,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -501,7 +500,7 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto :goto_0
+    return-void
 
     .line 123
     :cond_0
@@ -511,7 +510,6 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -532,7 +530,7 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/Parcel;->writeByteArray([BII)V
 
-    goto :goto_0
+    return-void
 
     .line 133
     :cond_0
@@ -542,7 +540,6 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    :goto_0
     return-void
 .end method
 

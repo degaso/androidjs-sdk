@@ -573,7 +573,7 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/ConstraintSet;->setHorizontalBias(IF)V
 
-    goto :goto_1
+    return-void
 
     :cond_1
     if-ne p3, v0, :cond_2
@@ -590,7 +590,6 @@
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/ConstraintSet;->setVerticalBias(IF)V
 
     :cond_2
-    :goto_1
     return-void
 .end method
 
@@ -660,7 +659,7 @@
 
     invoke-virtual {p1, p2, p0}, Landroid/support/constraint/ConstraintSet;->constrainWidth(II)V
 
-    goto :goto_2
+    return-void
 
     .line 175
     :cond_2
@@ -671,7 +670,6 @@
     invoke-virtual {p1, p2, p0}, Landroid/support/constraint/ConstraintSet;->constrainHeight(II)V
 
     :cond_3
-    :goto_2
     return-void
 .end method
 
@@ -890,7 +888,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -898,7 +896,6 @@
     .line 716
     invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_0
     return-void
 .end method
 
@@ -1004,7 +1001,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 222
     :cond_0
@@ -1032,6 +1029,7 @@
 
     if-nez p1, :cond_1
 
+    :goto_0
     return-void
 
     .line 230
@@ -1515,73 +1513,70 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
 .method public setAttributes(ILjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 9
+    .locals 6
 
     .line 665
-    check-cast p3, Landroid/view/View;
+    move-object v2, p3
+
+    check-cast v2, Landroid/view/View;
 
     .line 666
-    check-cast p4, Ljava/util/HashMap;
+    move-object v3, p4
+
+    check-cast v3, Ljava/util/HashMap;
 
     .line 668
-    iget-object v0, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
+    iget-object p3, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
 
-    invoke-virtual {v0, p2}, Landroid/support/constraint/motion/MotionLayout;->lookUpConstraintId(Ljava/lang/String;)I
+    invoke-virtual {p3, p2}, Landroid/support/constraint/motion/MotionLayout;->lookUpConstraintId(Ljava/lang/String;)I
 
     move-result p2
 
     .line 669
-    iget-object v0, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
+    iget-object p3, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
 
-    iget-object v0, v0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
+    iget-object p3, p3, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
-    invoke-virtual {v0, p2}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
+    invoke-virtual {p3, p2}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
 
-    move-result-object v6
+    move-result-object v1
 
-    if-nez v6, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     .line 679
     :cond_0
-    invoke-virtual {p3}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
-    move-result v0
+    move-result p3
 
-    invoke-virtual {v6, v0}, Landroid/support/constraint/ConstraintSet;->clear(I)V
+    invoke-virtual {v1, p3}, Landroid/support/constraint/ConstraintSet;->clear(I)V
 
-    const/4 v7, 0x0
+    const/4 p3, 0x0
 
     .line 681
-    invoke-static {p1, v6, p3, p4, v7}, Landroid/support/constraint/motion/DesignTool;->SetDimensions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
+    invoke-static {p1, v1, v2, v3, p3}, Landroid/support/constraint/motion/DesignTool;->SetDimensions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
 
-    const/4 v8, 0x1
+    const/4 p4, 0x1
 
     .line 682
-    invoke-static {p1, v6, p3, p4, v8}, Landroid/support/constraint/motion/DesignTool;->SetDimensions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
+    invoke-static {p1, v1, v2, v3, p4}, Landroid/support/constraint/motion/DesignTool;->SetDimensions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
 
     const/4 v4, 0x6
 
     const/4 v5, 0x6
 
     move v0, p1
-
-    move-object v1, v6
-
-    move-object v2, p3
-
-    move-object v3, p4
 
     .line 684
     invoke-static/range {v0 .. v5}, Landroid/support/constraint/motion/DesignTool;->Connect(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;II)V
@@ -1655,18 +1650,18 @@
     invoke-static/range {v0 .. v5}, Landroid/support/constraint/motion/DesignTool;->Connect(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;II)V
 
     .line 698
-    invoke-static {v6, p3, p4, v7}, Landroid/support/constraint/motion/DesignTool;->SetBias(Landroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
+    invoke-static {v1, v2, v3, p3}, Landroid/support/constraint/motion/DesignTool;->SetBias(Landroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
 
     .line 699
-    invoke-static {v6, p3, p4, v8}, Landroid/support/constraint/motion/DesignTool;->SetBias(Landroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
+    invoke-static {v1, v2, v3, p4}, Landroid/support/constraint/motion/DesignTool;->SetBias(Landroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;I)V
 
     .line 701
-    invoke-static {p1, v6, p3, p4}, Landroid/support/constraint/motion/DesignTool;->SetAbsolutePositions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;)V
+    invoke-static {v0, v1, v2, v3}, Landroid/support/constraint/motion/DesignTool;->SetAbsolutePositions(ILandroid/support/constraint/ConstraintSet;Landroid/view/View;Ljava/util/HashMap;)V
 
     .line 703
     iget-object p1, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
 
-    invoke-virtual {p1, p2, v6}, Landroid/support/constraint/motion/MotionLayout;->updateState(ILandroid/support/constraint/ConstraintSet;)V
+    invoke-virtual {p1, p2, v1}, Landroid/support/constraint/motion/MotionLayout;->updateState(ILandroid/support/constraint/ConstraintSet;)V
 
     .line 704
     iget-object p1, p0, Landroid/support/constraint/motion/DesignTool;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;

@@ -88,7 +88,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat;->mImpl:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;
 
-    goto :goto_0
+    return-void
 
     .line 193
     :cond_0
@@ -98,7 +98,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat;->mImpl:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;
 
-    :goto_0
     return-void
 .end method
 

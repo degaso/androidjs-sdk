@@ -243,7 +243,7 @@
     aget-object v4, v0, v3
 
     .line 5100
-    new-instance v12, Landroid/support/v4/app/RemoteInput;
+    new-instance v5, Landroid/support/v4/app/RemoteInput;
 
     invoke-virtual {v4}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
 
@@ -268,11 +268,9 @@
 
     const/4 v11, 0x0
 
-    move-object v5, v12
-
     invoke-direct/range {v5 .. v11}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Ljava/util/Set;)V
 
-    aput-object v12, v2, v3
+    aput-object v5, v2, v3
 
     add-int/lit8 v3, v3, 0x1
 
@@ -357,7 +355,7 @@
     move v12, v0
 
     .line 5126
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
+    new-instance v4, Landroid/support/v4/app/NotificationCompat$Action;
 
     iget v5, p0, Landroid/app/Notification$Action;->icon:I
 
@@ -372,11 +370,9 @@
 
     const/4 v10, 0x0
 
-    move-object v4, v0
-
     invoke-direct/range {v4 .. v13}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v0
+    return-object v4
 .end method
 
 .method public static getActionCount(Landroid/app/Notification;)I
@@ -391,12 +387,11 @@
 
     array-length p0, p0
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -542,7 +537,7 @@
 
     if-nez p0, :cond_0
 
-    return-object v0
+    goto :goto_1
 
     .line 5141
     :cond_0
@@ -585,6 +580,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-object v0
 .end method
 
@@ -600,12 +596,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -736,11 +731,10 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method

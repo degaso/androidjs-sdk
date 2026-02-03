@@ -58,7 +58,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v0, 0x0
@@ -84,6 +84,5 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
-    :goto_0
     return-void
 .end method

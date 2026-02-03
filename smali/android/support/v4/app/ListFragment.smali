@@ -358,7 +358,7 @@
 
     invoke-virtual {p1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_2
+    return-void
 
     :cond_2
     if-eqz p2, :cond_3
@@ -412,7 +412,6 @@
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 
-    :goto_2
     return-void
 
     .line 287

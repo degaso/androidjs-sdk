@@ -108,7 +108,9 @@
     .line 778
     invoke-interface {v1, p1}, Landroid/support/v7/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
 
-    move-result v0
+    move-result p1
+
+    return p1
 
     :cond_1
     return v0

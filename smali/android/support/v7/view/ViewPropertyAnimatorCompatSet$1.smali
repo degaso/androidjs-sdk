@@ -96,7 +96,7 @@
 
     if-eqz p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     const/4 p1, 0x1
@@ -121,6 +121,7 @@
     invoke-interface {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorListener;->onAnimationStart(Landroid/view/View;)V
 
     :cond_1
+    :goto_0
     return-void
 .end method
 

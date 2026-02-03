@@ -26,11 +26,6 @@
 
     goto :goto_0
 
-    :catch_0
-    move-exception p0
-
-    goto :goto_1
-
     :cond_0
     const/4 p6, 0x0
 
@@ -64,8 +59,12 @@
 
     return-object p0
 
+    :catch_0
+    move-exception v0
+
+    move-object p0, v0
+
     .line 84
-    :goto_1
     instance-of p1, p0, Landroid/os/OperationCanceledException;
 
     if-eqz p1, :cond_1

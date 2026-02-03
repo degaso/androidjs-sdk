@@ -254,7 +254,7 @@
 
     if-nez p2, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     if-nez p1, :cond_1
@@ -277,6 +277,7 @@
     iput p1, p0, Landroid/support/constraint/motion/utils/VelocityMatrix;->mDScaleY:F
 
     :cond_2
+    :goto_0
     return-void
 .end method
 

@@ -466,12 +466,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -483,7 +482,7 @@
 
     if-eq p1, v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 303
     :cond_0
@@ -498,6 +497,7 @@
     invoke-interface {v0, p1, p2}, Landroid/support/v7/view/menu/MenuPresenter$Callback;->onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
 
     :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -621,7 +621,7 @@
     if-eqz v0, :cond_2
 
     .line 264
-    new-instance v0, Landroid/support/v7/view/menu/MenuPopupHelper;
+    new-instance v2, Landroid/support/v7/view/menu/MenuPopupHelper;
 
     iget-object v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mContext:Landroid/content/Context;
 
@@ -633,55 +633,53 @@
 
     iget v8, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupStyleRes:I
 
-    move-object v2, v0
-
     move-object v4, p1
 
     invoke-direct/range {v2 .. v8}, Landroid/support/v7/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;ZII)V
 
     .line 266
-    iget-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPresenterCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
+    iget-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPresenterCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
 
-    invoke-virtual {v0, v2}, Landroid/support/v7/view/menu/MenuPopupHelper;->setPresenterCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
+    invoke-virtual {v2, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setPresenterCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
 
     .line 267
-    invoke-static {p1}, Landroid/support/v7/view/menu/MenuPopup;->shouldPreserveIconSpacing(Landroid/support/v7/view/menu/MenuBuilder;)Z
+    invoke-static {v4}, Landroid/support/v7/view/menu/MenuPopup;->shouldPreserveIconSpacing(Landroid/support/v7/view/menu/MenuBuilder;)Z
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v0, v2}, Landroid/support/v7/view/menu/MenuPopupHelper;->setForceShowIcon(Z)V
+    invoke-virtual {v2, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setForceShowIcon(Z)V
 
     .line 270
-    iget-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
+    iget-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
 
-    invoke-virtual {v0, v2}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
+    invoke-virtual {v2, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     .line 271
-    iput-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
+    iput-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
 
     .line 274
-    iget-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+    iget-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    invoke-virtual {v2, v1}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
+    invoke-virtual {p1, v1}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
 
     .line 277
-    iget-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
+    iget-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/MenuPopupWindow;->getHorizontalOffset()I
+    invoke-virtual {p1}, Landroid/support/v7/widget/MenuPopupWindow;->getHorizontalOffset()I
 
-    move-result v2
+    move-result p1
 
     .line 278
-    iget-object v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
+    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
-    invoke-virtual {v3}, Landroid/support/v7/widget/MenuPopupWindow;->getVerticalOffset()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/MenuPopupWindow;->getVerticalOffset()I
 
-    move-result v3
+    move-result v0
 
     .line 282
-    iget v4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mDropDownGravity:I
+    iget v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mDropDownGravity:I
 
     iget-object v5, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAnchorView:Landroid/view/View;
 
@@ -691,40 +689,40 @@
     move-result v5
 
     .line 282
-    invoke-static {v4, v5}, Landroid/view/Gravity;->getAbsoluteGravity(II)I
+    invoke-static {v3, v5}, Landroid/view/Gravity;->getAbsoluteGravity(II)I
 
-    move-result v4
+    move-result v3
 
-    and-int/lit8 v4, v4, 0x7
+    and-int/lit8 v3, v3, 0x7
 
     const/4 v5, 0x5
 
-    if-ne v4, v5, :cond_0
+    if-ne v3, v5, :cond_0
 
     .line 285
-    iget-object v4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAnchorView:Landroid/view/View;
+    iget-object v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAnchorView:Landroid/view/View;
 
-    invoke-virtual {v4}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
 
-    move-result v4
+    move-result v3
 
-    add-int/2addr v2, v4
+    add-int/2addr p1, v3
 
     .line 288
     :cond_0
-    invoke-virtual {v0, v2, v3}, Landroid/support/v7/view/menu/MenuPopupHelper;->tryShow(II)Z
+    invoke-virtual {v2, p1, v0}, Landroid/support/v7/view/menu/MenuPopupHelper;->tryShow(II)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 289
-    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPresenterCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
+    iget-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPresenterCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 290
-    invoke-interface {v0, p1}, Landroid/support/v7/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
+    invoke-interface {p1, v4}, Landroid/support/v7/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
 
     :cond_1
     const/4 p1, 0x1

@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;III)V
-    .locals 8
+    .locals 7
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,11 +88,9 @@
     invoke-virtual {v2, v0}, Landroid/support/v7/view/menu/MenuBuilder;->setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
 
     .line 123
-    new-instance v7, Landroid/support/v7/view/menu/MenuPopupHelper;
+    new-instance v0, Landroid/support/v7/view/menu/MenuPopupHelper;
 
     const/4 v4, 0x0
-
-    move-object v0, v7
 
     move-object v1, p1
 
@@ -104,17 +102,17 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;ZII)V
 
-    iput-object v7, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
+    iput-object v0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
 
     .line 124
-    invoke-virtual {v7, p3}, Landroid/support/v7/view/menu/MenuPopupHelper;->setGravity(I)V
+    invoke-virtual {v0, p3}, Landroid/support/v7/view/menu/MenuPopupHelper;->setGravity(I)V
 
     .line 125
     new-instance p1, Landroid/support/v7/widget/PopupMenu$2;
 
     invoke-direct {p1, p0}, Landroid/support/v7/widget/PopupMenu$2;-><init>(Landroid/support/v7/widget/PopupMenu;)V
 
-    invoke-virtual {v7, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
+    invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
     return-void
 .end method

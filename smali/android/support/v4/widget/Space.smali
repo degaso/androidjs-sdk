@@ -80,12 +80,10 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return p0
 
     :cond_0
-    move p0, p1
-
-    goto :goto_0
+    return p1
 
     .line 92
     :cond_1
@@ -93,7 +91,6 @@
 
     move-result p0
 
-    :goto_0
     return p0
 .end method
 

@@ -114,7 +114,7 @@
 
     invoke-static {p2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    return-void
 
     .line 2316
     :cond_1
@@ -126,7 +126,7 @@
 
     invoke-virtual {p1, v0, v1, p2}, Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;->onProgressUpdate(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 2319
     :cond_2
@@ -138,7 +138,7 @@
 
     invoke-virtual {p1, v0, v1, p2}, Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;->onResult(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 2322
     :cond_3
@@ -150,6 +150,5 @@
 
     invoke-virtual {p1, v0, v1, p2}, Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
 
-    :goto_0
     return-void
 .end method

@@ -26,12 +26,11 @@
     .line 42
     invoke-virtual {p0, p1}, Landroid/view/View;->setTooltipText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 44
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method

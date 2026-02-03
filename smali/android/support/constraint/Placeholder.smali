@@ -301,12 +301,14 @@
 
     invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
 
-    const/4 v5, 0x1
-
     .line 135
-    const-string v6, "?"
+    const-string v5, "?"
 
-    invoke-virtual {v0, v6, v2, v5, v1}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    invoke-virtual {v0, v5, v2, v6, v1}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     int-to-float v2, v4
 
@@ -317,19 +319,19 @@
     .line 136
     invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
 
-    move-result v5
+    move-result v6
 
-    int-to-float v5, v5
+    int-to-float v6, v6
 
-    div-float/2addr v5, v4
+    div-float/2addr v6, v4
 
-    sub-float/2addr v2, v5
+    sub-float/2addr v2, v6
 
-    iget v5, v1, Landroid/graphics/Rect;->left:I
+    iget v6, v1, Landroid/graphics/Rect;->left:I
 
-    int-to-float v5, v5
+    int-to-float v6, v6
 
-    sub-float/2addr v2, v5
+    sub-float/2addr v2, v6
 
     int-to-float v3, v3
 
@@ -338,13 +340,13 @@
     .line 137
     invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
 
-    move-result v5
+    move-result v6
 
-    int-to-float v5, v5
+    int-to-float v6, v6
 
-    div-float/2addr v5, v4
+    div-float/2addr v6, v4
 
-    add-float/2addr v3, v5
+    add-float/2addr v3, v6
 
     iget v1, v1, Landroid/graphics/Rect;->bottom:I
 
@@ -353,7 +355,7 @@
     sub-float/2addr v3, v1
 
     .line 138
-    invoke-virtual {p1, v6, v2, v3, v0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v5, v2, v3, v0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     :cond_0
     return-void
@@ -367,7 +369,7 @@
 
     if-ne v0, p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 172
     :cond_0
@@ -425,6 +427,7 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
+    :goto_0
     return-void
 .end method
 

@@ -362,7 +362,9 @@
     if-eqz p0, :cond_6
 
     :cond_5
-    const/4 v0, 0x1
+    const/4 p0, 0x1
+
+    return p0
 
     :cond_6
     return v0

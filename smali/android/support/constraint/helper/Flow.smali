@@ -672,7 +672,7 @@
 
     invoke-virtual {p0, p2, p1}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 p1, 0x0
@@ -680,7 +680,6 @@
     .line 170
     invoke-virtual {p0, p1, p1}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
 
-    :goto_0
     return-void
 .end method
 

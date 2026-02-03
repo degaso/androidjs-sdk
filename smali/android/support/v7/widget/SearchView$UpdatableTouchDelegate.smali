@@ -252,7 +252,9 @@
 
     invoke-virtual {v0, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v4
+    move-result p1
+
+    return p1
 
     :cond_6
     return v4

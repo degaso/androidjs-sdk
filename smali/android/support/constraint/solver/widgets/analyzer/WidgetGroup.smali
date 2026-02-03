@@ -187,7 +187,7 @@
 
     move-result p1
 
-    goto :goto_1
+    return p1
 
     .line 111
     :cond_2
@@ -195,7 +195,6 @@
 
     move-result p1
 
-    :goto_1
     return p1
 .end method
 
@@ -415,7 +414,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 182
     :cond_0
@@ -423,7 +422,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_1
 
     :cond_1
     const/4 v0, 0x0
@@ -455,6 +454,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return-void
 .end method
 

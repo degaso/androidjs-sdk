@@ -49,7 +49,7 @@
 
     if-eq p1, v1, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 510
     :cond_0
@@ -59,7 +59,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/content/ModernAsyncTask;->onProgressUpdate([Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 507
     :cond_1
@@ -73,6 +73,5 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v4/content/ModernAsyncTask;->finish(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 .end method

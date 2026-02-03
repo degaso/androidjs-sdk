@@ -395,7 +395,7 @@
     :cond_1
     monitor-exit v0
 
-    goto :goto_2
+    return-void
 
     :catchall_0
     move-exception p0
@@ -460,7 +460,7 @@
     :cond_4
     monitor-exit v0
 
-    goto :goto_2
+    return-void
 
     :catchall_1
     move-exception p0
@@ -472,7 +472,6 @@
     throw p0
 
     :cond_5
-    :goto_2
     return-void
 .end method
 
@@ -527,7 +526,7 @@
 
     if-gez v1, :cond_1
 
-    return v1
+    goto :goto_0
 
     .line 101
     :cond_1
@@ -541,12 +540,13 @@
 
     if-eqz v2, :cond_2
 
+    :goto_0
     return v1
 
     :cond_2
     add-int/lit8 v2, v1, 0x1
 
-    :goto_0
+    :goto_1
     if-ge v2, v0, :cond_4
 
     .line 107
@@ -572,12 +572,12 @@
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     add-int/lit8 v1, v1, -0x1
 
-    :goto_1
+    :goto_2
     if-ltz v1, :cond_6
 
     .line 112
@@ -603,7 +603,7 @@
     :cond_5
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_6
     not-int p1, v2
@@ -635,7 +635,7 @@
 
     if-gez v1, :cond_1
 
-    return v1
+    goto :goto_0
 
     .line 139
     :cond_1
@@ -645,12 +645,13 @@
 
     if-nez v2, :cond_2
 
+    :goto_0
     return v1
 
     :cond_2
     add-int/lit8 v2, v1, 0x1
 
-    :goto_0
+    :goto_1
     if-ge v2, v0, :cond_4
 
     .line 145
@@ -672,12 +673,12 @@
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     add-int/lit8 v1, v1, -0x1
 
-    :goto_1
+    :goto_2
     if-ltz v1, :cond_6
 
     .line 150
@@ -699,7 +700,7 @@
     :cond_5
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_6
     not-int v0, v2
@@ -909,7 +910,7 @@
     .line 448
     iput v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    goto :goto_1
+    return-void
 
     :cond_0
     :goto_0
@@ -927,7 +928,6 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return-void
 .end method
 
@@ -1101,12 +1101,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1311,7 +1310,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -1322,7 +1321,6 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method
 
@@ -1336,12 +1334,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1434,7 +1431,9 @@
 
     if-eq v1, p1, :cond_1
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v2
@@ -1521,7 +1520,7 @@
     .line 486
     iput v3, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    goto :goto_0
+    return-object v1
 
     .line 488
     :cond_0
@@ -1531,13 +1530,13 @@
 
     const/16 v7, 0x8
 
-    if-le v6, v7, :cond_3
+    if-le v6, v7, :cond_4
 
     array-length v6, v5
 
     div-int/lit8 v6, v6, 0x3
 
-    if-ge v2, v6, :cond_3
+    if-ge v2, v6, :cond_4
 
     if-le v2, v7, :cond_1
 
@@ -1572,7 +1571,7 @@
     :cond_2
     iget v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    if-ge p1, v2, :cond_5
+    if-ge p1, v2, :cond_3
 
     add-int/lit8 v3, p1, 0x1
 
@@ -1592,15 +1591,16 @@
 
     invoke-static {v0, v3, v2, p1, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_0
-
     :cond_3
+    return-object v1
+
+    :cond_4
     sub-int/2addr v2, v4
 
     .line 515
     iput v2, p0, Landroid/support/v4/util/ArraySet;->mSize:I
 
-    if-ge p1, v2, :cond_4
+    if-ge p1, v2, :cond_5
 
     add-int/lit8 v0, p1, 0x1
 
@@ -1619,7 +1619,7 @@
     invoke-static {v2, v0, v2, p1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 523
-    :cond_4
+    :cond_5
     iget-object p1, p0, Landroid/support/v4/util/ArraySet;->mArray:[Ljava/lang/Object;
 
     iget v0, p0, Landroid/support/v4/util/ArraySet;->mSize:I
@@ -1628,8 +1628,6 @@
 
     aput-object v2, p1, v0
 
-    :cond_5
-    :goto_0
     return-object v1
 .end method
 

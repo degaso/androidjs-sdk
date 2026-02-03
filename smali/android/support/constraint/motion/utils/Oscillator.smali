@@ -222,7 +222,9 @@
 
     sub-double/2addr v5, v3
 
-    add-double v0, p1, v5
+    add-double/2addr p1, v5
+
+    return-wide p1
 
     :cond_3
     return-wide v0
@@ -261,9 +263,7 @@
 
     if-lez v2, :cond_2
 
-    move-wide v0, v3
-
-    goto :goto_1
+    return-wide v3
 
     :cond_2
     if-eqz v2, :cond_3
@@ -327,7 +327,6 @@
     add-double/2addr v0, v3
 
     :cond_3
-    :goto_1
     return-wide v0
 .end method
 

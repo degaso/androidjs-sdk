@@ -748,7 +748,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 1265
     :catch_0
@@ -777,7 +777,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_0
     return-void
 
     .line 1249
@@ -965,12 +964,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1072,7 +1070,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 1400
     :cond_0
@@ -1121,12 +1119,12 @@
 
     check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$Subscription;
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_2
 
     .line 1407
     sget-boolean p1, Landroid/support/v4/media/MediaBrowserCompat;->DEBUG:Z
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6
 
     .line 1408
     new-instance p1, Ljava/lang/StringBuilder;
@@ -1145,30 +1143,29 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
     return-void
 
     .line 1414
-    :cond_3
+    :cond_2
     invoke-virtual {p1, p4}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->getCallback(Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
     move-result-object p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_6
 
     const/4 v0, 0x0
 
-    if-nez p4, :cond_5
+    if-nez p4, :cond_4
 
-    if-nez p3, :cond_4
+    if-nez p3, :cond_3
 
     .line 1418
     invoke-virtual {p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onError(Ljava/lang/String;)V
 
-    goto :goto_0
+    return-void
 
     .line 1420
-    :cond_4
+    :cond_3
     iput-object p5, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mNotifyChildrenChangedOptions:Landroid/os/Bundle;
 
     .line 1421
@@ -1177,18 +1174,18 @@
     .line 1422
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mNotifyChildrenChangedOptions:Landroid/os/Bundle;
 
-    goto :goto_0
+    return-void
 
-    :cond_5
-    if-nez p3, :cond_6
+    :cond_4
+    if-nez p3, :cond_5
 
     .line 1426
     invoke-virtual {p1, p2, p4}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 1428
-    :cond_6
+    :cond_5
     iput-object p5, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mNotifyChildrenChangedOptions:Landroid/os/Bundle;
 
     .line 1429
@@ -1197,7 +1194,7 @@
     .line 1430
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mNotifyChildrenChangedOptions:Landroid/os/Bundle;
 
-    :cond_7
+    :cond_6
     :goto_0
     return-void
 .end method
@@ -1214,7 +1211,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto/16 :goto_1
 
     .line 1333
     :cond_0
@@ -1386,6 +1383,7 @@
     invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -1416,7 +1414,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -1449,7 +1447,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_0
     return-void
 
     .line 1279
@@ -1515,7 +1512,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -1561,7 +1558,6 @@
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
-    :goto_0
     return-void
 
     .line 1301
@@ -1665,7 +1661,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    return-void
 
     .line 1199
     :catch_0
@@ -1688,7 +1684,6 @@
     invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    :goto_1
     return-void
 .end method
 
@@ -1706,7 +1701,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_2
 
     :cond_0
     if-nez p2, :cond_1
@@ -1826,5 +1821,6 @@
     invoke-virtual {p2, p1}, Landroid/support/v4/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_6
+    :goto_2
     return-void
 .end method

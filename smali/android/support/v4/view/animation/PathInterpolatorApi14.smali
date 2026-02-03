@@ -127,23 +127,21 @@
 .end method
 
 .method private static createCubic(FFFF)Landroid/graphics/Path;
-    .locals 8
+    .locals 7
 
     .line 107
-    new-instance v7, Landroid/graphics/Path;
+    new-instance v0, Landroid/graphics/Path;
 
-    invoke-direct {v7}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 108
-    invoke-virtual {v7, v0, v0}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/high16 v6, 0x3f800000    # 1.0f
-
-    move-object v0, v7
 
     move v1, p0
 
@@ -156,7 +154,7 @@
     .line 109
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    return-object v7
+    return-object v0
 .end method
 
 .method private static createQuad(FF)Landroid/graphics/Path;

@@ -60,7 +60,7 @@
     .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    return-void
 
     :catchall_0
     move-exception v1

@@ -72,7 +72,7 @@
     .line 55
     iput-object p1, v0, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 p1, 0x0
@@ -85,7 +85,6 @@
     .line 58
     iput-object p1, v0, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 .end method
 

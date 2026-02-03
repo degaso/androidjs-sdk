@@ -73,7 +73,7 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    goto :goto_0
+    return-void
 
     .line 596
     :cond_0
@@ -99,6 +99,5 @@
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
     :cond_1
-    :goto_0
     return-void
 .end method

@@ -250,7 +250,7 @@
 
     iput-object p0, v1, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v1
 
     .line 822
     :cond_3
@@ -260,7 +260,7 @@
 
     iput-object p0, v1, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v1
 
     .line 818
     :cond_4
@@ -270,7 +270,6 @@
 
     iput-object p0, v1, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    :goto_0
     return-object v1
 .end method
 
@@ -778,7 +777,7 @@
     :try_end_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object v0
 
     .line 217
     :catch_0
@@ -794,7 +793,6 @@
     :cond_0
     iput-object p1, v0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 
     .line 209
@@ -1875,7 +1873,7 @@
 
     if-nez v2, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     const/4 v2, -0x1
@@ -1960,6 +1958,7 @@
     iput p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
 
     :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -2197,7 +2196,7 @@
 
     if-eq v0, v1, :cond_2
 
-    goto :goto_0
+    return-void
 
     .line 783
     :cond_0
@@ -2205,7 +2204,7 @@
 
     iput-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 780
     :cond_1
@@ -2223,7 +2222,7 @@
 
     iput-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 768
     :cond_2
@@ -2234,7 +2233,7 @@
     .line 769
     iput-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 772
     :cond_3
@@ -2255,7 +2254,7 @@
 
     iput v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt2:I
 
-    goto :goto_0
+    return-void
 
     .line 760
     :cond_4
@@ -2266,7 +2265,6 @@
     .line 761
     iput-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
-    :goto_0
     return-void
 
     .line 763
@@ -2321,7 +2319,7 @@
 
     if-eq v0, v1, :cond_3
 
-    goto :goto_0
+    return-void
 
     .line 744
     :cond_0
@@ -2341,7 +2339,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mData:[B
 
-    goto :goto_0
+    return-void
 
     .line 750
     :cond_1
@@ -2353,7 +2351,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mData:[B
 
-    goto :goto_0
+    return-void
 
     .line 747
     :cond_2
@@ -2371,7 +2369,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mData:[B
 
-    goto :goto_0
+    return-void
 
     :cond_3
     if-eqz p1, :cond_4
@@ -2400,7 +2398,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mData:[B
 
-    goto :goto_0
+    return-void
 
     .line 740
     :cond_4
@@ -2410,7 +2408,7 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mParcelable:Landroid/os/Parcelable;
 
-    goto :goto_0
+    return-void
 
     :cond_5
     if-nez p1, :cond_6
@@ -2422,7 +2420,6 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mParcelable:Landroid/os/Parcelable;
 
-    :goto_0
     return-void
 
     .line 726

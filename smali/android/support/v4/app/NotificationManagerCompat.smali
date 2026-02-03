@@ -318,12 +318,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -427,7 +426,7 @@
 
     invoke-virtual {p3, p1, p2}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
-    goto :goto_0
+    return-void
 
     .line 212
     :cond_0
@@ -435,6 +434,5 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    :goto_0
     return-void
 .end method

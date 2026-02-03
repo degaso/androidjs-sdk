@@ -147,7 +147,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
     sget v0, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_fontFamily:I
 
@@ -158,7 +158,7 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 282
     :cond_0
@@ -168,7 +168,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_8
 
     .line 284
     iput-boolean v1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAsyncFontPending:Z
@@ -190,7 +190,7 @@
 
     if-eq p1, p2, :cond_1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 296
     :cond_1
@@ -198,7 +198,7 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    goto :goto_0
+    return-void
 
     .line 292
     :cond_2
@@ -206,7 +206,7 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    goto :goto_0
+    return-void
 
     .line 288
     :cond_3
@@ -214,12 +214,10 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    :cond_4
-    :goto_0
     return-void
 
-    :cond_5
-    :goto_1
+    :cond_4
+    :goto_0
     const/4 v0, 0x0
 
     .line 246
@@ -232,22 +230,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     sget v0, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_fontFamily:I
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
+    :cond_5
     sget v0, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_fontFamily:I
 
     .line 250
-    :goto_2
+    :goto_1
     invoke-virtual {p1}, Landroid/content/Context;->isRestricted()Z
 
     move-result p1
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_7
 
     .line 251
     new-instance p1, Ljava/lang/ref/WeakReference;
@@ -271,12 +269,12 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_6
 
     move v1, v2
 
     .line 267
-    :cond_7
+    :cond_6
     iput-boolean v1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAsyncFontPending:Z
     :try_end_0
     .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
@@ -284,17 +282,17 @@
 
     .line 272
     :catch_0
-    :cond_8
+    :cond_7
     iget-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_8
 
     .line 274
     invoke-virtual {p2, v0}, Landroid/support/v7/widget/TintTypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_8
 
     .line 276
     iget p2, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mStyle:I
@@ -305,7 +303,8 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
-    :cond_9
+    :cond_8
+    :goto_2
     return-void
 .end method
 
@@ -379,14 +378,20 @@
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mDrawableStartTint:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mDrawableEndTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 
     .line 362
-    :cond_2
+    :cond_3
+    :goto_0
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawablesRelative()[Landroid/graphics/drawable/Drawable;
@@ -407,7 +412,6 @@
 
     invoke-direct {p0, v0, v1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawableTint(Landroid/graphics/drawable/Drawable;Landroid/support/v7/widget/TintInfo;)V
 
-    :cond_3
     return-void
 .end method
 

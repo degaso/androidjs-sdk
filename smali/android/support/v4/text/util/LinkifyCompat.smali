@@ -159,7 +159,7 @@
 .end method
 
 .method public static addLinks(Landroid/widget/TextView;Ljava/util/regex/Pattern;Ljava/lang/String;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
-    .locals 7
+    .locals 6
 
     .line 259
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -183,20 +183,18 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v1, p1
 
-    move-object v2, p1
+    move-object v2, p2
 
-    move-object v3, p2
+    move-object v3, p3
 
-    move-object v4, p3
+    move-object v4, p4
 
-    move-object v5, p4
-
-    move-object v6, p5
+    move-object v5, p5
 
     .line 265
-    invoke-static/range {v1 .. v6}, Landroid/support/v4/text/util/LinkifyCompat;->addLinks(Landroid/text/Spannable;Ljava/util/regex/Pattern;Ljava/lang/String;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)Z
+    invoke-static/range {v0 .. v5}, Landroid/support/v4/text/util/LinkifyCompat;->addLinks(Landroid/text/Spannable;Ljava/util/regex/Pattern;Ljava/lang/String;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)Z
 
     move-result p1
 
@@ -281,125 +279,124 @@
 
     .line 119
     :cond_3
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    and-int/lit8 v2, p1, 0x1
+    and-int/lit8 v1, p1, 0x1
 
-    if-eqz v2, :cond_4
+    if-eqz v1, :cond_4
 
     .line 122
     sget-object v6, Landroid/support/v4/util/PatternsCompat;->AUTOLINK_WEB_URL:Ljava/util/regex/Pattern;
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    new-array v7, v2, [Ljava/lang/String;
+    new-array v7, v1, [Ljava/lang/String;
 
-    const-string v2, "http://"
+    const-string v1, "http://"
 
-    aput-object v2, v7, v0
+    aput-object v1, v7, v0
 
-    const-string v2, "https://"
+    const-string v1, "https://"
 
-    aput-object v2, v7, v3
+    aput-object v1, v7, v3
 
-    const-string v2, "rtsp://"
+    const-string v1, "rtsp://"
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    aput-object v2, v7, v4
+    aput-object v1, v7, v2
 
     sget-object v8, Landroid/text/util/Linkify;->sUrlMatchFilter:Landroid/text/util/Linkify$MatchFilter;
 
     const/4 v9, 0x0
 
-    move-object v4, v1
-
     move-object v5, p0
 
     invoke-static/range {v4 .. v9}, Landroid/support/v4/text/util/LinkifyCompat;->gatherLinks(Ljava/util/ArrayList;Landroid/text/Spannable;Ljava/util/regex/Pattern;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
 
-    :cond_4
-    and-int/lit8 v2, p1, 0x2
+    goto :goto_1
 
-    if-eqz v2, :cond_5
+    :cond_4
+    move-object v5, p0
+
+    :goto_1
+    and-int/lit8 p0, p1, 0x2
+
+    if-eqz p0, :cond_5
 
     .line 128
     sget-object v6, Landroid/support/v4/util/PatternsCompat;->AUTOLINK_EMAIL_ADDRESS:Ljava/util/regex/Pattern;
 
     new-array v7, v3, [Ljava/lang/String;
 
-    const-string v2, "mailto:"
+    const-string p0, "mailto:"
 
-    aput-object v2, v7, v0
+    aput-object p0, v7, v0
 
     const/4 v8, 0x0
 
     const/4 v9, 0x0
 
-    move-object v4, v1
-
-    move-object v5, p0
-
     invoke-static/range {v4 .. v9}, Landroid/support/v4/text/util/LinkifyCompat;->gatherLinks(Ljava/util/ArrayList;Landroid/text/Spannable;Ljava/util/regex/Pattern;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
 
     :cond_5
-    and-int/lit8 p1, p1, 0x8
+    and-int/lit8 p0, p1, 0x8
 
-    if-eqz p1, :cond_6
+    if-eqz p0, :cond_6
 
     .line 134
-    invoke-static {v1, p0}, Landroid/support/v4/text/util/LinkifyCompat;->gatherMapLinks(Ljava/util/ArrayList;Landroid/text/Spannable;)V
+    invoke-static {v4, v5}, Landroid/support/v4/text/util/LinkifyCompat;->gatherMapLinks(Ljava/util/ArrayList;Landroid/text/Spannable;)V
 
     .line 137
     :cond_6
-    invoke-static {v1, p0}, Landroid/support/v4/text/util/LinkifyCompat;->pruneOverlaps(Ljava/util/ArrayList;Landroid/text/Spannable;)V
+    invoke-static {v4, v5}, Landroid/support/v4/text/util/LinkifyCompat;->pruneOverlaps(Ljava/util/ArrayList;Landroid/text/Spannable;)V
 
     .line 139
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result p1
+    move-result p0
 
-    if-nez p1, :cond_7
+    if-nez p0, :cond_7
 
     return v0
 
     .line 143
     :cond_7
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_8
+    :goto_2
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_9
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p1
 
-    :cond_8
-    :goto_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
+    check-cast p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
 
     .line 144
-    iget-object v1, v0, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->frameworkAddedSpan:Landroid/text/style/URLSpan;
+    iget-object v0, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->frameworkAddedSpan:Landroid/text/style/URLSpan;
 
-    if-nez v1, :cond_8
+    if-nez v0, :cond_8
 
     .line 145
-    iget-object v1, v0, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->url:Ljava/lang/String;
+    iget-object v0, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->url:Ljava/lang/String;
 
-    iget v2, v0, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
+    iget v1, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
 
-    iget v0, v0, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
+    iget p1, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
 
-    invoke-static {v1, v2, v0, p0}, Landroid/support/v4/text/util/LinkifyCompat;->applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
+    invoke-static {v0, v1, p1, v5}, Landroid/support/v4/text/util/LinkifyCompat;->applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_9
     return v3
@@ -605,10 +602,15 @@
 
     move-result v4
 
+    goto :goto_3
+
+    :cond_7
+    move v4, v1
+
+    :goto_3
     if-eqz v4, :cond_6
 
     .line 365
-    :cond_7
     invoke-virtual {p1, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object p2
@@ -961,18 +963,20 @@
     move-result-object p0
 
     :cond_0
-    const/4 p2, 0x0
+    move-object v0, p0
 
-    move p3, p2
+    const/4 p0, 0x0
+
+    move p2, p0
 
     .line 397
     :goto_0
-    array-length v0, p1
+    array-length p3, p1
 
-    if-ge p3, v0, :cond_2
+    if-ge p2, p3, :cond_2
 
     .line 398
-    aget-object v3, p1, p3
+    aget-object v3, p1, p2
 
     const/4 v4, 0x0
 
@@ -984,16 +988,14 @@
 
     const/4 v2, 0x0
 
-    move-object v0, p0
-
     invoke-virtual/range {v0 .. v5}, Ljava/lang/String;->regionMatches(ZILjava/lang/String;II)Z
 
-    move-result v0
+    move-result p3
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
     .line 402
-    aget-object v3, p1, p3
+    aget-object v3, p1, p2
 
     const/4 v4, 0x0
 
@@ -1005,76 +1007,74 @@
 
     const/4 v2, 0x0
 
-    move-object v0, p0
-
     invoke-virtual/range {v0 .. v5}, Ljava/lang/String;->regionMatches(ZILjava/lang/String;II)Z
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_3
-
-    .line 403
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    aget-object v2, p1, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    aget-object p3, p1, p3
-
-    invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result p3
 
-    invoke-virtual {p0, p3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object p0
+    if-nez p3, :cond_3
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 403
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    move-result-object p0
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aget-object v2, p1, p2
 
-    move-result-object p0
+    invoke-virtual {p3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    aget-object p2, p1, p2
+
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result p2
+
+    invoke-virtual {v0, p2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
 
     goto :goto_1
 
     :cond_1
-    add-int/lit8 p3, p3, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     :cond_2
-    move v1, p2
+    move v1, p0
 
     :cond_3
     :goto_1
     if-nez v1, :cond_4
 
     .line 410
-    array-length p3, p1
+    array-length p2, p1
 
-    if-lez p3, :cond_4
+    if-lez p2, :cond_4
 
     .line 411
-    new-instance p3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    aget-object p1, p1, p2
+    aget-object p0, p1, p0
 
-    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p0
 
@@ -1082,8 +1082,10 @@
 
     move-result-object p0
 
-    :cond_4
     return-object p0
+
+    :cond_4
+    return-object v0
 .end method
 
 .method private static pruneOverlaps(Ljava/util/ArrayList;Landroid/text/Spannable;)V
@@ -1303,11 +1305,10 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method

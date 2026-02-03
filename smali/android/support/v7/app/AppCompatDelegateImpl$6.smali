@@ -104,7 +104,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
-    goto :goto_0
+    return-void
 
     .line 1016
     :cond_0
@@ -121,6 +121,5 @@
 
     invoke-virtual {v0, v3}, Landroid/support/v7/widget/ActionBarContextView;->setVisibility(I)V
 
-    :goto_0
     return-void
 .end method

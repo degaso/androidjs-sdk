@@ -54,7 +54,9 @@
 
     if-eqz p1, :cond_0
 
-    or-int/lit16 v0, v0, 0x100
+    or-int/lit16 p1, v0, 0x100
+
+    return p1
 
     :cond_0
     return v0
@@ -120,7 +122,7 @@
 
     invoke-virtual {p1, p2}, Landroid/media/RemoteControlClient;->setPlaybackPositionUpdateListener(Landroid/media/RemoteControlClient$OnPlaybackPositionUpdateListener;)V
 
-    goto :goto_0
+    return-void
 
     .line 3225
     :cond_0
@@ -133,7 +135,6 @@
 
     invoke-virtual {p2, p1}, Landroid/media/RemoteControlClient;->setPlaybackPositionUpdateListener(Landroid/media/RemoteControlClient$OnPlaybackPositionUpdateListener;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -232,12 +233,11 @@
 
     invoke-virtual {p2, p1}, Landroid/media/AudioManager;->unregisterMediaButtonEventReceiver(Landroid/app/PendingIntent;)V
 
-    goto :goto_0
+    return-void
 
     .line 3291
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->unregisterMediaButtonEventReceiver(Landroid/app/PendingIntent;Landroid/content/ComponentName;)V
 
-    :goto_0
     return-void
 .end method

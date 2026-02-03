@@ -79,8 +79,6 @@
     .line 48
     array-length v3, v2
 
-    const/4 v4, 0x1
-
     if-nez v3, :cond_0
 
     .line 50
@@ -88,9 +86,7 @@
 
     move-result p0
 
-    and-int/2addr p0, v4
-
-    goto :goto_1
+    return p0
 
     .line 54
     :cond_0
@@ -102,6 +98,8 @@
 
     .line 55
     array-length v3, v2
+
+    const/4 v4, 0x1
 
     move v5, v1
 
@@ -164,10 +162,7 @@
     goto :goto_0
 
     :cond_1
-    move p0, v4
-
-    :goto_1
-    return p0
+    return v4
 
     :catch_0
     move-exception p0

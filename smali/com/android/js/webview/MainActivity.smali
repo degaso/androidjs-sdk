@@ -50,7 +50,7 @@
     .line 73
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->setSystemBarsBehavior(I)V
 
-    goto :goto_0
+    return-void
 
     .line 79
     :cond_0
@@ -71,7 +71,6 @@
 
     :catch_0
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -151,7 +150,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 55
     :cond_0
@@ -182,7 +181,7 @@
 
     if-nez v1, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 59
     :cond_1
@@ -219,5 +218,6 @@
 
     :catch_0
     :cond_2
+    :goto_0
     return-void
 .end method

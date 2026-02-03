@@ -1112,7 +1112,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentHostCallback;->getActivity()Landroid/app/Activity;
@@ -1121,7 +1121,6 @@
 
     check-cast v0, Landroid/support/v4/app/FragmentActivity;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1149,13 +1148,12 @@
 
     move-result v0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -1183,13 +1181,12 @@
 
     move-result v0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -1317,14 +1314,13 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentHostCallback;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1423,14 +1419,13 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentHostCallback;->onGetHost()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1614,14 +1609,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_1
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
 
     iget-object v0, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mReenterTransition:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1673,14 +1667,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_1
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
 
     iget-object v0, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mReturnTransition:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1728,14 +1721,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_1
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
 
     iget-object v0, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mSharedElementReturnTransition:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -2059,12 +2051,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2115,12 +2106,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2182,12 +2172,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2249,12 +2238,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2923,9 +2911,7 @@
     .line 2561
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const/4 v0, 0x1
-
-    move v1, v0
+    const/4 v1, 0x1
 
     .line 2563
     :cond_0
@@ -2938,7 +2924,9 @@
 
     move-result p1
 
-    or-int/2addr v1, p1
+    or-int/2addr p1, v1
+
+    return p1
 
     :cond_1
     return v1
@@ -2994,7 +2982,7 @@
 
     invoke-virtual {p1, p2}, Landroid/arch/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 2446
     :cond_1
@@ -3005,7 +2993,6 @@
     .line 2450
     iput-object v0, p0, Landroid/support/v4/app/Fragment;->mViewLifecycleOwner:Landroid/arch/lifecycle/LifecycleOwner;
 
-    :goto_0
     return-void
 
     .line 2447
@@ -3214,7 +3201,7 @@
     .line 2725
     iput-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
-    goto :goto_0
+    return-void
 
     .line 2721
     :cond_0
@@ -3245,7 +3232,6 @@
     throw v0
 
     :cond_1
-    :goto_0
     return-void
 
     .line 2712
@@ -3530,9 +3516,7 @@
     .line 2575
     invoke-virtual {p0, p1}, Landroid/support/v4/app/Fragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    const/4 v0, 0x1
-
-    move v1, v0
+    const/4 v1, 0x1
 
     .line 2577
     :cond_0
@@ -3545,7 +3529,9 @@
 
     move-result p1
 
-    or-int/2addr v1, p1
+    or-int/2addr p1, v1
+
+    return p1
 
     :cond_1
     return v1
@@ -4433,7 +4419,7 @@
 
     iput-object p1, p0, Landroid/support/v4/app/Fragment;->mWho:Ljava/lang/String;
 
-    goto :goto_0
+    return-void
 
     .line 513
     :cond_0
@@ -4455,7 +4441,6 @@
 
     iput-object p1, p0, Landroid/support/v4/app/Fragment;->mWho:Ljava/lang/String;
 
-    :goto_0
     return-void
 .end method
 
@@ -4601,7 +4586,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_0
     if-eqz p1, :cond_2
@@ -4658,6 +4643,7 @@
     invoke-interface {p1}, Landroid/support/v4/app/Fragment$OnStartEnterTransitionListener;->startListening()V
 
     :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -5059,17 +5045,15 @@
 .end method
 
 .method public startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
         }
     .end annotation
 
-    move-object v9, p0
-
     .line 1113
-    iget-object v0, v9, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
 
     if-eqz v0, :cond_0
 
@@ -5085,7 +5069,7 @@
 
     move v6, p5
 
-    move/from16 v7, p6
+    move v7, p6
 
     move-object/from16 v8, p7
 
@@ -5096,31 +5080,31 @@
 
     .line 1114
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    const-string v2, "Fragment "
+    const-string p3, "Fragment "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, " not attached to Activity"
+    const-string p3, " not attached to Activity"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public startPostponedEnterTransition()V
@@ -5172,13 +5156,13 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
-    goto :goto_1
+    return-void
 
     .line 2262
     :cond_1
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->callStartTransitionListener()V
 
-    goto :goto_1
+    return-void
 
     .line 2253
     :cond_2
@@ -5191,7 +5175,6 @@
 
     iput-boolean v1, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mEnterTransitionPostponed:Z
 
-    :goto_1
     return-void
 .end method
 

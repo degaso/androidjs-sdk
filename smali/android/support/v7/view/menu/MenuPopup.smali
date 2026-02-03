@@ -137,9 +137,9 @@
 
     if-eqz v3, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    goto :goto_1
+    return p0
 
     :cond_0
     add-int/lit8 v2, v2, 0x1
@@ -147,7 +147,6 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return v1
 .end method
 

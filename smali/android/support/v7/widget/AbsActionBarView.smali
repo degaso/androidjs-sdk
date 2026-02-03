@@ -102,13 +102,12 @@
 
     iput-object p3, p0, Landroid/support/v7/widget/AbsActionBarView;->mPopupContext:Landroid/content/Context;
 
-    goto :goto_0
+    return-void
 
     .line 67
     :cond_0
     iput-object p1, p0, Landroid/support/v7/widget/AbsActionBarView;->mPopupContext:Landroid/content/Context;
 
-    :goto_0
     return-void
 .end method
 
@@ -137,12 +136,11 @@
 
     sub-int/2addr p0, p1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     add-int/2addr p0, p1
 
-    :goto_0
     return p0
 .end method
 
@@ -182,12 +180,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -318,12 +315,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -551,7 +547,9 @@
     :goto_0
     if-eqz p5, :cond_1
 
-    neg-int v0, v0
+    neg-int p1, v0
+
+    return p1
 
     :cond_1
     return v0

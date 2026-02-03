@@ -94,7 +94,7 @@
 
     iput v0, p1, Landroid/support/v4/widget/SwipeRefreshLayout;->mCurrentTargetOffsetTop:I
 
-    goto :goto_0
+    return-void
 
     .line 200
     :cond_1
@@ -102,7 +102,6 @@
 
     invoke-virtual {p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->reset()V
 
-    :goto_0
     return-void
 .end method
 

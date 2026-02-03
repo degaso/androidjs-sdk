@@ -104,7 +104,7 @@
     .line 180
     iput-object p2, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mAnimatedVectorState:Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState;
 
-    goto :goto_0
+    return-void
 
     .line 182
     :cond_0
@@ -114,7 +114,6 @@
 
     iput-object v1, p0, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->mAnimatedVectorState:Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState;
 
-    :goto_0
     return-void
 .end method
 
@@ -225,7 +224,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 875
     :cond_1
@@ -1312,7 +1311,7 @@
     :cond_0
     if-nez p1, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 764
     :cond_1
@@ -1337,6 +1336,7 @@
 
     if-eqz v0, :cond_3
 
+    :goto_0
     return-void
 
     .line 773

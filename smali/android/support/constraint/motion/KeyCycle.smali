@@ -477,7 +477,7 @@
     move-object/from16 v1, p1
 
     .line 113
-    invoke-virtual/range {p1 .. p1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v2
 
@@ -504,13 +504,17 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
-
-    const/4 v4, 0x7
+    if-eqz v5, :cond_1
 
     .line 115
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, 0x1
+
     invoke-virtual {v3, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v4
@@ -1975,7 +1979,7 @@
     :goto_0
     packed-switch v1, :pswitch_data_0
 
-    goto/16 :goto_1
+    return-void
 
     .line 394
     :pswitch_0
@@ -1985,7 +1989,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mTranslationZ:F
 
-    goto/16 :goto_1
+    return-void
 
     .line 358
     :pswitch_1
@@ -1995,7 +1999,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mCurveFit:I
 
-    goto :goto_1
+    return-void
 
     .line 397
     :pswitch_2
@@ -2005,7 +2009,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mWavePeriod:F
 
-    goto :goto_1
+    return-void
 
     .line 400
     :pswitch_3
@@ -2015,7 +2019,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mWaveOffset:F
 
-    goto :goto_1
+    return-void
 
     .line 355
     :pswitch_4
@@ -2025,7 +2029,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mAlpha:F
 
-    goto :goto_1
+    return-void
 
     .line 385
     :pswitch_5
@@ -2035,7 +2039,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mTransitionPathRotate:F
 
-    goto :goto_1
+    return-void
 
     .line 361
     :pswitch_6
@@ -2045,7 +2049,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mElevation:F
 
-    goto :goto_1
+    return-void
 
     .line 367
     :pswitch_7
@@ -2055,7 +2059,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mRotation:F
 
-    goto :goto_1
+    return-void
 
     .line 379
     :pswitch_8
@@ -2065,7 +2069,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mScaleY:F
 
-    goto :goto_1
+    return-void
 
     .line 376
     :pswitch_9
@@ -2075,7 +2079,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mScaleX:F
 
-    goto :goto_1
+    return-void
 
     .line 364
     :pswitch_a
@@ -2085,7 +2089,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mProgress:F
 
-    goto :goto_1
+    return-void
 
     .line 391
     :pswitch_b
@@ -2095,7 +2099,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mTranslationY:F
 
-    goto :goto_1
+    return-void
 
     .line 388
     :pswitch_c
@@ -2105,7 +2109,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mTranslationX:F
 
-    goto :goto_1
+    return-void
 
     .line 373
     :pswitch_d
@@ -2115,7 +2119,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mRotationY:F
 
-    goto :goto_1
+    return-void
 
     .line 370
     :pswitch_e
@@ -2125,7 +2129,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyCycle;->mRotationX:F
 
-    goto :goto_1
+    return-void
 
     .line 382
     :pswitch_f
@@ -2135,7 +2139,6 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/KeyCycle;->mTransitionEasing:Ljava/lang/String;
 
-    :goto_1
     return-void
 
     :sswitch_data_0

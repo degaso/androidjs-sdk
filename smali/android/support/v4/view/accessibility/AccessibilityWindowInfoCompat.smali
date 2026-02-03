@@ -56,7 +56,7 @@
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    return-object p0
 
     .line 289
     :cond_0
@@ -74,7 +74,6 @@
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 .end method
 
@@ -387,14 +386,13 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 

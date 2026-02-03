@@ -58,7 +58,7 @@
     .line 1582
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_0
+    return-void
 
     .line 1584
     :cond_0
@@ -68,7 +68,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_0
     return-void
 .end method
 

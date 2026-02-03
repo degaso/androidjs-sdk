@@ -264,7 +264,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_4
 
     :cond_1
     const/4 v3, 0x0
@@ -292,7 +292,7 @@
     :goto_1
     if-nez p0, :cond_2
 
-    return-void
+    goto :goto_4
 
     .line 140
     :cond_2
@@ -365,6 +365,7 @@
     invoke-static {v3}, Landroid/support/v7/app/ResourcesFlusher;->flushThemedResourcesCache(Ljava/lang/Object;)V
 
     :cond_5
+    :goto_4
     return-void
 .end method
 
@@ -412,7 +413,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_3
 
     .line 180
     :cond_1
@@ -456,7 +457,7 @@
 
     if-nez v0, :cond_3
 
-    return-void
+    goto :goto_3
 
     .line 199
     :cond_3
@@ -488,5 +489,6 @@
     invoke-virtual {p0}, Landroid/util/LongSparseArray;->clear()V
 
     :cond_4
+    :goto_3
     return-void
 .end method

@@ -65,7 +65,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->dismiss()V
 
-    goto :goto_0
+    return-void
 
     .line 155
     :cond_0
@@ -94,6 +94,5 @@
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
     :cond_1
-    :goto_0
     return-void
 .end method

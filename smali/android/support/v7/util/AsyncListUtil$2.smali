@@ -525,7 +525,7 @@
 
     invoke-direct {p0, p2, p1, p5, p4}, Landroid/support/v7/util/AsyncListUtil$2;->requestTiles(IIIZ)V
 
-    goto :goto_0
+    return-void
 
     .line 343
     :cond_1
@@ -542,6 +542,5 @@
 
     invoke-direct {p0, p2, p1, p5, v0}, Landroid/support/v7/util/AsyncListUtil$2;->requestTiles(IIIZ)V
 
-    :goto_0
     return-void
 .end method

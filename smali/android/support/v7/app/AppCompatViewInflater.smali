@@ -488,7 +488,7 @@
 
     invoke-direct {p1, p0, p2}, Landroid/support/v7/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    move-object p0, p1
+    return-object p1
 
     :cond_3
     return-object p0

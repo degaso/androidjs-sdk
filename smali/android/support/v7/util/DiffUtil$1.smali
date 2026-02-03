@@ -55,7 +55,9 @@
 
     iget p2, p2, Landroid/support/v7/util/DiffUtil$Snake;->y:I
 
-    sub-int v0, p1, p2
+    sub-int/2addr p1, p2
+
+    return p1
 
     :cond_0
     return v0

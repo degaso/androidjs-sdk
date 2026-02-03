@@ -82,7 +82,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 122
     :cond_0
@@ -101,7 +101,7 @@
 
     if-eq v3, v4, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 129
     :cond_1
@@ -137,5 +137,6 @@
     iput-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggleHoneycomb$SetIndicatorInfo;->upIndicatorView:Landroid/widget/ImageView;
 
     :cond_3
+    :goto_0
     return-void
 .end method

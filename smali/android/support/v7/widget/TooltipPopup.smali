@@ -405,13 +405,13 @@
     .line 173
     iput p3, p5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    goto :goto_4
+    return-void
 
     .line 175
     :cond_6
     iput p2, p5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    goto :goto_4
+    return-void
 
     :cond_7
     add-int/2addr p1, p2
@@ -428,13 +428,12 @@
     .line 179
     iput p2, p5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    goto :goto_4
+    return-void
 
     .line 181
     :cond_8
     iput p3, p5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    :goto_4
     return-void
 .end method
 
@@ -464,7 +463,7 @@
 
     if-ne v1, v2, :cond_0
 
-    return-object v0
+    goto :goto_1
 
     .line 197
     :cond_0
@@ -507,6 +506,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return-object v0
 .end method
 
@@ -558,12 +558,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -602,7 +601,7 @@
     invoke-direct/range {v1 .. v6}, Landroid/support/v7/widget/TooltipPopup;->computePosition(Landroid/view/View;IIZLandroid/view/WindowManager$LayoutParams;)V
 
     .line 85
-    iget-object p1, p0, Landroid/support/v7/widget/TooltipPopup;->mContext:Landroid/content/Context;
+    iget-object p1, v1, Landroid/support/v7/widget/TooltipPopup;->mContext:Landroid/content/Context;
 
     const-string p2, "window"
 
@@ -613,9 +612,9 @@
     check-cast p1, Landroid/view/WindowManager;
 
     .line 86
-    iget-object p2, p0, Landroid/support/v7/widget/TooltipPopup;->mContentView:Landroid/view/View;
+    iget-object p2, v1, Landroid/support/v7/widget/TooltipPopup;->mContentView:Landroid/view/View;
 
-    iget-object p3, p0, Landroid/support/v7/widget/TooltipPopup;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
+    iget-object p3, v1, Landroid/support/v7/widget/TooltipPopup;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     invoke-interface {p1, p2, p3}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 

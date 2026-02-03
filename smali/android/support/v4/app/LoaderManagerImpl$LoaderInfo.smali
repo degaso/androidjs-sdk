@@ -372,7 +372,9 @@
 
     if-nez v0, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_1
     return v1
@@ -519,7 +521,7 @@
     .line 174
     invoke-virtual {p0, p2}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->setValue(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 179
     :cond_1
@@ -536,7 +538,6 @@
     :cond_2
     invoke-virtual {p0, p2}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->postValue(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 .end method
 

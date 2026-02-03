@@ -281,7 +281,7 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mY:F
 
-    goto :goto_1
+    return-void
 
     .line 2452
     :cond_1
@@ -295,6 +295,5 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mY:F
 
-    :goto_1
     return-void
 .end method

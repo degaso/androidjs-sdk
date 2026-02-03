@@ -456,13 +456,13 @@
 
     if-eq v3, v4, :cond_5
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_5
     if-eqz v2, :cond_6
 
     .line 4705
-    new-instance v1, Landroid/support/v4/app/RemoteInput;
+    new-instance v12, Landroid/support/v4/app/RemoteInput;
 
     .line 4706
     invoke-virtual {v2}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
@@ -491,29 +491,32 @@
 
     const/16 v18, 0x0
 
-    move-object v12, v1
-
     invoke-direct/range {v12 .. v18}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Ljava/util/Set;)V
+
+    move-object v8, v12
+
+    goto :goto_3
 
     :cond_6
     move-object v8, v1
 
     .line 4714
-    new-instance v1, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
+    :goto_3
+    new-instance v6, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    const-string v2, "timestamp"
+    const-string v1, "timestamp"
 
     .line 4715
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v12
 
-    move-object v6, v1
-
     invoke-direct/range {v6 .. v13}, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;-><init>([Ljava/lang/String;Landroid/support/v4/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
 
+    return-object v6
+
     :cond_7
-    :goto_3
+    :goto_4
     return-object v1
 .end method
 

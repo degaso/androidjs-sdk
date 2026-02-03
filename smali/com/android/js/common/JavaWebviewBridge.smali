@@ -186,7 +186,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -194,7 +194,6 @@
     .line 145
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_0
     return-void
 .end method
 
@@ -237,7 +236,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -245,7 +244,6 @@
     .line 136
     invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_0
     return-void
 .end method
 

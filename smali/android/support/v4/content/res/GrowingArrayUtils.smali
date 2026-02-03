@@ -179,12 +179,11 @@
 
     const/16 p0, 0x8
 
-    goto :goto_0
+    return p0
 
     :cond_0
     mul-int/lit8 p0, p0, 0x2
 
-    :goto_0
     return p0
 .end method
 

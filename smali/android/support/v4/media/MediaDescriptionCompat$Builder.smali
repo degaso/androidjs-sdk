@@ -45,10 +45,10 @@
 
 # virtual methods
 .method public build()Landroid/support/v4/media/MediaDescriptionCompat;
-    .locals 10
+    .locals 9
 
     .line 552
-    new-instance v9, Landroid/support/v4/media/MediaDescriptionCompat;
+    new-instance v0, Landroid/support/v4/media/MediaDescriptionCompat;
 
     iget-object v1, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaId:Ljava/lang/String;
 
@@ -66,11 +66,9 @@
 
     iget-object v8, p0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->mMediaUri:Landroid/net/Uri;
 
-    move-object v0, v9
-
     invoke-direct/range {v0 .. v8}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;)V
 
-    return-object v9
+    return-object v0
 .end method
 
 .method public setDescription(Ljava/lang/CharSequence;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;

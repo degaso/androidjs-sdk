@@ -899,7 +899,7 @@
     :cond_1
     if-ne p1, p0, :cond_2
 
-    move v1, v2
+    return v2
 
     :cond_2
     return v1
@@ -910,7 +910,7 @@
     :cond_4
     if-lt p1, p0, :cond_5
 
-    move v1, v2
+    return v2
 
     :cond_5
     return v1
@@ -964,7 +964,7 @@
     .line 8945
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView$Recycler;->recycleViewHolderInternal(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
-    goto :goto_0
+    return-void
 
     .line 8947
     :cond_1
@@ -980,7 +980,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ViewInfoStore;->onViewDetached(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1181,12 +1180,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1597,12 +1595,11 @@
 
     move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 
@@ -1618,12 +1615,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1641,12 +1637,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1680,7 +1675,9 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
 
-    move-result p2
+    move-result p1
+
+    return p1
 
     :cond_1
     :goto_0
@@ -1902,12 +1899,11 @@
 
     move-result v0
 
-    goto :goto_1
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    :goto_1
     return v0
 .end method
 
@@ -1994,12 +1990,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2015,12 +2010,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2036,12 +2030,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2057,12 +2050,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2078,12 +2070,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2099,12 +2090,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2172,7 +2162,9 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
 
-    move-result p2
+    move-result p1
+
+    return p1
 
     :cond_1
     :goto_0
@@ -2438,12 +2430,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2550,12 +2541,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2601,12 +2591,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -3544,13 +3533,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 
@@ -4629,13 +4617,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 
@@ -4686,13 +4673,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 

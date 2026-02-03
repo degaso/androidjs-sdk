@@ -72,7 +72,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager;->mImpl:Landroid/support/v4/media/MediaSessionManager$MediaSessionManagerImpl;
 
-    goto :goto_0
+    return-void
 
     .line 72
     :cond_0
@@ -82,7 +82,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager;->mImpl:Landroid/support/v4/media/MediaSessionManager$MediaSessionManagerImpl;
 
-    :goto_0
     return-void
 .end method
 
@@ -117,15 +116,13 @@
     sput-object v0, Landroid/support/v4/media/MediaSessionManager;->sSessionManager:Landroid/support/v4/media/MediaSessionManager;
 
     .line 61
-    sget-object p0, Landroid/support/v4/media/MediaSessionManager;->sSessionManager:Landroid/support/v4/media/MediaSessionManager;
-
-    move-object v0, p0
+    sget-object v0, Landroid/support/v4/media/MediaSessionManager;->sSessionManager:Landroid/support/v4/media/MediaSessionManager;
 
     .line 63
     :cond_0
     monitor-exit v1
 
-    goto :goto_0
+    return-object v0
 
     :catchall_0
     move-exception p0
@@ -137,7 +134,6 @@
     throw p0
 
     :cond_1
-    :goto_0
     return-object v0
 .end method
 

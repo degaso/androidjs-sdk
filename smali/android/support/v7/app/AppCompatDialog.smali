@@ -98,7 +98,9 @@
     invoke-virtual {p0, v0, p1, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
     .line 179
-    iget p1, p1, Landroid/util/TypedValue;->resourceId:I
+    iget p0, p1, Landroid/util/TypedValue;->resourceId:I
+
+    return p0
 
     :cond_0
     return p1

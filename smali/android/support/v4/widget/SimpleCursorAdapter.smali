@@ -78,7 +78,7 @@
 .method private findColumns(Landroid/database/Cursor;[Ljava/lang/String;)V
     .locals 4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     .line 318
     array-length v0, p2
@@ -102,7 +102,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_3
+    if-ge v1, v0, :cond_2
 
     .line 323
     iget-object v2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
@@ -120,19 +120,21 @@
     goto :goto_0
 
     :cond_2
+    return-void
+
+    :cond_3
     const/4 p1, 0x0
 
     .line 326
     iput-object p1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
 
-    :cond_3
     return-void
 .end method
 
 
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .locals 7
+    .locals 8
 
     .line 126
     iget-object p2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mViewBinder:Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
@@ -147,67 +149,74 @@
 
     const/4 v3, 0x0
 
+    move v4, v3
+
     :goto_0
-    if-ge v3, v1, :cond_5
+    if-ge v4, v1, :cond_5
 
     .line 132
-    aget v4, v0, v3
+    aget v5, v0, v4
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-eqz v4, :cond_4
+    if-eqz v5, :cond_4
 
     if-eqz p2, :cond_0
 
     .line 136
-    aget v5, v2, v3
+    aget v6, v2, v4
 
-    invoke-interface {p2, v4, p3, v5}, Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;->setViewValue(Landroid/view/View;Landroid/database/Cursor;I)Z
+    invoke-interface {p2, v5, p3, v6}, Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;->setViewValue(Landroid/view/View;Landroid/database/Cursor;I)Z
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_4
+    goto :goto_1
+
+    :cond_0
+    move v6, v3
+
+    :goto_1
+    if-nez v6, :cond_4
 
     .line 140
-    :cond_0
-    aget v5, v2, v3
+    aget v6, v2, v4
 
-    invoke-interface {p3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {p3, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
     .line 142
-    const-string v5, ""
+    const-string v6, ""
 
     .line 145
     :cond_1
-    instance-of v6, v4, Landroid/widget/TextView;
+    instance-of v7, v5, Landroid/widget/TextView;
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
     .line 146
-    check-cast v4, Landroid/widget/TextView;
+    check-cast v5, Landroid/widget/TextView;
 
-    invoke-virtual {p0, v4, v5}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
+    invoke-virtual {p0, v5, v6}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 147
     :cond_2
-    instance-of v6, v4, Landroid/widget/ImageView;
+    instance-of v7, v5, Landroid/widget/ImageView;
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
     .line 148
-    check-cast v4, Landroid/widget/ImageView;
+    check-cast v5, Landroid/widget/ImageView;
 
-    invoke-virtual {p0, v4, v5}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
+    invoke-virtual {p0, v5, v6}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 150
     :cond_3
@@ -217,7 +226,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p3
 
@@ -244,8 +253,8 @@
     throw p1
 
     :cond_4
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
+    :goto_2
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
@@ -377,7 +386,7 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 202
     :catch_0
@@ -387,7 +396,6 @@
 
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
-    :goto_0
     return-void
 .end method
 

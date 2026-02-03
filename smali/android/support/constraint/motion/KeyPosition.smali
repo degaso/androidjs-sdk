@@ -386,7 +386,7 @@
     invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/motion/KeyPosition;->calcPosition(IIFFFF)V
 
     .line 238
-    iget p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
+    iget p1, v0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
     sub-float/2addr p5, p1
 
@@ -400,7 +400,7 @@
 
     if-gez p1, :cond_0
 
-    iget p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+    iget p1, v0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
 
     sub-float/2addr p6, p1
 
@@ -443,15 +443,15 @@
     .locals 7
 
     .line 137
-    iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPositionType:I
+    iget v1, p0, Landroid/support/constraint/motion/KeyPosition;->mPositionType:I
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v2, :cond_1
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     move-object v0, p0
 
@@ -558,7 +558,7 @@
     .line 222
     aput p4, p6, v5
 
-    goto :goto_0
+    return-void
 
     :cond_0
     sub-float/2addr p3, v0
@@ -575,7 +575,7 @@
     .line 225
     aput p4, p6, v2
 
-    goto :goto_0
+    return-void
 
     .line 228
     :cond_1
@@ -600,7 +600,6 @@
     .line 231
     aput p4, p6, v5
 
-    :goto_0
     return-void
 .end method
 
@@ -701,14 +700,14 @@
 
     const-string p3, "percentX"
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     .line 173
     invoke-virtual {p3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     .line 174
     aput v1, p6, v5
@@ -716,10 +715,11 @@
     .line 175
     aput p1, p6, v4
 
-    goto :goto_0
+    :cond_1
+    return-void
 
     .line 178
-    :cond_1
+    :cond_2
     aput-object p3, p5, v5
 
     .line 179
@@ -733,8 +733,6 @@
     .line 181
     aput p1, p6, v4
 
-    :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -802,7 +800,7 @@
     .line 199
     aput p5, p7, v2
 
-    goto :goto_0
+    return-void
 
     :cond_0
     int-to-float p2, p2
@@ -819,7 +817,7 @@
     .line 202
     aput p5, p7, p3
 
-    goto :goto_0
+    return-void
 
     .line 205
     :cond_1
@@ -844,7 +842,6 @@
     .line 208
     aput p5, p7, v2
 
-    :goto_0
     return-void
 .end method
 
@@ -977,7 +974,7 @@
     :goto_0
     packed-switch v1, :pswitch_data_0
 
-    goto :goto_1
+    return-void
 
     .line 366
     :pswitch_0
@@ -987,7 +984,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    goto :goto_1
+    return-void
 
     .line 363
     :pswitch_1
@@ -997,7 +994,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    goto :goto_1
+    return-void
 
     .line 360
     :pswitch_2
@@ -1009,7 +1006,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
 
-    goto :goto_1
+    return-void
 
     .line 351
     :pswitch_3
@@ -1019,7 +1016,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
 
-    goto :goto_1
+    return-void
 
     .line 357
     :pswitch_4
@@ -1029,7 +1026,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
 
-    goto :goto_1
+    return-void
 
     .line 354
     :pswitch_5
@@ -1039,7 +1036,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
 
-    goto :goto_1
+    return-void
 
     .line 348
     :pswitch_6
@@ -1049,7 +1046,6 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
 
-    :goto_1
     return-void
 
     nop

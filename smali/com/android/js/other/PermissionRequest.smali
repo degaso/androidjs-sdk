@@ -38,8 +38,6 @@
 .method private static checkAndAskForPermissionsHelper(Landroid/app/Activity;Landroid/content/Context;)[Ljava/lang/String;
     .locals 23
 
-    move-object/from16 v0, p1
-
     .line 22
     invoke-static/range {p0 .. p0}, Lcom/android/js/other/PermissionRequest;->retrievePermissions(Landroid/content/Context;)[Ljava/lang/String;
 
@@ -97,13 +95,13 @@
 
     const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v19, v2
+    move/from16 v19, v7
 
-    const-string v2, "android.permission.MODIFY_AUDIO_SETTINGS"
+    const-string v7, "android.permission.MODIFY_AUDIO_SETTINGS"
 
-    const-string v0, "android.permission.ACCESS_FINE_LOCATION"
+    move-object/from16 v20, v2
 
-    move-object/from16 v20, v0
+    const-string v2, "android.permission.ACCESS_FINE_LOCATION"
 
     const-string v0, "android.permission.POST_NOTIFICATIONS"
 
@@ -113,12 +111,14 @@
 
     const/16 v22, -0x1
 
-    sparse-switch v7, :sswitch_data_0
+    sparse-switch v19, :sswitch_data_0
 
     :goto_1
-    move-object/from16 v7, v21
+    move-object/from16 v19, v2
 
-    goto/16 :goto_3
+    move-object/from16 v2, v21
+
+    goto/16 :goto_2
 
     :sswitch_0
     invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -289,7 +289,7 @@
     goto :goto_1
 
     :sswitch_c
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -303,42 +303,41 @@
     goto/16 :goto_1
 
     :sswitch_d
-    move-object/from16 v7, v20
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
     if-nez v6, :cond_d
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :cond_d
     const/16 v22, 0x2
 
-    :goto_2
-    move-object/from16 v20, v7
-
     goto/16 :goto_1
 
     :sswitch_e
-    move-object/from16 v7, v21
+    move-object/from16 v19, v2
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v2, v21
+
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
     if-nez v6, :cond_e
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_e
     const/16 v22, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
     :sswitch_f
-    move-object/from16 v7, v21
+    move-object/from16 v19, v2
+
+    move-object/from16 v2, v21
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -346,20 +345,20 @@
 
     if-nez v6, :cond_f
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_f
     const/16 v22, 0x0
 
-    :goto_3
+    :goto_2
     packed-switch v22, :pswitch_data_0
 
     move-object/from16 v6, p1
 
     :cond_10
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     :pswitch_0
     move-object/from16 v6, p1
@@ -371,17 +370,17 @@
 
     if-eqz v0, :cond_10
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 97
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_1
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 66
     invoke-static {v6, v9}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -393,12 +392,12 @@
     .line 67
     invoke-virtual {v0, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_2
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 81
     invoke-static {v6, v10}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -410,12 +409,12 @@
     .line 82
     invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_3
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 56
     invoke-static {v6, v11}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -427,12 +426,12 @@
     .line 57
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_4
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 35
     invoke-static {v6, v12}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -444,12 +443,12 @@
     .line 36
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_5
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 41
     invoke-static {v6, v13}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -461,12 +460,12 @@
     .line 42
     invoke-virtual {v0, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_6
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 86
     invoke-static {v6, v14}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -478,12 +477,12 @@
     .line 87
     invoke-virtual {v0, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_7
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 101
     invoke-static {v6, v15}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -495,12 +494,12 @@
     .line 102
     invoke-virtual {v0, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_8
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 76
     invoke-static {v6, v4}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -512,12 +511,12 @@
     .line 77
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_9
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 106
     invoke-static {v6, v1}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -529,12 +528,12 @@
     .line 107
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_a
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 46
     invoke-static {v6, v3}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -546,12 +545,12 @@
     .line 47
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_b
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 61
     invoke-static {v6, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -563,31 +562,31 @@
     .line 62
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_c
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 71
-    invoke-static {v6, v2}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
     if-eqz v1, :cond_11
 
     .line 72
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_d
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v1, v19
 
-    move-object/from16 v1, v20
+    move-object/from16 v0, v20
 
     .line 51
     invoke-static {v6, v1}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -599,33 +598,33 @@
     .line 52
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_e
     move-object/from16 v6, p1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     .line 29
-    invoke-static {v6, v7}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v6, v2}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
     if-eqz v1, :cond_11
 
     .line 30
-    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_11
-    :goto_4
+    :goto_3
     move-object v1, v0
 
-    goto :goto_5
+    goto :goto_4
 
     :pswitch_f
     move-object/from16 v6, p1
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     .line 91
     invoke-static {v6, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -638,12 +637,10 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_12
-    :goto_5
+    :goto_4
     add-int/lit8 v5, v18, 0x1
 
     move-object v2, v1
-
-    move-object v0, v6
 
     move-object/from16 v1, v16
 
@@ -664,7 +661,7 @@
     const/4 v4, 0x0
 
     .line 113
-    :goto_6
+    :goto_5
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
@@ -689,7 +686,7 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_14
     return-object v0

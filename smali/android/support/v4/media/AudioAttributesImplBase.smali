@@ -164,7 +164,9 @@
 
     if-ne v0, p1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v1

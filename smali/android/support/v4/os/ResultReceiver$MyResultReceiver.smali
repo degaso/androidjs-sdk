@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    return-void
 
     .line 71
     :cond_0
@@ -63,6 +63,5 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
 
-    :goto_0
     return-void
 .end method

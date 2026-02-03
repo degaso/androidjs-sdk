@@ -63,7 +63,9 @@
     return-object p1
 
     :catch_0
-    move-exception p1
+    move-exception v0
+
+    move-object p1, v0
 
     .line 23
     invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V

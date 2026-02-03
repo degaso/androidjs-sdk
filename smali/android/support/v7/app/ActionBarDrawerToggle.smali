@@ -74,9 +74,9 @@
 
     move-object v1, p1
 
-    move-object v2, p3
-
     move-object v3, p2
+
+    move-object v2, p3
 
     move v5, p4
 
@@ -374,13 +374,12 @@
 
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBarDrawerToggle;->setPosition(F)V
 
-    goto :goto_0
+    return-void
 
     .line 416
     :cond_0
     invoke-direct {p0, v0}, Landroid/support/v7/app/ActionBarDrawerToggle;->setPosition(F)V
 
-    :goto_0
     return-void
 .end method
 
@@ -721,7 +720,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/widget/DrawerLayout;->closeDrawer(I)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 v2, 0x1
@@ -734,6 +733,5 @@
     invoke-virtual {v0, v1}, Landroid/support/v4/widget/DrawerLayout;->openDrawer(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method

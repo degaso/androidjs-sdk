@@ -220,13 +220,12 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
 
-    goto :goto_0
+    return-void
 
     .line 352
     :cond_0
     iput-object p2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
 
-    :goto_0
     return-void
 .end method
 
@@ -424,7 +423,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
@@ -463,6 +462,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     :cond_1
+    :goto_0
     return-void
 
     .line 567
@@ -492,7 +492,7 @@
 
     if-gtz v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_0
     const/4 v1, 0x1
@@ -521,6 +521,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-void
 .end method
 
@@ -580,7 +581,7 @@
 
     move-result-object v1
     :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
 
     .line 974
     :try_start_1
@@ -644,16 +645,15 @@
 
     if-ne v5, v4, :cond_2
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     .line 1026
-    :goto_2
     :try_start_2
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
-    goto/16 :goto_3
+    return-void
 
     :cond_2
     const/4 v6, 0x3
@@ -752,7 +752,7 @@
     :catchall_0
     move-exception v0
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_0
     move-exception v2
@@ -780,15 +780,25 @@
     move-result-object v0
 
     invoke-static {v3, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
-    goto :goto_2
+    .line 1026
+    :goto_2
+    :try_start_5
+    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+
+    goto :goto_4
 
     :catch_1
     move-exception v2
 
     .line 1020
+    :try_start_6
     sget-object v3, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -810,33 +820,30 @@
     move-result-object v0
 
     invoke-static {v3, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-eqz v1, :cond_6
-
-    goto/16 :goto_2
-
-    :catch_2
-    :cond_6
-    :goto_3
-    return-void
-
-    :goto_4
     if-eqz v1, :cond_7
 
+    goto :goto_2
+
+    :goto_3
+    if-eqz v1, :cond_6
+
     .line 1026
-    :try_start_5
+    :try_start_7
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
     .line 1029
-    :catch_3
-    :cond_7
+    :catch_2
+    :cond_6
     throw v0
 
-    :catch_4
+    :catch_3
+    :cond_7
+    :goto_4
     return-void
 .end method
 
@@ -1134,11 +1141,11 @@
 
     goto :goto_0
 
-    .line 434
     :cond_1
-    monitor-exit v0
-
     const/4 p1, -0x1
+
+    .line 434
+    monitor-exit v0
 
     return p1
 

@@ -530,7 +530,7 @@
     .line 541
     iput-boolean v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mAnimating:Z
 
-    goto :goto_0
+    return-void
 
     .line 543
     :cond_0
@@ -538,7 +538,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->requestStop()V
 
-    :goto_0
     return-void
 .end method
 
@@ -613,7 +612,7 @@
     .line 687
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
     const/4 v6, 0x0
 
@@ -623,7 +622,7 @@
 
     const/4 v5, 0x0
 
-    move-wide v0, v2
+    move-wide v2, v0
 
     .line 688
     invoke-static/range {v0 .. v7}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -785,7 +784,7 @@
 
     if-eqz p1, :cond_5
 
-    move v1, v2
+    return v2
 
     :cond_5
     return v1
@@ -1009,11 +1008,10 @@
     :cond_1
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_2
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method

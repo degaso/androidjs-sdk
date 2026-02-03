@@ -249,7 +249,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 507
     :cond_0
@@ -283,6 +283,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-void
 .end method
 
@@ -505,12 +506,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

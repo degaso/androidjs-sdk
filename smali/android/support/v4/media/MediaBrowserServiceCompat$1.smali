@@ -100,12 +100,12 @@
 
     const-string v2, "MBServiceCompat"
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_0
 
     .line 1577
     sget-boolean p1, Landroid/support/v4/media/MediaBrowserServiceCompat;->DEBUG:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     .line 1578
     new-instance p1, Ljava/lang/StringBuilder;
@@ -140,18 +140,17 @@
 
     invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
     return-void
 
     .line 1585
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->getFlags()I
 
     move-result v0
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
@@ -163,7 +162,7 @@
     move-result-object p1
 
     .line 1588
-    :cond_2
+    :cond_1
     :try_start_0
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->val$connection:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
@@ -179,7 +178,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 1592
     :catch_0
@@ -215,6 +214,6 @@
 
     invoke-static {v2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
+    :cond_2
     return-void
 .end method

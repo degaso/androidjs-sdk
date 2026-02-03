@@ -141,7 +141,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     .line 519
     check-cast p1, Ljava/util/Set;
@@ -167,16 +167,10 @@
 
     if-eqz p0, :cond_1
 
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    :goto_0
     return v0
 
     :catch_0
-    :cond_2
+    :cond_1
     return v2
 .end method
 
@@ -233,12 +227,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    return p0
 
     :cond_1
     const/4 p0, 0x0
 
-    :goto_1
     return p0
 .end method
 
@@ -307,12 +300,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    return p0
 
     :cond_2
     const/4 p0, 0x0
 
-    :goto_1
     return p0
 .end method
 

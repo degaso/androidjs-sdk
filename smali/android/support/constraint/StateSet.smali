@@ -192,7 +192,7 @@
 
     if-eqz v0, :cond_8
 
-    return-void
+    goto/16 :goto_5
 
     .line 96
     :cond_3
@@ -359,6 +359,8 @@
     :goto_5
     return-void
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x4c7d471 -> :sswitch_3
@@ -435,7 +437,7 @@
 
     if-ne p1, v1, :cond_3
 
-    return p1
+    goto :goto_2
 
     :cond_3
     move-object v1, v2
@@ -463,7 +465,7 @@
 
     if-ne p2, p1, :cond_7
 
-    return p1
+    goto :goto_2
 
     .line 185
     :cond_7
@@ -491,6 +493,7 @@
 
     if-ne p1, p3, :cond_8
 
+    :goto_2
     return p1
 
     .line 190
@@ -664,7 +667,7 @@
 
     if-eqz v1, :cond_2
 
-    return p1
+    goto :goto_1
 
     .line 226
     :cond_2
@@ -674,6 +677,7 @@
 
     if-ne p1, p3, :cond_3
 
+    :goto_1
     return p1
 
     :cond_3
@@ -682,7 +686,7 @@
     .line 231
     iget p1, p2, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
-    goto :goto_1
+    return p1
 
     :cond_4
     iget-object p1, p2, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
@@ -695,7 +699,6 @@
 
     iget p1, p1, Landroid/support/constraint/StateSet$Variant;->mConstraintID:I
 
-    :goto_1
     return p1
 
     .line 234
@@ -723,7 +726,7 @@
     .line 239
     iget p1, p1, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
-    goto :goto_2
+    return p1
 
     :cond_7
     iget-object p1, p1, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
@@ -736,6 +739,5 @@
 
     iget p1, p1, Landroid/support/constraint/StateSet$Variant;->mConstraintID:I
 
-    :goto_2
     return p1
 .end method

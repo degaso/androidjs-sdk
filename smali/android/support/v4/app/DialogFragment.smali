@@ -156,7 +156,7 @@
     .line 217
     iput p1, p0, Landroid/support/v4/app/DialogFragment;->mBackStackId:I
 
-    goto :goto_0
+    return-void
 
     .line 219
     :cond_2
@@ -176,13 +176,12 @@
     .line 222
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_0
+    return-void
 
     .line 224
     :cond_3
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
 
-    :goto_0
     return-void
 .end method
 
@@ -233,7 +232,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 407
     :cond_0
@@ -316,6 +315,7 @@
     invoke-virtual {v0, p1}, Landroid/app/Dialog;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
     :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -774,7 +774,7 @@
 
     if-eq p2, v1, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 347
     :cond_0
@@ -790,7 +790,6 @@
     :cond_1
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->requestWindowFeature(I)Z
 
-    :goto_0
     return-void
 .end method
 

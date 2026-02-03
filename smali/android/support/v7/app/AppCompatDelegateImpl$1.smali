@@ -69,7 +69,9 @@
     if-eqz p1, :cond_1
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_1
     return v1
@@ -134,7 +136,7 @@
 
     invoke-interface {p2, p1, v0}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    return-void
 
     .line 143
     :cond_0
@@ -142,6 +144,5 @@
 
     invoke-interface {v0, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-    :goto_0
     return-void
 .end method

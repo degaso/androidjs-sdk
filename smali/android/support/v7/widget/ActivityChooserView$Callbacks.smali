@@ -67,7 +67,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     .line 614
     iget-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$Callbacks;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -109,7 +109,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     const/high16 v0, 0x80000
 
@@ -125,10 +125,11 @@
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 
     .line 622
-    :cond_0
+    :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$Callbacks;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
@@ -149,8 +150,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ActivityChooserView;->showPopupUnchecked(I)V
 
-    :cond_1
-    :goto_0
     return-void
 
     .line 626
@@ -225,7 +224,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/v7/widget/ActivityChooserView;->showPopupUnchecked(I)V
 
-    goto :goto_1
+    return-void
 
     .line 606
     :cond_0
@@ -261,7 +260,7 @@
 
     invoke-virtual {p1, p3}, Landroid/support/v7/widget/ActivityChooserModel;->setDefaultActivity(I)V
 
-    goto :goto_1
+    return-void
 
     .line 597
     :cond_2
@@ -311,7 +310,6 @@
     invoke-virtual {p2, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     :cond_4
-    :goto_1
     return-void
 .end method
 

@@ -121,7 +121,7 @@
 
     if-gez v0, :cond_0
 
-    return-void
+    goto/16 :goto_6
 
     .line 230
     :cond_0
@@ -133,7 +133,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1
 
     .line 231
     iput v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
@@ -179,7 +179,7 @@
     .line 238
     iget-boolean p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_10
 
     .line 240
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
@@ -193,7 +193,7 @@
 
     array-length p3, p2
 
-    if-lt p1, p3, :cond_1
+    if-lt p1, p3, :cond_10
 
     .line 242
     iput-boolean v3, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
@@ -205,21 +205,20 @@
 
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
-    :cond_1
     return-void
 
-    :cond_2
+    :cond_1
     move v4, v1
 
     move v5, v2
 
     :goto_0
-    if-eq v0, v2, :cond_a
+    if-eq v0, v2, :cond_8
 
     .line 251
     iget v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
-    if-ge v4, v6, :cond_a
+    if-ge v4, v6, :cond_8
 
     .line 252
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
@@ -229,7 +228,7 @@
     .line 253
     iget v7, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    if-ne v6, v7, :cond_8
+    if-ne v6, v7, :cond_6
 
     .line 254
     iget-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
@@ -247,26 +246,26 @@
 
     const/4 v6, 0x0
 
-    if-lez v4, :cond_3
+    if-lez v4, :cond_2
 
     cmpg-float p2, v2, p2
 
-    if-gez p2, :cond_3
+    if-gez p2, :cond_2
 
     move v2, v6
 
     .line 258
-    :cond_3
+    :cond_2
     aput v2, v1, v0
 
     cmpl-float p2, v2, v6
 
-    if-nez p2, :cond_7
+    if-nez p2, :cond_10
 
     .line 261
     iget p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
 
-    if-ne v0, p2, :cond_4
+    if-ne v0, p2, :cond_3
 
     .line 262
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
@@ -278,7 +277,7 @@
     goto :goto_1
 
     .line 264
-    :cond_4
+    :cond_3
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     aget v1, p2, v0
@@ -286,7 +285,7 @@
     aput v1, p2, v5
 
     :goto_1
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_4
 
     .line 267
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mRow:Landroid/support/constraint/solver/ArrayRow;
@@ -294,16 +293,16 @@
     invoke-virtual {p1, p2}, Landroid/support/constraint/solver/SolverVariable;->removeFromRow(Landroid/support/constraint/solver/ArrayRow;)V
 
     .line 269
-    :cond_5
+    :cond_4
     iget-boolean p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_5
 
     .line 271
     iput v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 273
-    :cond_6
+    :cond_5
     iget p2, p1, Landroid/support/constraint/solver/SolverVariable;->usageInRowCount:I
 
     sub-int/2addr p2, v3
@@ -317,23 +316,22 @@
 
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
-    :cond_7
     return-void
 
     .line 278
-    :cond_8
+    :cond_6
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     aget v6, v6, v0
 
     iget v7, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    if-ge v6, v7, :cond_9
+    if-ge v6, v7, :cond_7
 
     move v5, v0
 
     .line 281
-    :cond_9
+    :cond_7
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     aget v0, v6, v0
@@ -343,7 +341,7 @@
     goto :goto_0
 
     .line 287
-    :cond_a
+    :cond_8
     iget p3, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     add-int/lit8 v0, p3, 0x1
@@ -351,24 +349,24 @@
     .line 288
     iget-boolean v4, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_a
 
     .line 291
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     aget v4, v0, p3
 
-    if-ne v4, v2, :cond_b
+    if-ne v4, v2, :cond_9
 
     goto :goto_2
 
     .line 294
-    :cond_b
+    :cond_9
     array-length p3, v0
 
     goto :goto_2
 
-    :cond_c
+    :cond_a
     move p3, v0
 
     .line 297
@@ -377,14 +375,14 @@
 
     array-length v4, v0
 
-    if-lt p3, v4, :cond_e
+    if-lt p3, v4, :cond_c
 
     .line 298
     iget v4, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
     array-length v0, v0
 
-    if-ge v4, v0, :cond_e
+    if-ge v4, v0, :cond_c
 
     move v0, v1
 
@@ -394,30 +392,30 @@
 
     array-length v6, v4
 
-    if-ge v0, v6, :cond_e
+    if-ge v0, v6, :cond_c
 
     .line 301
     aget v4, v4, v0
 
-    if-ne v4, v2, :cond_d
+    if-ne v4, v2, :cond_b
 
     move p3, v0
 
     goto :goto_4
 
-    :cond_d
+    :cond_b
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
     .line 309
-    :cond_e
+    :cond_c
     :goto_4
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length v4, v0
 
-    if-lt p3, v4, :cond_f
+    if-lt p3, v4, :cond_d
 
     .line 310
     array-length p3, v0
@@ -469,7 +467,7 @@
     iput-object v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     .line 320
-    :cond_f
+    :cond_d
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     iget v1, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
@@ -481,7 +479,7 @@
 
     aput p2, v0, p3
 
-    if-eq v5, v2, :cond_10
+    if-eq v5, v2, :cond_e
 
     .line 323
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
@@ -496,7 +494,7 @@
     goto :goto_5
 
     .line 326
-    :cond_10
+    :cond_e
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     iget v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
@@ -529,7 +527,7 @@
     .line 332
     iget-boolean p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-nez p1, :cond_11
+    if-nez p1, :cond_f
 
     .line 334
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
@@ -539,14 +537,14 @@
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 336
-    :cond_11
+    :cond_f
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length p3, p2
 
-    if-lt p1, p3, :cond_12
+    if-lt p1, p3, :cond_10
 
     .line 337
     iput-boolean v3, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
@@ -558,7 +556,8 @@
 
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
-    :cond_12
+    :cond_10
+    :goto_6
     return-void
 .end method
 
@@ -1231,7 +1230,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1
 
     .line 124
     iput v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
@@ -1277,7 +1276,7 @@
     .line 131
     iget-boolean p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_d
 
     .line 133
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
@@ -1291,7 +1290,7 @@
 
     array-length v0, p2
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_d
 
     .line 135
     iput-boolean v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
@@ -1303,21 +1302,20 @@
 
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
-    :cond_1
     return-void
 
-    :cond_2
+    :cond_1
     move v4, v2
 
     move v5, v3
 
     :goto_0
-    if-eq v0, v3, :cond_5
+    if-eq v0, v3, :cond_4
 
     .line 144
     iget v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
-    if-ge v4, v6, :cond_5
+    if-ge v4, v6, :cond_4
 
     .line 145
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
@@ -1326,7 +1324,7 @@
 
     iget v7, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_2
 
     .line 146
     iget-object p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
@@ -1336,19 +1334,19 @@
     return-void
 
     .line 149
-    :cond_3
+    :cond_2
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     aget v6, v6, v0
 
     iget v7, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    if-ge v6, v7, :cond_4
+    if-ge v6, v7, :cond_3
 
     move v5, v0
 
     .line 152
-    :cond_4
+    :cond_3
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     aget v0, v6, v0
@@ -1358,7 +1356,7 @@
     goto :goto_0
 
     .line 158
-    :cond_5
+    :cond_4
     iget v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     add-int/lit8 v4, v0, 0x1
@@ -1366,24 +1364,24 @@
     .line 159
     iget-boolean v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     .line 162
     iget-object v4, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     aget v6, v4, v0
 
-    if-ne v6, v3, :cond_6
+    if-ne v6, v3, :cond_5
 
     goto :goto_1
 
     .line 165
-    :cond_6
+    :cond_5
     array-length v0, v4
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     move v0, v4
 
     .line 168
@@ -1392,14 +1390,14 @@
 
     array-length v6, v4
 
-    if-lt v0, v6, :cond_9
+    if-lt v0, v6, :cond_8
 
     .line 169
     iget v6, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
     array-length v4, v4
 
-    if-ge v6, v4, :cond_9
+    if-ge v6, v4, :cond_8
 
     move v4, v2
 
@@ -1409,30 +1407,30 @@
 
     array-length v7, v6
 
-    if-ge v4, v7, :cond_9
+    if-ge v4, v7, :cond_8
 
     .line 172
     aget v6, v6, v4
 
-    if-ne v6, v3, :cond_8
+    if-ne v6, v3, :cond_7
 
     move v0, v4
 
     goto :goto_3
 
-    :cond_8
+    :cond_7
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
     .line 180
-    :cond_9
+    :cond_8
     :goto_3
     iget-object v4, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length v6, v4
 
-    if-lt v0, v6, :cond_a
+    if-lt v0, v6, :cond_9
 
     .line 181
     array-length v0, v4
@@ -1484,7 +1482,7 @@
     iput-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     .line 191
-    :cond_a
+    :cond_9
     iget-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     iget v4, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
@@ -1496,7 +1494,7 @@
 
     aput p2, v2, v0
 
-    if-eq v5, v3, :cond_b
+    if-eq v5, v3, :cond_a
 
     .line 194
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
@@ -1511,7 +1509,7 @@
     goto :goto_4
 
     .line 197
-    :cond_b
+    :cond_a
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
     iget v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
@@ -1544,7 +1542,7 @@
     .line 203
     iget-boolean p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-nez p2, :cond_c
+    if-nez p2, :cond_b
 
     .line 205
     iget p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
@@ -1554,23 +1552,23 @@
     iput p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 207
-    :cond_c
+    :cond_b
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length v0, p2
 
-    if-lt p1, v0, :cond_d
+    if-lt p1, v0, :cond_c
 
     .line 208
     iput-boolean v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
     .line 210
-    :cond_d
+    :cond_c
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     array-length v0, p2
 
-    if-lt p1, v0, :cond_e
+    if-lt p1, v0, :cond_d
 
     .line 211
     iput-boolean v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
@@ -1582,7 +1580,7 @@
 
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
-    :cond_e
+    :cond_d
     return-void
 .end method
 

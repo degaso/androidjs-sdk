@@ -256,7 +256,7 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     sub-float/2addr p1, p2
@@ -272,17 +272,14 @@
 
     if-lez p1, :cond_1
 
-    goto :goto_0
+    return v1
 
     :cond_1
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 78
     :cond_2
-    :goto_1
+    :goto_0
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result p1
@@ -293,13 +290,10 @@
 
     if-eq p1, p2, :cond_3
 
-    goto :goto_2
+    return v1
 
     :cond_3
-    move v1, v2
-
-    :goto_2
-    return v1
+    return v2
 .end method
 
 
@@ -1781,7 +1775,7 @@
 .end method
 
 .method fillStandard([D[I)V
-    .locals 21
+    .locals 22
 
     move-object/from16 v0, p0
 
@@ -1816,126 +1810,126 @@
 
     iget v15, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
 
-    iget v1, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
+    move/from16 v16, v2
 
-    move/from16 v16, v1
+    iget v2, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
 
-    iget v1, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
+    move/from16 v17, v2
 
-    move/from16 v17, v1
+    iget v2, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
 
-    iget v1, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
+    move/from16 v18, v2
 
-    move/from16 v18, v1
+    iget v2, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
 
-    iget v1, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
+    move/from16 v19, v2
+
+    iget v2, v0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
 
     const/16 v0, 0x12
 
-    move/from16 v19, v1
+    move/from16 v20, v2
 
-    new-array v1, v0, [F
+    new-array v2, v0, [F
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    aput v2, v1, v20
+    aput v16, v2, v21
 
-    const/4 v2, 0x1
+    const/16 v16, 0x1
 
-    aput v3, v1, v2
+    aput v3, v2, v16
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    aput v4, v1, v2
+    aput v4, v2, v3
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    aput v5, v1, v2
+    aput v5, v2, v3
 
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    aput v6, v1, v2
+    aput v6, v2, v3
 
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
-    aput v7, v1, v2
+    aput v7, v2, v3
 
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
-    aput v8, v1, v2
+    aput v8, v2, v3
 
-    const/4 v2, 0x7
+    const/4 v3, 0x7
 
-    aput v9, v1, v2
+    aput v9, v2, v3
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
-    aput v10, v1, v2
+    aput v10, v2, v3
 
-    const/16 v2, 0x9
+    const/16 v3, 0x9
 
-    aput v11, v1, v2
+    aput v11, v2, v3
 
-    const/16 v2, 0xa
+    const/16 v3, 0xa
 
-    aput v12, v1, v2
+    aput v12, v2, v3
 
-    const/16 v2, 0xb
+    const/16 v3, 0xb
 
-    aput v13, v1, v2
+    aput v13, v2, v3
 
-    const/16 v2, 0xc
+    const/16 v3, 0xc
 
-    aput v14, v1, v2
+    aput v14, v2, v3
 
-    const/16 v2, 0xd
+    const/16 v3, 0xd
 
-    aput v15, v1, v2
+    aput v15, v2, v3
 
-    const/16 v2, 0xe
+    const/16 v3, 0xe
 
-    aput v16, v1, v2
+    aput v17, v2, v3
 
-    const/16 v2, 0xf
+    const/16 v3, 0xf
 
-    aput v17, v1, v2
+    aput v18, v2, v3
 
-    const/16 v2, 0x10
+    const/16 v3, 0x10
 
-    aput v18, v1, v2
+    aput v19, v2, v3
 
-    const/16 v2, 0x11
+    const/16 v3, 0x11
 
-    aput v19, v1, v2
+    aput v20, v2, v3
 
-    move-object/from16 v3, p2
-
-    move/from16 v2, v20
+    move/from16 v3, v21
 
     .line 157
     :goto_0
-    array-length v4, v3
+    array-length v4, v1
 
-    if-ge v2, v4, :cond_1
+    if-ge v3, v4, :cond_1
 
     .line 158
-    aget v4, v3, v2
+    aget v4, v1, v3
 
     if-ge v4, v0, :cond_0
 
-    add-int/lit8 v5, v20, 0x1
+    add-int/lit8 v5, v21, 0x1
 
     .line 159
-    aget v4, v1, v4
+    aget v4, v2, v4
 
     float-to-double v6, v4
 
-    aput-wide v6, p1, v20
+    aput-wide v6, p1, v21
 
-    move/from16 v20, v5
+    move/from16 v21, v5
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 

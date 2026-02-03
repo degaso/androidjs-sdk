@@ -69,7 +69,7 @@
     :cond_1
     if-nez p1, :cond_2
 
-    return-object v0
+    goto :goto_1
 
     .line 3344
     :cond_2
@@ -130,6 +130,7 @@
     invoke-virtual {v0, v2, p1}, Landroid/media/MediaMetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
 
     :cond_5
+    :goto_1
     return-object v0
 .end method
 
@@ -151,7 +152,9 @@
 
     if-eqz p1, :cond_0
 
-    or-int/lit16 v0, v0, 0x200
+    or-int/lit16 p1, v0, 0x200
+
+    return p1
 
     :cond_0
     return v0
@@ -172,7 +175,7 @@
 
     invoke-virtual {p1, p2}, Landroid/media/RemoteControlClient;->setMetadataUpdateListener(Landroid/media/RemoteControlClient$OnMetadataUpdateListener;)V
 
-    goto :goto_0
+    return-void
 
     .line 3309
     :cond_0
@@ -185,6 +188,5 @@
 
     invoke-virtual {p2, p1}, Landroid/media/RemoteControlClient;->setMetadataUpdateListener(Landroid/media/RemoteControlClient$OnMetadataUpdateListener;)V
 
-    :goto_0
     return-void
 .end method

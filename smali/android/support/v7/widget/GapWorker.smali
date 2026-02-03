@@ -477,7 +477,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 314
     :cond_0
@@ -552,7 +552,7 @@
     :cond_2
     invoke-static {}, Landroid/support/v4/os/TraceCompat;->endSection()V
 
-    goto :goto_1
+    return-void
 
     :catchall_0
     move-exception p1
@@ -813,13 +813,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 401
-    iput-wide v0, p0, Landroid/support/v7/widget/GapWorker;->mPostTimeNs:J
-
-    .line 402
-    invoke-static {}, Landroid/support/v4/os/TraceCompat;->endSection()V
-
-    return-void
+    goto :goto_0
 
     :catchall_0
     move-exception v2

@@ -98,7 +98,7 @@
 
     invoke-interface {p1, v0}, Landroid/support/v4/app/INotificationSideChannel;->cancelAll(Ljava/lang/String;)V
 
-    goto :goto_0
+    return-void
 
     .line 644
     :cond_0
@@ -110,7 +110,6 @@
 
     invoke-interface {p1, v0, v1, v2}, Landroid/support/v4/app/INotificationSideChannel;->cancel(Ljava/lang/String;ILjava/lang/String;)V
 
-    :goto_0
     return-void
 .end method
 

@@ -74,7 +74,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto/16 :goto_0
 
     .line 1076
     :cond_0
@@ -91,7 +91,7 @@
 
     invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onSessionReady()V
 
-    goto/16 :goto_0
+    return-void
 
     .line 1102
     :pswitch_2
@@ -107,7 +107,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onShuffleModeChanged(I)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 1096
     :pswitch_3
@@ -123,7 +123,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onCaptioningEnabledChanged(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 1099
     :pswitch_4
@@ -139,7 +139,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onRepeatModeChanged(I)V
 
-    goto :goto_0
+    return-void
 
     .line 1114
     :pswitch_5
@@ -147,7 +147,7 @@
 
     invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onSessionDestroyed()V
 
-    goto :goto_0
+    return-void
 
     .line 1105
     :pswitch_6
@@ -163,7 +163,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onExtrasChanged(Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 1093
     :pswitch_7
@@ -175,7 +175,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onQueueTitleChanged(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 1090
     :pswitch_8
@@ -187,7 +187,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onQueueChanged(Ljava/util/List;)V
 
-    goto :goto_0
+    return-void
 
     .line 1111
     :pswitch_9
@@ -199,7 +199,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onAudioInfoChanged(Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;)V
 
-    goto :goto_0
+    return-void
 
     .line 1087
     :pswitch_a
@@ -211,7 +211,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onMetadataChanged(Landroid/support/v4/media/MediaMetadataCompat;)V
 
-    goto :goto_0
+    return-void
 
     .line 1084
     :pswitch_b
@@ -223,7 +223,7 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onPlaybackStateChanged(Landroid/support/v4/media/session/PlaybackStateCompat;)V
 
-    goto :goto_0
+    return-void
 
     .line 1078
     :pswitch_c
@@ -245,6 +245,8 @@
 
     :goto_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

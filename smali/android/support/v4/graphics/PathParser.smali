@@ -670,7 +670,7 @@
 
     if-eq v0, v1, :cond_1
 
-    return p1
+    goto :goto_1
 
     :cond_1
     add-int/lit8 p1, p1, 0x1
@@ -678,6 +678,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return p1
 .end method
 

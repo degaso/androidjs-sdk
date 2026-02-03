@@ -169,7 +169,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putFloatArray(Ljava/lang/String;[F)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 469
     :pswitch_1
@@ -179,7 +179,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 466
     :pswitch_2
@@ -189,7 +189,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putLongArray(Ljava/lang/String;[J)V
 
-    goto :goto_0
+    return-void
 
     .line 463
     :pswitch_3
@@ -199,7 +199,7 @@
 
     invoke-virtual {p3, p2, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    goto :goto_0
+    return-void
 
     .line 460
     :pswitch_4
@@ -209,7 +209,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    goto :goto_0
+    return-void
 
     .line 457
     :pswitch_5
@@ -219,7 +219,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    goto :goto_0
+    return-void
 
     .line 454
     :pswitch_6
@@ -229,7 +229,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
-    goto :goto_0
+    return-void
 
     .line 451
     :pswitch_7
@@ -239,7 +239,7 @@
 
     invoke-virtual {p3, p2, v0, v1}, Landroid/os/Bundle;->putDouble(Ljava/lang/String;D)V
 
-    goto :goto_0
+    return-void
 
     .line 448
     :pswitch_8
@@ -249,7 +249,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putBooleanArray(Ljava/lang/String;[Z)V
 
-    goto :goto_0
+    return-void
 
     .line 445
     :pswitch_9
@@ -259,7 +259,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    goto :goto_0
+    return-void
 
     :pswitch_a
     const/4 p1, 0x0
@@ -275,7 +275,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    goto :goto_0
+    return-void
 
     .line 439
     :pswitch_b
@@ -285,7 +285,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    return-void
 
     .line 436
     :pswitch_c
@@ -295,7 +295,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 433
     :pswitch_d
@@ -305,7 +305,7 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     :pswitch_e
     const/4 p1, 0x0
@@ -313,7 +313,6 @@
     .line 430
     invoke-virtual {p3, p2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    :goto_0
     return-void
 
     :pswitch_data_0
@@ -346,7 +345,7 @@
     .line 382
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeInt(I)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 383
     :cond_0
@@ -364,7 +363,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeBundle(Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 386
     :cond_1
@@ -382,7 +381,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeString(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 389
     :cond_2
@@ -402,7 +401,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeArray([Ljava/lang/Object;)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 392
     :cond_3
@@ -424,7 +423,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeBoolean(Z)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 395
     :cond_4
@@ -444,7 +443,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeBooleanArray([Z)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 398
     :cond_5
@@ -466,7 +465,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeDouble(D)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 401
     :cond_6
@@ -486,7 +485,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeDoubleArray([D)V
 
-    goto :goto_0
+    return-void
 
     .line 404
     :cond_7
@@ -508,7 +507,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeInt(I)V
 
-    goto :goto_0
+    return-void
 
     .line 407
     :cond_8
@@ -528,7 +527,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeIntArray([I)V
 
-    goto :goto_0
+    return-void
 
     .line 410
     :cond_9
@@ -550,7 +549,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeLong(J)V
 
-    goto :goto_0
+    return-void
 
     .line 413
     :cond_a
@@ -570,7 +569,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeLongArray([J)V
 
-    goto :goto_0
+    return-void
 
     .line 416
     :cond_b
@@ -592,7 +591,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeFloat(F)V
 
-    goto :goto_0
+    return-void
 
     .line 419
     :cond_c
@@ -612,7 +611,6 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcelStream;->writeFloatArray([F)V
 
-    :goto_0
     return-void
 
     .line 423
@@ -675,7 +673,7 @@
     .line 103
     iput-object v0, p0, Landroidx/versionedparcelable/VersionedParcelStream;->mFieldBuffer:Landroidx/versionedparcelable/VersionedParcelStream$FieldBuffer;
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -688,7 +686,6 @@
     throw v1
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1166,7 +1163,7 @@
 .method public writeBundle(Landroid/os/Bundle;)V
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 351
     :try_start_0
@@ -1193,7 +1190,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1214,8 +1211,11 @@
 
     goto :goto_0
 
-    .line 359
     :cond_0
+    return-void
+
+    .line 359
+    :cond_1
     iget-object p1, p0, Landroidx/versionedparcelable/VersionedParcelStream;->mCurrentOutput:Ljava/io/DataOutputStream;
 
     const/4 v0, -0x1
@@ -1224,7 +1224,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_1
     return-void
 
     :catch_0
@@ -1256,7 +1255,7 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->write([B)V
 
-    goto :goto_0
+    return-void
 
     .line 153
     :cond_0
@@ -1268,7 +1267,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
     return-void
 
     :catch_0
@@ -1298,7 +1296,7 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/DataOutputStream;->write([BII)V
 
-    goto :goto_0
+    return-void
 
     .line 167
     :cond_0
@@ -1310,7 +1308,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
     return-void
 
     :catch_0
@@ -1466,7 +1463,7 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->write([B)V
 
-    goto :goto_0
+    return-void
 
     .line 222
     :cond_0
@@ -1478,7 +1475,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
     return-void
 
     :catch_0

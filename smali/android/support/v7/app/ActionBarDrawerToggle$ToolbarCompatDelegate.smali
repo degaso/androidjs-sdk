@@ -96,7 +96,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     .line 608
     :cond_0
@@ -104,7 +104,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(I)V
 
-    :goto_0
     return-void
 .end method
 

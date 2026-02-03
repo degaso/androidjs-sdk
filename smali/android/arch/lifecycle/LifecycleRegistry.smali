@@ -563,13 +563,12 @@
 
     if-ne v0, v2, :cond_1
 
-    goto :goto_0
+    return v1
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method static min(Landroid/arch/lifecycle/Lifecycle$State;Landroid/arch/lifecycle/Lifecycle$State;)Landroid/arch/lifecycle/Lifecycle$State;
@@ -584,7 +583,7 @@
 
     if-gez v0, :cond_0
 
-    move-object p0, p1
+    return-object p1
 
     :cond_0
     return-object p0
@@ -894,7 +893,7 @@
 
     if-eqz v0, :cond_1
 
-    return-void
+    goto :goto_1
 
     .line 168
     :cond_1
@@ -908,6 +907,7 @@
 
     if-nez v0, :cond_2
 
+    :goto_1
     return-void
 
     .line 174
@@ -922,19 +922,19 @@
 
     if-eqz v2, :cond_3
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
-    :goto_1
+    :goto_2
     move v2, v3
 
     .line 175
-    :goto_2
+    :goto_3
     invoke-direct {p0, p1}, Landroid/arch/lifecycle/LifecycleRegistry;->calculateTargetState(Landroid/arch/lifecycle/LifecycleObserver;)Landroid/arch/lifecycle/Lifecycle$State;
 
     move-result-object v4
@@ -947,7 +947,7 @@
     iput v5, p0, Landroid/arch/lifecycle/LifecycleRegistry;->mAddingObserverCounter:I
 
     .line 177
-    :goto_3
+    :goto_4
     iget-object v5, v1, Landroid/arch/lifecycle/LifecycleRegistry$ObserverWithState;->mState:Landroid/arch/lifecycle/Lifecycle$State;
 
     invoke-virtual {v5, v4}, Landroid/arch/lifecycle/Lifecycle$State;->compareTo(Ljava/lang/Enum;)I
@@ -987,7 +987,7 @@
 
     move-result-object v4
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_5
     if-nez v2, :cond_6

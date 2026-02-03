@@ -35,12 +35,11 @@
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     .line 50
     :catch_0
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :goto_0
     return-void
 .end method

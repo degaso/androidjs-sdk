@@ -285,106 +285,112 @@
 .end method
 
 .method private drawGroupTree(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/graphics/Matrix;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
-    .locals 9
+    .locals 15
+
+    move-object/from16 v1, p1
 
     .line 1230
-    iget-object v0, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
+    iget-object v0, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v0, p2}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v2}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
 
     .line 1232
-    iget-object p2, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
+    iget-object v0, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
 
-    iget-object v0, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mLocalMatrix:Landroid/graphics/Matrix;
+    iget-object v2, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mLocalMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p2, v0}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
+    invoke-virtual {v0, v2}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
     .line 1235
-    invoke-virtual {p3}, Landroid/graphics/Canvas;->save()I
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Canvas;->save()I
 
-    const/4 p2, 0x0
+    const/4 v0, 0x0
+
+    move v7, v0
 
     .line 1238
     :goto_0
-    iget-object v0, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
+    iget-object v0, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge p2, v0, :cond_2
+    if-ge v7, v0, :cond_2
 
     .line 1239
-    iget-object v0, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
+    iget-object v0, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VObject;
 
     .line 1240
-    instance-of v1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
+    instance-of v2, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     .line 1241
-    move-object v3, v0
+    move-object v9, v0
 
-    check-cast v3, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
+    check-cast v9, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
 
     .line 1242
-    iget-object v4, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
+    iget-object v10, v1, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mStackedMatrix:Landroid/graphics/Matrix;
 
-    move-object v2, p0
+    move-object v8, p0
 
-    move-object v5, p3
+    move-object/from16 v11, p3
 
-    move v6, p4
+    move/from16 v12, p4
 
-    move v7, p5
+    move/from16 v13, p5
 
-    move-object v8, p6
+    move-object/from16 v14, p6
 
-    invoke-direct/range {v2 .. v8}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawGroupTree(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/graphics/Matrix;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
+    invoke-direct/range {v8 .. v14}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawGroupTree(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/graphics/Matrix;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
 
     goto :goto_1
 
     .line 1244
     :cond_0
-    instance-of v1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;
+    instance-of v2, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     .line 1245
-    move-object v4, v0
+    move-object v2, v0
 
-    check-cast v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;
+    check-cast v2, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;
 
-    move-object v2, p0
+    move-object v0, p0
 
-    move-object v3, p1
+    move-object/from16 v3, p3
 
-    move-object v5, p3
+    move/from16 v4, p4
 
-    move v6, p4
+    move/from16 v5, p5
 
-    move v7, p5
-
-    move-object v8, p6
+    move-object/from16 v6, p6
 
     .line 1246
-    invoke-direct/range {v2 .. v8}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawPath(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
+    invoke-direct/range {v0 .. v6}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawPath(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
 
     :cond_1
     :goto_1
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v7, v7, 0x1
+
+    move-object/from16 v1, p1
 
     goto :goto_0
 
     .line 1250
     :cond_2
-    invoke-virtual {p3}, Landroid/graphics/Canvas;->restore()V
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Canvas;->restore()V
 
     return-void
 .end method
@@ -435,7 +441,7 @@
 
     if-nez p5, :cond_0
 
-    return-void
+    goto/16 :goto_4
 
     .line 1274
     :cond_0
@@ -470,7 +476,7 @@
 
     invoke-virtual {p3, p1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
-    goto/16 :goto_4
+    return-void
 
     .line 1283
     :cond_1
@@ -901,7 +907,9 @@
 
     move-result p1
 
-    div-float v1, p1, v0
+    div-float/2addr p1, v0
+
+    return p1
 
     :cond_0
     return v1

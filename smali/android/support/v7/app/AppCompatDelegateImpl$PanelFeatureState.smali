@@ -218,7 +218,7 @@
 
     if-lez v0, :cond_2
 
-    move v1, v2
+    return v2
 
     :cond_2
     return v1
@@ -305,7 +305,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
@@ -329,6 +329,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/view/menu/MenuBuilder;->addMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;)V
 
     :cond_2
+    :goto_0
     return-void
 .end method
 

@@ -129,7 +129,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 17
+    .locals 21
 
     .line 308
     new-instance v0, Landroid/support/v4/util/ArrayMap;
@@ -241,33 +241,39 @@
 
     invoke-virtual {v0, v15, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 326
-    const-string v12, "android.media.metadata.ALBUM_ART"
+    move/from16 v16, v1
 
-    invoke-virtual {v0, v12, v13}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .line 326
+    const-string v1, "android.media.metadata.ALBUM_ART"
+
+    invoke-virtual {v0, v1, v13}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move/from16 v17, v5
 
     .line 327
-    const-string v1, "android.media.metadata.ALBUM_ART_URI"
+    const-string v5, "android.media.metadata.ALBUM_ART_URI"
 
-    invoke-virtual {v0, v1, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v5, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v5, 0x3
+    move/from16 v18, v12
 
-    move-object/from16 v16, v1
+    const/16 v19, 0x3
 
     .line 328
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v12
 
-    const-string v5, "android.media.metadata.USER_RATING"
+    move-object/from16 v20, v1
 
-    invoke-virtual {v0, v5, v1}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "android.media.metadata.USER_RATING"
+
+    invoke-virtual {v0, v1, v12}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 329
-    const-string v5, "android.media.metadata.RATING"
+    const-string v1, "android.media.metadata.RATING"
 
-    invoke-virtual {v0, v5, v1}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v12}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 330
     const-string v1, "android.media.metadata.DISPLAY_TITLE"
@@ -290,9 +296,9 @@
     invoke-virtual {v0, v1, v13}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 334
-    const-string v5, "android.media.metadata.DISPLAY_ICON_URI"
+    const-string v12, "android.media.metadata.DISPLAY_ICON_URI"
 
-    invoke-virtual {v0, v5, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v12, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 335
     const-string v13, "android.media.metadata.MEDIA_ID"
@@ -324,61 +330,49 @@
     .line 342
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v2, 0x0
+    aput-object v3, v0, v17
 
-    aput-object v3, v0, v2
+    aput-object v4, v0, v16
 
-    const/4 v2, 0x1
+    aput-object v7, v0, v18
 
-    aput-object v4, v0, v2
+    aput-object v11, v0, v19
 
-    const/4 v2, 0x2
+    const/4 v2, 0x4
 
-    aput-object v7, v0, v2
+    aput-object v9, v0, v2
 
-    const/4 v2, 0x3
+    const/4 v2, 0x5
 
-    aput-object v11, v0, v2
+    aput-object v8, v0, v2
 
-    const/4 v3, 0x4
+    const/4 v2, 0x6
 
-    aput-object v9, v0, v3
-
-    const/4 v3, 0x5
-
-    aput-object v8, v0, v3
-
-    const/4 v3, 0x6
-
-    aput-object v10, v0, v3
+    aput-object v10, v0, v2
 
     sput-object v0, Landroid/support/v4/media/MediaMetadataCompat;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
 
+    move/from16 v0, v19
+
     .line 352
-    new-array v0, v2, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const/4 v3, 0x0
+    aput-object v1, v2, v17
 
-    aput-object v1, v0, v3
+    aput-object v14, v2, v16
 
-    const/4 v1, 0x1
+    aput-object v20, v2, v18
 
-    aput-object v14, v0, v1
-
-    const/4 v4, 0x2
-
-    aput-object v12, v0, v4
-
-    sput-object v0, Landroid/support/v4/media/MediaMetadataCompat;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
+    sput-object v2, Landroid/support/v4/media/MediaMetadataCompat;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
 
     .line 358
-    new-array v0, v2, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v5, v0, v3
+    aput-object v12, v0, v17
 
-    aput-object v15, v0, v1
+    aput-object v15, v0, v16
 
-    aput-object v16, v0, v4
+    aput-object v5, v0, v18
 
     sput-object v0, Landroid/support/v4/media/MediaMetadataCompat;->PREFERRED_URI_ORDER:[Ljava/lang/String;
 
@@ -512,7 +506,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object p1
 
     :catch_0
     move-exception p1
@@ -526,7 +520,6 @@
 
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 
@@ -920,7 +913,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-object p1
 
     :catch_0
     move-exception p1
@@ -934,7 +927,6 @@
 
     const/4 p1, 0x0
 
-    :goto_0
     return-object p1
 .end method
 

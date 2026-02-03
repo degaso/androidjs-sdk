@@ -64,7 +64,7 @@
 
     if-eqz v1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 72
     :cond_0
@@ -74,7 +74,7 @@
 
     if-nez p0, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 77
     :cond_1
@@ -123,5 +123,6 @@
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     :cond_3
+    :goto_0
     return-void
 .end method

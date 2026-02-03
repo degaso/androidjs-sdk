@@ -275,7 +275,7 @@
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_0
     const/4 v0, 0x1
@@ -312,6 +312,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-void
 .end method
 
@@ -447,7 +448,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_1
     const/4 p1, 0x1
@@ -516,24 +517,24 @@
     goto :goto_0
 
     :cond_5
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
-    if-ne v2, p1, :cond_8
+    if-ne v2, p1, :cond_7
 
     .line 84
     iget-boolean p1, v1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     .line 85
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->marginDependency:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_6
 
     .line 86
     iget-boolean p1, p1, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_8
 
     .line 87
     iget p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->marginFactor:I
@@ -546,14 +547,8 @@
 
     iput p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->margin:I
 
-    goto :goto_1
-
-    :cond_6
-    return-void
-
     .line 92
-    :cond_7
-    :goto_1
+    :cond_6
     iget p1, v1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->value:I
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->margin:I
@@ -563,14 +558,15 @@
     invoke-virtual {p0, p1}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
     .line 94
-    :cond_8
+    :cond_7
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroid/support/constraint/solver/widgets/analyzer/Dependency;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_8
 
     .line 95
     invoke-interface {p1, p0}, Landroid/support/constraint/solver/widgets/analyzer/Dependency;->update(Landroid/support/constraint/solver/widgets/analyzer/Dependency;)V
 
-    :cond_9
+    :cond_8
+    :goto_1
     return-void
 .end method

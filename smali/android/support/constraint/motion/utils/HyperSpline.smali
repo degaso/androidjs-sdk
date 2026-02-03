@@ -210,21 +210,21 @@
     if-ge v7, v4, :cond_3
 
     .line 172
-    new-instance v1, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;
+    new-instance v14, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;
 
-    aget-wide v5, p1, v7
+    aget-wide v1, p1, v7
 
-    double-to-float v2, v5
+    double-to-float v5, v1
 
-    float-to-double v8, v2
+    float-to-double v5, v5
 
     aget-wide v17, v3, v7
 
-    add-int/lit8 v2, v7, 0x1
+    add-int/lit8 v8, v7, 0x1
 
-    aget-wide v14, p1, v2
+    aget-wide v15, p1, v8
 
-    sub-double v19, v14, v5
+    sub-double v19, v15, v1
 
     mul-double v19, v19, v10
 
@@ -232,27 +232,25 @@
 
     sub-double v19, v19, v21
 
-    aget-wide v21, v3, v2
+    aget-wide v21, v3, v8
 
     sub-double v19, v19, v21
 
-    sub-double/2addr v5, v14
+    sub-double/2addr v1, v15
 
-    mul-double/2addr v5, v12
+    mul-double/2addr v1, v12
 
-    add-double v5, v5, v17
+    add-double v1, v1, v17
 
-    add-double v21, v5, v21
+    add-double v21, v1, v21
 
-    move-object v14, v1
-
-    move-wide v15, v8
+    move-wide v15, v5
 
     invoke-direct/range {v14 .. v22}, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;-><init>(DDDD)V
 
-    aput-object v1, v0, v7
+    aput-object v14, v0, v7
 
-    move v7, v2
+    move v7, v8
 
     goto :goto_3
 

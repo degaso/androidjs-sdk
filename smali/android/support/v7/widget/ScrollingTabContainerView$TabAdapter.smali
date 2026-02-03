@@ -94,9 +94,9 @@
 
     invoke-virtual {p2, p1, p3}, Landroid/support/v7/widget/ScrollingTabContainerView;->createTabView(Landroid/support/v7/app/ActionBar$Tab;Z)Landroid/support/v7/widget/ScrollingTabContainerView$TabView;
 
-    move-result-object p2
+    move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
     .line 545
     :cond_0
@@ -112,6 +112,5 @@
 
     invoke-virtual {p3, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->bindTab(Landroid/support/v7/app/ActionBar$Tab;)V
 
-    :goto_0
     return-object p2
 .end method

@@ -132,7 +132,7 @@
 
     if-nez v1, :cond_3
 
-    goto :goto_2
+    goto :goto_1
 
     .line 595
     :cond_3
@@ -168,7 +168,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_1
+    return-void
 
     .line 611
     :cond_4
@@ -180,7 +180,6 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_1
     return-void
 
     :cond_5
@@ -223,7 +222,7 @@
 
     .line 586
     :cond_8
-    :goto_2
+    :goto_1
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/support/v4/provider/FontsContractCompat$4$5;

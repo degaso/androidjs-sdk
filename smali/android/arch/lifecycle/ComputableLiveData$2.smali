@@ -110,7 +110,26 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    if-eqz v3, :cond_3
+    move v1, v3
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v2, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
+
+    invoke-static {v2}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    throw v0
+
+    :cond_3
+    :goto_1
+    if-eqz v1, :cond_4
 
     .line 117
     iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
@@ -125,23 +144,6 @@
 
     if-nez v0, :cond_0
 
-    goto :goto_1
-
-    :catchall_0
-    move-exception v0
-
-    .line 107
-    iget-object v2, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
-
-    invoke-static {v2}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
-
-    throw v0
-
-    :cond_3
-    :goto_1
+    :cond_4
     return-void
 .end method

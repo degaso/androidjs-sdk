@@ -41,12 +41,11 @@
 
     invoke-static {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompatApi23;->getItem(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 1986
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->getItem(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
 
-    :goto_0
     return-void
 .end method

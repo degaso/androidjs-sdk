@@ -50,7 +50,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onSearchClicked()V
 
-    goto :goto_0
+    return-void
 
     .line 980
     :cond_0
@@ -65,7 +65,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onCloseClicked()V
 
-    goto :goto_0
+    return-void
 
     .line 982
     :cond_1
@@ -80,7 +80,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onSubmitQuery()V
 
-    goto :goto_0
+    return-void
 
     .line 984
     :cond_2
@@ -95,7 +95,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onVoiceClicked()V
 
-    goto :goto_0
+    return-void
 
     .line 986
     :cond_3
@@ -111,6 +111,5 @@
     invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->forceSuggestionQuery()V
 
     :cond_4
-    :goto_0
     return-void
 .end method

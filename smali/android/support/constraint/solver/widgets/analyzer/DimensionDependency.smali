@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->type:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode$Type;
 
-    goto :goto_0
+    return-void
 
     .line 28
     :cond_0
@@ -32,7 +32,6 @@
 
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->type:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode$Type;
 
-    :goto_0
     return-void
 .end method
 
@@ -46,7 +45,7 @@
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_0
     const/4 v0, 0x1
@@ -83,5 +82,6 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-void
 .end method

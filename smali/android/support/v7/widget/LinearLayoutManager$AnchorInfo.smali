@@ -228,7 +228,7 @@
 
     iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    goto :goto_0
+    return-void
 
     .line 2443
     :cond_1
@@ -313,7 +313,6 @@
     iput p2, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -353,12 +352,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 

@@ -184,12 +184,12 @@
 .method setHandler(Landroid/os/Handler;)V
     .locals 1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     .line 831
     iget-object p1, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mHandler:Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x0
 
@@ -206,10 +206,11 @@
     .line 834
     iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mHandler:Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;
 
-    goto :goto_0
+    :cond_0
+    return-void
 
     .line 837
-    :cond_0
+    :cond_1
     new-instance v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;
 
     invoke-virtual {p1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -225,7 +226,5 @@
     .line 838
     iput-boolean p1, v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->mRegistered:Z
 
-    :cond_1
-    :goto_0
     return-void
 .end method

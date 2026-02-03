@@ -78,7 +78,7 @@
 
     if-ne v0, p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
@@ -104,5 +104,6 @@
     invoke-virtual {v0, p1, v1}, Landroid/arch/lifecycle/MediatorLiveData;->addSource(Landroid/arch/lifecycle/LiveData;Landroid/arch/lifecycle/Observer;)V
 
     :cond_2
+    :goto_0
     return-void
 .end method

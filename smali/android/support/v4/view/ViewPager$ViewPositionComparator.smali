@@ -69,12 +69,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, -0x1
 
-    :goto_0
     return p1
 
     .line 3165

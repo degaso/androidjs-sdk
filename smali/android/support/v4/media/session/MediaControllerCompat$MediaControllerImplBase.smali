@@ -74,7 +74,7 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/media/session/IMediaSession;->addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    goto :goto_0
+    return-void
 
     .line 1556
     :cond_0
@@ -98,7 +98,6 @@
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -128,7 +127,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/support/v4/media/session/IMediaSession;->addQueueItemAt(Landroid/support/v4/media/MediaDescriptionCompat;I)V
 
-    goto :goto_0
+    return-void
 
     .line 1570
     :cond_0
@@ -152,7 +151,6 @@
 
     invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -169,7 +167,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -181,7 +179,6 @@
 
     invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -355,7 +352,7 @@
 .end method
 
 .method public getPlaybackInfo()Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
-    .locals 8
+    .locals 7
 
     .line 1666
     :try_start_0
@@ -366,7 +363,7 @@
     move-result-object v0
 
     .line 1667
-    new-instance v7, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
+    new-instance v1, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
 
     iget v2, v0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->volumeType:I
 
@@ -378,13 +375,11 @@
 
     iget v6, v0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->currentVolume:I
 
-    move-object v1, v7
-
     invoke-direct/range {v1 .. v6}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(IIIII)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v7
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -716,7 +711,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -733,7 +728,6 @@
     .line 1481
     invoke-virtual {p1, v0, p2, p2}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    :goto_0
     return-void
 
     .line 1473
@@ -773,7 +767,7 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/media/session/IMediaSession;->removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    goto :goto_0
+    return-void
 
     .line 1584
     :cond_0
@@ -797,7 +791,6 @@
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -816,7 +809,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -828,7 +821,6 @@
 
     invoke-static {p2, p3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -845,7 +837,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -857,7 +849,6 @@
 
     invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -889,7 +880,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception p1
@@ -901,7 +892,6 @@
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 
     .line 1488

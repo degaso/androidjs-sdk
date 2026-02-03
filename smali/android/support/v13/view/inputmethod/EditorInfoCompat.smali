@@ -46,13 +46,12 @@
 
     if-eqz p0, :cond_0
 
-    goto :goto_0
+    return-object p0
 
     .line 113
     :cond_0
     sget-object p0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
-    :goto_0
     return-object p0
 .end method
 

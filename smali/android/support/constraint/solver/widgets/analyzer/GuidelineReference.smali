@@ -222,7 +222,7 @@
 
     invoke-direct {p0, v0}, Landroid/support/constraint/solver/widgets/analyzer/GuidelineReference;->addDependency(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;)V
 
-    goto/16 :goto_2
+    return-void
 
     :cond_2
     if-eq v1, v3, :cond_3
@@ -361,7 +361,6 @@
 
     invoke-direct {p0, v0}, Landroid/support/constraint/solver/widgets/analyzer/GuidelineReference;->addDependency(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;)V
 
-    :goto_2
     return-void
 .end method
 
@@ -391,7 +390,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setX(I)V
 
-    goto :goto_0
+    return-void
 
     .line 116
     :cond_0
@@ -403,7 +402,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setY(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -454,7 +452,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 57
     :cond_0
@@ -464,6 +462,7 @@
 
     if-eqz p1, :cond_1
 
+    :goto_0
     return-void
 
     .line 61

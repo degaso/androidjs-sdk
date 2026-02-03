@@ -339,7 +339,7 @@
     .line 176
     invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_0
+    return-void
 
     .line 178
     :cond_0
@@ -355,17 +355,21 @@
     :cond_1
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 
     .line 183
-    :cond_2
-    invoke-virtual {p0}, Landroid/support/v7/widget/ViewStubCompat;->inflate()Landroid/view/View;
-
     :cond_3
     :goto_0
+    invoke-virtual {p0}, Landroid/support/v7/widget/ViewStubCompat;->inflate()Landroid/view/View;
+
     return-void
 .end method

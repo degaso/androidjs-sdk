@@ -189,7 +189,9 @@
     .line 196
     invoke-virtual {p0}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerExtraData;->getMediaController()Landroid/support/v4/media/session/MediaControllerCompat;
 
-    move-result-object v1
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     return-object v1
@@ -291,7 +293,7 @@
 
     if-nez p0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 218
     :cond_0

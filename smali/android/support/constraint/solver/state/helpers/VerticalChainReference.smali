@@ -216,19 +216,19 @@
 
     if-eq v0, v1, :cond_a
 
-    goto :goto_4
+    return-void
 
     .line 83
     :cond_a
     invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->setVerticalChainStyle(I)V
 
-    goto :goto_4
+    return-void
 
     .line 80
     :cond_b
     invoke-virtual {v2, v1}, Landroid/support/constraint/solver/state/ConstraintReference;->setVerticalChainStyle(I)V
 
-    goto :goto_4
+    return-void
 
     :cond_c
     const/4 v0, 0x0
@@ -236,7 +236,6 @@
     .line 77
     invoke-virtual {v2, v0}, Landroid/support/constraint/solver/state/ConstraintReference;->setVerticalChainStyle(I)V
 
-    :goto_4
     return-void
 .end method
 

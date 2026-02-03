@@ -95,7 +95,7 @@
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->postAnimationRunner()V
 
-    goto :goto_0
+    return-void
 
     .line 632
     :cond_0
@@ -115,7 +115,6 @@
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->postAnimationRunner()V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

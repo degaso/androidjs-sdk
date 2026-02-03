@@ -336,7 +336,7 @@
 
     if-nez v0, :cond_0
 
-    return-object v1
+    goto :goto_1
 
     .line 360
     :cond_0
@@ -387,6 +387,7 @@
     goto :goto_0
 
     :cond_1
+    :goto_1
     return-object v1
 .end method
 

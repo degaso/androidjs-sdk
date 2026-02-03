@@ -48,11 +48,10 @@
 
     invoke-direct {v1, v0}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi23;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-object v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return-object v1
+    return-object v0
 .end method

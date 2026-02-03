@@ -602,7 +602,7 @@
 .end method
 
 .method public setup(F)V
-    .locals 12
+    .locals 11
 
     .line 173
     iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator;->mWavePoints:Ljava/util/ArrayList;
@@ -667,7 +667,7 @@
 
     move-result-object v0
 
-    move v11, v2
+    move v6, v2
 
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -683,52 +683,56 @@
     check-cast v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;
 
     .line 188
-    iget v6, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPeriod:F
+    iget v7, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPeriod:F
 
-    float-to-double v6, v6
+    float-to-double v7, v7
 
-    const-wide v8, 0x3f847ae147ae147bL    # 0.01
+    const-wide v9, 0x3f847ae147ae147bL    # 0.01
 
-    mul-double/2addr v6, v8
+    mul-double/2addr v7, v9
 
-    aput-wide v6, v1, v11
+    aput-wide v7, v1, v6
 
     .line 189
-    aget-object v6, v3, v11
+    aget-object v7, v3, v6
 
-    iget v7, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
+    iget v8, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
 
-    float-to-double v7, v7
+    float-to-double v8, v8
 
-    aput-wide v7, v6, v2
+    aput-wide v8, v7, v2
 
     .line 190
-    aget-object v6, v3, v11
+    aget-object v7, v3, v6
 
-    iget v7, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mOffset:F
+    iget v8, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mOffset:F
 
-    float-to-double v7, v7
+    float-to-double v8, v8
 
-    aput-wide v7, v6, v4
+    aput-wide v8, v7, v4
+
+    move-object v7, v5
 
     .line 191
-    iget-object v6, p0, Landroid/support/constraint/motion/KeyCycleOscillator;->mCycleOscillator:Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;
+    iget-object v5, p0, Landroid/support/constraint/motion/KeyCycleOscillator;->mCycleOscillator:Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;
 
-    iget v7, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
+    move-object v8, v7
 
-    iget v8, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPeriod:F
+    iget v7, v8, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
 
-    iget v9, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mOffset:F
+    move-object v9, v8
 
-    iget v10, v5, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
+    iget v8, v9, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPeriod:F
 
-    move-object v5, v6
+    move-object v10, v9
 
-    move v6, v11
+    iget v9, v10, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mOffset:F
+
+    iget v10, v10, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mValue:F
 
     invoke-virtual/range {v5 .. v10}, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->setPoint(IIFFF)V
 
-    add-int/2addr v11, v4
+    add-int/2addr v6, v4
 
     goto :goto_0
 
@@ -846,11 +850,10 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method

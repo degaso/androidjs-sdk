@@ -144,7 +144,7 @@
 
     if-eqz p1, :cond_2
 
-    move v2, v3
+    return v3
 
     :cond_2
     return v2
@@ -162,13 +162,10 @@
 
     if-eqz p1, :cond_4
 
-    goto :goto_0
+    return v2
 
     :cond_4
-    move v2, v3
-
-    :goto_0
-    return v2
+    return v3
 
     .line 122
     :cond_5
@@ -203,7 +200,7 @@
 
     if-eqz p1, :cond_8
 
-    move v2, v3
+    return v3
 
     :cond_8
     return v2
@@ -221,13 +218,10 @@
 
     if-eqz p1, :cond_a
 
-    goto :goto_1
+    return v2
 
     :cond_a
-    move v2, v3
-
-    :goto_1
-    return v2
+    return v3
 
     :cond_b
     const/4 p1, 0x0

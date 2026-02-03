@@ -166,7 +166,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     invoke-virtual {p0}, Landroid/support/v7/widget/OrientationHelper;->getTotalSpace()I
@@ -177,7 +177,6 @@
 
     sub-int/2addr v0, v1
 
-    :goto_0
     return v0
 .end method
 

@@ -101,7 +101,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     .line 1402
     :cond_0
@@ -131,7 +131,6 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method
 
@@ -231,7 +230,7 @@
 
     iput-boolean v0, p1, Landroid/support/v4/widget/SlidingPaneLayout;->mPreservedOpenState:Z
 
-    goto :goto_0
+    return-void
 
     .line 1346
     :cond_0
@@ -249,7 +248,6 @@
     iput-boolean v0, p1, Landroid/support/v4/widget/SlidingPaneLayout;->mPreservedOpenState:Z
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

@@ -57,22 +57,22 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_4
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_3
 
     const/4 v2, 0x3
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_2
 
     .line 124
     iget-object p1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase$GestureHandler;->this$0:Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;
 
     iget-object p1, p1, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_1
 
     .line 125
     iget-object p1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase$GestureHandler;->this$0:Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;
@@ -92,7 +92,7 @@
 
     invoke-interface {p1, v0}, Landroid/view/GestureDetector$OnDoubleTapListener;->onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
 
-    goto :goto_0
+    return-void
 
     .line 128
     :cond_0
@@ -100,10 +100,11 @@
 
     iput-boolean v1, p1, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDeferConfirmSingleTap:Z
 
-    goto :goto_0
+    :cond_1
+    return-void
 
     .line 134
-    :cond_1
+    :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -125,15 +126,15 @@
     throw v0
 
     .line 119
-    :cond_2
+    :cond_3
     iget-object p1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase$GestureHandler;->this$0:Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;
 
     invoke-virtual {p1}, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->dispatchLongPress()V
 
-    goto :goto_0
+    return-void
 
     .line 115
-    :cond_3
+    :cond_4
     iget-object p1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase$GestureHandler;->this$0:Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;
 
     iget-object p1, p1, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mListener:Landroid/view/GestureDetector$OnGestureListener;
@@ -144,7 +145,5 @@
 
     invoke-interface {p1, v0}, Landroid/view/GestureDetector$OnGestureListener;->onShowPress(Landroid/view/MotionEvent;)V
 
-    :cond_4
-    :goto_0
     return-void
 .end method

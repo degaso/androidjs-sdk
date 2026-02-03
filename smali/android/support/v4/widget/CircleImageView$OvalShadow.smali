@@ -59,14 +59,14 @@
 .end method
 
 .method private updateRadialGradient(I)V
-    .locals 8
+    .locals 7
 
     .line 153
-    new-instance v7, Landroid/graphics/RadialGradient;
+    new-instance v0, Landroid/graphics/RadialGradient;
 
     div-int/lit8 p1, p1, 0x2
 
-    int-to-float v2, p1
+    int-to-float v1, p1
 
     iget-object p1, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->this$0:Landroid/support/v4/widget/CircleImageView;
 
@@ -76,9 +76,9 @@
 
     const/high16 p1, 0x3d000000    # 0.03125f
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    filled-new-array {p1, v0}, [I
+    filled-new-array {p1, v2}, [I
 
     move-result-object v4
 
@@ -86,18 +86,16 @@
 
     sget-object v6, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
-    move-object v0, v7
-
-    move v1, v2
+    move v2, v1
 
     invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    iput-object v7, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->mRadialGradient:Landroid/graphics/RadialGradient;
+    iput-object v0, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->mRadialGradient:Landroid/graphics/RadialGradient;
 
     .line 156
     iget-object p1, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->mShadowPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v7}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     return-void
 .end method

@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onAudioInfoChanged(IIIII)V
-    .locals 8
+    .locals 7
 
     .line 927
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi21;->mCallback:Ljava/lang/ref/WeakReference;
@@ -63,9 +63,7 @@
     if-eqz v0, :cond_0
 
     .line 929
-    new-instance v7, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
-
-    move-object v1, v7
+    new-instance v1, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
 
     move v2, p1
 
@@ -79,7 +77,7 @@
 
     invoke-direct/range {v1 .. v6}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(IIIII)V
 
-    invoke-virtual {v0, v7}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onAudioInfoChanged(Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->onAudioInfoChanged(Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;)V
 
     :cond_0
     return-void

@@ -59,7 +59,7 @@
 
     if-eq p2, v2, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 52
     :cond_0
@@ -75,12 +75,11 @@
     :cond_1
     invoke-virtual {v0, v1}, Landroid/support/v7/app/AppCompatDialog;->supportRequestWindowFeature(I)Z
 
-    goto :goto_0
+    return-void
 
     .line 62
     :cond_2
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/DialogFragment;->setupDialog(Landroid/app/Dialog;I)V
 
-    :goto_0
     return-void
 .end method

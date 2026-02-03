@@ -330,13 +330,12 @@
 
     aput p1, v0, v3
 
-    goto :goto_1
+    return-object v0
 
     .line 64
     :cond_1
     aput v2, v0, v3
 
-    :goto_1
     return-object v0
 .end method
 
@@ -544,16 +543,15 @@
     :cond_7
     if-eqz v3, :cond_9
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v4
 
-    goto :goto_3
+    return v2
 
     :cond_8
     if-eqz v3, :cond_9
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/2addr v2, v4
 
     :cond_9
-    :goto_3
     return v2
 .end method

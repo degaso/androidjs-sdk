@@ -378,13 +378,15 @@
 
     invoke-virtual/range {v8 .. v13}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    .line 276
-    iget-boolean v1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
+    move-object v1, v8
 
-    if-eqz v1, :cond_0
+    .line 276
+    iget-boolean p1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
+
+    if-eqz p1, :cond_0
 
     .line 277
-    iget-object v1, p0, Landroid/support/v4/view/PagerTabStrip;->mTabPaint:Landroid/graphics/Paint;
+    iget-object p1, p0, Landroid/support/v4/view/PagerTabStrip;->mTabPaint:Landroid/graphics/Paint;
 
     iget v2, p0, Landroid/support/v4/view/PagerTabStrip;->mIndicatorColor:I
 
@@ -394,37 +396,35 @@
 
     or-int/2addr v2, v3
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 278
     invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingLeft()I
 
-    move-result v1
+    move-result p1
 
-    int-to-float v2, v1
+    int-to-float v2, p1
 
-    iget v1, p0, Landroid/support/v4/view/PagerTabStrip;->mFullUnderlineHeight:I
+    iget p1, p0, Landroid/support/v4/view/PagerTabStrip;->mFullUnderlineHeight:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
     int-to-float v3, v0
 
     .line 279
     invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getWidth()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingRight()I
 
-    move-result v1
+    move-result v0
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v0
 
-    int-to-float v4, v0
+    int-to-float v4, p1
 
     iget-object v6, p0, Landroid/support/v4/view/PagerTabStrip;->mTabPaint:Landroid/graphics/Paint;
-
-    move-object v1, p1
 
     .line 278
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V

@@ -482,7 +482,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->addTarget(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;I)V
 
-    goto/16 :goto_5
+    return-void
 
     .line 262
     :cond_8
@@ -557,7 +557,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->addTarget(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;I)V
 
-    goto/16 :goto_5
+    return-void
 
     .line 271
     :cond_9
@@ -637,7 +637,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->addTarget(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;I)V
 
-    goto/16 :goto_5
+    return-void
 
     .line 280
     :cond_b
@@ -695,7 +695,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->addTarget(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;I)V
 
-    goto/16 :goto_5
+    return-void
 
     .line 289
     :cond_c
@@ -781,7 +781,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;->addTarget(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;I)V
 
-    goto/16 :goto_5
+    return-void
 
     .line 300
     :cond_d
@@ -1458,7 +1458,6 @@
     iput-boolean v3, v0, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->readyToSolve:Z
 
     :cond_1c
-    :goto_5
     return-void
 .end method
 
@@ -1900,7 +1899,7 @@
 
     if-eqz p1, :cond_a
 
-    return-void
+    goto/16 :goto_6
 
     .line 141
     :cond_a
@@ -2104,7 +2103,7 @@
 
     if-nez p1, :cond_e
 
-    return-void
+    goto :goto_6
 
     .line 179
     :cond_e

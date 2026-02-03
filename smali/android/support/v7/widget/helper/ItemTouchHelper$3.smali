@@ -24,40 +24,18 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/helper/ItemTouchHelper;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFFILandroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 9
-
-    move-object v8, p0
-
-    move-object v0, p1
+    .locals 0
 
     .line 635
-    iput-object v0, v8, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
+    iput-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    move/from16 v0, p9
+    iput p9, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$swipeDir:I
 
-    iput v0, v8, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$swipeDir:I
+    iput-object p10, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$prevSelected:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    move-object/from16 v0, p10
+    move-object p1, p0
 
-    iput-object v0, v8, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$prevSelected:Landroid/support/v7/widget/RecyclerView$ViewHolder;
-
-    move-object v0, p0
-
-    move-object v1, p2
-
-    move v2, p3
-
-    move v3, p4
-
-    move v4, p5
-
-    move v5, p6
-
-    move/from16 v6, p7
-
-    move/from16 v7, p8
-
-    invoke-direct/range {v0 .. v7}, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;-><init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFF)V
+    invoke-direct/range {p1 .. p8}, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;-><init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFF)V
 
     return-void
 .end method
@@ -75,7 +53,7 @@
 
     if-eqz p1, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 642
     :cond_0
@@ -148,5 +126,6 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/helper/ItemTouchHelper;->removeChildDrawingOrderCallbackIfNecessary(Landroid/view/View;)V
 
     :cond_3
+    :goto_1
     return-void
 .end method

@@ -45,7 +45,7 @@
     .line 124
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    goto :goto_0
+    return-void
 
     .line 121
     :cond_0
@@ -53,6 +53,5 @@
 
     invoke-virtual {p1}, Landroid/support/v4/content/LocalBroadcastManager;->executePendingBroadcasts()V
 
-    :goto_0
     return-void
 .end method

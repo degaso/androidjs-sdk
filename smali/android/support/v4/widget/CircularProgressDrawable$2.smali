@@ -105,7 +105,7 @@
 
     invoke-virtual {p1, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setShowArrow(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 611
     :cond_0
@@ -117,7 +117,6 @@
 
     iput v0, p1, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
-    :goto_0
     return-void
 .end method
 

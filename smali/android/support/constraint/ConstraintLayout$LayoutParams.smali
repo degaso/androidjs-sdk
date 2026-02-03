@@ -2836,7 +2836,7 @@
     .line 3199
     iput v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    goto :goto_5
+    return-void
 
     .line 3201
     :cond_13
@@ -2858,7 +2858,6 @@
     iput v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
     :cond_14
-    :goto_5
     return-void
 .end method
 
@@ -3000,18 +2999,24 @@
 
     cmpl-float v0, v0, v2
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_7
 
     iget v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->guideBegin:I
 
-    if-ne v0, v4, :cond_6
+    if-ne v0, v4, :cond_7
 
     iget v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->guideEnd:I
 
-    if-eq v0, v4, :cond_8
+    if-eq v0, v4, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    return-void
 
     .line 3069
-    :cond_6
+    :cond_7
+    :goto_0
     iput-boolean v1, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->isGuideline:Z
 
     .line 3070
@@ -3025,7 +3030,7 @@
 
     instance-of v0, v0, Landroid/support/constraint/solver/widgets/Guideline;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_8
 
     .line 3073
     new-instance v0, Landroid/support/constraint/solver/widgets/Guideline;
@@ -3035,7 +3040,7 @@
     iput-object v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 3075
-    :cond_7
+    :cond_8
     iget-object v0, p0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     check-cast v0, Landroid/support/constraint/solver/widgets/Guideline;
@@ -3044,6 +3049,5 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/Guideline;->setOrientation(I)V
 
-    :cond_8
     return-void
 .end method

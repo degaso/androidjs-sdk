@@ -356,11 +356,10 @@
 
     if-gt p0, p1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    :goto_0
-    return v1
+    return p0
 .end method

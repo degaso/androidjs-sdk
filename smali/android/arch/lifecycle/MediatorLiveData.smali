@@ -105,7 +105,7 @@
     :goto_0
     if-eqz p1, :cond_2
 
-    return-void
+    goto :goto_1
 
     .line 95
     :cond_2
@@ -119,6 +119,7 @@
     invoke-virtual {v0}, Landroid/arch/lifecycle/MediatorLiveData$Source;->plug()V
 
     :cond_3
+    :goto_1
     return-void
 .end method
 

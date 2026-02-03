@@ -553,7 +553,7 @@
 
     if-ne v1, v2, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 268
     :cond_0
@@ -578,7 +578,7 @@
     .line 272
     aput v2, v3, v1
 
-    goto :goto_1
+    return-void
 
     .line 274
     :cond_1
@@ -640,7 +640,7 @@
 
     if-gez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 413
     :cond_0
@@ -655,7 +655,7 @@
     .line 415
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/solver/SolverVariableValues;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_0
+    return-void
 
     .line 417
     :cond_1
@@ -790,12 +790,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1230,7 +1229,7 @@
     .line 341
     iput v1, p0, Landroid/support/constraint/solver/SolverVariableValues;->head:I
 
-    goto :goto_2
+    return-void
 
     .line 343
     :cond_1
@@ -1247,7 +1246,7 @@
 
     aput p2, p1, v0
 
-    goto :goto_2
+    return-void
 
     .line 347
     :cond_2
@@ -1322,7 +1321,6 @@
     :goto_1
     invoke-direct {p0, v4, p1, p2}, Landroid/support/constraint/solver/SolverVariableValues;->insertVariable(ILandroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_2
     return-void
 .end method
 

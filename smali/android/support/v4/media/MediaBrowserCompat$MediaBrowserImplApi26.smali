@@ -46,7 +46,7 @@
     :cond_0
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi23;->subscribe(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    goto :goto_1
+    return-void
 
     :cond_1
     :goto_0
@@ -59,7 +59,7 @@
 
     invoke-static {p2, p1, p3}, Landroid/support/v4/media/MediaBrowserCompatApi21;->subscribe(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_1
+    return-void
 
     .line 2008
     :cond_2
@@ -69,7 +69,6 @@
 
     invoke-static {v0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompatApi26;->subscribe(Ljava/lang/Object;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
 
-    :goto_1
     return-void
 .end method
 
@@ -93,7 +92,7 @@
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi23;->unsubscribe(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    goto :goto_1
+    return-void
 
     :cond_1
     :goto_0
@@ -104,7 +103,7 @@
 
     invoke-static {p2, p1}, Landroid/support/v4/media/MediaBrowserCompatApi21;->unsubscribe(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_1
+    return-void
 
     .line 2024
     :cond_2
@@ -114,6 +113,5 @@
 
     invoke-static {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompatApi26;->unsubscribe(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    :goto_1
     return-void
 .end method

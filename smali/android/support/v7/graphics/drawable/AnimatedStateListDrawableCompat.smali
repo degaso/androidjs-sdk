@@ -205,11 +205,9 @@
     if-eqz v1, :cond_0
 
     .line 175
-    new-instance v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;
+    new-instance v2, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;
 
-    invoke-direct {v0}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;-><init>()V
-
-    move-object v2, v0
+    invoke-direct {v2}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;-><init>()V
 
     move-object v3, p0
 
@@ -224,10 +222,12 @@
     .line 176
     invoke-virtual/range {v2 .. v7}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->inflate(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 
-    return-object v0
+    return-object v2
+
+    :cond_0
+    move-object v5, p2
 
     .line 172
-    :cond_0
     new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -235,7 +235,7 @@
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 173
-    invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
+    invoke-interface {v5}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
 
     move-result-object p2
 
@@ -1501,7 +1501,9 @@
 
     move-result p1
 
-    or-int/2addr v0, p1
+    or-int/2addr p1, v0
+
+    return p1
 
     :cond_2
     return v0
@@ -1649,14 +1651,13 @@
     .line 216
     invoke-virtual {v1}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$Transition;->start()V
 
-    goto :goto_0
+    return v0
 
     .line 219
     :cond_1
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->jumpToCurrentState()V
 
     :cond_2
-    :goto_0
     return v0
 .end method
 

@@ -240,9 +240,9 @@
 
     move-object v2, p2
 
-    move-object v3, p4
-
     move-object v5, p3
+
+    move-object v3, p4
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v7/app/AlertController;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;Landroid/graphics/drawable/Drawable;)V
 

@@ -84,7 +84,7 @@
     .line 77
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;->close()V
 
-    goto :goto_0
+    return-void
 
     .line 79
     :cond_0
@@ -137,7 +137,6 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -169,7 +168,7 @@
 
     if-eqz p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 41
     :cond_0
@@ -185,7 +184,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/net/wifi/WifiManager;->startLocalOnlyHotspot(Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;Landroid/os/Handler;)V
 
-    goto :goto_0
+    return-void
 
     .line 65
     :cond_1

@@ -226,7 +226,7 @@
 
     if-nez v2, :cond_0
 
-    return-void
+    goto/16 :goto_0
 
     .line 624
     :cond_0
@@ -267,13 +267,15 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->immediateConnect(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;II)V
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_1
+    move-object v0, p1
 
     .line 673
-    :pswitch_1
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -289,13 +291,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_2
+    move-object v0, p1
 
     .line 669
-    :pswitch_2
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -311,13 +315,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_3
+    move-object v0, p1
 
     .line 665
-    :pswitch_3
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -333,13 +339,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_4
+    move-object v0, p1
 
     .line 661
-    :pswitch_4
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -355,13 +363,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_5
+    move-object v0, p1
 
     .line 641
-    :pswitch_5
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -377,13 +387,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_6
+    move-object v0, p1
 
     .line 637
-    :pswitch_6
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -399,13 +411,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto/16 :goto_0
+    return-void
+
+    :pswitch_7
+    move-object v0, p1
 
     .line 633
-    :pswitch_7
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -421,13 +435,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto :goto_0
+    return-void
+
+    :pswitch_8
+    move-object v0, p1
 
     .line 629
-    :pswitch_8
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -443,13 +459,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto :goto_0
+    return-void
+
+    :pswitch_9
+    move-object v0, p1
 
     .line 657
-    :pswitch_9
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -465,13 +483,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto :goto_0
+    return-void
+
+    :pswitch_a
+    move-object v0, p1
 
     .line 653
-    :pswitch_a
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -487,13 +507,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto :goto_0
+    return-void
+
+    :pswitch_b
+    move-object v0, p1
 
     .line 649
-    :pswitch_b
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -509,13 +531,15 @@
 
     invoke-virtual {p1, p2, v0, v1, p3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;IIZ)Z
 
-    goto :goto_0
+    return-void
+
+    :pswitch_c
+    move-object v0, p1
 
     .line 645
-    :pswitch_c
-    sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
+    sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     move-result-object p1
 
@@ -952,7 +976,7 @@
 
     if-nez v0, :cond_0
 
-    return-object p0
+    goto :goto_0
 
     .line 500
     :cond_0
@@ -975,7 +999,7 @@
     :pswitch_1
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mVerticalBias:F
 
-    goto :goto_0
+    return-object p0
 
     .line 510
     :pswitch_2
@@ -1019,7 +1043,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 255
     :cond_0
@@ -1027,7 +1051,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -1138,13 +1161,13 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto/16 :goto_0
+    return-object p0
 
     .line 575
     :pswitch_0
     iput-object v2, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mBaselineToBaseline:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object p0
 
     .line 568
     :pswitch_1
@@ -1159,7 +1182,7 @@
     .line 571
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottomGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 560
     :pswitch_2
@@ -1174,7 +1197,7 @@
     .line 563
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginTopGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 552
     :pswitch_3
@@ -1189,7 +1212,7 @@
     .line 555
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginEndGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 544
     :pswitch_4
@@ -1204,7 +1227,7 @@
     .line 547
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginStartGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 536
     :pswitch_5
@@ -1219,7 +1242,7 @@
     .line 539
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginRightGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 528
     :pswitch_6
@@ -1234,7 +1257,7 @@
     .line 531
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginLeftGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 580
     :cond_0
@@ -1320,10 +1343,7 @@
     .line 606
     iput v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottomGone:I
 
-    :goto_0
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1446,7 +1466,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 237
     :cond_0
@@ -1454,7 +1474,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -1600,7 +1619,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 210
     :cond_0
@@ -1608,7 +1627,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -1661,43 +1679,43 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_0
+    return-object p0
 
     .line 427
     :pswitch_0
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottom:I
 
-    goto :goto_0
+    return-object p0
 
     .line 423
     :pswitch_1
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginTop:I
 
-    goto :goto_0
+    return-object p0
 
     .line 419
     :pswitch_2
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginEnd:I
 
-    goto :goto_0
+    return-object p0
 
     .line 415
     :pswitch_3
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginStart:I
 
-    goto :goto_0
+    return-object p0
 
     .line 411
     :pswitch_4
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginRight:I
 
-    goto :goto_0
+    return-object p0
 
     .line 407
     :pswitch_5
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginLeft:I
 
-    goto :goto_0
+    return-object p0
 
     .line 434
     :cond_0
@@ -1718,7 +1736,6 @@
     .line 439
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottom:I
 
-    :goto_0
     return-object p0
 
     nop
@@ -1778,43 +1795,43 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_0
+    return-object p0
 
     .line 469
     :pswitch_0
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottomGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 465
     :pswitch_1
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginTopGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 461
     :pswitch_2
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginEndGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 457
     :pswitch_3
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginStartGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 453
     :pswitch_4
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginRightGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 449
     :pswitch_5
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginLeftGone:I
 
-    goto :goto_0
+    return-object p0
 
     .line 476
     :cond_0
@@ -1835,7 +1852,6 @@
     .line 481
     iput p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mMarginBottomGone:I
 
-    :goto_0
     return-object p0
 
     nop
@@ -1870,7 +1886,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 219
     :cond_0
@@ -1878,7 +1894,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -2005,7 +2020,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 228
     :cond_0
@@ -2013,7 +2028,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -2058,7 +2072,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    goto :goto_0
+    return-object p0
 
     .line 246
     :cond_0
@@ -2066,7 +2080,6 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mLast:Landroid/support/constraint/solver/state/State$Constraint;
 
-    :goto_0
     return-object p0
 .end method
 

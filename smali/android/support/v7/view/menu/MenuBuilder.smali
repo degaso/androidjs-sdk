@@ -264,12 +264,10 @@
 .end method
 
 .method private createNewMenuItem(IIIILjava/lang/CharSequence;I)Landroid/support/v7/view/menu/MenuItemImpl;
-    .locals 9
+    .locals 8
 
     .line 466
-    new-instance v8, Landroid/support/v7/view/menu/MenuItemImpl;
-
-    move-object v0, v8
+    new-instance v0, Landroid/support/v7/view/menu/MenuItemImpl;
 
     move-object v1, p0
 
@@ -287,7 +285,7 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/support/v7/view/menu/MenuItemImpl;-><init>(Landroid/support/v7/view/menu/MenuBuilder;IIIILjava/lang/CharSequence;I)V
 
-    return-object v8
+    return-object v0
 .end method
 
 .method private dispatchPresenterUpdate(Z)V
@@ -1050,12 +1048,12 @@
 .end method
 
 .method protected addInternal(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 8
+    .locals 7
 
     .line 447
     invoke-static {p3}, Landroid/support/v7/view/menu/MenuBuilder;->getOrdering(I)I
 
-    move-result v7
+    move-result v4
 
     .line 449
     iget v6, p0, Landroid/support/v7/view/menu/MenuBuilder;->mDefaultShowAsAction:I
@@ -1068,8 +1066,6 @@
 
     move v3, p3
 
-    move v4, v7
-
     move-object v5, p4
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/view/menu/MenuBuilder;->createNewMenuItem(IIIILjava/lang/CharSequence;I)Landroid/support/v7/view/menu/MenuItemImpl;
@@ -1077,7 +1073,7 @@
     move-result-object p1
 
     .line 452
-    iget-object p2, p0, Landroid/support/v7/view/menu/MenuBuilder;->mCurrentMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
+    iget-object p2, v0, Landroid/support/v7/view/menu/MenuBuilder;->mCurrentMenuInfo:Landroid/view/ContextMenu$ContextMenuInfo;
 
     if-eqz p2, :cond_0
 
@@ -1086,9 +1082,9 @@
 
     .line 457
     :cond_0
-    iget-object p2, p0, Landroid/support/v7/view/menu/MenuBuilder;->mItems:Ljava/util/ArrayList;
+    iget-object p2, v0, Landroid/support/v7/view/menu/MenuBuilder;->mItems:Ljava/util/ArrayList;
 
-    invoke-static {p2, v7}, Landroid/support/v7/view/menu/MenuBuilder;->findInsertIndex(Ljava/util/ArrayList;I)I
+    invoke-static {p2, v4}, Landroid/support/v7/view/menu/MenuBuilder;->findInsertIndex(Ljava/util/ArrayList;I)I
 
     move-result p3
 
@@ -1485,12 +1481,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1912,7 +1907,7 @@
 
     if-eq p2, v4, :cond_0
 
-    return-void
+    goto :goto_3
 
     .line 899
     :cond_0
@@ -2035,6 +2030,7 @@
     goto :goto_0
 
     :cond_6
+    :goto_3
     return-void
 .end method
 
@@ -2481,12 +2477,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -2549,7 +2544,7 @@
     :cond_0
     invoke-direct {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->dispatchPresenterUpdate(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 1071
     :cond_1
@@ -2561,7 +2556,6 @@
     iput-boolean v1, p0, Landroid/support/v7/view/menu/MenuBuilder;->mStructureChangedWhileDispatchPrevented:Z
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -2601,7 +2595,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_b
 
     .line 987
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->isEnabled()Z
@@ -2610,7 +2604,7 @@
 
     if-nez v1, :cond_0
 
-    goto :goto_3
+    goto :goto_2
 
     .line 991
     :cond_0
@@ -2647,60 +2641,62 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     .line 996
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->expandActionView()Z
 
     move-result p1
 
-    or-int/2addr v1, p1
+    or-int/2addr p1, v1
 
-    if-eqz v1, :cond_8
+    if-eqz p1, :cond_2
 
     .line 998
     invoke-virtual {p0, v3}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
 
-    goto :goto_2
+    :cond_2
+    return p1
 
     .line 1000
-    :cond_2
+    :cond_3
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->hasSubMenu()Z
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     and-int/lit8 p1, p3, 0x1
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_5
 
     .line 1020
     invoke-virtual {p0, v3}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
 
-    goto :goto_2
+    :cond_5
+    return v1
 
-    :cond_4
+    :cond_6
     :goto_1
     and-int/lit8 p3, p3, 0x4
 
-    if-nez p3, :cond_5
+    if-nez p3, :cond_7
 
     .line 1003
     invoke-virtual {p0, v0}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
 
     .line 1006
-    :cond_5
+    :cond_7
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->hasSubMenu()Z
 
     move-result p3
 
-    if-nez p3, :cond_6
+    if-nez p3, :cond_8
 
     .line 1007
     new-instance p3, Landroid/support/v7/view/menu/SubMenuBuilder;
@@ -2714,37 +2710,36 @@
     invoke-virtual {p1, p3}, Landroid/support/v7/view/menu/MenuItemImpl;->setSubMenu(Landroid/support/v7/view/menu/SubMenuBuilder;)V
 
     .line 1010
-    :cond_6
+    :cond_8
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->getSubMenu()Landroid/view/SubMenu;
 
     move-result-object p1
 
     check-cast p1, Landroid/support/v7/view/menu/SubMenuBuilder;
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_9
 
     .line 1012
     invoke-virtual {v2, p1}, Landroid/support/v4/view/ActionProvider;->onPrepareSubMenu(Landroid/view/SubMenu;)V
 
     .line 1014
-    :cond_7
+    :cond_9
     invoke-direct {p0, p1, p2}, Landroid/support/v7/view/menu/MenuBuilder;->dispatchSubMenuSelected(Landroid/support/v7/view/menu/SubMenuBuilder;Landroid/support/v7/view/menu/MenuPresenter;)Z
 
     move-result p1
 
-    or-int/2addr v1, p1
+    or-int/2addr p1, v1
 
-    if-nez v1, :cond_8
+    if-nez p1, :cond_a
 
     .line 1016
     invoke-virtual {p0, v3}, Landroid/support/v7/view/menu/MenuBuilder;->close(Z)V
 
-    :cond_8
-    :goto_2
-    return v1
+    :cond_a
+    return p1
 
-    :cond_9
-    :goto_3
+    :cond_b
+    :goto_2
     return v0
 .end method
 
@@ -2920,7 +2915,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 411
     :cond_0
@@ -3011,6 +3006,7 @@
     invoke-interface {p1}, Landroid/view/MenuItem;->expandActionView()Z
 
     :cond_4
+    :goto_1
     return-void
 .end method
 
@@ -3421,7 +3417,7 @@
     .line 1301
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method protected setHeaderIconInt(Landroid/graphics/drawable/Drawable;)Landroid/support/v7/view/menu/MenuBuilder;
@@ -3442,7 +3438,7 @@
     .line 1289
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method protected setHeaderTitleInt(I)Landroid/support/v7/view/menu/MenuBuilder;
@@ -3463,7 +3459,7 @@
     .line 1277
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method protected setHeaderTitleInt(Ljava/lang/CharSequence;)Landroid/support/v7/view/menu/MenuBuilder;
@@ -3484,7 +3480,7 @@
     .line 1265
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method protected setHeaderViewInt(Landroid/view/View;)Landroid/support/v7/view/menu/MenuBuilder;
@@ -3505,7 +3501,7 @@
     .line 1313
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public setOptionalIconsVisible(Z)V

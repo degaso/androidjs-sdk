@@ -346,13 +346,12 @@
     .line 205
     invoke-virtual {p1, p3}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    return-object p2
 
     :cond_3
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
-    :goto_0
-    return-object p2
+    return-object p1
 .end method
 
 .method public onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
@@ -363,7 +362,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     .line 259
     check-cast p2, Landroid/os/Bundle;
@@ -412,7 +411,7 @@
 
     sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1
 
     .line 270
     const-string p1, "sharedElement:snapshot:imageMatrix"
@@ -432,27 +431,29 @@
     .line 273
     invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
 
-    goto :goto_0
+    :cond_1
+    return-object v1
 
     .line 275
-    :cond_1
+    :cond_2
     instance-of v0, p2, Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     .line 276
     check-cast p2, Landroid/graphics/Bitmap;
 
     .line 277
-    new-instance v1, Landroid/widget/ImageView;
+    new-instance v0, Landroid/widget/ImageView;
 
-    invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     .line 278
-    invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    :cond_2
-    :goto_0
+    return-object v0
+
+    :cond_3
     return-object v1
 .end method
 

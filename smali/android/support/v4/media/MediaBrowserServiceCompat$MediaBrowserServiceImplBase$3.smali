@@ -99,7 +99,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->notifyChildrenChangedOnHandler(Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_1
+    return-void
 
     :cond_0
     add-int/lit8 v0, v0, 0x1
@@ -107,6 +107,5 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return-void
 .end method

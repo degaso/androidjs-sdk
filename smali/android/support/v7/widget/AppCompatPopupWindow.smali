@@ -106,13 +106,12 @@
     .line 91
     iput-boolean p1, p0, Landroid/support/v7/widget/AppCompatPopupWindow;->mOverlapAnchor:Z
 
-    goto :goto_0
+    return-void
 
     .line 93
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/widget/PopupWindowCompat;->setOverlapAnchor(Landroid/widget/PopupWindow;Z)V
 
-    :goto_0
     return-void
 .end method
 
@@ -190,13 +189,13 @@
     sub-int/2addr p3, v0
 
     :cond_0
-    move v3, p3
-
     move-object v0, p0
 
     move-object v1, p1
 
     move v2, p2
+
+    move v3, p3
 
     move v4, p4
 

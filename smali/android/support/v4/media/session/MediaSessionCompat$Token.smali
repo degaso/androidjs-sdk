@@ -132,7 +132,7 @@
 
     if-nez p0, :cond_1
 
-    goto :goto_0
+    return-object v0
 
     .line 1723
     :cond_1
@@ -142,7 +142,6 @@
 
     invoke-direct {v0, p0, v1, v2}, Landroid/support/v4/media/session/MediaSessionCompat$Token;-><init>(Ljava/lang/Object;Landroid/support/v4/media/session/IMediaSession;Landroid/os/Bundle;)V
 
-    :goto_0
     return-object v0
 .end method
 
@@ -224,13 +223,10 @@
 
     if-nez p1, :cond_2
 
-    goto :goto_0
+    return v0
 
     :cond_2
-    move v0, v2
-
-    :goto_0
-    return v0
+    return v2
 
     .line 1640
     :cond_3

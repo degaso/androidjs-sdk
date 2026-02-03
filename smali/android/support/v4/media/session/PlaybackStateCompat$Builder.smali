@@ -198,9 +198,7 @@
     move-object/from16 v0, p0
 
     .line 1360
-    new-instance v18, Landroid/support/v4/media/session/PlaybackStateCompat;
-
-    move-object/from16 v1, v18
+    new-instance v1, Landroid/support/v4/media/session/PlaybackStateCompat;
 
     iget v2, v0, Landroid/support/v4/media/session/PlaybackStateCompat$Builder;->mState:I
 
@@ -220,25 +218,31 @@
 
     iget-object v14, v0, Landroid/support/v4/media/session/PlaybackStateCompat$Builder;->mCustomActions:Ljava/util/List;
 
-    move-object/from16 v19, v1
+    move-object v15, v1
 
-    move/from16 v20, v2
+    move/from16 v16, v2
 
     iget-wide v1, v0, Landroid/support/v4/media/session/PlaybackStateCompat$Builder;->mActiveItemId:J
 
-    move-wide v15, v1
+    move-wide/from16 v17, v1
 
     iget-object v1, v0, Landroid/support/v4/media/session/PlaybackStateCompat$Builder;->mExtras:Landroid/os/Bundle;
 
+    move/from16 v2, v16
+
+    move-wide/from16 v19, v17
+
     move-object/from16 v17, v1
 
-    move-object/from16 v1, v19
+    move-object v1, v15
 
-    move/from16 v2, v20
+    move-wide/from16 v15, v19
 
     invoke-direct/range {v1 .. v17}, Landroid/support/v4/media/session/PlaybackStateCompat;-><init>(IJJFJILjava/lang/CharSequence;JLjava/util/List;JLandroid/os/Bundle;)V
 
-    return-object v18
+    move-object v15, v1
+
+    return-object v15
 .end method
 
 .method public setActions(J)Landroid/support/v4/media/session/PlaybackStateCompat$Builder;

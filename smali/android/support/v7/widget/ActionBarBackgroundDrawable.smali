@@ -46,7 +46,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    return-void
 
     .line 43
     :cond_0
@@ -85,7 +85,6 @@
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -121,7 +120,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
 
-    goto :goto_0
+    return-void
 
     .line 74
     :cond_0
@@ -139,7 +138,6 @@
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

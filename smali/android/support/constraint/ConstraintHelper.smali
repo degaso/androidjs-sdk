@@ -168,7 +168,7 @@
 
     if-nez v0, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 249
     :cond_1
@@ -212,7 +212,7 @@
     .line 258
     invoke-direct {p0, v0}, Landroid/support/constraint/ConstraintHelper;->addRscID(I)V
 
-    goto :goto_0
+    return-void
 
     .line 260
     :cond_3
@@ -994,7 +994,7 @@
     .line 217
     invoke-super {p0, p1, p2}, Landroid/view/View;->onMeasure(II)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 p1, 0x0
@@ -1002,7 +1002,6 @@
     .line 219
     invoke-virtual {p0, p1, p1}, Landroid/support/constraint/ConstraintHelper;->setMeasuredDimension(II)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1372,7 +1371,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 231
     :cond_0
@@ -1396,5 +1395,6 @@
     iput-object v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     :cond_1
+    :goto_0
     return-void
 .end method

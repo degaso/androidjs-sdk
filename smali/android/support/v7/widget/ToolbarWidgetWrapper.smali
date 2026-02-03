@@ -441,12 +441,11 @@
 
     const/16 v0, 0xf
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/16 v0, 0xb
 
-    :goto_0
     return v0
 .end method
 
@@ -539,7 +538,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(I)V
 
-    goto :goto_0
+    return-void
 
     .line 634
     :cond_0
@@ -550,7 +549,6 @@
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(Ljava/lang/CharSequence;)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -579,7 +577,7 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_1
+    return-void
 
     .line 614
     :cond_1
@@ -589,7 +587,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_1
     return-void
 .end method
 
@@ -736,12 +733,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -757,12 +753,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -859,12 +854,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -891,12 +885,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -910,12 +903,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1106,7 +1098,7 @@
 
     if-ne p1, v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 199
     :cond_0
@@ -1131,6 +1123,7 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->setNavigationContentDescription(I)V
 
     :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -1246,7 +1239,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
 
-    goto :goto_1
+    return-void
 
     .line 414
     :cond_5
@@ -1255,7 +1248,6 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->removeView(Landroid/view/View;)V
 
     :cond_6
-    :goto_1
     return-void
 .end method
 
@@ -1697,7 +1689,7 @@
     .line 493
     iput v0, p1, Landroid/support/v7/widget/Toolbar$LayoutParams;->gravity:I
 
-    goto :goto_1
+    return-void
 
     .line 497
     :cond_3
@@ -1733,7 +1725,6 @@
     invoke-virtual {p1, v1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;I)V
 
     :cond_5
-    :goto_1
     return-void
 .end method
 

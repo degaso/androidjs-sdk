@@ -205,7 +205,10 @@
     :catchall_0
     move-exception p0
 
+    :try_start_2
     monitor-exit v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw p0
 .end method
@@ -407,12 +410,11 @@
     .line 675
     invoke-virtual {p0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    goto :goto_0
+    return-void
 
     .line 678
     :cond_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :goto_0
     return-void
 .end method

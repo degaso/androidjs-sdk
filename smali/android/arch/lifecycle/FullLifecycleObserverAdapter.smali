@@ -39,7 +39,7 @@
 
     packed-switch p2, :pswitch_data_0
 
-    goto :goto_0
+    return-void
 
     .line 49
     :pswitch_0
@@ -57,7 +57,7 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onDestroy(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    return-void
 
     .line 43
     :pswitch_2
@@ -65,7 +65,7 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onStop(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    return-void
 
     .line 40
     :pswitch_3
@@ -73,7 +73,7 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onPause(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    return-void
 
     .line 37
     :pswitch_4
@@ -81,7 +81,7 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onResume(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    return-void
 
     .line 34
     :pswitch_5
@@ -89,7 +89,7 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onStart(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    goto :goto_0
+    return-void
 
     .line 31
     :pswitch_6
@@ -97,7 +97,6 @@
 
     invoke-interface {p2, p1}, Landroid/arch/lifecycle/FullLifecycleObserver;->onCreate(Landroid/arch/lifecycle/LifecycleOwner;)V
 
-    :goto_0
     return-void
 
     :pswitch_data_0

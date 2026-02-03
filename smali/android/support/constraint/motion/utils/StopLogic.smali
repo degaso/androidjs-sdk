@@ -558,57 +558,70 @@
     .line 137
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStartPosition:F
 
-    cmpl-float v1, p1, p2
+    cmpl-float v0, p1, p2
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 138
     :goto_0
-    iput-boolean v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mBackwards:Z
+    iput-boolean v0, p0, Landroid/support/constraint/motion/utils/StopLogic;->mBackwards:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    neg-float v1, p3
+    move v0, p2
 
-    sub-float v2, p1, p2
+    neg-float p2, p3
 
-    move-object v0, p0
+    sub-float p3, p1, v0
 
-    move v3, p5
+    move p1, p6
 
-    move v4, p6
+    move p6, p4
 
-    move v5, p4
+    move p4, p5
+
+    move p5, p1
+
+    move-object p1, p0
 
     .line 140
-    invoke-direct/range {v0 .. v5}, Landroid/support/constraint/motion/utils/StopLogic;->setup(FFFFF)V
+    invoke-direct/range {p1 .. p6}, Landroid/support/constraint/motion/utils/StopLogic;->setup(FFFFF)V
 
-    goto :goto_1
+    return-void
 
     :cond_1
-    sub-float v2, p2, p1
+    move v0, p6
+
+    move p6, p4
+
+    move p4, p5
+
+    move p5, v0
+
+    move v0, p2
+
+    sub-float v2, v0, p1
 
     move-object v0, p0
 
     move v1, p3
 
-    move v3, p5
+    move v3, p4
 
-    move v4, p6
+    move v4, p5
 
-    move v5, p4
+    move v5, p6
 
     .line 142
     invoke-direct/range {v0 .. v5}, Landroid/support/constraint/motion/utils/StopLogic;->setup(FFFFF)V
 
-    :goto_1
     return-void
 .end method
 
@@ -1048,14 +1061,13 @@
 
     sub-float/2addr p1, v0
 
-    goto :goto_0
+    return p1
 
     :cond_0
     iget p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStartPosition:F
 
     add-float/2addr p1, v0
 
-    :goto_0
     return p1
 .end method
 
@@ -1075,7 +1087,7 @@
 
     neg-float v0, v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     iget v0, p0, Landroid/support/constraint/motion/utils/StopLogic;->mLastPosition:F
@@ -1084,7 +1096,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 

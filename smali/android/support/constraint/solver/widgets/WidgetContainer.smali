@@ -197,7 +197,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 161
     :cond_0
@@ -235,6 +235,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return-void
 .end method
 

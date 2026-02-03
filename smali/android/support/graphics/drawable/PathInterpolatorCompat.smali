@@ -61,23 +61,21 @@
 .end method
 
 .method private initCubic(FFFF)V
-    .locals 8
+    .locals 7
 
     .line 130
-    new-instance v7, Landroid/graphics/Path;
+    new-instance v0, Landroid/graphics/Path;
 
-    invoke-direct {v7}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 131
-    invoke-virtual {v7, v0, v0}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/high16 v6, 0x3f800000    # 1.0f
-
-    move-object v0, v7
 
     move v1, p1
 
@@ -91,7 +89,7 @@
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
     .line 133
-    invoke-direct {p0, v7}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initPath(Landroid/graphics/Path;)V
+    invoke-direct {p0, v0}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initPath(Landroid/graphics/Path;)V
 
     return-void
 .end method
@@ -467,7 +465,7 @@
     .line 90
     invoke-direct {p0, p2}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initPath(Landroid/graphics/Path;)V
 
-    goto :goto_0
+    return-void
 
     .line 87
     :cond_0
@@ -547,7 +545,7 @@
     .line 111
     invoke-direct {p0, v0, v1}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initQuad(FF)V
 
-    goto :goto_0
+    return-void
 
     :cond_2
     const/4 v4, 0x2
@@ -567,7 +565,6 @@
     .line 117
     invoke-direct {p0, v0, v1, v2, p1}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initCubic(FFFF)V
 
-    :goto_0
     return-void
 
     .line 106

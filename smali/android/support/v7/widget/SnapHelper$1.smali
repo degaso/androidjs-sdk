@@ -69,16 +69,21 @@
 .method public onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
     .locals 0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_0
+
+    goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
+    :goto_0
     const/4 p1, 0x1
 
     .line 58
     iput-boolean p1, p0, Landroid/support/v7/widget/SnapHelper$1;->mScrolled:Z
 
-    :cond_1
     return-void
 .end method

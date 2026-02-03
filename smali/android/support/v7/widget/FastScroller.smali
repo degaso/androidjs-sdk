@@ -495,7 +495,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     int-to-float v1, v0
@@ -531,7 +531,6 @@
     .line 320
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    :goto_0
     return-void
 .end method
 
@@ -610,24 +609,24 @@
 
     invoke-static {v0, p1}, Ljava/lang/Math;->max(FF)F
 
-    move-result p1
+    move-result v2
 
     .line 472
-    iget v0, p0, Landroid/support/v7/widget/FastScroller;->mHorizontalThumbCenterX:I
+    iget p1, p0, Landroid/support/v7/widget/FastScroller;->mHorizontalThumbCenterX:I
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    sub-float/2addr v0, p1
+    sub-float/2addr p1, v2
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     return-void
 
@@ -635,17 +634,17 @@
     :cond_0
     iget v1, p0, Landroid/support/v7/widget/FastScroller;->mHorizontalDragX:F
 
-    iget-object v0, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object p1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     .line 477
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->computeHorizontalScrollRange()I
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->computeHorizontalScrollRange()I
 
     move-result v4
 
-    iget-object v0, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object p1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     .line 478
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->computeHorizontalScrollOffset()I
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->computeHorizontalScrollOffset()I
 
     move-result v5
 
@@ -653,23 +652,21 @@
 
     move-object v0, p0
 
-    move v2, p1
-
     .line 476
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/FastScroller;->scrollTo(FF[IIII)I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 480
-    iget-object v1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object v1, v0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-virtual {v1, v0, v7}, Landroid/support/v7/widget/RecyclerView;->scrollBy(II)V
+    invoke-virtual {v1, p1, v7}, Landroid/support/v7/widget/RecyclerView;->scrollBy(II)V
 
     .line 483
     :cond_1
-    iput p1, p0, Landroid/support/v7/widget/FastScroller;->mHorizontalDragX:F
+    iput v2, v0, Landroid/support/v7/widget/FastScroller;->mHorizontalDragX:F
 
     return-void
 .end method
@@ -688,13 +685,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method private resetHideDelay(I)V
@@ -810,24 +806,24 @@
 
     invoke-static {v0, p1}, Ljava/lang/Math;->max(FF)F
 
-    move-result p1
+    move-result v2
 
     .line 457
-    iget v0, p0, Landroid/support/v7/widget/FastScroller;->mVerticalThumbCenterY:I
+    iget p1, p0, Landroid/support/v7/widget/FastScroller;->mVerticalThumbCenterY:I
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    sub-float/2addr v0, p1
+    sub-float/2addr p1, v2
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     return-void
 
@@ -835,17 +831,17 @@
     :cond_0
     iget v1, p0, Landroid/support/v7/widget/FastScroller;->mVerticalDragY:F
 
-    iget-object v0, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object p1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     .line 461
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->computeVerticalScrollRange()I
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->computeVerticalScrollRange()I
 
     move-result v4
 
-    iget-object v0, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object p1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     .line 462
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->computeVerticalScrollOffset()I
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->computeVerticalScrollOffset()I
 
     move-result v5
 
@@ -853,23 +849,21 @@
 
     move-object v0, p0
 
-    move v2, p1
-
     .line 460
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/FastScroller;->scrollTo(FF[IIII)I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 464
-    iget-object v1, p0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+    iget-object v1, v0, Landroid/support/v7/widget/FastScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-virtual {v1, v7, v0}, Landroid/support/v7/widget/RecyclerView;->scrollBy(II)V
+    invoke-virtual {v1, v7, p1}, Landroid/support/v7/widget/RecyclerView;->scrollBy(II)V
 
     .line 466
     :cond_1
-    iput p1, p0, Landroid/support/v7/widget/FastScroller;->mVerticalDragY:F
+    iput v2, v0, Landroid/support/v7/widget/FastScroller;->mVerticalDragY:F
 
     return-void
 .end method
@@ -884,7 +878,7 @@
 
     if-ne v0, p1, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
@@ -902,6 +896,7 @@
     invoke-direct {p0}, Landroid/support/v7/widget/FastScroller;->setupCallbacks()V
 
     :cond_2
+    :goto_0
     return-void
 .end method
 
@@ -966,7 +961,7 @@
 
     if-eq v0, v1, :cond_1
 
-    goto :goto_0
+    return-void
 
     .line 255
     :cond_0
@@ -1017,7 +1012,6 @@
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
 
-    :goto_0
     return-void
 .end method
 
@@ -1033,12 +1027,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1052,12 +1045,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1103,12 +1095,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1174,12 +1165,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    return p1
 
     :cond_1
     const/4 p1, 0x0
 
-    :goto_1
     return p1
 .end method
 
@@ -1193,13 +1183,12 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    return v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;)V
@@ -1295,7 +1284,7 @@
 
     const/4 v2, 0x1
 
-    if-ne p1, v2, :cond_3
+    if-ne p1, v2, :cond_4
 
     .line 391
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -1328,11 +1317,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     if-nez p1, :cond_0
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     :cond_0
     if-eqz v3, :cond_1
@@ -1375,15 +1364,17 @@
     :goto_0
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/FastScroller;->setState(I)V
 
-    goto :goto_1
+    return v2
 
     :cond_3
-    if-ne p1, v1, :cond_4
-
-    :goto_1
-    move v0, v2
+    return v0
 
     :cond_4
+    if-ne p1, v1, :cond_5
+
+    return v2
+
+    :cond_5
     return v0
 .end method
 
@@ -1401,7 +1392,7 @@
 
     if-nez p1, :cond_0
 
-    return-void
+    goto/16 :goto_1
 
     .line 422
     :cond_0
@@ -1486,7 +1477,7 @@
     :goto_0
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/FastScroller;->setState(I)V
 
-    goto :goto_1
+    return-void
 
     .line 435
     :cond_4
@@ -1516,7 +1507,7 @@
     .line 439
     iput p1, p0, Landroid/support/v7/widget/FastScroller;->mDragState:I
 
-    goto :goto_1
+    return-void
 
     .line 440
     :cond_5
@@ -1660,7 +1651,7 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 235
     :cond_0
@@ -1720,7 +1711,6 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    :goto_0
     return-void
 .end method
 
@@ -1792,25 +1782,24 @@
     .line 358
     iget-boolean v7, p0, Landroid/support/v7/widget/FastScroller;->mNeedVerticalScrollbar:Z
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_2
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_2
 
     .line 359
     iget p1, p0, Landroid/support/v7/widget/FastScroller;->mState:I
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5
 
     .line 360
     invoke-virtual {p0, v3}, Landroid/support/v7/widget/FastScroller;->setState(I)V
 
-    :cond_2
     return-void
 
-    :cond_3
+    :cond_2
     const/high16 v3, 0x40000000    # 2.0f
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
     int-to-float p2, p2
 
@@ -1843,10 +1832,10 @@
     iput p2, p0, Landroid/support/v7/widget/FastScroller;->mVerticalThumbHeight:I
 
     .line 373
-    :cond_4
+    :cond_3
     iget-boolean p2, p0, Landroid/support/v7/widget/FastScroller;->mNeedHorizontalScrollbar:Z
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_4
 
     int-to-float p1, p1
 
@@ -1879,17 +1868,22 @@
     iput p1, p0, Landroid/support/v7/widget/FastScroller;->mHorizontalThumbWidth:I
 
     .line 381
-    :cond_5
+    :cond_4
     iget p1, p0, Landroid/support/v7/widget/FastScroller;->mState:I
 
     if-eqz p1, :cond_6
 
-    if-ne p1, v4, :cond_7
+    if-ne p1, v4, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    return-void
 
     .line 382
     :cond_6
+    :goto_2
     invoke-virtual {p0, v4}, Landroid/support/v7/widget/FastScroller;->setState(I)V
 
-    :cond_7
     return-void
 .end method

@@ -72,7 +72,7 @@
 
     invoke-virtual {v1, v0}, Landroid/support/constraint/solver/widgets/Guideline;->setGuideBegin(I)V
 
-    goto :goto_0
+    return-void
 
     .line 76
     :cond_0
@@ -85,7 +85,7 @@
 
     invoke-virtual {v1, v0}, Landroid/support/constraint/solver/widgets/Guideline;->setGuideEnd(I)V
 
-    goto :goto_0
+    return-void
 
     .line 79
     :cond_1
@@ -95,7 +95,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/Guideline;->setGuidePercent(F)V
 
-    :goto_0
     return-void
 .end method
 
@@ -194,7 +193,7 @@
 
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/GuidelineReference;->mGuidelineWidget:Landroid/support/constraint/solver/widgets/Guideline;
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/4 p1, 0x0
@@ -202,7 +201,6 @@
     .line 96
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/GuidelineReference;->mGuidelineWidget:Landroid/support/constraint/solver/widgets/Guideline;
 
-    :goto_0
     return-void
 .end method
 

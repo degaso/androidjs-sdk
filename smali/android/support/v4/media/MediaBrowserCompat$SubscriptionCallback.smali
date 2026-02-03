@@ -70,7 +70,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionCallbackObj:Ljava/lang/Object;
 
-    goto :goto_0
+    return-void
 
     .line 704
     :cond_0
@@ -85,7 +85,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionCallbackObj:Ljava/lang/Object;
 
-    :goto_0
     return-void
 .end method
 

@@ -83,7 +83,7 @@
 
     invoke-virtual {p2, p1, v1}, Landroid/support/v7/app/AppCompatDelegateImpl;->closePanel(Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState;Z)V
 
-    goto :goto_1
+    return-void
 
     .line 2222
     :cond_2
@@ -92,7 +92,6 @@
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImpl;->closePanel(Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState;Z)V
 
     :cond_3
-    :goto_1
     return-void
 .end method
 

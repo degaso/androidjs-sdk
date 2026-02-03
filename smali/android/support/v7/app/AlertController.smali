@@ -780,13 +780,12 @@
     :goto_3
     if-eqz v0, :cond_9
 
-    goto :goto_4
+    return-void
 
     .line 824
     :cond_9
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :goto_4
     return-void
 .end method
 
@@ -840,7 +839,7 @@
     .line 730
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 
     :cond_1
     const/16 v1, 0x8
@@ -890,13 +889,12 @@
 
     invoke-virtual {p1, v1, v0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_0
+    return-void
 
     .line 742
     :cond_2
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -961,7 +959,7 @@
     invoke-virtual {v2, v3, v3}, Landroid/view/Window;->setFlags(II)V
 
     :cond_4
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     .line 656
     iget-object v1, p0, Landroid/support/v7/app/AlertController;->mWindow:Landroid/view/Window;
@@ -1003,7 +1001,7 @@
     :cond_5
     iget-object v0, p0, Landroid/support/v7/app/AlertController;->mListView:Landroid/widget/ListView;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     .line 665
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1016,16 +1014,15 @@
 
     iput v0, p1, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->weight:F
 
-    goto :goto_1
-
     :cond_6
+    return-void
+
+    :cond_7
     const/16 v0, 0x8
 
     .line 668
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :cond_7
-    :goto_1
     return-void
 .end method
 
@@ -1067,7 +1064,7 @@
     .line 682
     invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 684
     :cond_0
@@ -1090,9 +1087,7 @@
 
     move-result v0
 
-    xor-int/lit8 v0, v0, 0x1
-
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_3
 
     .line 687
     iget-boolean v0, p0, Landroid/support/v7/app/AlertController;->mShowTitle:Z
@@ -1127,7 +1122,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    goto :goto_0
+    return-void
 
     .line 697
     :cond_1
@@ -1140,7 +1135,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    return-void
 
     .line 702
     :cond_2
@@ -1181,7 +1176,7 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_0
+    return-void
 
     .line 710
     :cond_3
@@ -1204,7 +1199,6 @@
     .line 713
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1528,13 +1522,12 @@
 
     if-eqz p0, :cond_0
 
-    goto :goto_0
+    return v2
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    :goto_0
-    return v2
+    return p0
 .end method
 
 
@@ -1646,12 +1639,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1671,12 +1663,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1716,7 +1707,7 @@
     .line 332
     iput-object p5, p0, Landroid/support/v7/app/AlertController;->mButtonPositiveIcon:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_0
+    return-void
 
     .line 348
     :cond_1
@@ -1738,7 +1729,7 @@
     .line 338
     iput-object p5, p0, Landroid/support/v7/app/AlertController;->mButtonNegativeIcon:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_0
+    return-void
 
     .line 342
     :cond_3
@@ -1750,7 +1741,6 @@
     .line 344
     iput-object p5, p0, Landroid/support/v7/app/AlertController;->mButtonNeutralIcon:Landroid/graphics/drawable/Drawable;
 
-    :goto_0
     return-void
 .end method
 
@@ -1802,7 +1792,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/16 p1, 0x8
@@ -1811,7 +1801,6 @@
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1841,7 +1830,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     const/16 p1, 0x8
@@ -1850,7 +1839,6 @@
     invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

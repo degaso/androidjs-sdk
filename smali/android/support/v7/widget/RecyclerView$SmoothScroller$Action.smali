@@ -187,12 +187,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -311,13 +310,12 @@
     :cond_3
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->mChanged:Z
 
-    goto :goto_1
+    return-void
 
     .line 11884
     :cond_4
     iput v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->mConsecutiveUpdates:I
 
-    :goto_1
     return-void
 .end method
 

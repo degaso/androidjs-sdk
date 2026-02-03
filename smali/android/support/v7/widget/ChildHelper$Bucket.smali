@@ -67,22 +67,23 @@
 
     const/16 v0, 0x40
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_1
 
     .line 422
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     sub-int/2addr p1, v0
 
     .line 423
     invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->clear(I)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 
     .line 426
-    :cond_0
+    :cond_1
     iget-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     const-wide/16 v2, 0x1
@@ -95,8 +96,6 @@
 
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -215,12 +214,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_1
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -241,7 +239,7 @@
 
     invoke-virtual {v1, p1, p2}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
-    goto :goto_2
+    return-void
 
     .line 452
     :cond_0
@@ -300,15 +298,21 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->clear(I)V
 
     :goto_1
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
     .line 462
     iget-object p1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    return-void
 
     .line 463
-    :cond_3
+    :cond_4
+    :goto_2
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 464
@@ -316,8 +320,6 @@
 
     invoke-virtual {p1, v4, v2}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
-    :cond_4
-    :goto_2
     return-void
 .end method
 
@@ -459,7 +461,7 @@
 
     invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
 
-    goto :goto_0
+    return-void
 
     .line 410
     :cond_0
@@ -473,7 +475,6 @@
 
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    :goto_0
     return-void
 .end method
 
@@ -491,7 +492,7 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -529,6 +530,5 @@
 
     move-result-object v0
 
-    :goto_0
     return-object v0
 .end method

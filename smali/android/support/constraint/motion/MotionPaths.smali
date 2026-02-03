@@ -251,10 +251,14 @@
     :cond_0
     invoke-virtual/range {p0 .. p5}, Landroid/support/constraint/motion/MotionPaths;->initScreen(IILandroid/support/constraint/motion/KeyPosition;Landroid/support/constraint/motion/MotionPaths;Landroid/support/constraint/motion/MotionPaths;)V
 
+    move-object p1, p0
+
     return-void
 
-    .line 130
     :cond_1
+    move-object p1, p0
+
+    .line 130
     invoke-virtual {p0, p3, p4, p5}, Landroid/support/constraint/motion/MotionPaths;->initPath(Landroid/support/constraint/motion/KeyPosition;Landroid/support/constraint/motion/MotionPaths;Landroid/support/constraint/motion/MotionPaths;)V
 
     return-void
@@ -280,7 +284,7 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     sub-float/2addr p1, p2
@@ -296,17 +300,14 @@
 
     if-lez p1, :cond_1
 
-    goto :goto_0
+    return v1
 
     :cond_1
-    move v1, v2
-
-    :goto_0
-    return v1
+    return v2
 
     .line 237
     :cond_2
-    :goto_1
+    :goto_0
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result p1
@@ -317,13 +318,10 @@
 
     if-eq p1, p2, :cond_3
 
-    goto :goto_2
+    return v1
 
     :cond_3
-    move v1, v2
-
-    :goto_2
-    return v1
+    return v2
 .end method
 
 .method private static final xRotate(FFFFFF)F
@@ -1066,7 +1064,7 @@
 .end method
 
 .method initCartesian(Landroid/support/constraint/motion/KeyPosition;Landroid/support/constraint/motion/MotionPaths;Landroid/support/constraint/motion/MotionPaths;)V
-    .locals 17
+    .locals 19
 
     move-object/from16 v0, p0
 
@@ -1155,38 +1153,42 @@
 
     add-float/2addr v15, v13
 
+    move/from16 v16, v14
+
     .line 95
-    iget v1, v2, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iget v14, v2, Landroid/support/constraint/motion/MotionPaths;->y:F
 
-    div-float v16, v11, v14
+    div-float v17, v11, v16
 
-    add-float v16, v1, v16
+    add-float v17, v14, v17
+
+    move/from16 v18, v4
 
     .line 96
-    iget v2, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iget v4, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    div-float/2addr v7, v14
+    div-float v7, v7, v16
 
-    add-float/2addr v2, v7
+    add-float/2addr v4, v7
 
     .line 97
     iget v3, v3, Landroid/support/constraint/motion/MotionPaths;->y:F
 
-    div-float/2addr v10, v14
+    div-float v10, v10, v16
 
     add-float/2addr v3, v10
 
-    sub-float/2addr v2, v15
+    sub-float/2addr v4, v15
 
-    sub-float v3, v3, v16
+    sub-float v3, v3, v17
 
-    mul-float v7, v2, v4
+    mul-float v7, v4, v18
 
     add-float/2addr v13, v7
 
     mul-float/2addr v9, v5
 
-    div-float v5, v9, v14
+    div-float v5, v9, v16
 
     sub-float/2addr v13, v5
 
@@ -1197,42 +1199,40 @@
     .line 100
     iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    mul-float v7, v3, v4
+    mul-float v7, v3, v18
 
-    add-float/2addr v1, v7
+    add-float/2addr v14, v7
 
     mul-float/2addr v12, v6
 
-    div-float v6, v12, v14
+    div-float v6, v12, v16
 
-    sub-float/2addr v1, v6
+    sub-float/2addr v14, v6
 
-    float-to-int v1, v1
+    float-to-int v7, v14
 
-    int-to-float v1, v1
+    int-to-float v7, v7
 
     .line 101
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     add-float/2addr v8, v9
 
-    float-to-int v1, v8
+    float-to-int v7, v8
 
-    int-to-float v1, v1
+    int-to-float v7, v7
 
     .line 102
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->width:F
+    iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->width:F
 
     add-float/2addr v11, v12
 
-    float-to-int v1, v11
+    float-to-int v7, v11
 
-    int-to-float v1, v1
+    int-to-float v7, v7
 
     .line 103
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->height:F
-
-    move-object/from16 v1, p1
+    iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->height:F
 
     .line 105
     iget v7, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
@@ -1243,7 +1243,7 @@
 
     if-eqz v7, :cond_2
 
-    move v7, v4
+    move/from16 v7, v18
 
     goto :goto_2
 
@@ -1282,7 +1282,9 @@
     goto :goto_4
 
     :cond_4
-    iget v4, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+    iget v10, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+
+    move/from16 v18, v10
 
     .line 108
     :goto_4
@@ -1305,41 +1307,39 @@
     .line 109
     iput v10, v0, Landroid/support/constraint/motion/MotionPaths;->mMode:I
 
-    move-object/from16 v10, p2
-
     .line 110
-    iget v11, v10, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iget v10, v2, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    mul-float/2addr v7, v2
+    mul-float/2addr v7, v4
 
-    add-float/2addr v11, v7
+    add-float/2addr v10, v7
 
     mul-float/2addr v9, v3
 
-    add-float/2addr v11, v9
+    add-float/2addr v10, v9
 
-    sub-float/2addr v11, v5
+    sub-float/2addr v10, v5
 
-    float-to-int v5, v11
+    float-to-int v5, v10
 
     int-to-float v5, v5
 
     iput v5, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
     .line 111
-    iget v5, v10, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iget v2, v2, Landroid/support/constraint/motion/MotionPaths;->y:F
 
-    mul-float/2addr v2, v8
+    mul-float/2addr v4, v8
 
-    add-float/2addr v5, v2
+    add-float/2addr v2, v4
 
-    mul-float/2addr v3, v4
+    mul-float v3, v3, v18
 
-    add-float/2addr v5, v3
+    add-float/2addr v2, v3
 
-    sub-float/2addr v5, v6
+    sub-float/2addr v2, v6
 
-    float-to-int v2, v5
+    float-to-int v2, v2
 
     int-to-float v2, v2
 
@@ -1363,7 +1363,7 @@
 .end method
 
 .method initPath(Landroid/support/constraint/motion/KeyPosition;Landroid/support/constraint/motion/MotionPaths;Landroid/support/constraint/motion/MotionPaths;)V
-    .locals 16
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -1478,35 +1478,39 @@
 
     add-float/2addr v15, v13
 
+    move/from16 v16, v11
+
     .line 199
-    iget v2, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iget v11, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    iget v1, v3, Landroid/support/constraint/motion/MotionPaths;->width:F
+    move/from16 v17, v4
 
-    div-float/2addr v1, v11
+    iget v4, v3, Landroid/support/constraint/motion/MotionPaths;->width:F
 
-    add-float/2addr v2, v1
+    div-float v4, v4, v16
+
+    add-float/2addr v11, v4
 
     .line 200
-    iget v1, v3, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iget v4, v3, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     iget v3, v3, Landroid/support/constraint/motion/MotionPaths;->height:F
 
-    div-float/2addr v3, v11
+    div-float v3, v3, v16
 
-    add-float/2addr v1, v3
+    add-float/2addr v4, v3
 
-    sub-float/2addr v2, v12
+    sub-float/2addr v11, v12
 
-    sub-float/2addr v1, v15
+    sub-float/2addr v4, v15
 
-    mul-float v3, v2, v4
+    mul-float v3, v11, v17
 
     add-float/2addr v9, v3
 
     mul-float/2addr v7, v5
 
-    div-float v5, v7, v11
+    div-float v5, v7, v16
 
     sub-float/2addr v9, v5
 
@@ -1517,22 +1521,22 @@
     .line 203
     iput v9, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    mul-float/2addr v4, v1
+    mul-float v9, v4, v17
 
-    add-float/2addr v13, v4
+    add-float/2addr v13, v9
 
     mul-float/2addr v8, v6
 
-    div-float v6, v8, v11
+    div-float v6, v8, v16
 
     sub-float/2addr v13, v6
 
-    float-to-int v9, v13
+    float-to-int v12, v13
 
-    int-to-float v9, v9
+    int-to-float v12, v12
 
     .line 204
-    iput v9, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iput v12, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     add-float/2addr v10, v7
 
@@ -1552,83 +1556,79 @@
     .line 206
     iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->height:F
 
-    move-object/from16 v7, p1
-
     .line 207
-    iget v8, v7, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+    iget v7, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    invoke-static {v8}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {v7}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_3
+    if-eqz v7, :cond_3
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     goto :goto_3
 
     :cond_3
-    iget v8, v7, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+    iget v7, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
     :goto_3
-    neg-float v1, v1
+    neg-float v4, v4
 
-    mul-float/2addr v1, v8
+    mul-float/2addr v4, v7
 
-    mul-float/2addr v2, v8
+    mul-float/2addr v11, v7
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
     .line 213
-    iput v8, v0, Landroid/support/constraint/motion/MotionPaths;->mMode:I
-
-    move-object/from16 v8, p2
+    iput v7, v0, Landroid/support/constraint/motion/MotionPaths;->mMode:I
 
     .line 214
-    iget v9, v8, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iget v7, v2, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    add-float/2addr v9, v3
+    add-float/2addr v7, v3
 
-    sub-float/2addr v9, v5
+    sub-float/2addr v7, v5
 
-    float-to-int v3, v9
+    float-to-int v3, v7
 
     int-to-float v3, v3
 
     iput v3, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
     .line 215
-    iget v5, v8, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iget v2, v2, Landroid/support/constraint/motion/MotionPaths;->y:F
 
-    add-float/2addr v5, v4
+    add-float/2addr v2, v9
 
-    sub-float/2addr v5, v6
+    sub-float/2addr v2, v6
 
-    float-to-int v4, v5
+    float-to-int v2, v2
 
-    int-to-float v4, v4
+    int-to-float v2, v2
 
-    add-float/2addr v3, v1
+    add-float/2addr v3, v4
 
     .line 216
     iput v3, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    add-float/2addr v4, v2
+    add-float/2addr v2, v11
 
     .line 217
-    iput v4, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iput v2, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     .line 219
-    iget-object v1, v7, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
+    iget-object v2, v1, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
 
-    invoke-static {v1}, Landroid/support/constraint/motion/utils/Easing;->getInterpolator(Ljava/lang/String;)Landroid/support/constraint/motion/utils/Easing;
+    invoke-static {v2}, Landroid/support/constraint/motion/utils/Easing;->getInterpolator(Ljava/lang/String;)Landroid/support/constraint/motion/utils/Easing;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, v0, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
+    iput-object v2, v0, Landroid/support/constraint/motion/MotionPaths;->mKeyFrameEasing:Landroid/support/constraint/motion/utils/Easing;
 
     .line 220
-    iget v1, v7, Landroid/support/constraint/motion/KeyPosition;->mPathMotionArc:I
+    iget v1, v1, Landroid/support/constraint/motion/KeyPosition;->mPathMotionArc:I
 
     iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->mPathMotionArc:I
 
@@ -1636,7 +1636,7 @@
 .end method
 
 .method initScreen(IILandroid/support/constraint/motion/KeyPosition;Landroid/support/constraint/motion/MotionPaths;Landroid/support/constraint/motion/MotionPaths;)V
-    .locals 17
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -1732,40 +1732,42 @@
 
     add-float v16, v2, v16
 
+    move/from16 v17, v14
+
     .line 157
-    iget v1, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iget v14, v3, Landroid/support/constraint/motion/MotionPaths;->x:F
 
-    div-float/2addr v7, v14
+    div-float v7, v7, v17
 
-    add-float/2addr v1, v7
+    add-float/2addr v14, v7
 
     .line 158
     iget v3, v3, Landroid/support/constraint/motion/MotionPaths;->y:F
 
-    div-float/2addr v10, v14
+    div-float v10, v10, v17
 
     add-float/2addr v3, v10
 
-    sub-float/2addr v1, v15
+    sub-float/2addr v14, v15
 
     sub-float v3, v3, v16
 
-    mul-float/2addr v1, v4
+    mul-float/2addr v14, v4
 
-    add-float/2addr v13, v1
+    add-float/2addr v13, v14
 
     mul-float/2addr v9, v5
 
-    div-float v1, v9, v14
+    div-float v5, v9, v17
 
-    sub-float/2addr v13, v1
+    sub-float/2addr v13, v5
 
-    float-to-int v1, v13
+    float-to-int v5, v13
 
-    int-to-float v1, v1
+    int-to-float v5, v5
 
     .line 161
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
+    iput v5, v0, Landroid/support/constraint/motion/MotionPaths;->x:F
 
     mul-float/2addr v3, v4
 
@@ -1773,41 +1775,39 @@
 
     mul-float/2addr v12, v6
 
-    div-float v1, v12, v14
+    div-float v3, v12, v17
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v2, v3
 
-    float-to-int v1, v2
+    float-to-int v2, v2
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
     .line 162
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
+    iput v2, v0, Landroid/support/constraint/motion/MotionPaths;->y:F
 
     add-float/2addr v8, v9
 
-    float-to-int v1, v8
+    float-to-int v2, v8
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
     .line 163
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->width:F
+    iput v2, v0, Landroid/support/constraint/motion/MotionPaths;->width:F
 
     add-float/2addr v11, v12
 
-    float-to-int v1, v11
+    float-to-int v2, v11
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
     .line 164
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->height:F
+    iput v2, v0, Landroid/support/constraint/motion/MotionPaths;->height:F
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
     .line 166
-    iput v1, v0, Landroid/support/constraint/motion/MotionPaths;->mMode:I
-
-    move-object/from16 v1, p3
+    iput v2, v0, Landroid/support/constraint/motion/MotionPaths;->mMode:I
 
     .line 167
     iget v2, v1, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
@@ -2179,9 +2179,11 @@
     if-nez v2, :cond_3
 
     :cond_2
-    move v9, v8
-
     move/from16 p4, v10
+
+    const/high16 p3, 0x7fc00000    # Float.NaN
+
+    move v10, v8
 
     goto :goto_3
 
@@ -2217,6 +2219,8 @@
 
     move-wide v9, v15
 
+    const/high16 p3, 0x7fc00000    # Float.NaN
+
     double-to-float v2, v9
 
     .line 346
@@ -2226,79 +2230,73 @@
 
     double-to-float v8, v8
 
-    const/4 v9, 0x1
-
-    if-eq v7, v9, :cond_a
-
-    const/4 v10, 0x2
+    const/4 v10, 0x1
 
     if-eq v7, v10, :cond_9
 
-    const/4 v10, 0x3
+    const/4 v9, 0x2
 
-    if-eq v7, v10, :cond_8
+    if-eq v7, v9, :cond_8
 
-    const/4 v10, 0x4
+    const/4 v9, 0x3
 
-    if-eq v7, v10, :cond_7
+    if-eq v7, v9, :cond_7
+
+    const/4 v9, 0x4
+
+    if-eq v7, v9, :cond_6
 
     const/4 v8, 0x5
 
-    if-eq v7, v8, :cond_6
+    if-eq v7, v8, :cond_a
 
     :goto_3
-    move/from16 v10, p4
+    move/from16 v2, p4
 
     goto :goto_4
 
     :cond_6
-    move v10, v2
-
-    goto :goto_4
-
-    :cond_7
-    move/from16 v10, p4
-
     move v6, v2
 
     move v14, v8
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_8
-    move/from16 v10, p4
-
+    :cond_7
     move v5, v2
 
     move v12, v8
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_9
-    move/from16 v10, p4
-
+    :cond_8
     move v4, v2
 
     move v13, v8
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_a
-    move/from16 v10, p4
-
+    :cond_9
     move v3, v2
 
     move v11, v8
 
+    goto :goto_3
+
+    :cond_a
     :goto_4
     add-int/lit8 v7, v7, 0x1
 
-    move v8, v9
+    move v8, v10
+
+    move v10, v2
 
     goto :goto_1
 
     :cond_b
     move/from16 p4, v10
+
+    const/high16 p3, 0x7fc00000    # Float.NaN
 
     .line 377
     invoke-static/range {p4 .. p4}, Ljava/lang/Float;->isNaN(F)Z
@@ -2307,14 +2305,14 @@
 
     if-eqz v2, :cond_c
 
-    const/high16 v2, 0x7fc00000    # Float.NaN
-
     .line 378
-    invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static/range {p3 .. p3}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v7
+    move-result v2
 
-    if-nez v7, :cond_e
+    if-nez v2, :cond_e
+
+    move/from16 v2, p3
 
     .line 379
     invoke-virtual {v1, v2}, Landroid/view/View;->setRotation(F)V
@@ -2322,7 +2320,7 @@
     goto :goto_5
 
     :cond_c
-    const/high16 v2, 0x7fc00000    # Float.NaN
+    move/from16 v2, p3
 
     .line 382
     invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
@@ -2346,9 +2344,9 @@
 
     float-to-double v7, v2
 
-    move/from16 v10, p4
+    move/from16 v2, p4
 
-    float-to-double v9, v10
+    float-to-double v9, v2
 
     float-to-double v12, v13
 
@@ -2397,13 +2395,13 @@
     sub-int v6, v4, v2
 
     .line 414
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v8
 
     if-ne v5, v8, :cond_f
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v8
 

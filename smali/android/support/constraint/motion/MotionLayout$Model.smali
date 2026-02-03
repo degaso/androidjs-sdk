@@ -1015,27 +1015,27 @@
 .end method
 
 .method private setupConstraintWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/ConstraintSet;)V
-    .locals 11
+    .locals 7
 
     .line 2067
-    new-instance v6, Landroid/util/SparseArray;
+    new-instance v5, Landroid/util/SparseArray;
 
-    invoke-direct {v6}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v5}, Landroid/util/SparseArray;-><init>()V
 
     .line 2068
-    new-instance v7, Landroid/support/constraint/Constraints$LayoutParams;
+    new-instance v4, Landroid/support/constraint/Constraints$LayoutParams;
 
     const/4 v0, -0x2
 
-    invoke-direct {v7, v0, v0}, Landroid/support/constraint/Constraints$LayoutParams;-><init>(II)V
+    invoke-direct {v4, v0, v0}, Landroid/support/constraint/Constraints$LayoutParams;-><init>(II)V
 
     .line 2070
-    invoke-virtual {v6}, Landroid/util/SparseArray;->clear()V
+    invoke-virtual {v5}, Landroid/util/SparseArray;->clear()V
 
     const/4 v0, 0x0
 
     .line 2071
-    invoke-virtual {v6, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 2072
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -1044,7 +1044,7 @@
 
     move-result v0
 
-    invoke-virtual {v6, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 2075
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
@@ -1080,7 +1080,7 @@
 
     move-result v2
 
-    invoke-virtual {v6, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto :goto_0
 
@@ -1092,41 +1092,41 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v8
+    move-result-object v6
 
     :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v9, v0
+    move-object v3, v0
 
-    check-cast v9, Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    check-cast v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 2081
-    invoke-virtual {v9}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
+    invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v10, v0
+    move-object v2, v0
 
-    check-cast v10, Landroid/view/View;
+    check-cast v2, Landroid/view/View;
 
     .line 2082
-    invoke-virtual {v10}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    invoke-virtual {p2, v0, v7}, Landroid/support/constraint/ConstraintSet;->applyToLayoutParams(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
+    invoke-virtual {p2, v0, v4}, Landroid/support/constraint/ConstraintSet;->applyToLayoutParams(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
 
     .line 2084
-    invoke-virtual {v10}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v0
 
@@ -1134,10 +1134,10 @@
 
     move-result v0
 
-    invoke-virtual {v9, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setWidth(I)V
+    invoke-virtual {v3, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setWidth(I)V
 
     .line 2085
-    invoke-virtual {v10}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v0
 
@@ -1145,27 +1145,27 @@
 
     move-result v0
 
-    invoke-virtual {v9, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHeight(I)V
+    invoke-virtual {v3, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHeight(I)V
 
     .line 2086
-    instance-of v0, v10, Landroid/support/constraint/ConstraintHelper;
+    instance-of v0, v2, Landroid/support/constraint/ConstraintHelper;
 
     if-eqz v0, :cond_1
 
     .line 2087
-    move-object v0, v10
+    move-object v0, v2
 
     check-cast v0, Landroid/support/constraint/ConstraintHelper;
 
-    invoke-virtual {p2, v0, v9, v7, v6}, Landroid/support/constraint/ConstraintSet;->applyToHelper(Landroid/support/constraint/ConstraintHelper;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
+    invoke-virtual {p2, v0, v3, v4, v5}, Landroid/support/constraint/ConstraintSet;->applyToHelper(Landroid/support/constraint/ConstraintHelper;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 
     .line 2088
-    instance-of v0, v10, Landroid/support/constraint/Barrier;
+    instance-of v0, v2, Landroid/support/constraint/Barrier;
 
     if-eqz v0, :cond_1
 
     .line 2089
-    move-object v0, v10
+    move-object v0, v2
 
     check-cast v0, Landroid/support/constraint/Barrier;
 
@@ -1179,25 +1179,17 @@
 
     move-result v0
 
-    invoke-virtual {v7, v0}, Landroid/support/constraint/Constraints$LayoutParams;->resolveLayoutDirection(I)V
+    invoke-virtual {v4, v0}, Landroid/support/constraint/Constraints$LayoutParams;->resolveLayoutDirection(I)V
 
     .line 2104
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     const/4 v1, 0x0
 
-    move-object v2, v10
-
-    move-object v3, v9
-
-    move-object v4, v7
-
-    move-object v5, v6
-
     invoke-static/range {v0 .. v5}, Landroid/support/constraint/motion/MotionLayout;->access$800(Landroid/support/constraint/motion/MotionLayout;ZLandroid/view/View;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 
     .line 2105
-    invoke-virtual {v10}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v0
 
@@ -1210,17 +1202,17 @@
     if-ne v0, v1, :cond_2
 
     .line 2106
-    invoke-virtual {v10}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
     move-result v0
 
-    invoke-virtual {v9, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVisibility(I)V
+    invoke-virtual {v3, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVisibility(I)V
 
     goto :goto_1
 
     .line 2108
     :cond_2
-    invoke-virtual {v10}, Landroid/view/View;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v0
 
@@ -1228,7 +1220,7 @@
 
     move-result v0
 
-    invoke-virtual {v9, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVisibility(I)V
+    invoke-virtual {v3, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVisibility(I)V
 
     goto :goto_1
 
@@ -1272,7 +1264,7 @@
     check-cast v0, Landroid/support/constraint/solver/widgets/Helper;
 
     .line 2115
-    invoke-virtual {v1, p1, v0, v6}, Landroid/support/constraint/ConstraintHelper;->updatePreLayout(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/Helper;Landroid/util/SparseArray;)V
+    invoke-virtual {v1, p1, v0, v5}, Landroid/support/constraint/ConstraintHelper;->updatePreLayout(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/Helper;Landroid/util/SparseArray;)V
 
     .line 2116
     check-cast v0, Landroid/support/constraint/solver/widgets/VirtualLayout;
@@ -1972,13 +1964,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 

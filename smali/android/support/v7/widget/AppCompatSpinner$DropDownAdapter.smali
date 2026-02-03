@@ -67,7 +67,7 @@
     .line 617
     invoke-interface {p1, p2}, Landroid/widget/ThemedSpinnerAdapter;->setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
 
-    goto :goto_0
+    return-void
 
     .line 619
     :cond_1
@@ -89,7 +89,6 @@
     invoke-interface {p1, p2}, Landroid/support/v7/widget/ThemedSpinnerAdapter;->setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
 
     :cond_2
-    :goto_0
     return-void
 .end method
 
@@ -126,14 +125,13 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     invoke-interface {v0}, Landroid/widget/SpinnerAdapter;->getCount()I
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -147,7 +145,7 @@
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    return-object p1
 
     .line 651
     :cond_0
@@ -155,7 +153,6 @@
 
     move-result-object p1
 
-    :goto_0
     return-object p1
 .end method
 
@@ -169,14 +166,13 @@
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
     invoke-interface {v0, p1}, Landroid/widget/SpinnerAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object p1
 
-    :goto_0
     return-object p1
 .end method
 
@@ -190,14 +186,13 @@
 
     const-wide/16 v0, -0x1
 
-    goto :goto_0
+    return-wide v0
 
     :cond_0
     invoke-interface {v0, p1}, Landroid/widget/SpinnerAdapter;->getItemId(I)J
 
     move-result-wide v0
 
-    :goto_0
     return-wide v0
 .end method
 
@@ -244,12 +239,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -265,12 +259,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

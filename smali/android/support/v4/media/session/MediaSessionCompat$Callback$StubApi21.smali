@@ -110,7 +110,7 @@
     .line 1362
     invoke-virtual {p3, p1, p2}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    goto/16 :goto_1
+    return-void
 
     .line 1364
     :cond_1
@@ -140,7 +140,7 @@
     .line 1365
     invoke-virtual {p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onAddQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    goto/16 :goto_1
+    return-void
 
     .line 1368
     :cond_2
@@ -175,7 +175,7 @@
     .line 1369
     invoke-virtual {p1, p3, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onAddQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;I)V
 
-    goto :goto_1
+    return-void
 
     .line 1373
     :cond_3
@@ -200,7 +200,7 @@
     .line 1374
     invoke-virtual {p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onRemoveQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    goto :goto_1
+    return-void
 
     .line 1377
     :cond_4
@@ -271,7 +271,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onRemoveQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    goto :goto_1
+    return-void
 
     .line 1389
     :cond_6
@@ -281,7 +281,7 @@
     :try_end_2
     .catch Landroid/os/BadParcelableException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_1
+    return-void
 
     .line 1394
     :catch_0
@@ -292,7 +292,6 @@
     invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
-    :goto_1
     return-void
 .end method
 
@@ -332,7 +331,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPlayFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 1476
     :cond_0
@@ -349,7 +348,7 @@
 
     invoke-virtual {p1}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepare()V
 
-    goto/16 :goto_0
+    return-void
 
     .line 1478
     :cond_1
@@ -373,7 +372,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    return-void
 
     .line 1481
     :cond_2
@@ -397,7 +396,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 1484
     :cond_3
@@ -421,7 +420,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 1487
     :cond_4
@@ -445,7 +444,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetCaptioningEnabled(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 1490
     :cond_5
@@ -469,7 +468,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetRepeatMode(I)V
 
-    goto :goto_0
+    return-void
 
     .line 1493
     :cond_6
@@ -493,7 +492,7 @@
 
     invoke-virtual {p2, p1}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetShuffleMode(I)V
 
-    goto :goto_0
+    return-void
 
     .line 1496
     :cond_7
@@ -519,7 +518,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    return-void
 
     .line 1500
     :cond_8
@@ -527,7 +526,6 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    :goto_0
     return-void
 .end method
 

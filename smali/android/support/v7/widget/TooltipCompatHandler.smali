@@ -216,7 +216,7 @@
     .line 102
     invoke-virtual {p0, v1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
-    goto :goto_0
+    return-void
 
     .line 104
     :cond_2
@@ -224,7 +224,6 @@
 
     invoke-direct {v0, p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;-><init>(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method
 

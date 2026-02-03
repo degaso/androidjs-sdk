@@ -423,7 +423,7 @@
 
     invoke-virtual {p1}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteCancelled()V
 
-    goto :goto_0
+    return-void
 
     :cond_0
     if-nez p1, :cond_1
@@ -443,7 +443,7 @@
 
     invoke-virtual {p1, v0}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteFinished([Landroid/print/PageRange;)V
 
-    goto :goto_0
+    return-void
 
     .line 730
     :cond_1
@@ -460,6 +460,5 @@
 
     invoke-virtual {p1, v0}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteFailed(Ljava/lang/CharSequence;)V
 
-    :goto_0
     return-void
 .end method

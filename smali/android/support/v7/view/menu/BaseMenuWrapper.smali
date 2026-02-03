@@ -202,7 +202,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_1
 
     .line 100
     :cond_0
@@ -243,6 +243,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_1
     return-void
 .end method
 
@@ -254,7 +255,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 116
     :cond_0
@@ -292,5 +293,6 @@
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     :cond_2
+    :goto_0
     return-void
 .end method

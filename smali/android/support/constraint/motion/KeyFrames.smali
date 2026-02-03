@@ -125,7 +125,7 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -137,7 +137,6 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
     return-void
 .end method
 
@@ -191,7 +190,7 @@
 
     if-eqz v0, :cond_3
 
-    return-void
+    goto :goto_4
 
     .line 78
     :cond_1

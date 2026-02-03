@@ -79,12 +79,11 @@
     .line 198
     sget-object p0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_RTL_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
     sget-object p0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_LTR_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -170,7 +169,7 @@
 
     iput p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
-    goto :goto_0
+    return-object p0
 
     .line 180
     :cond_0
@@ -180,6 +179,5 @@
 
     iput p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
-    :goto_0
     return-object p0
 .end method

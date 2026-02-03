@@ -537,7 +537,7 @@
 
     iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
 
-    goto :goto_2
+    return-object p0
 
     .line 131
     :cond_2
@@ -552,7 +552,7 @@
 
     iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
-    goto :goto_2
+    return-object p0
 
     .line 126
     :cond_3
@@ -567,7 +567,6 @@
 
     iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
-    :goto_2
     return-object p0
 
     .line 122
@@ -598,7 +597,7 @@
 .end method
 
 .method public centerHorizontally(I)Landroid/support/constraint/ConstraintProperties;
-    .locals 8
+    .locals 16
 
     if-nez p1, :cond_0
 
@@ -616,34 +615,33 @@
 
     const/4 v5, 0x2
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
     .line 209
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
-    const/4 v6, 0x0
+    const/4 v14, 0x0
 
-    const/high16 v7, 0x3f000000    # 0.5f
+    const/high16 v15, 0x3f000000    # 0.5f
 
-    const/4 v2, 0x2
+    const/4 v10, 0x2
 
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
-    const/4 v5, 0x1
+    const/4 v13, 0x1
 
-    move-object v0, p0
+    move/from16 v12, p1
 
-    move v1, p1
+    move-object/from16 v8, p0
 
-    move v4, p1
+    move/from16 v9, p1
 
     .line 211
-    invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual/range {v8 .. v15}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -669,7 +667,7 @@
 .end method
 
 .method public centerHorizontallyRtl(I)Landroid/support/constraint/ConstraintProperties;
-    .locals 8
+    .locals 16
 
     if-nez p1, :cond_0
 
@@ -687,34 +685,33 @@
 
     const/4 v5, 0x7
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
     .line 224
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
-    const/4 v6, 0x0
+    const/4 v14, 0x0
 
-    const/high16 v7, 0x3f000000    # 0.5f
+    const/high16 v15, 0x3f000000    # 0.5f
 
-    const/4 v2, 0x7
+    const/4 v10, 0x7
 
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
-    const/4 v5, 0x6
+    const/4 v13, 0x6
 
-    move-object v0, p0
+    move/from16 v12, p1
 
-    move v1, p1
+    move-object/from16 v8, p0
 
-    move v4, p1
+    move/from16 v9, p1
 
     .line 226
-    invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual/range {v8 .. v15}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -740,7 +737,7 @@
 .end method
 
 .method public centerVertically(I)Landroid/support/constraint/ConstraintProperties;
-    .locals 8
+    .locals 16
 
     if-nez p1, :cond_0
 
@@ -758,34 +755,33 @@
 
     const/4 v5, 0x4
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
     .line 239
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    goto :goto_0
+    return-object p0
 
     :cond_0
-    const/4 v6, 0x0
+    const/4 v14, 0x0
 
-    const/high16 v7, 0x3f000000    # 0.5f
+    const/high16 v15, 0x3f000000    # 0.5f
 
-    const/4 v2, 0x4
+    const/4 v10, 0x4
 
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
-    const/4 v5, 0x3
+    const/4 v13, 0x3
 
-    move-object v0, p0
+    move/from16 v12, p1
 
-    move v1, p1
+    move-object/from16 v8, p0
 
-    move v4, p1
+    move/from16 v9, p1
 
     .line 241
-    invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual/range {v8 .. v15}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
-    :goto_0
     return-object p0
 .end method
 
@@ -912,7 +908,7 @@
 
     invoke-virtual {p1, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
-    goto/16 :goto_6
+    return-object p0
 
     .line 998
     :cond_1
@@ -976,7 +972,7 @@
 
     invoke-virtual {p1, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
-    goto/16 :goto_6
+    return-object p0
 
     .line 984
     :cond_3
@@ -1036,7 +1032,7 @@
 
     iput v8, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
-    goto/16 :goto_6
+    return-object p0
 
     .line 973
     :cond_4
@@ -1110,7 +1106,7 @@
 
     iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
 
-    goto/16 :goto_6
+    return-object p0
 
     .line 961
     :cond_6
@@ -1184,7 +1180,7 @@
 
     iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
-    goto :goto_6
+    return-object p0
 
     .line 945
     :cond_8
@@ -1248,7 +1244,7 @@
 
     iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    goto :goto_6
+    return-object p0
 
     .line 930
     :cond_a
@@ -1312,7 +1308,6 @@
 
     iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    :goto_6
     return-object p0
 
     .line 916
@@ -1487,7 +1482,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 358
     :pswitch_1
@@ -1495,7 +1490,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 356
     :pswitch_2
@@ -1513,7 +1508,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 350
     :pswitch_4
@@ -1521,7 +1516,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 347
     :pswitch_5
@@ -1529,7 +1524,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 344
     :pswitch_6
@@ -1537,7 +1532,6 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
-    :goto_0
     return-object p0
 
     nop
@@ -1607,7 +1601,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
-    goto :goto_0
+    return-object p0
 
     .line 323
     :pswitch_1
@@ -1615,7 +1609,7 @@
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
-    goto :goto_0
+    return-object p0
 
     .line 321
     :pswitch_2
@@ -1633,7 +1627,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 315
     :pswitch_4
@@ -1641,7 +1635,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 312
     :pswitch_5
@@ -1649,7 +1643,7 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 309
     :pswitch_6
@@ -1657,7 +1651,6 @@
 
     iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    :goto_0
     return-object p0
 
     nop
@@ -1711,7 +1704,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 282
     :pswitch_1
@@ -1734,7 +1727,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 279
     :pswitch_2
@@ -1742,7 +1735,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
-    goto :goto_0
+    return-object p0
 
     .line 273
     :pswitch_3
@@ -1765,7 +1758,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 267
     :pswitch_4
@@ -1788,7 +1781,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 261
     :pswitch_5
@@ -1811,7 +1804,7 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
-    goto :goto_0
+    return-object p0
 
     .line 255
     :pswitch_6
@@ -1834,7 +1827,6 @@
 
     iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
-    :goto_0
     return-object p0
 
     nop
@@ -1995,7 +1987,7 @@
     .line 891
     invoke-virtual {p0, v5}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
-    goto :goto_3
+    return-object p0
 
     .line 847
     :cond_6
@@ -2103,7 +2095,6 @@
     .line 865
     invoke-virtual {p0, v8}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
-    :goto_3
     return-object p0
 .end method
 

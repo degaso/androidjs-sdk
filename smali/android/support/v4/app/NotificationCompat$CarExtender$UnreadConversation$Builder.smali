@@ -101,7 +101,7 @@
     aput-object v1, v6, v0
 
     .line 5008
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
+    new-instance v1, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;
 
     iget-object v3, p0, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation$Builder;->mRemoteInput:Landroid/support/v4/app/RemoteInput;
 
@@ -111,11 +111,9 @@
 
     iget-wide v7, p0, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation$Builder;->mLatestTimestamp:J
 
-    move-object v1, v0
-
     invoke-direct/range {v1 .. v8}, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;-><init>([Ljava/lang/String;Landroid/support/v4/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public setLatestTimestamp(J)Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation$Builder;

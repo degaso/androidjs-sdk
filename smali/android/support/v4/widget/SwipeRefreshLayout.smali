@@ -412,7 +412,7 @@
     .line 1103
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/SwipeRefreshLayout;->startScaleDownReturnToStartAnimation(ILandroid/view/animation/Animation$AnimationListener;)V
 
-    goto :goto_0
+    return-void
 
     .line 1105
     :cond_0
@@ -457,7 +457,6 @@
 
     invoke-virtual {p1, p2}, Landroid/support/v4/widget/CircleImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    :goto_0
     return-void
 .end method
 
@@ -550,7 +549,7 @@
     .line 591
     iput-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
 
-    goto :goto_1
+    return-void
 
     :cond_0
     add-int/lit8 v0, v0, 0x1
@@ -558,7 +557,6 @@
     goto :goto_0
 
     :cond_1
-    :goto_1
     return-void
 .end method
 
@@ -577,7 +575,7 @@
     .line 969
     invoke-direct {p0, p1, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->setRefreshing(ZZ)V
 
-    goto :goto_1
+    return-void
 
     :cond_0
     const/4 p1, 0x0
@@ -618,7 +616,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable;->setArrowEnabled(Z)V
 
-    :goto_1
     return-void
 .end method
 
@@ -642,12 +639,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1034,7 +1030,7 @@
 
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/SwipeRefreshLayout;->animateOffsetToCorrectPosition(ILandroid/view/animation/Animation$AnimationListener;)V
 
-    goto :goto_0
+    return-void
 
     .line 472
     :cond_0
@@ -1043,7 +1039,6 @@
     invoke-virtual {p0, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->startScaleDownAnimation(Landroid/view/animation/Animation$AnimationListener;)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1387,7 +1382,7 @@
 
     if-gez v0, :cond_0
 
-    return p2
+    goto :goto_0
 
     :cond_0
     add-int/lit8 p1, p1, -0x1
@@ -1402,6 +1397,7 @@
     add-int/lit8 p2, p2, 0x1
 
     :cond_2
+    :goto_0
     return p2
 .end method
 
@@ -1722,7 +1718,7 @@
 
     if-nez p3, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 614
     :cond_0
@@ -1739,6 +1735,7 @@
 
     if-nez p3, :cond_2
 
+    :goto_0
     return-void
 
     .line 621
@@ -1839,7 +1836,7 @@
 
     if-nez p1, :cond_1
 
-    return-void
+    goto :goto_1
 
     .line 642
     :cond_1
@@ -1937,7 +1934,7 @@
     .line 651
     iput p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mCircleViewIndex:I
 
-    goto :goto_1
+    return-void
 
     :cond_2
     add-int/lit8 p1, p1, 0x1
@@ -2116,13 +2113,13 @@
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/SwipeRefreshLayout;->dispatchNestedScroll(IIII[I)Z
 
     .line 842
-    iget-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mParentOffsetInWindow:[I
+    iget-object p1, v0, Landroid/support/v4/widget/SwipeRefreshLayout;->mParentOffsetInWindow:[I
 
     const/4 p2, 0x1
 
     aget p1, p1, p2
 
-    add-int/2addr p5, p1
+    add-int p5, v4, p1
 
     if-gez p5, :cond_0
 
@@ -2134,7 +2131,7 @@
     if-nez p1, :cond_0
 
     .line 844
-    iget p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
+    iget p1, v0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
 
     invoke-static {p5}, Ljava/lang/Math;->abs(I)I
 
@@ -2144,7 +2141,7 @@
 
     add-float/2addr p1, p2
 
-    iput p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
+    iput p1, v0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
 
     .line 845
     invoke-direct {p0, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->moveSpinner(F)V
@@ -2203,12 +2200,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -2498,13 +2494,12 @@
 
     if-nez v0, :cond_0
 
-    goto :goto_0
+    return-void
 
     .line 757
     :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->requestDisallowInterceptTouchEvent(Z)V
 
-    :goto_0
     return-void
 .end method
 
@@ -2838,13 +2833,12 @@
 
     invoke-direct {p0, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->startScaleUpAnimation(Landroid/view/animation/Animation$AnimationListener;)V
 
-    goto :goto_1
+    return-void
 
     .line 434
     :cond_1
     invoke-direct {p0, p1, v0}, Landroid/support/v4/widget/SwipeRefreshLayout;->setRefreshing(ZZ)V
 
-    :goto_1
     return-void
 .end method
 

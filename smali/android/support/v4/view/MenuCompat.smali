@@ -26,7 +26,7 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenu;->setGroupDividerEnabled(Z)V
 
-    goto :goto_0
+    return-void
 
     .line 50
     :cond_0
@@ -40,7 +40,6 @@
     invoke-interface {p0, p1}, Landroid/view/Menu;->setGroupDividerEnabled(Z)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

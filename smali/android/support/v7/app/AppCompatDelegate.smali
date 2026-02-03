@@ -147,13 +147,12 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    return-void
 
     .line 471
     :cond_0
     sput p0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
 
-    :goto_0
     return-void
 .end method
 

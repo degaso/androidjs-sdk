@@ -153,25 +153,25 @@
 
 # virtual methods
 .method draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 8
+    .locals 7
 
     .line 692
-    iget-object v6, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mTempBounds:Landroid/graphics/RectF;
+    iget-object v1, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mTempBounds:Landroid/graphics/RectF;
 
     .line 693
     iget v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mRingCenterRadius:F
 
-    iget v1, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
+    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 v3, 0x40000000    # 2.0f
 
-    div-float/2addr v1, v2
+    div-float/2addr v2, v3
 
-    add-float/2addr v1, v0
+    add-float/2addr v2, v0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    cmpg-float v0, v0, v3
+    cmpg-float v0, v0, v4
 
     if-gtz v0, :cond_0
 
@@ -182,35 +182,35 @@
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     int-to-float v0, v0
 
-    div-float/2addr v0, v2
+    div-float/2addr v0, v3
 
-    iget v1, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mArrowWidth:I
+    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mArrowWidth:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    iget v3, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mArrowScale:F
+    iget v4, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mArrowScale:F
 
-    mul-float/2addr v1, v3
+    mul-float/2addr v2, v4
 
-    div-float/2addr v1, v2
+    div-float/2addr v2, v3
 
-    iget v3, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
+    iget v4, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
 
-    div-float/2addr v3, v2
+    div-float/2addr v4, v3
 
-    invoke-static {v1, v3}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v2, v4}, Ljava/lang/Math;->max(FF)F
 
-    move-result v1
+    move-result v2
 
-    sub-float v1, v0, v1
+    sub-float v2, v0, v2
 
     .line 699
     :cond_0
@@ -220,25 +220,25 @@
 
     int-to-float v0, v0
 
-    sub-float/2addr v0, v1
+    sub-float/2addr v0, v2
 
     .line 700
     invoke-virtual {p2}, Landroid/graphics/Rect;->centerY()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    sub-float/2addr v3, v1
-
-    .line 701
-    invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
 
     move-result v4
 
     int-to-float v4, v4
 
-    add-float/2addr v4, v1
+    sub-float/2addr v4, v2
+
+    .line 701
+    invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    add-float/2addr v5, v2
 
     .line 702
     invoke-virtual {p2}, Landroid/graphics/Rect;->centerY()I
@@ -247,10 +247,10 @@
 
     int-to-float p2, p2
 
-    add-float/2addr p2, v1
+    add-float/2addr p2, v2
 
     .line 699
-    invoke-virtual {v6, v0, v3, v4, p2}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v1, v0, v4, v5, p2}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 704
     iget p2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStartTrim:F
@@ -259,64 +259,66 @@
 
     add-float/2addr p2, v0
 
-    const/high16 v1, 0x43b40000    # 360.0f
+    const/high16 v2, 0x43b40000    # 360.0f
 
-    mul-float/2addr p2, v1
+    mul-float/2addr p2, v2
 
     .line 705
-    iget v3, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mEndTrim:F
+    iget v4, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mEndTrim:F
 
-    add-float/2addr v3, v0
+    add-float/2addr v4, v0
 
-    mul-float/2addr v3, v1
+    mul-float/2addr v4, v2
 
-    sub-float v7, v3, p2
+    sub-float/2addr v4, p2
 
     .line 708
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mPaint:Landroid/graphics/Paint;
 
-    iget v1, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mCurrentColor:I
+    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mCurrentColor:I
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 709
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mPaint:Landroid/graphics/Paint;
 
-    iget v1, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mAlpha:I
+    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mAlpha:I
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 712
     iget v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
 
-    div-float/2addr v0, v2
+    div-float/2addr v0, v3
 
     .line 713
-    invoke-virtual {v6, v0, v0}, Landroid/graphics/RectF;->inset(FF)V
+    invoke-virtual {v1, v0, v0}, Landroid/graphics/RectF;->inset(FF)V
 
     .line 714
-    invoke-virtual {v6}, Landroid/graphics/RectF;->centerX()F
+    invoke-virtual {v1}, Landroid/graphics/RectF;->centerX()F
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v6}, Landroid/graphics/RectF;->centerY()F
+    invoke-virtual {v1}, Landroid/graphics/RectF;->centerY()F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v6}, Landroid/graphics/RectF;->width()F
+    invoke-virtual {v1}, Landroid/graphics/RectF;->width()F
 
-    move-result v4
+    move-result v6
 
-    div-float/2addr v4, v2
+    div-float/2addr v6, v3
 
-    iget-object v2, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mCirclePaint:Landroid/graphics/Paint;
+    iget-object v3, p0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->mCirclePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v1, v3, v4, v2}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v2, v5, v6, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     neg-float v0, v0
 
     .line 716
-    invoke-virtual {v6, v0, v0}, Landroid/graphics/RectF;->inset(FF)V
+    invoke-virtual {v1, v0, v0}, Landroid/graphics/RectF;->inset(FF)V
+
+    move v3, v4
 
     const/4 v4, 0x0
 
@@ -325,16 +327,12 @@
 
     move-object v0, p1
 
-    move-object v1, v6
-
     move v2, p2
-
-    move v3, v7
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
     .line 720
-    invoke-virtual {p0, p1, p2, v7, v6}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->drawTriangle(Landroid/graphics/Canvas;FFLandroid/graphics/RectF;)V
+    invoke-virtual {p0, v0, v2, v3, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->drawTriangle(Landroid/graphics/Canvas;FFLandroid/graphics/RectF;)V
 
     return-void
 .end method

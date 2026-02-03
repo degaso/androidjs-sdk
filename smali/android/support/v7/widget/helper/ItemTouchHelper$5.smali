@@ -45,7 +45,7 @@
 
     if-nez v0, :cond_0
 
-    return p2
+    goto :goto_0
 
     .line 1300
     :cond_0
@@ -85,11 +85,11 @@
     :cond_2
     if-ge p2, v0, :cond_3
 
-    goto :goto_0
+    :goto_0
+    return p2
 
     :cond_3
     add-int/lit8 p2, p2, 0x1
 
-    :goto_0
     return p2
 .end method

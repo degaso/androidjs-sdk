@@ -409,7 +409,7 @@
 
     if-eqz v2, :cond_1
 
-    return-void
+    goto/16 :goto_2
 
     .line 524
     :cond_1
@@ -423,7 +423,7 @@
 
     if-nez v2, :cond_2
 
-    goto :goto_2
+    goto :goto_3
 
     .line 531
     :cond_2
@@ -552,11 +552,12 @@
     invoke-direct {p0, p1}, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager;->scheduleListenerRetry(Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;)V
 
     :cond_6
+    :goto_2
     return-void
 
     .line 526
     :cond_7
-    :goto_2
+    :goto_3
     invoke-direct {p0, p1}, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager;->scheduleListenerRetry(Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;)V
 
     return-void
@@ -738,7 +739,7 @@
 
     if-eqz v1, :cond_0
 
-    return-void
+    goto/16 :goto_3
 
     .line 416
     :cond_0
@@ -1010,6 +1011,7 @@
     goto :goto_2
 
     :cond_9
+    :goto_3
     return-void
 .end method
 

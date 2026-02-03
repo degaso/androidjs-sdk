@@ -189,7 +189,7 @@
     .line 2265
     iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
-    goto :goto_0
+    return-void
 
     .line 2267
     :cond_0
@@ -206,7 +206,6 @@
 
     iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager$LayoutState;->mCurrentPosition:I
 
-    :goto_0
     return-void
 .end method
 
@@ -226,12 +225,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -414,13 +412,13 @@
     :cond_1
     if-ge v5, v2, :cond_3
 
-    move-object v1, v4
-
     if-nez v5, :cond_2
 
-    goto :goto_2
+    return-object v4
 
     :cond_2
+    move-object v1, v4
+
     move v2, v5
 
     :cond_3
@@ -430,6 +428,5 @@
     goto :goto_0
 
     :cond_4
-    :goto_2
     return-object v1
 .end method

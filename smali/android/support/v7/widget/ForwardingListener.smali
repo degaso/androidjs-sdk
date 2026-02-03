@@ -217,7 +217,7 @@
 
     if-eqz p1, :cond_3
 
-    move v2, v1
+    return v1
 
     :cond_3
     :goto_1
@@ -420,12 +420,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -576,7 +575,7 @@
 
     if-nez v1, :cond_1
 
-    return-void
+    goto :goto_0
 
     .line 240
     :cond_1
@@ -591,7 +590,7 @@
     .line 243
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v5
+    move-result-wide v3
 
     const/4 v9, 0x0
 
@@ -601,7 +600,7 @@
 
     const/4 v8, 0x0
 
-    move-wide v3, v5
+    move-wide v5, v3
 
     .line 244
     invoke-static/range {v3 .. v10}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -687,7 +686,7 @@
     .line 103
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v2
 
     const/4 v8, 0x0
 
@@ -697,7 +696,7 @@
 
     const/4 v7, 0x0
 
-    move-wide v2, v4
+    move-wide v4, v2
 
     .line 104
     invoke-static/range {v2 .. v9}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
@@ -724,7 +723,7 @@
     goto :goto_3
 
     :cond_5
-    move v0, v1
+    return v1
 
     :cond_6
     :goto_3

@@ -71,20 +71,25 @@
 
     iget v0, p0, Landroid/support/v4/text/util/FindAddress$ZipRange;->mHigh:I
 
-    if-le p1, v0, :cond_1
+    if-le p1, v0, :cond_2
 
     :cond_0
     iget v0, p0, Landroid/support/v4/text/util/FindAddress$ZipRange;->mException1:I
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_2
 
     iget v0, p0, Landroid/support/v4/text/util/FindAddress$ZipRange;->mException2:I
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1
+
+    goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    return v1
 
     :cond_2
-    return v1
+    :goto_0
+    const/4 p1, 0x1
+
+    return p1
 .end method

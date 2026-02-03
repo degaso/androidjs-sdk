@@ -69,10 +69,10 @@
     .locals 8
 
     .line 30
-    const-string v0, "\"}"
+    const-string v1, "\"}"
 
     .line 0
-    const-string v1, "{\"error\": false, \"latitude\": \""
+    const-string v0, "{\"error\": false, \"latitude\": \""
 
     .line 30
     invoke-direct {p0}, Lcom/android/js/api/Location;->isGPSEnable()Ljava/lang/Boolean;
@@ -108,6 +108,8 @@
     iget-object v2, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
 
     const-string v3, "gps"
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     const-wide/32 v4, 0xea60
 
@@ -115,69 +117,70 @@
 
     move-object v7, p0
 
+    :try_start_1
     invoke-virtual/range {v2 .. v7}, Landroid/location/LocationManager;->requestLocationUpdates(Ljava/lang/String;JFLandroid/location/LocationListener;)V
 
     .line 42
-    iget-object v2, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    iget-object v2, v7, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     const-string v3, "{\"error\": true, \"err\": \"Please try again..\"}"
 
     if-eqz v2, :cond_1
 
     .line 43
-    :try_start_1
+    :try_start_2
     const-string v4, "gps"
 
     invoke-virtual {v2, v4}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
+    iput-object v2, v7, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
     if-eqz v2, :cond_1
 
     .line 45
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
+    iget-object v0, v7, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
-    invoke-virtual {v1}, Landroid/location/Location;->getLatitude()D
+    invoke-virtual {v0}, Landroid/location/Location;->getLatitude()D
 
     move-result-wide v3
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
     const-string v2, "\", \"longitude\": \""
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
+    iget-object v2, v7, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
     invoke-virtual {v2}, Landroid/location/Location;->getLongitude()D
 
     move-result-wide v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     return-object v0
 
@@ -185,10 +188,18 @@
     return-object v3
 
     :catch_0
-    move-exception v1
+    move-exception v0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    move-object v7, p0
 
     .line 53
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    :goto_0
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 54
     new-instance v2, Ljava/lang/StringBuilder;
@@ -197,15 +208,15 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -215,8 +226,10 @@
 
     return-object v0
 
-    .line 57
     :cond_2
+    move-object v7, p0
+
+    .line 57
     const-string v0, "{\"error\": true, \"msg\": \"GPS is disabled\"}"
 
     return-object v0

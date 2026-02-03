@@ -309,7 +309,7 @@
 
     iput-object p1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    goto :goto_0
+    return-void
 
     .line 1741
     :cond_0
@@ -317,7 +317,6 @@
 
     invoke-static {v0, p1}, Landroid/support/v4/graphics/PathParser;->updateNodes([Landroid/support/v4/graphics/PathParser$PathDataNode;[Landroid/support/v4/graphics/PathParser$PathDataNode;)V
 
-    :goto_0
     return-void
 .end method
 

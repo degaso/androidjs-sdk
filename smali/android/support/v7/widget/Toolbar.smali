@@ -783,13 +783,12 @@
 
     invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    return-void
 
     .line 1405
     :cond_2
     invoke-virtual {p0, p1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :goto_1
     return-void
 .end method
 
@@ -1039,7 +1038,7 @@
 
     if-ne v0, v1, :cond_0
 
-    move v2, v3
+    return v3
 
     :cond_0
     return v2
@@ -1404,13 +1403,12 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_1
+    return p1
 
     :cond_1
     :goto_0
     const/4 p1, 0x1
 
-    :goto_1
     return p1
 .end method
 
@@ -1430,12 +1428,11 @@
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    return p0
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
@@ -1894,12 +1891,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1966,12 +1962,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1991,12 +1986,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -2243,12 +2237,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2262,7 +2255,7 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return v0
 
     .line 1270
     :cond_0
@@ -2270,7 +2263,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2286,12 +2278,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2307,12 +2298,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2328,12 +2318,11 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2347,7 +2336,7 @@
 
     if-eq v0, v1, :cond_0
 
-    goto :goto_0
+    return v0
 
     .line 1227
     :cond_0
@@ -2355,7 +2344,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2398,7 +2386,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     .line 1327
     :cond_0
@@ -2406,7 +2394,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2427,7 +2414,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     .line 1342
     :cond_0
@@ -2435,7 +2422,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2456,7 +2442,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     .line 1357
     :cond_0
@@ -2464,7 +2450,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2495,7 +2480,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     .line 1308
     :cond_0
@@ -2503,7 +2488,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 
@@ -2519,12 +2503,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -2540,12 +2523,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -2577,12 +2559,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -2598,12 +2579,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -2742,12 +2722,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2767,12 +2746,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2809,12 +2787,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2834,12 +2811,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -2965,12 +2941,12 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 19
+    .locals 18
 
     move-object/from16 v0, p0
 
     .line 1705
-    invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v1
 
@@ -2989,32 +2965,32 @@
 
     .line 1706
     :goto_0
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getWidth()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getWidth()I
 
     move-result v4
 
     .line 1707
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getHeight()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getHeight()I
 
     move-result v5
 
     .line 1708
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingLeft()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getPaddingLeft()I
 
     move-result v6
 
     .line 1709
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingRight()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getPaddingRight()I
 
     move-result v7
 
     .line 1710
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
 
     move-result v8
 
     .line 1711
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingBottom()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getPaddingBottom()I
 
     move-result v9
 
@@ -3029,7 +3005,7 @@
     aput v2, v11, v2
 
     .line 1719
-    invoke-static/range {p0 .. p0}, Landroid/support/v4/view/ViewCompat;->getMinimumHeight(Landroid/view/View;)I
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->getMinimumHeight(Landroid/view/View;)I
 
     move-result v12
 
@@ -3150,14 +3126,16 @@
     .line 1752
     :cond_7
     :goto_5
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetLeft()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetLeft()I
 
     move-result v15
 
     .line 1753
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetRight()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetRight()I
 
     move-result v16
+
+    move/from16 p1, v3
 
     sub-int v3, v15, v13
 
@@ -3177,9 +3155,7 @@
 
     move-result v3
 
-    const/16 v17, 0x1
-
-    aput v3, v11, v17
+    aput v3, v11, p1
 
     .line 1756
     invoke-static {v13, v15}, Ljava/lang/Math;->max(II)I
@@ -3281,309 +3257,300 @@
     .line 1784
     iget v2, v15, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    move/from16 p4, v7
+    move/from16 p4, v1
 
-    iget-object v7, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredHeight()I
 
-    move-result v7
+    move-result v1
 
-    add-int/2addr v2, v7
+    add-int/2addr v2, v1
 
-    iget v7, v15, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
+    iget v1, v15, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    add-int/2addr v2, v7
+    add-int/2addr v1, v2
 
     goto :goto_8
 
     :cond_c
-    move/from16 p4, v7
+    move/from16 p4, v1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_8
     if-eqz v14, :cond_d
 
     .line 1787
-    iget-object v7, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v2}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v7
+    move-result-object v2
 
-    check-cast v7, Landroid/support/v7/widget/Toolbar$LayoutParams;
+    check-cast v2, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1788
-    iget v15, v7, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v15, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    move/from16 v16, v4
+    move/from16 p3, v1
 
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredHeight()I
 
-    move-result v4
+    move-result v1
 
-    add-int/2addr v15, v4
+    add-int/2addr v15, v1
 
-    iget v4, v7, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
+    iget v1, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    add-int/2addr v15, v4
+    add-int/2addr v15, v1
 
-    add-int/2addr v2, v15
+    add-int v1, p3, v15
 
     goto :goto_9
 
     :cond_d
-    move/from16 v16, v4
+    move/from16 p3, v1
 
     :goto_9
-    if-nez v13, :cond_10
+    if-nez v13, :cond_f
 
     if-eqz v14, :cond_e
 
     goto :goto_b
 
     :cond_e
-    move/from16 v18, v6
-
-    move/from16 p3, v12
-
-    :cond_f
     :goto_a
     const/4 v1, 0x0
 
     goto/16 :goto_17
 
-    :cond_10
+    :cond_f
     :goto_b
-    if-eqz v13, :cond_11
+    if-eqz v13, :cond_10
 
     .line 1793
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
     goto :goto_c
 
-    :cond_11
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    :cond_10
+    iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
     :goto_c
-    if-eqz v14, :cond_12
+    if-eqz v14, :cond_11
 
     .line 1794
-    iget-object v7, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v15, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
     goto :goto_d
 
-    :cond_12
-    iget-object v7, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    :cond_11
+    iget-object v15, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
     .line 1795
     :goto_d
-    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Landroid/support/v7/widget/Toolbar$LayoutParams;
+    check-cast v2, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1796
-    invoke-virtual {v7}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v15}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v7
+    move-result-object v15
 
-    check-cast v7, Landroid/support/v7/widget/Toolbar$LayoutParams;
+    check-cast v15, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
-    if-eqz v13, :cond_13
+    move/from16 p3, v1
+
+    if-eqz v13, :cond_12
 
     .line 1797
-    iget-object v15, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v15}, Landroid/widget/TextView;->getMeasuredWidth()I
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredWidth()I
 
-    move-result v15
+    move-result v1
 
-    if-gtz v15, :cond_14
+    if-gtz v1, :cond_13
 
-    :cond_13
-    if-eqz v14, :cond_15
+    :cond_12
+    if-eqz v14, :cond_14
 
-    iget-object v15, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
     .line 1798
-    invoke-virtual {v15}, Landroid/widget/TextView;->getMeasuredWidth()I
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredWidth()I
 
-    move-result v15
+    move-result v1
 
-    if-lez v15, :cond_15
+    if-lez v1, :cond_14
 
-    :cond_14
-    const/16 v17, 0x1
+    :cond_13
+    move/from16 p5, p1
 
     goto :goto_e
 
-    :cond_15
-    const/16 v17, 0x0
+    :cond_14
+    const/16 p5, 0x0
 
     .line 1800
     :goto_e
-    iget v15, v0, Landroid/support/v7/widget/Toolbar;->mGravity:I
+    iget v1, v0, Landroid/support/v7/widget/Toolbar;->mGravity:I
 
-    and-int/lit8 v15, v15, 0x70
+    and-int/lit8 v1, v1, 0x70
 
-    move/from16 v18, v6
+    move/from16 v16, v3
 
-    const/16 v6, 0x30
+    const/16 v3, 0x30
 
-    if-eq v15, v6, :cond_19
+    if-eq v1, v3, :cond_18
 
-    const/16 v6, 0x50
+    const/16 v3, 0x50
 
-    if-eq v15, v6, :cond_18
+    if-eq v1, v3, :cond_17
 
-    sub-int v6, v5, v8
+    sub-int v1, v5, v8
 
-    sub-int/2addr v6, v9
+    sub-int/2addr v1, v9
 
-    sub-int/2addr v6, v2
+    sub-int v1, v1, p3
 
     .line 1807
-    div-int/lit8 v6, v6, 0x2
+    div-int/lit8 v1, v1, 0x2
 
     .line 1808
-    iget v15, v4, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v3, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    move/from16 p3, v12
+    move/from16 v17, v3
 
-    iget v12, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
+    iget v3, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
 
-    add-int/2addr v15, v12
+    add-int v3, v17, v3
 
-    if-ge v6, v15, :cond_16
+    if-ge v1, v3, :cond_15
 
     .line 1809
-    iget v2, v4, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v1, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
+    iget v2, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
 
-    add-int v6, v2, v4
+    add-int/2addr v1, v2
 
     goto :goto_f
 
-    :cond_16
+    :cond_15
     sub-int/2addr v5, v9
 
-    sub-int/2addr v5, v2
+    sub-int v5, v5, p3
 
-    sub-int/2addr v5, v6
+    sub-int/2addr v5, v1
 
     sub-int/2addr v5, v8
 
     .line 1813
-    iget v2, v4, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
+    iget v2, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
+    iget v3, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
 
-    add-int/2addr v2, v4
+    add-int/2addr v2, v3
 
-    if-ge v5, v2, :cond_17
+    if-ge v5, v2, :cond_16
 
     .line 1814
-    iget v2, v7, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
+    iget v2, v15, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
+    iget v3, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
 
-    add-int/2addr v2, v4
+    add-int/2addr v2, v3
 
     sub-int/2addr v2, v5
 
-    sub-int/2addr v6, v2
+    sub-int/2addr v1, v2
 
     const/4 v2, 0x0
 
-    invoke-static {v2, v6}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v6
+    move-result v1
 
-    :cond_17
+    :cond_16
     :goto_f
-    add-int/2addr v8, v6
+    add-int/2addr v8, v1
 
     goto :goto_10
 
-    :cond_18
-    move/from16 p3, v12
-
+    :cond_17
     sub-int/2addr v5, v9
 
     .line 1821
-    iget v4, v7, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
+    iget v1, v15, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    sub-int/2addr v5, v4
+    sub-int/2addr v5, v1
 
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
+    iget v1, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
 
-    sub-int/2addr v5, v4
+    sub-int/2addr v5, v1
 
-    sub-int v8, v5, v2
+    sub-int v8, v5, p3
 
     goto :goto_10
 
-    :cond_19
-    move/from16 p3, v12
-
     .line 1802
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
+    :cond_18
+    invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
 
-    move-result v2
+    move-result v1
 
-    iget v4, v4, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v2, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    add-int/2addr v2, v4
+    add-int/2addr v1, v2
 
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
+    iget v2, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
 
-    add-int v8, v2, v4
+    add-int v8, v1, v2
 
     :goto_10
-    if-eqz v1, :cond_1d
+    if-eqz p4, :cond_1d
 
-    if-eqz v17, :cond_1a
+    if-eqz p5, :cond_19
 
     .line 1826
     iget v1, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginStart:I
 
     goto :goto_11
 
-    :cond_1a
+    :cond_19
     const/4 v1, 0x0
 
     :goto_11
-    const/4 v2, 0x1
+    aget v2, v11, p1
 
-    aget v4, v11, v2
+    sub-int/2addr v1, v2
 
-    sub-int/2addr v1, v4
-
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     .line 1827
-    invoke-static {v4, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v5
+    move-result v3
 
-    sub-int/2addr v10, v5
+    sub-int/2addr v10, v3
 
     neg-int v1, v1
 
     .line 1828
-    invoke-static {v4, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    aput v1, v11, v2
+    aput v1, v11, p1
 
-    if-eqz v13, :cond_1b
+    if-eqz v13, :cond_1a
 
     .line 1833
     iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
@@ -3604,18 +3571,18 @@
     sub-int v2, v10, v2
 
     .line 1835
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v3, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getMeasuredHeight()I
+    invoke-virtual {v3}, Landroid/widget/TextView;->getMeasuredHeight()I
 
-    move-result v4
+    move-result v3
 
-    add-int/2addr v4, v8
+    add-int/2addr v3, v8
 
     .line 1836
     iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v5, v2, v8, v10, v4}, Landroid/widget/TextView;->layout(IIII)V
+    invoke-virtual {v5, v2, v8, v10, v3}, Landroid/widget/TextView;->layout(IIII)V
 
     .line 1837
     iget v5, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
@@ -3625,15 +3592,15 @@
     .line 1838
     iget v1, v1, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    add-int v8, v4, v1
+    add-int v8, v3, v1
 
     goto :goto_12
 
-    :cond_1b
+    :cond_1a
     move v2, v10
 
     :goto_12
-    if-eqz v14, :cond_1c
+    if-eqz v14, :cond_1b
 
     .line 1841
     iget-object v1, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
@@ -3645,18 +3612,18 @@
     check-cast v1, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1842
-    iget v4, v1, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v3, v1, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    add-int/2addr v8, v4
+    add-int/2addr v8, v3
 
     .line 1843
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v3, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getMeasuredWidth()I
+    invoke-virtual {v3}, Landroid/widget/TextView;->getMeasuredWidth()I
 
-    move-result v4
+    move-result v3
 
-    sub-int v4, v10, v4
+    sub-int v3, v10, v3
 
     .line 1844
     iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
@@ -3668,61 +3635,62 @@
     add-int/2addr v5, v8
 
     .line 1845
-    iget-object v6, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v9, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v6, v4, v8, v10, v5}, Landroid/widget/TextView;->layout(IIII)V
+    invoke-virtual {v9, v3, v8, v10, v5}, Landroid/widget/TextView;->layout(IIII)V
 
     .line 1846
-    iget v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
+    iget v3, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
 
-    sub-int v4, v10, v4
+    sub-int v3, v10, v3
 
     .line 1847
     iget v1, v1, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
     goto :goto_13
 
-    :cond_1c
-    move v4, v10
+    :cond_1b
+    move v3, v10
 
     :goto_13
-    if-eqz v17, :cond_f
+    if-eqz p5, :cond_1c
 
     .line 1850
-    invoke-static {v2, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
     move v10, v1
 
+    :cond_1c
+    move/from16 v3, v16
+
     goto/16 :goto_a
 
     :cond_1d
-    if-eqz v17, :cond_1e
+    if-eqz p5, :cond_1e
 
     .line 1853
     iget v2, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginStart:I
 
-    const/4 v1, 0x0
-
     goto :goto_14
 
     :cond_1e
-    const/4 v1, 0x0
-
     const/4 v2, 0x0
 
     :goto_14
-    aget v4, v11, v1
+    const/4 v1, 0x0
 
-    sub-int/2addr v2, v4
+    aget v3, v11, v1
+
+    sub-int/2addr v2, v3
 
     .line 1854
     invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result v4
+    move-result v3
 
-    add-int/2addr v3, v4
+    add-int v3, v16, v3
 
     neg-int v2, v2
 
@@ -3745,42 +3713,42 @@
     check-cast v2, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1861
-    iget-object v4, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v4}, Landroid/widget/TextView;->getMeasuredWidth()I
-
-    move-result v4
-
-    add-int/2addr v4, v3
-
-    .line 1862
     iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getMeasuredHeight()I
+    invoke-virtual {v5}, Landroid/widget/TextView;->getMeasuredWidth()I
 
     move-result v5
 
-    add-int/2addr v5, v8
+    add-int/2addr v5, v3
+
+    .line 1862
+    iget-object v9, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v9}, Landroid/widget/TextView;->getMeasuredHeight()I
+
+    move-result v9
+
+    add-int/2addr v9, v8
 
     .line 1863
-    iget-object v6, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v13, v0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v6, v3, v8, v4, v5}, Landroid/widget/TextView;->layout(IIII)V
+    invoke-virtual {v13, v3, v8, v5, v9}, Landroid/widget/TextView;->layout(IIII)V
 
     .line 1864
-    iget v6, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
+    iget v8, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
 
-    add-int/2addr v4, v6
+    add-int/2addr v5, v8
 
     .line 1865
     iget v2, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    add-int v8, v5, v2
+    add-int v8, v9, v2
 
     goto :goto_15
 
     :cond_1f
-    move v4, v3
+    move v5, v3
 
     :goto_15
     if-eqz v14, :cond_20
@@ -3795,37 +3763,37 @@
     check-cast v2, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1869
-    iget v5, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
+    iget v9, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    add-int/2addr v8, v5
+    add-int/2addr v8, v9
 
     .line 1870
-    iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v9, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getMeasuredWidth()I
+    invoke-virtual {v9}, Landroid/widget/TextView;->getMeasuredWidth()I
 
-    move-result v5
+    move-result v9
 
-    add-int/2addr v5, v3
+    add-int/2addr v9, v3
 
     .line 1871
-    iget-object v6, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v13, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v6}, Landroid/widget/TextView;->getMeasuredHeight()I
+    invoke-virtual {v13}, Landroid/widget/TextView;->getMeasuredHeight()I
 
-    move-result v6
+    move-result v13
 
-    add-int/2addr v6, v8
+    add-int/2addr v13, v8
 
     .line 1872
-    iget-object v7, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v14, v0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, v3, v8, v5, v6}, Landroid/widget/TextView;->layout(IIII)V
+    invoke-virtual {v14, v3, v8, v9, v13}, Landroid/widget/TextView;->layout(IIII)V
 
     .line 1873
-    iget v6, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
+    iget v8, v0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
 
-    add-int/2addr v5, v6
+    add-int/2addr v9, v8
 
     .line 1874
     iget v2, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
@@ -3833,13 +3801,13 @@
     goto :goto_16
 
     :cond_20
-    move v5, v3
+    move v9, v3
 
     :goto_16
-    if-eqz v17, :cond_21
+    if-eqz p5, :cond_21
 
     .line 1877
-    invoke-static {v4, v5}, Ljava/lang/Math;->max(II)I
+    invoke-static {v5, v9}, Ljava/lang/Math;->max(II)I
 
     move-result v3
 
@@ -3848,9 +3816,9 @@
     :goto_17
     iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    invoke-direct {v0, v2, v4}, Landroid/support/v7/widget/Toolbar;->addCustomViewsWithGravity(Ljava/util/List;I)V
+    invoke-direct {v0, v2, v5}, Landroid/support/v7/widget/Toolbar;->addCustomViewsWithGravity(Ljava/util/List;I)V
 
     .line 1886
     iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
@@ -3859,7 +3827,7 @@
 
     move-result v2
 
-    move v4, v3
+    move v5, v3
 
     move v3, v1
 
@@ -3867,28 +3835,24 @@
     if-ge v3, v2, :cond_22
 
     .line 1888
-    iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
+    iget-object v8, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/view/View;
+    check-cast v8, Landroid/view/View;
 
-    move/from16 v12, p3
+    invoke-direct {v0, v8, v5, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildLeft(Landroid/view/View;I[II)I
 
-    invoke-direct {v0, v5, v4, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildLeft(Landroid/view/View;I[II)I
-
-    move-result v4
+    move-result v5
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_18
 
-    :cond_22
-    move/from16 v12, p3
-
     .line 1892
+    :cond_22
     iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
 
     const/4 v3, 0x5
@@ -3908,15 +3872,15 @@
     if-ge v3, v2, :cond_23
 
     .line 1895
-    iget-object v5, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
+    iget-object v8, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/view/View;
+    check-cast v8, Landroid/view/View;
 
-    invoke-direct {v0, v5, v10, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildRight(Landroid/view/View;I[II)I
+    invoke-direct {v0, v8, v10, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildRight(Landroid/view/View;I[II)I
 
     move-result v10
 
@@ -3928,7 +3892,7 @@
     :cond_23
     iget-object v2, v0, Landroid/support/v7/widget/Toolbar;->mTempViews:Ljava/util/ArrayList;
 
-    const/4 v3, 0x1
+    move/from16 v3, p1
 
     invoke-direct {v0, v2, v3}, Landroid/support/v7/widget/Toolbar;->addCustomViewsWithGravity(Ljava/util/List;I)V
 
@@ -3939,14 +3903,14 @@
 
     move-result v2
 
-    sub-int v3, v16, v18
+    sub-int/2addr v4, v6
 
-    sub-int v3, v3, p4
+    sub-int/2addr v4, v7
 
     .line 1903
-    div-int/lit8 v3, v3, 0x2
+    div-int/lit8 v4, v4, 0x2
 
-    add-int v6, v18, v3
+    add-int/2addr v6, v4
 
     .line 1904
     div-int/lit8 v3, v2, 0x2
@@ -3955,7 +3919,7 @@
 
     add-int/2addr v2, v6
 
-    if-ge v6, v4, :cond_24
+    if-ge v6, v5, :cond_24
 
     goto :goto_1a
 
@@ -3964,12 +3928,12 @@
 
     sub-int/2addr v2, v10
 
-    sub-int v4, v6, v2
+    sub-int v5, v6, v2
 
     goto :goto_1a
 
     :cond_25
-    move v4, v6
+    move v5, v6
 
     .line 1913
     :goto_1a
@@ -3991,9 +3955,9 @@
 
     check-cast v3, Landroid/view/View;
 
-    invoke-direct {v0, v3, v4, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildLeft(Landroid/view/View;I[II)I
+    invoke-direct {v0, v3, v5, v11, v12}, Landroid/support/v7/widget/Toolbar;->layoutChildLeft(Landroid/view/View;I[II)I
 
-    move-result v4
+    move-result v5
 
     add-int/lit8 v1, v1, 0x1
 
@@ -4009,714 +3973,663 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 16
-
-    move-object/from16 v7, p0
+    .locals 14
 
     .line 1575
-    iget-object v8, v7, Landroid/support/v7/widget/Toolbar;->mTempMargins:[I
+    iget-object v7, p0, Landroid/support/v7/widget/Toolbar;->mTempMargins:[I
 
     .line 1578
-    invoke-static/range {p0 .. p0}, Landroid/support/v7/widget/ViewUtils;->isLayoutRtl(Landroid/view/View;)Z
+    invoke-static {p0}, Landroid/support/v7/widget/ViewUtils;->isLayoutRtl(Landroid/view/View;)Z
 
-    move-result v9
+    move-result v8
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    xor-int/lit8 v11, v9, 0x1
+    xor-int/lit8 v10, v8, 0x1
 
     .line 1589
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v12, 0x0
+    const/4 v3, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     .line 1590
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
     const/4 v5, 0x0
 
-    iget v6, v7, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
+    iget v6, p0, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildConstrained(Landroid/view/View;IIIII)V
 
     .line 1592
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
-    invoke-virtual {v0}, Landroid/widget/ImageButton;->getMeasuredWidth()I
-
-    move-result v0
-
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
-
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
+    invoke-virtual {v1}, Landroid/widget/ImageButton;->getMeasuredWidth()I
 
     move-result v1
 
-    add-int/2addr v0, v1
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
-    .line 1593
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
-
-    invoke-virtual {v1}, Landroid/widget/ImageButton;->getMeasuredHeight()I
-
-    move-result v1
-
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
-
-    .line 1594
-    invoke-direct {v7, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
 
     move-result v2
 
     add-int/2addr v1, v2
 
     .line 1593
-    invoke-static {v10, v1}, Ljava/lang/Math;->max(II)I
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
-    move-result v1
+    invoke-virtual {v2}, Landroid/widget/ImageButton;->getMeasuredHeight()I
+
+    move-result v2
+
+    iget-object v4, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
+
+    .line 1594
+    invoke-direct {p0, v4}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v4
+
+    add-int/2addr v2, v4
+
+    .line 1593
+    invoke-static {v9, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
 
     .line 1595
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
+    iget-object v4, p0, Landroid/support/v7/widget/Toolbar;->mNavButtonView:Landroid/widget/ImageButton;
 
     .line 1596
-    invoke-virtual {v2}, Landroid/widget/ImageButton;->getMeasuredState()I
+    invoke-virtual {v4}, Landroid/widget/ImageButton;->getMeasuredState()I
 
-    move-result v2
+    move-result v4
 
     .line 1595
-    invoke-static {v10, v2}, Landroid/view/View;->combineMeasuredStates(II)I
+    invoke-static {v9, v4}, Landroid/view/View;->combineMeasuredStates(II)I
 
-    move-result v2
+    move-result v4
 
-    move v13, v1
+    move v11, v2
 
-    move v14, v2
+    move v12, v4
 
     goto :goto_0
 
     :cond_0
-    move v0, v10
+    move v1, v9
 
-    move v13, v0
+    move v11, v1
 
-    move v14, v13
+    move v12, v11
 
     .line 1599
     :goto_0
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     .line 1600
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     const/4 v5, 0x0
 
-    iget v6, v7, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
+    iget v6, p0, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildConstrained(Landroid/view/View;IIIII)V
 
     .line 1602
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
-    invoke-virtual {v0}, Landroid/widget/ImageButton;->getMeasuredWidth()I
+    invoke-virtual {v1}, Landroid/widget/ImageButton;->getMeasuredWidth()I
 
-    move-result v0
+    move-result v1
 
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     .line 1603
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    .line 1604
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
-
-    invoke-virtual {v1}, Landroid/widget/ImageButton;->getMeasuredHeight()I
-
-    move-result v1
-
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
-
-    .line 1605
-    invoke-direct {v7, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
 
     move-result v2
 
     add-int/2addr v1, v2
 
     .line 1604
-    invoke-static {v13, v1}, Ljava/lang/Math;->max(II)I
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
-    move-result v13
+    invoke-virtual {v2}, Landroid/widget/ImageButton;->getMeasuredHeight()I
+
+    move-result v2
+
+    iget-object v3, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+
+    .line 1605
+    invoke-direct {p0, v3}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    .line 1604
+    invoke-static {v11, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v11
 
     .line 1606
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     .line 1607
-    invoke-virtual {v1}, Landroid/widget/ImageButton;->getMeasuredState()I
+    invoke-virtual {v2}, Landroid/widget/ImageButton;->getMeasuredState()I
 
-    move-result v1
+    move-result v2
 
     .line 1606
-    invoke-static {v14, v1}, Landroid/view/View;->combineMeasuredStates(II)I
-
-    move-result v14
-
-    .line 1610
-    :cond_1
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetStart()I
-
-    move-result v1
-
-    .line 1611
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v12, v2}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v12
 
-    sub-int/2addr v1, v0
+    .line 1610
+    :cond_1
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetStart()I
+
+    move-result v2
+
+    .line 1611
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    sub-int/2addr v2, v1
 
     .line 1612
-    invoke-static {v10, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v9, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    aput v0, v8, v9
+    aput v1, v7, v8
 
     .line 1615
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 1616
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
     const/4 v5, 0x0
 
-    iget v6, v7, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
+    iget v6, p0, Landroid/support/v7/widget/Toolbar;->mMaxButtonHeight:I
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildConstrained(Landroid/view/View;IIIII)V
 
     .line 1618
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredWidth()I
-
-    move-result v0
-
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
-
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
+    invoke-virtual {v1}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredWidth()I
 
     move-result v1
 
-    add-int/2addr v0, v1
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
-    .line 1619
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
-
-    invoke-virtual {v1}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredHeight()I
-
-    move-result v1
-
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
-
-    .line 1620
-    invoke-direct {v7, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
 
     move-result v2
 
     add-int/2addr v1, v2
 
     .line 1619
-    invoke-static {v13, v1}, Ljava/lang/Math;->max(II)I
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
-    move-result v13
+    invoke-virtual {v2}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredHeight()I
+
+    move-result v2
+
+    iget-object v4, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
+
+    .line 1620
+    invoke-direct {p0, v4}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v4
+
+    add-int/2addr v2, v4
+
+    .line 1619
+    invoke-static {v11, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v11
 
     .line 1621
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
     .line 1622
-    invoke-virtual {v1}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredState()I
+    invoke-virtual {v2}, Landroid/support/v7/widget/ActionMenuView;->getMeasuredState()I
 
-    move-result v1
+    move-result v2
 
     .line 1621
-    invoke-static {v14, v1}, Landroid/view/View;->combineMeasuredStates(II)I
+    invoke-static {v12, v2}, Landroid/view/View;->combineMeasuredStates(II)I
 
-    move-result v14
+    move-result v12
 
     goto :goto_1
 
     :cond_2
-    move v0, v10
+    move v1, v9
 
     .line 1625
     :goto_1
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetEnd()I
-
-    move-result v1
-
-    .line 1626
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getCurrentContentInsetEnd()I
 
     move-result v2
 
-    add-int/2addr v12, v2
+    .line 1626
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
-    sub-int/2addr v1, v0
+    move-result v4
+
+    add-int/2addr v3, v4
+
+    sub-int/2addr v2, v1
 
     .line 1627
-    invoke-static {v10, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v9, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    aput v0, v8, v11
+    aput v1, v7, v10
 
     .line 1629
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
 
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     .line 1630
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
 
-    move-object v6, v8
+    move-object v6, v7
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
 
-    move-result v0
+    move-result v1
 
-    add-int/2addr v12, v0
+    add-int/2addr v3, v1
 
     .line 1632
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
 
-    invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v0
+    move-result v1
 
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
 
     .line 1633
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
+    .line 1632
+    invoke-static {v11, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v11
+
+    .line 1634
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+
+    .line 1635
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredState()I
 
     move-result v1
 
-    add-int/2addr v0, v1
-
-    .line 1632
-    invoke-static {v13, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v13
-
     .line 1634
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
+    invoke-static {v12, v1}, Landroid/view/View;->combineMeasuredStates(II)I
 
-    .line 1635
-    invoke-virtual {v0}, Landroid/view/View;->getMeasuredState()I
+    move-result v12
 
-    move-result v0
+    goto :goto_2
 
-    .line 1634
-    invoke-static {v14, v0}, Landroid/view/View;->combineMeasuredStates(II)I
-
-    move-result v14
+    :cond_3
+    move-object v6, v7
 
     .line 1638
-    :cond_3
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
+    :goto_2
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
 
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     .line 1639
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
 
-    move-object v6, v8
-
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
-
-    move-result v0
-
-    add-int/2addr v12, v0
-
-    .line 1641
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getMeasuredHeight()I
-
-    move-result v0
-
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
-
-    .line 1642
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v3, v1
 
     .line 1641
-    invoke-static {v13, v0}, Ljava/lang/Math;->max(II)I
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
 
-    move-result v13
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getMeasuredHeight()I
+
+    move-result v1
+
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
+
+    .line 1642
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
+    .line 1641
+    invoke-static {v11, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v11
 
     .line 1643
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mLogoView:Landroid/widget/ImageView;
 
     .line 1644
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getMeasuredState()I
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getMeasuredState()I
 
-    move-result v0
+    move-result v1
 
     .line 1643
-    invoke-static {v14, v0}, Landroid/view/View;->combineMeasuredStates(II)I
+    invoke-static {v12, v1}, Landroid/view/View;->combineMeasuredStates(II)I
 
-    move-result v14
+    move-result v12
 
     .line 1647
     :cond_4
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getChildCount()I
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getChildCount()I
 
-    move-result v9
+    move-result v7
 
-    move v11, v10
+    move v8, v9
 
-    :goto_2
-    if-ge v11, v9, :cond_7
+    :goto_3
+    if-ge v8, v7, :cond_7
 
     .line 1649
-    invoke-virtual {v7, v11}, Landroid/support/v7/widget/Toolbar;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/support/v7/widget/Toolbar;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v15
+    move-result-object v1
 
     .line 1650
-    invoke-virtual {v15}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/support/v7/widget/Toolbar$LayoutParams;
+    check-cast v2, Landroid/support/v7/widget/Toolbar$LayoutParams;
 
     .line 1651
-    iget v0, v0, Landroid/support/v7/widget/Toolbar$LayoutParams;->mViewType:I
+    iget v2, v2, Landroid/support/v7/widget/Toolbar$LayoutParams;->mViewType:I
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_6
 
-    invoke-direct {v7, v15}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_5
+    if-nez v2, :cond_5
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_5
     const/4 v5, 0x0
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move-object v1, v15
-
-    move/from16 v2, p1
-
-    move v3, v12
+    move v2, p1
 
     move/from16 v4, p2
-
-    move-object v6, v8
 
     .line 1656
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
 
-    move-result v0
+    move-result v5
 
-    add-int/2addr v12, v0
+    move v10, v3
+
+    add-int v3, v10, v5
 
     .line 1658
-    invoke-virtual {v15}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {v7, v15}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
 
-    move-result v1
+    move-result v4
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v4
 
-    invoke-static {v13, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v11, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v2
 
     .line 1659
-    invoke-virtual {v15}, Landroid/view/View;->getMeasuredState()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredState()I
 
     move-result v1
 
-    invoke-static {v14, v1}, Landroid/view/View;->combineMeasuredStates(II)I
+    invoke-static {v12, v1}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v1
 
-    move v13, v0
+    move v12, v1
 
-    move v14, v1
+    move v11, v2
+
+    goto :goto_5
 
     :cond_6
-    :goto_3
-    add-int/lit8 v11, v11, 0x1
+    :goto_4
+    move v10, v3
 
-    goto :goto_2
+    move v3, v10
+
+    :goto_5
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_3
+
+    :cond_7
+    move v10, v3
 
     .line 1664
-    :cond_7
-    iget v0, v7, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
+    iget v1, p0, Landroid/support/v7/widget/Toolbar;->mTitleMarginTop:I
 
-    iget v1, v7, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
+    iget v2, p0, Landroid/support/v7/widget/Toolbar;->mTitleMarginBottom:I
 
-    add-int v9, v0, v1
+    add-int v5, v1, v2
 
     .line 1665
-    iget v0, v7, Landroid/support/v7/widget/Toolbar;->mTitleMarginStart:I
+    iget v1, p0, Landroid/support/v7/widget/Toolbar;->mTitleMarginStart:I
 
-    iget v1, v7, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
+    iget v2, p0, Landroid/support/v7/widget/Toolbar;->mTitleMarginEnd:I
 
-    add-int v11, v0, v1
+    add-int v7, v1, v2
 
     .line 1666
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_8
+    if-eqz v1, :cond_8
 
     .line 1667
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    add-int v3, v12, v11
+    add-int v3, v10, v7
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    move/from16 v2, p1
+    move v2, p1
 
     move/from16 v4, p2
-
-    move v5, v9
-
-    move-object v6, v8
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
 
     .line 1670
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->getMeasuredWidth()I
-
-    move-result v0
-
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
-
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredWidth()I
 
     move-result v1
 
-    add-int/2addr v0, v1
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getHorizontalMargins(Landroid/view/View;)I
+
+    move-result v2
+
+    add-int/2addr v1, v2
 
     .line 1671
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getMeasuredHeight()I
+
+    move-result v2
+
+    iget-object v3, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+
+    invoke-direct {p0, v3}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    .line 1672
+    iget-object v3, p0, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getMeasuredState()I
+
+    move-result v3
+
+    invoke-static {v12, v3}, Landroid/view/View;->combineMeasuredStates(II)I
+
+    move-result v12
+
+    move v8, v1
+
+    move v13, v12
+
+    move v12, v2
+
+    goto :goto_6
+
+    :cond_8
+    move v8, v9
+
+    move v13, v12
+
+    move v12, v8
+
+    .line 1674
+    :goto_6
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+
+    invoke-direct {p0, v1}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    .line 1675
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+
+    add-int v3, v10, v7
+
+    add-int/2addr v5, v12
+
+    move-object v0, p0
+
+    move v2, p1
+
+    move/from16 v4, p2
+
+    invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
+
+    move-result v1
+
+    invoke-static {v8, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v8
+
+    .line 1679
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredHeight()I
 
     move-result v1
 
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
-
-    invoke-direct {v7, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    .line 1672
-    iget-object v2, v7, Landroid/support/v7/widget/Toolbar;->mTitleTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getMeasuredState()I
-
-    move-result v2
-
-    invoke-static {v14, v2}, Landroid/view/View;->combineMeasuredStates(II)I
-
-    move-result v14
-
-    move v15, v1
-
-    move v6, v14
-
-    move v14, v0
-
-    goto :goto_4
-
-    :cond_8
-    move v15, v10
-
-    move v6, v14
-
-    move v14, v15
-
-    .line 1674
-    :goto_4
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
-
-    invoke-direct {v7, v0}, Landroid/support/v7/widget/Toolbar;->shouldLayout(Landroid/view/View;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    .line 1675
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
-
-    add-int v3, v12, v11
-
-    add-int v5, v15, v9
-
-    move-object/from16 v0, p0
-
-    move/from16 v2, p1
-
-    move/from16 v4, p2
-
-    move v9, v6
-
-    move-object v6, v8
-
-    invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/Toolbar;->measureChildCollapseMargins(Landroid/view/View;IIII[I)I
-
-    move-result v0
-
-    invoke-static {v14, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v14
-
-    .line 1679
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getMeasuredHeight()I
-
-    move-result v0
-
-    iget-object v1, v7, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+    iget-object v2, p0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
 
     .line 1680
-    invoke-direct {v7, v1}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    add-int/2addr v15, v0
-
-    .line 1681
-    iget-object v0, v7, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
-
-    .line 1682
-    invoke-virtual {v0}, Landroid/widget/TextView;->getMeasuredState()I
-
-    move-result v0
-
-    .line 1681
-    invoke-static {v9, v0}, Landroid/view/View;->combineMeasuredStates(II)I
-
-    move-result v6
-
-    goto :goto_5
-
-    :cond_9
-    move v9, v6
-
-    :goto_5
-    add-int/2addr v12, v14
-
-    .line 1686
-    invoke-static {v13, v15}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    .line 1690
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingLeft()I
-
-    move-result v1
-
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingRight()I
+    invoke-direct {p0, v2}, Landroid/support/v7/widget/Toolbar;->getVerticalMargins(Landroid/view/View;)I
 
     move-result v2
 
@@ -4724,71 +4637,103 @@
 
     add-int/2addr v12, v1
 
-    .line 1691
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
+    .line 1681
+    iget-object v1, p0, Landroid/support/v7/widget/Toolbar;->mSubtitleTextView:Landroid/widget/TextView;
+
+    .line 1682
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMeasuredState()I
 
     move-result v1
 
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getPaddingBottom()I
+    .line 1681
+    invoke-static {v13, v1}, Landroid/view/View;->combineMeasuredStates(II)I
+
+    move-result v13
+
+    :cond_9
+    add-int v3, v10, v8
+
+    .line 1686
+    invoke-static {v11, v12}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    .line 1690
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getPaddingLeft()I
 
     move-result v2
+
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getPaddingRight()I
+
+    move-result v4
+
+    add-int/2addr v2, v4
+
+    add-int/2addr v3, v2
+
+    .line 1691
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getPaddingTop()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getPaddingBottom()I
+
+    move-result v4
+
+    add-int/2addr v2, v4
 
     add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
-
     .line 1694
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getSuggestedMinimumWidth()I
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getSuggestedMinimumWidth()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v12, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result v2
 
-    const/high16 v2, -0x1000000
+    const/high16 v3, -0x1000000
 
-    and-int/2addr v2, v6
-
-    move/from16 v3, p1
+    and-int/2addr v3, v13
 
     .line 1693
-    invoke-static {v1, v3, v2}, Landroid/view/View;->resolveSizeAndState(III)I
+    invoke-static {v2, p1, v3}, Landroid/view/View;->resolveSizeAndState(III)I
+
+    move-result v2
+
+    .line 1697
+    invoke-virtual {p0}, Landroid/support/v7/widget/Toolbar;->getSuggestedMinimumHeight()I
+
+    move-result v3
+
+    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    .line 1697
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->getSuggestedMinimumHeight()I
+    shl-int/lit8 v3, v13, 0x10
 
-    move-result v2
-
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    shl-int/lit8 v2, v6, 0x10
-
-    move/from16 v3, p2
+    move/from16 v4, p2
 
     .line 1696
-    invoke-static {v0, v3, v2}, Landroid/view/View;->resolveSizeAndState(III)I
+    invoke-static {v1, v4, v3}, Landroid/view/View;->resolveSizeAndState(III)I
 
-    move-result v0
+    move-result v1
 
     .line 1700
-    invoke-direct/range {p0 .. p0}, Landroid/support/v7/widget/Toolbar;->shouldCollapse()Z
+    invoke-direct {p0}, Landroid/support/v7/widget/Toolbar;->shouldCollapse()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_a
+    if-eqz v3, :cond_a
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_a
-    move v10, v0
+    move v9, v1
 
-    :goto_6
-    invoke-virtual {v7, v1, v10}, Landroid/support/v7/widget/Toolbar;->setMeasuredDimension(II)V
+    :goto_7
+    invoke-virtual {p0, v2, v9}, Landroid/support/v7/widget/Toolbar;->setMeasuredDimension(II)V
 
     return-void
 .end method
@@ -5275,7 +5220,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     .line 551
     :cond_0
@@ -5290,6 +5235,7 @@
 
     if-ne v0, p1, :cond_1
 
+    :goto_0
     return-void
 
     :cond_1
@@ -5338,7 +5284,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->addMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;Landroid/content/Context;)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 571
     :cond_4
@@ -5364,7 +5310,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->updateMenuView(Z)V
 
     .line 576
-    :goto_0
+    :goto_1
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
     iget v0, p0, Landroid/support/v7/widget/Toolbar;->mPopupTheme:I
@@ -5592,7 +5538,7 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/Toolbar;->mPopupContext:Landroid/content/Context;
 
-    goto :goto_0
+    return-void
 
     .line 358
     :cond_0
@@ -5607,7 +5553,6 @@
     iput-object v0, p0, Landroid/support/v7/widget/Toolbar;->mPopupContext:Landroid/content/Context;
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -6038,11 +5983,10 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method

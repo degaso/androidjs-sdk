@@ -81,7 +81,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/MenuPopupWindow;->show()V
 
-    goto :goto_1
+    return-void
 
     .line 70
     :cond_1
@@ -91,6 +91,5 @@
     invoke-virtual {v0}, Landroid/support/v7/view/menu/StandardMenuPopup;->dismiss()V
 
     :cond_2
-    :goto_1
     return-void
 .end method

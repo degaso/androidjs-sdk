@@ -248,12 +248,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -996,7 +995,7 @@
     .line 464
     invoke-virtual {p2, v2, v3, v0, v3}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    return-object p2
 
     .line 467
     :cond_0
@@ -1012,19 +1011,18 @@
     :cond_1
     invoke-virtual {p2, v3, v2, v3, p0}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    return-object p2
 
     .line 458
     :cond_2
     invoke-virtual {p2, v2, p0, v0, p0}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    return-object p2
 
     .line 455
     :cond_3
     invoke-virtual {p2, v0, v2, v0, p0}, Landroid/graphics/Rect;->set(IIII)V
 
-    :goto_0
     return-object p2
 .end method
 
@@ -1107,7 +1105,9 @@
     :cond_4
     if-eqz p1, :cond_5
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_5
     :goto_2
@@ -1150,58 +1150,58 @@
 .end method
 
 .method private moveFocus(ILandroid/graphics/Rect;)Z
-    .locals 9
+    .locals 8
 
     .line 372
     invoke-direct {p0}, Landroid/support/v4/widget/ExploreByTouchHelper;->getAllNodes()Landroid/support/v4/util/SparseArrayCompat;
 
-    move-result-object v7
+    move-result-object v0
 
     .line 374
-    iget v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
+    iget v1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    const/high16 v8, -0x80000000
+    const/high16 v7, -0x80000000
 
-    if-ne v0, v8, :cond_0
+    if-ne v1, v7, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 
     .line 376
     :cond_0
-    invoke-virtual {v7, v0}, Landroid/support/v4/util/SparseArrayCompat;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/support/v4/util/SparseArrayCompat;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    check-cast v1, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     :goto_0
-    move-object v3, v0
+    move-object v3, v1
 
-    const/4 v0, 0x1
-
-    if-eq p1, v0, :cond_5
-
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     if-eq p1, v1, :cond_5
 
-    const/16 v0, 0x11
+    const/4 v2, 0x2
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v2, :cond_5
 
-    const/16 v0, 0x21
+    const/16 v1, 0x11
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v1, :cond_2
 
-    const/16 v0, 0x42
+    const/16 v1, 0x21
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v1, :cond_2
 
-    const/16 v0, 0x82
+    const/16 v1, 0x42
 
-    if-ne p1, v0, :cond_1
+    if-eq p1, v1, :cond_2
+
+    const/16 v1, 0x82
+
+    if-ne p1, v1, :cond_1
 
     goto :goto_1
 
@@ -1223,12 +1223,12 @@
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
     .line 393
-    iget v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
+    iget v1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    if-eq v0, v8, :cond_3
+    if-eq v1, v7, :cond_3
 
     .line 395
-    invoke-direct {p0, v0, v4}, Landroid/support/v4/widget/ExploreByTouchHelper;->getBoundsInParent(ILandroid/graphics/Rect;)V
+    invoke-direct {p0, v1, v4}, Landroid/support/v4/widget/ExploreByTouchHelper;->getBoundsInParent(ILandroid/graphics/Rect;)V
 
     goto :goto_2
 
@@ -1252,8 +1252,6 @@
 
     sget-object v2, Landroid/support/v4/widget/ExploreByTouchHelper;->NODE_ADAPTER:Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;
 
-    move-object v0, v7
-
     move v5, p1
 
     invoke-static/range {v0 .. v5}, Landroid/support/v4/widget/FocusStrategy;->findNextFocusInAbsoluteDirection(Ljava/lang/Object;Landroid/support/v4/widget/FocusStrategy$CollectionAdapter;Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;Ljava/lang/Object;Landroid/graphics/Rect;I)Ljava/lang/Object;
@@ -1264,37 +1262,33 @@
 
     goto :goto_4
 
-    .line 382
     :cond_5
-    iget-object p2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    move v4, p1
+
+    .line 382
+    iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     .line 383
-    invoke-static {p2}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
-    move-result p2
+    move-result p1
 
-    if-ne p2, v0, :cond_6
-
-    move v5, v0
+    if-ne p1, v1, :cond_6
 
     goto :goto_3
 
     :cond_6
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    move v5, p2
+    :goto_3
+    move v5, v1
 
     .line 384
-    :goto_3
     sget-object v1, Landroid/support/v4/widget/ExploreByTouchHelper;->SPARSE_VALUES_ADAPTER:Landroid/support/v4/widget/FocusStrategy$CollectionAdapter;
 
     sget-object v2, Landroid/support/v4/widget/ExploreByTouchHelper;->NODE_ADAPTER:Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;
 
     const/4 v6, 0x0
-
-    move-object v0, v7
-
-    move v4, p1
 
     invoke-static/range {v0 .. v6}, Landroid/support/v4/widget/FocusStrategy;->findNextFocusInRelativeDirection(Ljava/lang/Object;Landroid/support/v4/widget/FocusStrategy$CollectionAdapter;Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;Ljava/lang/Object;IZZ)Ljava/lang/Object;
 
@@ -1309,18 +1303,18 @@
 
     .line 419
     :cond_7
-    invoke-virtual {v7, p1}, Landroid/support/v4/util/SparseArrayCompat;->indexOfValue(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Landroid/support/v4/util/SparseArrayCompat;->indexOfValue(Ljava/lang/Object;)I
 
     move-result p1
 
     .line 420
-    invoke-virtual {v7, p1}, Landroid/support/v4/util/SparseArrayCompat;->keyAt(I)I
+    invoke-virtual {v0, p1}, Landroid/support/v4/util/SparseArrayCompat;->keyAt(I)I
 
-    move-result v8
+    move-result v7
 
     .line 423
     :goto_5
-    invoke-virtual {p0, v8}, Landroid/support/v4/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
+    invoke-virtual {p0, v7}, Landroid/support/v4/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
 
     move-result p1
 
@@ -1600,7 +1594,7 @@
 
     if-eq p1, v4, :cond_4
 
-    move v1, v3
+    return v3
 
     :cond_4
     :goto_0
@@ -1679,9 +1673,7 @@
     goto :goto_0
 
     :cond_0
-    move v1, v3
-
-    goto :goto_1
+    return v3
 
     .line 240
     :cond_1
@@ -1702,9 +1694,7 @@
     .line 242
     invoke-direct {p0}, Landroid/support/v4/widget/ExploreByTouchHelper;->clickKeyboardFocusedVirtualView()Z
 
-    move v1, v2
-
-    goto :goto_1
+    return v2
 
     .line 248
     :cond_2
@@ -1719,9 +1709,9 @@
     .line 249
     invoke-direct {p0, p1, v4}, Landroid/support/v4/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
 
-    move-result v1
+    move-result p1
 
-    goto :goto_1
+    return p1
 
     .line 250
     :cond_3
@@ -1734,13 +1724,13 @@
     .line 251
     invoke-direct {p0, v2, v4}, Landroid/support/v4/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
 
-    move-result v1
+    move-result p1
+
+    return p1
 
     :cond_4
     :goto_1
     return v1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x13

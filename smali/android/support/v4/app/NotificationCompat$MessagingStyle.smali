@@ -326,10 +326,10 @@
 .end method
 
 .method private makeFontColorSpan(I)Landroid/text/style/TextAppearanceSpan;
-    .locals 7
+    .locals 6
 
     .line 2532
-    new-instance v6, Landroid/text/style/TextAppearanceSpan;
+    new-instance v0, Landroid/text/style/TextAppearanceSpan;
 
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
@@ -343,11 +343,9 @@
 
     const/4 v3, 0x0
 
-    move-object v0, v6
-
     invoke-direct/range {v0 .. v5}, Landroid/text/style/TextAppearanceSpan;-><init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V
 
-    return-object v6
+    return-object v0
 .end method
 
 .method private makeMessageLine(Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;)Ljava/lang/CharSequence;
@@ -969,7 +967,9 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     return v1
@@ -982,7 +982,9 @@
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v1
+    move-result v0
+
+    return v0
 
     :cond_2
     return v1

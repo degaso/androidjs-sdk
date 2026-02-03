@@ -282,13 +282,12 @@
     .line 181
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AdapterHelper;->dispatchAndUpdateViewHolders(Landroid/support/v7/widget/AdapterHelper$UpdateOp;)V
 
-    goto :goto_6
+    return-void
 
     .line 183
     :cond_7
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AdapterHelper;->postponeAndUpdateViewHolders(Landroid/support/v7/widget/AdapterHelper$UpdateOp;)V
 
-    :goto_6
     return-void
 .end method
 
@@ -412,13 +411,12 @@
     .line 221
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AdapterHelper;->dispatchAndUpdateViewHolders(Landroid/support/v7/widget/AdapterHelper$UpdateOp;)V
 
-    goto :goto_3
+    return-void
 
     .line 223
     :cond_6
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AdapterHelper;->postponeAndUpdateViewHolders(Landroid/support/v7/widget/AdapterHelper$UpdateOp;)V
 
-    :goto_3
     return-void
 .end method
 
@@ -737,7 +735,7 @@
 
     invoke-interface {v0, v1, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->offsetPositionsForMove(II)V
 
-    goto :goto_0
+    return-void
 
     .line 455
     :cond_0
@@ -773,7 +771,7 @@
 
     invoke-interface {v0, v1, v2, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->markViewHoldersUpdated(IILjava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 448
     :cond_2
@@ -785,7 +783,7 @@
 
     invoke-interface {v0, v1, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->offsetPositionsForRemovingLaidOutOrNewView(II)V
 
-    goto :goto_0
+    return-void
 
     .line 442
     :cond_3
@@ -797,7 +795,6 @@
 
     invoke-interface {v0, v1, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->offsetPositionsForAdd(II)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1447,7 +1444,7 @@
 
     invoke-interface {v0, p2, v1, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->markViewHoldersUpdated(IILjava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 324
     :cond_0
@@ -1467,7 +1464,6 @@
 
     invoke-interface {v0, p2, p1}, Landroid/support/v7/widget/AdapterHelper$Callback;->offsetPositionsForRemovingInvisible(II)V
 
-    :goto_0
     return-void
 .end method
 
@@ -1610,12 +1606,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -1633,12 +1628,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1664,12 +1658,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -1692,7 +1685,7 @@
 
     invoke-direct {v0, p1, p2, p3, p4}, Landroid/support/v7/widget/AdapterHelper$UpdateOp;-><init>(IIILjava/lang/Object;)V
 
-    goto :goto_0
+    return-object v0
 
     .line 731
     :cond_0
@@ -1707,7 +1700,6 @@
     .line 734
     iput-object p4, v0, Landroid/support/v7/widget/AdapterHelper$UpdateOp;->payload:Ljava/lang/Object;
 
-    :goto_0
     return-object v0
 .end method
 
@@ -1750,7 +1742,7 @@
 
     if-ne p1, v1, :cond_1
 
-    move v0, v1
+    return v1
 
     :cond_1
     return v0
@@ -1795,7 +1787,7 @@
 
     if-ne p1, v1, :cond_1
 
-    move v0, v1
+    return v1
 
     :cond_1
     return v0
@@ -1844,7 +1836,7 @@
 
     if-ne p1, v1, :cond_1
 
-    move v0, v1
+    return v1
 
     :cond_1
     return v0
@@ -1901,7 +1893,7 @@
 
     if-ne p1, v1, :cond_1
 
-    move v0, v1
+    return v1
 
     :cond_1
     return v0

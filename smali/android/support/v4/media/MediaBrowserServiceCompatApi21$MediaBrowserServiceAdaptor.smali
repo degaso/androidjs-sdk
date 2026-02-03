@@ -65,20 +65,19 @@
 
     if-nez p1, :cond_1
 
-    goto :goto_1
+    return-object v1
 
     .line 125
     :cond_1
-    new-instance v1, Landroid/service/media/MediaBrowserService$BrowserRoot;
+    new-instance p2, Landroid/service/media/MediaBrowserService$BrowserRoot;
 
-    iget-object p2, p1, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mRootId:Ljava/lang/String;
+    iget-object p3, p1, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mRootId:Ljava/lang/String;
 
     iget-object p1, p1, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
-    invoke-direct {v1, p2, p1}, Landroid/service/media/MediaBrowserService$BrowserRoot;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-direct {p2, p3, p1}, Landroid/service/media/MediaBrowserService$BrowserRoot;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    :goto_1
-    return-object v1
+    return-object p2
 .end method
 
 .method public onLoadChildren(Ljava/lang/String;Landroid/service/media/MediaBrowserService$Result;)V

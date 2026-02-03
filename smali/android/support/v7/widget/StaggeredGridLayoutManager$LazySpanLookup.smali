@@ -144,7 +144,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 2969
     :cond_0
@@ -187,6 +187,7 @@
     goto :goto_0
 
     :cond_2
+    :goto_2
     return-void
 .end method
 
@@ -198,7 +199,7 @@
 
     if-nez v0, :cond_0
 
-    return-void
+    goto :goto_2
 
     :cond_0
     add-int v1, p1, p2
@@ -256,6 +257,7 @@
     goto :goto_0
 
     :cond_3
+    :goto_2
     return-void
 .end method
 
@@ -387,7 +389,7 @@
     .line 2907
     invoke-static {p1, v1}, Ljava/util/Arrays;->fill([II)V
 
-    goto :goto_0
+    return-void
 
     .line 2908
     :cond_0
@@ -421,7 +423,6 @@
     invoke-static {p1, v0, v2, v1}, Ljava/util/Arrays;->fill([IIII)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 

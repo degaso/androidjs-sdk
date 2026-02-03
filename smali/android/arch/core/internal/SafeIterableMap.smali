@@ -254,13 +254,10 @@
 
     if-nez p1, :cond_7
 
-    goto :goto_0
+    return v0
 
     :cond_7
-    move v0, v2
-
-    :goto_0
-    return v0
+    return v2
 .end method
 
 .method protected get(Ljava/lang/Object;)Landroid/arch/core/internal/SafeIterableMap$Entry;

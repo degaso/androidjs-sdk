@@ -97,10 +97,10 @@
 .end method
 
 .method public build()Landroid/support/v4/app/RemoteInput;
-    .locals 8
+    .locals 7
 
     .line 244
-    new-instance v7, Landroid/support/v4/app/RemoteInput;
+    new-instance v0, Landroid/support/v4/app/RemoteInput;
 
     iget-object v1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mResultKey:Ljava/lang/String;
 
@@ -114,11 +114,9 @@
 
     iget-object v6, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
 
-    move-object v0, v7
-
     invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZLandroid/os/Bundle;Ljava/util/Set;)V
 
-    return-object v7
+    return-object v0
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
@@ -140,7 +138,7 @@
 
     invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    return-object p0
 
     .line 192
     :cond_0
@@ -148,7 +146,6 @@
 
     invoke-interface {p2, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    :goto_0
     return-object p0
 .end method
 

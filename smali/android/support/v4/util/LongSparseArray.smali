@@ -395,12 +395,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -421,12 +420,11 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     const/4 p1, 0x0
 
-    :goto_0
     return p1
 .end method
 
@@ -602,12 +600,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 
@@ -655,7 +652,7 @@
 
     aput-object p3, p1, v0
 
-    goto :goto_0
+    return-void
 
     :cond_0
     not-int v0, v0
@@ -798,7 +795,6 @@
 
     iput p1, p0, Landroid/support/v4/util/LongSparseArray;->mSize:I
 
-    :goto_0
     return-void
 .end method
 

@@ -1631,7 +1631,7 @@
 
     if-nez p2, :cond_0
 
-    return-object p1
+    goto :goto_0
 
     .line 1079
     :cond_0
@@ -1652,6 +1652,7 @@
     move-result-object p1
 
     :cond_1
+    :goto_0
     return-object p1
 .end method
 
@@ -2561,7 +2562,7 @@
 .method protected writeBooleanArray([Z)V
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 529
     array-length v0, p1
@@ -2572,7 +2573,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     .line 532
     aget-boolean v2, p1, v1
@@ -2584,12 +2585,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 535
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 
@@ -2668,7 +2671,7 @@
     .line 565
     invoke-virtual {p0, p2}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 567
     array-length p2, p1
@@ -2679,7 +2682,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, p2, :cond_1
+    if-ge v0, p2, :cond_0
 
     .line 570
     aget-char v1, p1, v0
@@ -2691,12 +2694,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 573
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 
@@ -2718,7 +2723,7 @@
 .method protected writeDoubleArray([D)V
     .locals 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 737
     array-length v0, p1
@@ -2729,7 +2734,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     .line 740
     aget-wide v2, p1, v1
@@ -2741,12 +2746,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 743
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 
@@ -2911,7 +2918,7 @@
 
     if-eq p2, v0, :cond_b
 
-    goto :goto_1
+    return-void
 
     .line 1050
     :cond_b
@@ -2919,7 +2926,6 @@
 
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;)V
 
-    :goto_1
     return-void
 .end method
 
@@ -2941,7 +2947,7 @@
 .method protected writeFloatArray([F)V
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 693
     array-length v0, p1
@@ -2952,7 +2958,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     .line 696
     aget v2, p1, v1
@@ -2964,12 +2970,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 699
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 
@@ -3003,7 +3011,7 @@
 .method protected writeIntArray([I)V
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 605
     array-length v0, p1
@@ -3014,7 +3022,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     .line 608
     aget v2, p1, v1
@@ -3026,12 +3034,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 611
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 
@@ -3083,7 +3093,7 @@
 .method protected writeLongArray([J)V
     .locals 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 649
     array-length v0, p1
@@ -3094,7 +3104,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     .line 652
     aget-wide v2, p1, v1
@@ -3106,12 +3116,14 @@
     goto :goto_0
 
     :cond_0
+    return-void
+
+    :cond_1
     const/4 p1, -0x1
 
     .line 655
     invoke-virtual {p0, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(I)V
 
-    :cond_1
     return-void
 .end method
 

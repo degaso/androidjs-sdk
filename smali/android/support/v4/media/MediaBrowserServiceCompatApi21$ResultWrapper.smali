@@ -144,7 +144,7 @@
 
     invoke-virtual {v0, p1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-void
 
     .line 72
     :cond_0
@@ -174,7 +174,7 @@
     .line 76
     invoke-virtual {p1}, Landroid/os/Parcel;->recycle()V
 
-    goto :goto_0
+    return-void
 
     .line 79
     :cond_1
@@ -184,6 +184,5 @@
 
     invoke-virtual {p1, v0}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
-    :goto_0
     return-void
 .end method

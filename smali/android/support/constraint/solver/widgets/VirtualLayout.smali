@@ -96,14 +96,20 @@
     .line 72
     iget v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingStart:I
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1
 
     iget v1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingEnd:I
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_0
+
+    goto :goto_0
 
     :cond_0
-    if-eqz p1, :cond_1
+    return-void
+
+    :cond_1
+    :goto_0
+    if-eqz p1, :cond_2
 
     .line 74
     iget p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingEnd:I
@@ -113,10 +119,10 @@
     .line 75
     iput v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingRight:I
 
-    goto :goto_0
+    return-void
 
     .line 77
-    :cond_1
+    :cond_2
     iput v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingLeft:I
 
     .line 78
@@ -124,8 +130,6 @@
 
     iput p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingRight:I
 
-    :cond_2
-    :goto_0
     return-void
 .end method
 

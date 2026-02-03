@@ -107,12 +107,11 @@
     .line 465
     sget p1, Landroid/support/mediacompat/R$layout;->notification_template_big_media_narrow_custom:I
 
-    goto :goto_0
+    return p1
 
     :cond_0
     sget p1, Landroid/support/mediacompat/R$layout;->notification_template_big_media_custom:I
 
-    :goto_0
     return p1
 .end method
 
@@ -130,7 +129,7 @@
 
     sget v0, Landroid/support/mediacompat/R$layout;->notification_template_media_custom:I
 
-    goto :goto_0
+    return v0
 
     .line 435
     :cond_0
@@ -138,7 +137,6 @@
 
     move-result v0
 
-    :goto_0
     return v0
 .end method
 

@@ -31,35 +31,35 @@
 
     move-object v0, p0
 
-    move v1, p3
-
-    move-wide v2, p4
-
     move-object v4, p1
 
     move-object v5, p2
 
+    move v1, p3
+
+    move-wide v2, p4
+
     .line 268
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->get(FJLandroid/view/View;Landroid/support/constraint/motion/KeyCache;)F
 
-    move-result p2
+    move-result p1
 
     invoke-static {p8, p9, p6, p7}, Ljava/lang/Math;->atan2(DD)D
 
-    move-result-wide p3
+    move-result-wide p2
 
-    invoke-static {p3, p4}, Ljava/lang/Math;->toDegrees(D)D
+    invoke-static {p2, p3}, Ljava/lang/Math;->toDegrees(D)D
 
-    move-result-wide p3
+    move-result-wide p2
 
-    double-to-float p3, p3
+    double-to-float p2, p2
 
-    add-float/2addr p2, p3
+    add-float/2addr p1, p2
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {v4, p1}, Landroid/view/View;->setRotation(F)V
 
     .line 269
-    iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
+    iget-boolean p1, v0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
 
     return p1
 .end method

@@ -379,7 +379,7 @@
 
     if-ne v1, v2, :cond_0
 
-    goto :goto_1
+    return-void
 
     :cond_0
     add-int/lit8 v0, v0, 0x1
@@ -395,6 +395,5 @@
     invoke-virtual {p0, p1, v0}, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
 
     :cond_2
-    :goto_1
     return-void
 .end method

@@ -132,16 +132,16 @@
 
     const/4 v1, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     if-eqz p7, :cond_0
 
     .line 107
     invoke-virtual {v0}, Landroid/support/v4/content/res/FontResourcesParserCompat$ProviderResourceEntry;->getFetchStrategy()I
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_1
+    if-nez v3, :cond_1
 
     goto :goto_0
 
@@ -151,7 +151,12 @@
     :goto_0
     move v4, v1
 
+    goto :goto_1
+
     :cond_1
+    move v4, v2
+
+    :goto_1
     if-eqz p7, :cond_2
 
     .line 110
@@ -159,12 +164,12 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     const/4 v1, -0x1
 
-    :goto_1
+    :goto_2
     move v5, v1
 
     .line 112
@@ -174,17 +179,17 @@
 
     move-object v0, p0
 
+    move v6, p4
+
     move-object v2, p5
 
     move-object v3, p6
-
-    move v6, p4
 
     invoke-static/range {v0 .. v6}, Landroid/support/v4/provider/FontsContractCompat;->getFontSync(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/support/v4/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;ZII)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_3
 
     .line 115
     :cond_3
@@ -205,7 +210,7 @@
     .line 119
     invoke-virtual {p5, v0, p6}, Landroid/support/v4/content/res/ResourcesCompat$FontCallback;->callbackSuccessAsync(Landroid/graphics/Typeface;Landroid/os/Handler;)V
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     const/4 v1, -0x3
@@ -214,13 +219,13 @@
     invoke-virtual {p5, v1, p6}, Landroid/support/v4/content/res/ResourcesCompat$FontCallback;->callbackFailAsync(ILandroid/os/Handler;)V
 
     :cond_5
-    :goto_2
+    :goto_3
     if-eqz v0, :cond_6
 
     .line 128
     sget-object v1, Landroid/support/v4/graphics/TypefaceCompat;->sTypefaceCache:Landroid/support/v4/util/LruCache;
 
-    invoke-static {p2, p3, p4}, Landroid/support/v4/graphics/TypefaceCompat;->createResourceUid(Landroid/content/res/Resources;II)Ljava/lang/String;
+    invoke-static/range {p2 .. p4}, Landroid/support/v4/graphics/TypefaceCompat;->createResourceUid(Landroid/content/res/Resources;II)Ljava/lang/String;
 
     move-result-object v2
 
@@ -253,7 +258,7 @@
     if-eqz p0, :cond_0
 
     .line 143
-    invoke-static {p1, p2, p4}, Landroid/support/v4/graphics/TypefaceCompat;->createResourceUid(Landroid/content/res/Resources;II)Ljava/lang/String;
+    invoke-static {v2, v3, v5}, Landroid/support/v4/graphics/TypefaceCompat;->createResourceUid(Landroid/content/res/Resources;II)Ljava/lang/String;
 
     move-result-object p1
 

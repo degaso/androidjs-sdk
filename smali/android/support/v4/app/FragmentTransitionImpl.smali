@@ -38,7 +38,7 @@
 
     if-eqz v1, :cond_0
 
-    return-void
+    goto :goto_2
 
     .line 315
     :cond_0
@@ -105,6 +105,7 @@
     goto :goto_0
 
     :cond_3
+    :goto_2
     return-void
 .end method
 
@@ -228,13 +229,12 @@
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
+    return p0
 
     :cond_1
     :goto_0
     const/4 p0, 0x1
 
-    :goto_1
     return p0
 .end method
 
@@ -299,7 +299,7 @@
     .line 193
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    return-void
 
     .line 195
     :cond_0
@@ -329,7 +329,6 @@
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    :goto_1
     return-void
 .end method
 
@@ -724,21 +723,19 @@
 
     .line 169
     :cond_3
-    new-instance p5, Landroid/support/v4/app/FragmentTransitionImpl$1;
-
-    move-object v0, p5
+    new-instance v0, Landroid/support/v4/app/FragmentTransitionImpl$1;
 
     move-object v1, p0
+
+    move-object v5, p2
 
     move-object v3, p3
 
     move-object v4, p4
 
-    move-object v5, p2
-
     invoke-direct/range {v0 .. v6}, Landroid/support/v4/app/FragmentTransitionImpl$1;-><init>(Landroid/support/v4/app/FragmentTransitionImpl;ILjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    invoke-static {p1, p5}, Landroid/support/v4/app/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)Landroid/support/v4/app/OneShotPreDrawListener;
+    invoke-static {p1, v0}, Landroid/support/v4/app/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)Landroid/support/v4/app/OneShotPreDrawListener;
 
     return-void
 .end method

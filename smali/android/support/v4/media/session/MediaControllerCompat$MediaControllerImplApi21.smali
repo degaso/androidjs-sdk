@@ -321,12 +321,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -344,7 +343,7 @@
 .end method
 
 .method public getPlaybackInfo()Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
-    .locals 8
+    .locals 7
 
     .line 2153
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mControllerObj:Ljava/lang/Object;
@@ -356,7 +355,7 @@
     if-eqz v0, :cond_0
 
     .line 2154
-    new-instance v7, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
+    new-instance v1, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
 
     .line 2155
     invoke-static {v0}, Landroid/support/v4/media/session/MediaControllerCompatApi21$PlaybackInfo;->getPlaybackType(Ljava/lang/Object;)I
@@ -383,17 +382,14 @@
 
     move-result v6
 
-    move-object v1, v7
-
     invoke-direct/range {v1 .. v6}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(IIIII)V
 
-    goto :goto_0
+    return-object v1
 
     :cond_0
-    const/4 v7, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return-object v7
+    return-object v0
 .end method
 
 .method public getPlaybackState()Landroid/support/v4/media/session/PlaybackStateCompat;
@@ -483,12 +479,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -636,13 +631,12 @@
 
     invoke-direct {v1, v0}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_0
+    return-object v1
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public isCaptioningEnabled()Z
@@ -703,12 +697,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

@@ -180,7 +180,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -191,7 +191,6 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method
 
@@ -209,7 +208,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -220,7 +219,6 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method
 
@@ -238,7 +236,7 @@
 
     move-result p1
 
-    goto :goto_0
+    return p1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -249,6 +247,5 @@
 
     move-result p1
 
-    :goto_0
     return p1
 .end method

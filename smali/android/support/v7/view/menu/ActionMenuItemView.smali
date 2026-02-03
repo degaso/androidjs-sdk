@@ -188,13 +188,12 @@
     :cond_1
     const/4 v0, 0x0
 
-    goto :goto_1
+    return v0
 
     :cond_2
     :goto_0
     const/4 v0, 0x1
 
-    :goto_1
     return v0
 .end method
 
@@ -325,13 +324,12 @@
     :goto_4
     invoke-static {p0, v1}, Landroid/support/v7/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    goto :goto_5
+    return-void
 
     .line 209
     :cond_6
     invoke-static {p0, v2}, Landroid/support/v7/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    :goto_5
     return-void
 .end method
 
@@ -468,12 +466,11 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return v0
 .end method
 

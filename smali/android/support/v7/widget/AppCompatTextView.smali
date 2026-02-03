@@ -300,7 +300,7 @@
 
     if-ne v0, v2, :cond_0
 
-    move v1, v2
+    return v2
 
     :cond_0
     return v1
@@ -357,12 +357,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -379,12 +378,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -434,12 +432,14 @@
     .line 190
     invoke-super/range {p0 .. p5}, Landroid/widget/TextView;->onLayout(ZIIII)V
 
+    move v1, p1
+
+    move-object p1, p0
+
     .line 191
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+    iget-object v0, p1, Landroid/support/v7/widget/AppCompatTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
-
-    move v1, p1
 
     move v2, p2
 
@@ -516,7 +516,7 @@
     .line 250
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
-    goto :goto_0
+    return-void
 
     .line 253
     :cond_0
@@ -528,7 +528,6 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -548,7 +547,7 @@
     .line 272
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
-    goto :goto_0
+    return-void
 
     .line 274
     :cond_0
@@ -560,7 +559,6 @@
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -575,7 +573,7 @@
     .line 227
     invoke-super {p0, p1}, Landroid/widget/TextView;->setAutoSizeTextTypeWithDefaults(I)V
 
-    goto :goto_0
+    return-void
 
     .line 229
     :cond_0
@@ -587,7 +585,6 @@
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeWithDefaults(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -654,13 +651,12 @@
     .line 387
     invoke-super {p0, p1}, Landroid/widget/TextView;->setFirstBaselineToTopHeight(I)V
 
-    goto :goto_0
+    return-void
 
     .line 389
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setFirstBaselineToTopHeight(Landroid/widget/TextView;I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -677,13 +673,12 @@
     .line 397
     invoke-super {p0, p1}, Landroid/widget/TextView;->setLastBaselineToBottomHeight(I)V
 
-    goto :goto_0
+    return-void
 
     .line 399
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setLastBaselineToBottomHeight(Landroid/widget/TextView;I)V
 
-    :goto_0
     return-void
 .end method
 
@@ -793,7 +788,7 @@
     .line 199
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    goto :goto_0
+    return-void
 
     .line 201
     :cond_0
@@ -805,6 +800,5 @@
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->setTextSize(IF)V
 
     :cond_1
-    :goto_0
     return-void
 .end method

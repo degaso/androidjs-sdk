@@ -178,7 +178,7 @@
     .line 772
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onChildrenLoaded(Ljava/lang/String;Ljava/util/List;)V
 
-    goto :goto_3
+    return-void
 
     .line 776
     :cond_1
@@ -240,7 +240,6 @@
     goto :goto_1
 
     :cond_3
-    :goto_3
     return-void
 .end method
 

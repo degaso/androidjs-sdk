@@ -424,7 +424,9 @@
 
     invoke-static {v1, v2, p2, p3}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v3
+    move-result-wide p1
+
+    return-wide p1
 
     :cond_4
     return-wide v3
@@ -539,7 +541,9 @@
 
     invoke-static {v1, v2, p2, p3}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v3
+    move-result-wide p1
+
+    return-wide p1
 
     :cond_4
     return-wide v3
@@ -823,7 +827,11 @@
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->margin:I
 
-    goto :goto_2
+    int-to-long v0, v0
+
+    sub-long/2addr p1, v0
+
+    return-wide p1
 
     :cond_8
     if-eqz v0, :cond_9
@@ -861,7 +869,7 @@
 
     move-result-wide p1
 
-    goto :goto_3
+    return-wide p1
 
     :cond_9
     if-eqz p1, :cond_a
@@ -903,7 +911,7 @@
 
     move-result-wide p1
 
-    goto :goto_3
+    return-wide p1
 
     .line 179
     :cond_a
@@ -929,12 +937,10 @@
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->margin:I
 
-    :goto_2
     int-to-long v0, v0
 
     sub-long/2addr p1, v0
 
-    :goto_3
     return-wide p1
 .end method
 

@@ -99,14 +99,13 @@
 
     aget-byte p0, v0, p0
 
-    goto :goto_0
+    return p0
 
     :cond_0
     invoke-static {p0}, Ljava/lang/Character;->getDirectionality(C)B
 
     move-result p0
 
-    :goto_0
     return p0
 .end method
 
@@ -447,7 +446,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/16 v2, 0x3b
@@ -460,7 +459,6 @@
     move-result v0
 
     :cond_2
-    :goto_0
     return v0
 .end method
 
@@ -544,7 +542,7 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 
     :cond_1
     const/16 v2, 0x26
@@ -557,7 +555,6 @@
     move-result v0
 
     :cond_2
-    :goto_0
     return v0
 .end method
 

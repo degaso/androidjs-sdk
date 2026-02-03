@@ -724,51 +724,48 @@
 
     invoke-direct {v0, p0, p2}, Landroid/support/constraint/solver/state/HelperReference;-><init>(Landroid/support/constraint/solver/state/State;Landroid/support/constraint/solver/state/State$Helper;)V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 191
     :cond_1
-    new-instance p2, Landroid/support/constraint/solver/state/helpers/BarrierReference;
+    new-instance v0, Landroid/support/constraint/solver/state/helpers/BarrierReference;
 
-    invoke-direct {p2, p0}, Landroid/support/constraint/solver/state/helpers/BarrierReference;-><init>(Landroid/support/constraint/solver/state/State;)V
+    invoke-direct {v0, p0}, Landroid/support/constraint/solver/state/helpers/BarrierReference;-><init>(Landroid/support/constraint/solver/state/State;)V
 
     goto :goto_0
 
     .line 188
     :cond_2
-    new-instance p2, Landroid/support/constraint/solver/state/helpers/AlignVerticallyReference;
+    new-instance v0, Landroid/support/constraint/solver/state/helpers/AlignVerticallyReference;
 
-    invoke-direct {p2, p0}, Landroid/support/constraint/solver/state/helpers/AlignVerticallyReference;-><init>(Landroid/support/constraint/solver/state/State;)V
+    invoke-direct {v0, p0}, Landroid/support/constraint/solver/state/helpers/AlignVerticallyReference;-><init>(Landroid/support/constraint/solver/state/State;)V
 
     goto :goto_0
 
     .line 185
     :cond_3
-    new-instance p2, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;
+    new-instance v0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;
 
-    invoke-direct {p2, p0}, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;-><init>(Landroid/support/constraint/solver/state/State;)V
+    invoke-direct {v0, p0}, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;-><init>(Landroid/support/constraint/solver/state/State;)V
 
     goto :goto_0
 
     .line 182
     :cond_4
-    new-instance p2, Landroid/support/constraint/solver/state/helpers/VerticalChainReference;
+    new-instance v0, Landroid/support/constraint/solver/state/helpers/VerticalChainReference;
 
-    invoke-direct {p2, p0}, Landroid/support/constraint/solver/state/helpers/VerticalChainReference;-><init>(Landroid/support/constraint/solver/state/State;)V
+    invoke-direct {v0, p0}, Landroid/support/constraint/solver/state/helpers/VerticalChainReference;-><init>(Landroid/support/constraint/solver/state/State;)V
 
     goto :goto_0
 
     .line 179
     :cond_5
-    new-instance p2, Landroid/support/constraint/solver/state/helpers/HorizontalChainReference;
+    new-instance v0, Landroid/support/constraint/solver/state/helpers/HorizontalChainReference;
 
-    invoke-direct {p2, p0}, Landroid/support/constraint/solver/state/helpers/HorizontalChainReference;-><init>(Landroid/support/constraint/solver/state/State;)V
-
-    :goto_0
-    move-object v0, p2
+    invoke-direct {v0, p0}, Landroid/support/constraint/solver/state/helpers/HorizontalChainReference;-><init>(Landroid/support/constraint/solver/state/State;)V
 
     .line 197
-    :goto_1
+    :goto_0
     iget-object p2, p0, Landroid/support/constraint/solver/state/State;->mHelperReferences:Ljava/util/HashMap;
 
     invoke-virtual {p2, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

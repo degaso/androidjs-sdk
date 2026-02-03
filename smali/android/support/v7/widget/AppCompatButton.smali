@@ -259,7 +259,7 @@
 
     if-ne v0, v2, :cond_0
 
-    move v1, v2
+    return v2
 
     :cond_0
     return v1
@@ -294,12 +294,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -316,12 +315,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 .end method
 
@@ -367,12 +365,14 @@
     .line 186
     invoke-super/range {p0 .. p5}, Landroid/widget/Button;->onLayout(ZIIII)V
 
+    move v1, p1
+
+    move-object p1, p0
+
     .line 187
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatButton;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+    iget-object v0, p1, Landroid/support/v7/widget/AppCompatButton;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
-
-    move v1, p1
 
     move v2, p2
 
@@ -437,7 +437,7 @@
     .line 238
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/Button;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
-    goto :goto_0
+    return-void
 
     .line 241
     :cond_0
@@ -449,7 +449,6 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -469,7 +468,7 @@
     .line 256
     invoke-super {p0, p1, p2}, Landroid/widget/Button;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
-    goto :goto_0
+    return-void
 
     .line 258
     :cond_0
@@ -481,7 +480,6 @@
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -496,7 +494,7 @@
     .line 219
     invoke-super {p0, p1}, Landroid/widget/Button;->setAutoSizeTextTypeWithDefaults(I)V
 
-    goto :goto_0
+    return-void
 
     .line 221
     :cond_0
@@ -508,7 +506,6 @@
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/AppCompatTextHelper;->setAutoSizeTextTypeWithDefaults(I)V
 
     :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -636,7 +633,7 @@
     .line 195
     invoke-super {p0, p1, p2}, Landroid/widget/Button;->setTextSize(IF)V
 
-    goto :goto_0
+    return-void
 
     .line 197
     :cond_0
@@ -648,6 +645,5 @@
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->setTextSize(IF)V
 
     :cond_1
-    :goto_0
     return-void
 .end method

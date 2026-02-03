@@ -354,7 +354,7 @@
 .end method
 
 .method public postAndWait(Ljava/util/concurrent/Callable;I)Ljava/lang/Object;
-    .locals 12
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -372,68 +372,58 @@
     .end annotation
 
     .line 166
-    new-instance v7, Ljava/util/concurrent/locks/ReentrantLock;
+    new-instance v4, Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-direct {v7}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
+    invoke-direct {v4}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     .line 167
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
 
-    move-result-object v8
+    move-result-object v6
 
     .line 169
-    new-instance v9, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance v2, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v9}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {v2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 170
-    new-instance v10, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance v5, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v0, 0x1
 
-    invoke-direct {v10, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+    invoke-direct {v5, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 171
-    new-instance v11, Landroid/support/v4/provider/SelfDestructiveThread$3;
-
-    move-object v0, v11
+    new-instance v0, Landroid/support/v4/provider/SelfDestructiveThread$3;
 
     move-object v1, p0
 
-    move-object v2, v9
-
     move-object v3, p1
-
-    move-object v4, v7
-
-    move-object v5, v10
-
-    move-object v6, v8
 
     invoke-direct/range {v0 .. v6}, Landroid/support/v4/provider/SelfDestructiveThread$3;-><init>(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/Callable;Ljava/util/concurrent/locks/ReentrantLock;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/locks/Condition;)V
 
-    invoke-direct {p0, v11}, Landroid/support/v4/provider/SelfDestructiveThread;->post(Ljava/lang/Runnable;)V
+    invoke-direct {p0, v0}, Landroid/support/v4/provider/SelfDestructiveThread;->post(Ljava/lang/Runnable;)V
 
     .line 189
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 191
     :try_start_0
-    invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result p1
 
     if-nez p1, :cond_0
 
     .line 192
-    invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 209
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return-object p1
 
@@ -442,9 +432,9 @@
     :try_start_1
     sget-object p1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    int-to-long v0, p2
+    int-to-long v7, p2
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
+    invoke-virtual {p1, v7, v8}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide p1
     :try_end_1
@@ -453,7 +443,7 @@
     .line 197
     :goto_0
     :try_start_2
-    invoke-interface {v8, p1, p2}, Ljava/util/concurrent/locks/Condition;->awaitNanos(J)J
+    invoke-interface {v6, p1, p2}, Ljava/util/concurrent/locks/Condition;->awaitNanos(J)J
 
     move-result-wide p1
     :try_end_2
@@ -463,28 +453,28 @@
     .line 201
     :catch_0
     :try_start_3
-    invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
     .line 202
-    invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object p1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 209
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return-object p1
 
     :cond_1
-    const-wide/16 v0, 0x0
+    const-wide/16 v7, 0x0
 
-    cmp-long v0, p1, v0
+    cmp-long v0, p1, v7
 
     if-lez v0, :cond_2
 
@@ -504,10 +494,12 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :catchall_0
-    move-exception p1
+    move-exception v0
+
+    move-object p1, v0
 
     .line 209
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     throw p1
 .end method
